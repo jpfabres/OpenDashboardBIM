@@ -1,0 +1,61 @@
+{
+    "IfcBeam": [
+        {
+            "0P6fee19b3m9zKXIcTtdfa": [
+                "Length"
+            ]
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdg6": [
+                "Length"
+            ]
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdgL": [
+                "Length"
+            ]
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdic": [
+                "Length"
+            ]
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdij": [
+                "Length"
+            ]
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPQt": [
+                "Length"
+            ]
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPR5": [
+                "Length"
+            ]
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPRJ": [
+                "Length"
+            ]
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPSN": [
+                "Length"
+            ]
+        }
+    ],
+    "IfcColumn": [
+        {
+            "0P6fee19b3m9zKXIcTtdJ5": [
+                "Length"
+            ]
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdLI": [
+                "Length"
+            ]
+        }
+    ]
+}

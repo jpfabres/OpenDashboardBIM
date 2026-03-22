@@ -30,6 +30,11 @@ export function initIfcViewport() {
   const fileInput = document.getElementById("ifc-file-input");
   const btnOpen = document.getElementById("btn-ifc-open");
   const btnSample = document.getElementById("btn-ifc-sample");
+  const btnFixQty = document.getElementById("btn-fix-quantities");
+
+  function setLastJsonFile(_filename) {
+    // reserved for future use
+  }
 
   if (!host) return;
 
@@ -228,18 +233,11 @@ export function initIfcViewport() {
     }
   }
 
-  async function loadFromUrl(url, label) {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-    const buffer = await res.arrayBuffer();
-    await loadFromBuffer(buffer, label);
-  }
-
   async function uploadIfcToBackend(file) {
     const form = new FormData();
     form.append("file", file);
     try {
-      const res = await fetch("http://127.0.0.1:8000/upload", {
+      const res = await fetch("/upload", {
         method: "POST",
         body: form,
       });
@@ -248,11 +246,30 @@ export function initIfcViewport() {
         console.log(`[IFC Parser] JSON generated: ${data.json_file}`);
         console.log(`[IFC Parser] Total objects: ${data.total_objects}`);
         setStatus(`Model loaded — ${data.total_objects} objects parsed. JSON: ${data.json_file}`);
+        setLastJsonFile(data.json_file);
+        return data.json_file;
       } else {
         console.warn("[IFC Parser] Backend error:", data.detail ?? data);
       }
     } catch (err) {
       console.warn("[IFC Parser] Could not reach backend:", err.message);
+    }
+    return null;
+  }
+
+  async function verifyJsonOnBackend() {
+    try {
+      const res = await fetch("/verify", { method: "POST" });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        console.log(`[Verification] Corrected: ${data.corrected_file}, defects: ${data.defects_found}`);
+        setStatus(`Fix Quantities done — ${data.defects_found} defect(s) corrected. Saved to backend/fix results/`);
+      } else {
+        setStatus(`Fix Quantities failed: ${data.detail ?? "unknown error"}`, true);
+      }
+    } catch (err) {
+      setStatus("Fix Quantities — could not reach backend.", true);
+      console.warn("[Verification]", err.message);
     }
   }
 
@@ -320,7 +337,16 @@ export function initIfcViewport() {
 
   btnSample?.addEventListener("click", async () => {
     try {
-      await loadFromUrl(SAMPLE_IFC_URL, "sample IFC");
+      setStatus("Fetching sample IFC…");
+      const res = await fetch(SAMPLE_IFC_URL);
+      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+      const buffer = await res.arrayBuffer();
+      const sampleFilename = SAMPLE_IFC_URL.split("/").pop() || "sample.ifc";
+      const file = new File([buffer], sampleFilename, { type: "application/octet-stream" });
+      await Promise.all([
+        loadFromBuffer(buffer, sampleFilename),
+        uploadIfcToBackend(file),
+      ]);
     } catch (e) {
       console.error(e);
       setStatus(
@@ -328,6 +354,11 @@ export function initIfcViewport() {
         true
       );
     }
+  });
+
+  btnFixQty?.addEventListener("click", async () => {
+    setStatus("Running Fix Quantities…");
+    await verifyJsonOnBackend();
   });
 
   function raycastExpressIdAtEvent(event, canvasRect) {

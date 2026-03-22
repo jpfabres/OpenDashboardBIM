@@ -24,11 +24,14 @@ if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
 from ifcprocesser import process_ifc2x3  # noqa: E402
+from verification import run_verification  # noqa: E402
 
 UPLOAD_DIR = BACKEND_DIR / "uploads"
 RESULTS_DIR = BACKEND_DIR / "results"
+FIX_RESULTS_DIR = BACKEND_DIR / "fix results"
 UPLOAD_DIR.mkdir(exist_ok=True)
 RESULTS_DIR.mkdir(exist_ok=True)
+FIX_RESULTS_DIR.mkdir(exist_ok=True)
 
 # This package directory is the static root (index.html, app/, etc.)
 FRONTEND_DIR = Path(__file__).resolve().parent
@@ -86,6 +89,27 @@ async def upload_ifc(file: UploadFile = File(...)):
         "classes_found": result["classes_found"],
         "property_count": len(result["psets_found"]),
     })
+
+
+@app.post("/verify")
+def verify_json():
+    json_files = [
+        f for f in os.listdir(str(RESULTS_DIR))
+        if f.endswith(".json") and not f.endswith("_corrected.json") and f != "verification_log.json"
+    ]
+    if not json_files:
+        raise HTTPException(status_code=404, detail="No JSON file found in results/.")
+
+    json_files.sort(key=lambda f: os.path.getmtime(str(RESULTS_DIR / f)), reverse=True)
+    json_path = str(RESULTS_DIR / json_files[0])
+
+    try:
+        result = run_verification(json_path, str(FIX_RESULTS_DIR))
+    except Exception as e:
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Verification failed: {str(e)}")
+
+    return JSONResponse({"success": True, "input_file": json_files[0], **result})
 
 
 @app.get("/download/{filename}")

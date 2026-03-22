@@ -8,11 +8,14 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from ifcprocesser import process_ifc2x3
+from verification import run_verification
 
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "..", "uploads")
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), "results")
+FIX_RESULTS_DIR = os.path.join(os.path.dirname(__file__), "fix results")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(RESULTS_DIR, exist_ok=True)
+os.makedirs(FIX_RESULTS_DIR, exist_ok=True)
 
 app = FastAPI(title="IFC 2x3 Parser API")
 
@@ -65,6 +68,28 @@ def download_json(filename: str):
         raise HTTPException(status_code=404, detail="File not found.")
 
     return FileResponse(file_path, media_type="application/json", filename=filename)
+
+
+@app.post("/verify")
+def verify_json():
+    json_files = [
+        f for f in os.listdir(RESULTS_DIR)
+        if f.endswith(".json") and not f.endswith("_corrected.json") and f != "verification_log.json"
+    ]
+    if not json_files:
+        raise HTTPException(status_code=404, detail="No JSON file found in results/.")
+
+    # Use the most recently modified file
+    json_files.sort(key=lambda f: os.path.getmtime(os.path.join(RESULTS_DIR, f)), reverse=True)
+    json_path = os.path.join(RESULTS_DIR, json_files[0])
+
+    try:
+        result = run_verification(json_path, FIX_RESULTS_DIR)
+    except Exception as e:
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Verification failed: {str(e)}")
+
+    return JSONResponse({"success": True, "input_file": json_files[0], **result})
 
 
 @app.get("/health")
