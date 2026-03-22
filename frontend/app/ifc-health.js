@@ -20,6 +20,9 @@ const PIE_COLORS = [
 
 const MAX_SLICES = 10;
 
+/** Canvas draw size — stacked layout; scales with `.ifc-health-pie-inner`. */
+const PIE_BASE_SIZE = 242;
+
 /** @type {Record<string, unknown> | null} */
 let cachedPayload = null;
 
@@ -209,8 +212,8 @@ function measurePieSize(canvas, size) {
     const w = wrap.clientWidth;
     const h = wrap.clientHeight;
     if (w > 0 && h > 0) {
-      const m = Math.floor(Math.min(w, h, 320) - 8);
-      return Math.max(160, Math.min(300, m));
+      const m = Math.floor(Math.min(w, h, 339) - 9);
+      return Math.max(145, Math.min(290, m));
     }
   }
   return size;
@@ -221,7 +224,7 @@ function measurePieSize(canvas, size) {
  * @param {{ value: number, label: string, sub?: string }[]} slices
  * @param {number} [baseSize]
  */
-function drawPie(canvas, slices, baseSize = 240) {
+function drawPie(canvas, slices, baseSize = PIE_BASE_SIZE) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
@@ -375,10 +378,10 @@ function renderCharts(data) {
   const showCharts = ok && hasLog && hasJson;
 
   if (!showCharts) {
-    drawPie(canvasClass, [], 200);
-    drawPie(canvasAttr, [], 200);
-    drawPie(canvasObjects, [], 200);
-    drawPie(canvasClassTypes, [], 200);
+    drawPie(canvasClass, [], PIE_BASE_SIZE);
+    drawPie(canvasAttr, [], PIE_BASE_SIZE);
+    drawPie(canvasObjects, [], PIE_BASE_SIZE);
+    drawPie(canvasClassTypes, [], PIE_BASE_SIZE);
     legClass.innerHTML = "";
     legAttr.innerHTML = "";
     legObjects.innerHTML = "";
@@ -402,7 +405,7 @@ function renderCharts(data) {
   /* 1 — By class: only classes with fixed > 0; slice size = correction count (like attributes). */
   const rawClassProblems = byClassArr.filter((x) => x.fixed > 0);
   if (rawClassProblems.length === 0) {
-    drawPie(canvasClass, [], 200);
+    drawPie(canvasClass, [], PIE_BASE_SIZE);
     fillLegendPlaceholder(legClass, "No class had a logged correction — nothing to show here.");
   } else {
     const classForPie = capSlices(rawClassProblems, (x) => x.fixed, mergeClassProblemSlices);
@@ -411,14 +414,14 @@ function renderCharts(data) {
       label: x.class,
       sub: `${x.fixed} correction(s) · ${x.total} object(s) of this class in model`,
     }));
-    drawPie(canvasClass, classSlices, 200);
+    drawPie(canvasClass, classSlices, PIE_BASE_SIZE);
     fillLegend(legClass, classSlices);
   }
 
   /* 2 — By attribute (only attributes with defects; unchanged idea). */
   const rawAttr = work.by_attribute?.filter((x) => x.count > 0) ?? [];
   if (rawAttr.length === 0) {
-    drawPie(canvasAttr, [], 200);
+    drawPie(canvasAttr, [], PIE_BASE_SIZE);
     fillLegendPlaceholder(
       legAttr,
       "No attribute-level defects in the verification log for this run (or log is empty)."
@@ -434,7 +437,7 @@ function renderCharts(data) {
           ? `${Math.round((1000 * x.count) / totalAttr) / 10}% of all fixes`
           : "0% of fixes",
     }));
-    drawPie(canvasAttr, attrSlices, 200);
+    drawPie(canvasAttr, attrSlices, PIE_BASE_SIZE);
     fillLegend(legAttr, attrSlices);
   }
 
@@ -443,7 +446,7 @@ function renderCharts(data) {
   const nFixed = totals.fixed_objects ?? 0;
   const nClean = Math.max(0, nObj - nFixed);
   if (nObj <= 0) {
-    drawPie(canvasObjects, [], 200);
+    drawPie(canvasObjects, [], PIE_BASE_SIZE);
     fillLegendPlaceholder(legObjects, "No objects in export.");
   } else {
     const objectSlices = [];
@@ -461,7 +464,7 @@ function renderCharts(data) {
         sub: `${Math.round((1000 * nClean) / nObj) / 10}% of all objects`,
       });
     }
-    drawPie(canvasObjects, objectSlices, 200);
+    drawPie(canvasObjects, objectSlices, PIE_BASE_SIZE);
     fillLegend(legObjects, objectSlices);
   }
 
@@ -470,7 +473,7 @@ function renderCharts(data) {
   const nTypesWithProblems = byClassArr.filter((x) => x.fixed > 0).length;
   const nTypesClean = Math.max(0, nTypes - nTypesWithProblems);
   if (nTypes <= 0) {
-    drawPie(canvasClassTypes, [], 200);
+    drawPie(canvasClassTypes, [], PIE_BASE_SIZE);
     fillLegendPlaceholder(legClassTypes, "No class breakdown.");
   } else {
     const typeSlices = [];
@@ -488,7 +491,7 @@ function renderCharts(data) {
         sub: `${Math.round((1000 * nTypesClean) / nTypes) / 10}% of class types in model`,
       });
     }
-    drawPie(canvasClassTypes, typeSlices, 200);
+    drawPie(canvasClassTypes, typeSlices, PIE_BASE_SIZE);
     fillLegend(legClassTypes, typeSlices);
   }
 
