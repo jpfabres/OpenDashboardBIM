@@ -23,6 +23,147 @@ const MAX_SLICES = 10;
 /** @type {Record<string, unknown> | null} */
 let cachedPayload = null;
 
+/** Latest element-filter visibility per export filename (express IDs). */
+let lastVisibleByFile = /** @type {Record<string, number[]> | null} */ (null);
+
+/** Cached IFC JSON (same object as /download/{json_file}) for client-side filtering. */
+let cachedModelJson = /** @type {Record<string, unknown> | null} */ (null);
+let cachedModelJsonFile = /** @type {string | null} */ (null);
+
+/** Cached verification log from /api/ifc-verification-log */
+let cachedVerificationLog = /** @type {Record<string, unknown> | null} */ (null);
+
+/**
+ * Rebuild IFC Health aggregates for a subset of express IDs (matches sidebar filters).
+ * @param {Record<string, unknown>} data
+ * @param {Record<string, unknown>} modelJson
+ * @param {number[]} visibleIds
+ * @param {Record<string, unknown>} verificationLog
+ */
+function applyVisibilityToPayload(data, modelJson, visibleIds, verificationLog) {
+  const vis = new Set(visibleIds);
+  /** @type {Record<string, number>} */
+  const classTotals = {};
+  let totalObjects = 0;
+  for (const [k, v] of Object.entries(modelJson)) {
+    const id = Number(k);
+    if (!vis.has(id)) continue;
+    if (!v || typeof v !== "object") continue;
+    const cls = /** @type {{ class?: string }} */ (v).class;
+    if (typeof cls === "string" && cls) {
+      classTotals[cls] = (classTotals[cls] || 0) + 1;
+      totalObjects++;
+    }
+  }
+
+  const visibleGids = new Set();
+  for (const [k, v] of Object.entries(modelJson)) {
+    const id = Number(k);
+    if (!vis.has(id)) continue;
+    if (v && typeof v === "object") {
+      const gid = /** @type {{ globalId?: string }} */ (v).globalId;
+      if (typeof gid === "string" && gid) visibleGids.add(gid);
+    }
+  }
+
+  /** @type {Record<string, number>} */
+  const fixedPerClass = {};
+  if (verificationLog && typeof verificationLog === "object") {
+    for (const [cls, entries] of Object.entries(verificationLog)) {
+      if (!Array.isArray(entries)) continue;
+      let n = 0;
+      for (const entry of entries) {
+        if (!entry || typeof entry !== "object") continue;
+        for (const [gid] of Object.entries(entry)) {
+          if (visibleGids.has(gid)) n++;
+        }
+      }
+      if (n > 0) fixedPerClass[cls] = n;
+    }
+  }
+
+  /** @type {Record<string, number>} */
+  const attrCounts = {};
+  if (verificationLog && typeof verificationLog === "object") {
+    for (const entries of Object.values(verificationLog)) {
+      if (!Array.isArray(entries)) continue;
+      for (const entry of entries) {
+        if (!entry || typeof entry !== "object") continue;
+        for (const [gid, attrs] of Object.entries(entry)) {
+          if (!visibleGids.has(gid)) continue;
+          if (!Array.isArray(attrs)) continue;
+          for (const a of attrs) {
+            if (typeof a === "string" && a) attrCounts[a] = (attrCounts[a] || 0) + 1;
+          }
+        }
+      }
+    }
+  }
+
+  /** @type {{ class: string, total: number, fixed: number, pct_fixed: number }[]} */
+  const by_class = [];
+  for (const [cls, total] of Object.entries(classTotals).sort((a, b) => b[1] - a[1])) {
+    const rawFixed = fixedPerClass[cls] ?? 0;
+    const fixed = Math.min(rawFixed, total);
+    const pct = total ? Math.round((1000 * fixed) / total) / 10 : 0;
+    by_class.push({ class: cls, total, fixed, pct_fixed: pct });
+  }
+
+  const total_fixed_objects = by_class.reduce((s, x) => s + x.fixed, 0);
+
+  const totalAttrDefects = Object.values(attrCounts).reduce((s, x) => s + x, 0);
+  /** @type {{ attribute: string, count: number, pct_of_fixes: number }[]} */
+  const by_attribute = Object.entries(attrCounts)
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, count]) => ({
+      attribute: name,
+      count,
+      pct_of_fixes: totalAttrDefects ? Math.round((1000 * count) / totalAttrDefects) / 10 : 0,
+    }));
+
+  const baseTotals = /** @type {Record<string, unknown>} */ (data.totals ?? {});
+  return {
+    ...data,
+    totals: {
+      ...baseTotals,
+      objects: totalObjects,
+      fixed_objects: total_fixed_objects,
+    },
+    by_class,
+    by_attribute,
+  };
+}
+
+async function ensureModelJsonForHealth(jsonFile) {
+  if (!jsonFile) return null;
+  if (cachedModelJsonFile === jsonFile && cachedModelJson) return cachedModelJson;
+  const res = await fetch(`/download/${encodeURIComponent(jsonFile)}`);
+  if (!res.ok) {
+    cachedModelJson = null;
+    cachedModelJsonFile = null;
+    return null;
+  }
+  const data = await res.json();
+  if (data && typeof data === "object") {
+    cachedModelJson = data;
+    cachedModelJsonFile = jsonFile;
+    return cachedModelJson;
+  }
+  return null;
+}
+
+async function ensureVerificationLog() {
+  if (cachedVerificationLog) return cachedVerificationLog;
+  try {
+    const res = await fetch("/api/ifc-verification-log");
+    const data = await res.json();
+    cachedVerificationLog = data && typeof data === "object" ? data : {};
+  } catch {
+    cachedVerificationLog = {};
+  }
+  return cachedVerificationLog;
+}
+
 /**
  * @template T
  * @param {T[]} items
@@ -193,6 +334,20 @@ function fillLegendPlaceholder(ul, message) {
 function renderCharts(data) {
   cachedPayload = data;
 
+  let work = data;
+  const jf = typeof data.json_file === "string" ? data.json_file : null;
+  if (
+    jf &&
+    lastVisibleByFile &&
+    Object.prototype.hasOwnProperty.call(lastVisibleByFile, jf) &&
+    cachedModelJson &&
+    cachedModelJsonFile === jf
+  ) {
+    const ids = lastVisibleByFile[jf];
+    const log = cachedVerificationLog ?? {};
+    work = applyVisibilityToPayload(data, cachedModelJson, Array.isArray(ids) ? ids : [], log);
+  }
+
   const canvasClass = document.getElementById("canvas-ifc-health-class");
   const canvasAttr = document.getElementById("canvas-ifc-health-attr");
   const canvasObjects = document.getElementById("canvas-ifc-health-objects");
@@ -207,13 +362,14 @@ function renderCharts(data) {
     return;
   }
 
-  const ok = data.ok !== false;
+  const ok = work.ok !== false;
   const totals = /** @type {{ objects?: number, fixed_objects?: number, has_verification_log?: boolean }} */ (
-    data.totals ?? {}
+    work.totals ?? {}
   );
   const hasLog = totals.has_verification_log === true;
-  const byClassArr = Array.isArray(data.by_class) ? data.by_class : [];
-  const hasJson = byClassArr.length > 0;
+  const baseByClass = Array.isArray(data.by_class) ? data.by_class : [];
+  const hasJson = baseByClass.length > 0;
+  const byClassArr = Array.isArray(work.by_class) ? work.by_class : [];
 
   /** Charts only after Fix Quantities produced a verification log (and we have class data). */
   const showCharts = ok && hasLog && hasJson;
@@ -230,7 +386,7 @@ function renderCharts(data) {
     if (meta) {
       if (!ok) {
         meta.textContent =
-          (typeof data.detail === "string" && data.detail) ||
+          (typeof work.detail === "string" && work.detail) ||
           "Load an IFC (Add IFC or drag and drop) so the backend can export JSON. Charts stay empty until you run Fix Quantities.";
       } else if (!hasJson) {
         meta.textContent =
@@ -260,7 +416,7 @@ function renderCharts(data) {
   }
 
   /* 2 — By attribute (only attributes with defects; unchanged idea). */
-  const rawAttr = data.by_attribute?.filter((x) => x.count > 0) ?? [];
+  const rawAttr = work.by_attribute?.filter((x) => x.count > 0) ?? [];
   if (rawAttr.length === 0) {
     drawPie(canvasAttr, [], 200);
     fillLegendPlaceholder(
@@ -337,10 +493,16 @@ function renderCharts(data) {
   }
 
   if (meta) {
+    const filtered =
+      jf &&
+      lastVisibleByFile &&
+      Object.prototype.hasOwnProperty.call(lastVisibleByFile, jf) &&
+      cachedModelJsonFile === jf;
     const parts = [
-      `${(totals.objects ?? 0).toLocaleString()} objects · ${data.json_file ?? "results"}`,
+      `${(totals.objects ?? 0).toLocaleString()} objects · ${work.json_file ?? "results"}`,
       `${(totals.fixed_objects ?? 0).toLocaleString()} correction(s) logged`,
     ];
+    if (filtered) parts.push("Filtered to match sidebar selection");
     meta.textContent = parts.join(" · ");
   }
 }
@@ -352,7 +514,17 @@ async function fetchStats() {
 
 export async function refreshIfcHealth() {
   try {
+    cachedVerificationLog = null;
     const data = await fetchStats();
+    const jf = typeof data.json_file === "string" ? data.json_file : null;
+    if (jf && jf !== cachedModelJsonFile) {
+      cachedModelJson = null;
+      cachedModelJsonFile = null;
+    }
+    if (jf) {
+      await ensureModelJsonForHealth(jf);
+    }
+    await ensureVerificationLog();
     renderCharts(data);
   } catch (e) {
     console.warn("[IFC Health]", e);
@@ -374,6 +546,21 @@ export function initIfcHealth() {
   const panel = document.getElementById("ifc-health-panel");
 
   void refreshIfcHealth();
+
+  window.addEventListener("dashboard:ifc-health-visibility", (ev) => {
+    const d = /** @type {CustomEvent<{ visibleByFile?: Record<string, number[]> }>} */ (ev).detail;
+    lastVisibleByFile = d?.visibleByFile ?? {};
+    if (cachedPayload) {
+      void (async () => {
+        const jf = typeof cachedPayload.json_file === "string" ? cachedPayload.json_file : null;
+        if (jf) {
+          await ensureModelJsonForHealth(jf);
+          await ensureVerificationLog();
+        }
+        if (cachedPayload) renderCharts(cachedPayload);
+      })();
+    }
+  });
 
   window.addEventListener("dashboard:ifc-health-refresh", () => {
     void refreshIfcHealth();

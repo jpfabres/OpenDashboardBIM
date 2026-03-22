@@ -540,6 +540,68 @@ body {
   accent-color: var(--accent);
 }
 
+.filter-empty-hint {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.filter-details {
+  margin: 0;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border);
+}
+
+.filter-details-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.filter-details-summary::-webkit-details-marker {
+  display: none;
+}
+
+.filter-details-chevron {
+  display: inline-block;
+  font-size: 0.55rem;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+
+.filter-details[open] .filter-details-chevron {
+  transform: rotate(90deg);
+}
+
+.filter-details-title {
+  flex: 1;
+}
+
+.filter-details-count {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.filter-details-inner {
+  padding: 0 0.5rem 0.55rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .filter-rail-footer {
   flex-shrink: 0;
   margin-top: auto;

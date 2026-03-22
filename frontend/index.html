@@ -113,22 +113,34 @@
               </details>
             </div>
             <h2 class="filter-rail-title">Filters</h2>
-            <div class="filter-scroll">
-              <fieldset class="filter-group">
-                <legend class="filter-group-title">Category</legend>
-                <label class="filter-option"
-                  ><input type="checkbox" name="cat-arch" checked /> Architecture</label
-                >
-                <label class="filter-option"
-                  ><input type="checkbox" name="cat-str" checked /> Structure</label
-                >
-                <label class="filter-option"><input type="checkbox" name="cat-mep" /> MEP</label>
-              </fieldset>
-              <fieldset class="filter-group">
-                <legend class="filter-group-title">Discipline</legend>
-                <label class="filter-option"><input type="checkbox" name="disc-a" /> Model A</label>
-                <label class="filter-option"><input type="checkbox" name="disc-b" /> Model B</label>
-              </fieldset>
+            <div class="filter-scroll" id="element-filters-root">
+              <p class="filter-empty-hint" id="element-filters-hint">
+                Load an IFC (Add IFC or drag and drop) to filter by storey, class, and material.
+              </p>
+              <details class="filter-details" id="filter-details-story" open>
+                <summary class="filter-details-summary">
+                  <span class="filter-details-chevron" aria-hidden="true">▸</span>
+                  <span class="filter-details-title">Building story</span>
+                  <span class="filter-details-count" id="filter-count-story" aria-live="polite"></span>
+                </summary>
+                <div class="filter-details-inner" id="filter-list-story"></div>
+              </details>
+              <details class="filter-details" id="filter-details-class" open>
+                <summary class="filter-details-summary">
+                  <span class="filter-details-chevron" aria-hidden="true">▸</span>
+                  <span class="filter-details-title">Class</span>
+                  <span class="filter-details-count" id="filter-count-class" aria-live="polite"></span>
+                </summary>
+                <div class="filter-details-inner" id="filter-list-class"></div>
+              </details>
+              <details class="filter-details" id="filter-details-material" open>
+                <summary class="filter-details-summary">
+                  <span class="filter-details-chevron" aria-hidden="true">▸</span>
+                  <span class="filter-details-title">Material name</span>
+                  <span class="filter-details-count" id="filter-count-material" aria-live="polite"></span>
+                </summary>
+                <div class="filter-details-inner" id="filter-list-material"></div>
+              </details>
             </div>
             <div class="filter-rail-footer">
               <div class="layout-nav" role="group" aria-label="Workspace layout">

@@ -23,6 +23,7 @@ async function getIfcLoader() {
  * @typedef {object} LoadedIfcEntry
  * @property {string} id
  * @property {string} label
+ * @property {string} [jsonFile]
  * @property {THREE.Group} rootGroup
  * @property {THREE.Object3D & {
  *   modelID: number,
@@ -43,10 +44,6 @@ export function initIfcViewport() {
   const btnClearAll = document.getElementById("btn-ifc-clear-all");
   const btnFixQty = document.getElementById("btn-fix-quantities");
   const modelsListEl = document.getElementById("ifc-models-list");
-
-  function setLastJsonFile(_filename) {
-    // reserved for future use (e.g. highlight BOQ row)
-  }
 
   if (!fileInput) {
     console.warn("IFC: #ifc-file-input not found — Add IFC will not work.");
@@ -75,6 +72,8 @@ export function initIfcViewport() {
 
   /** Highlight overlay for selected IFC elements (subset mesh, shared geometry buffers). */
   const HIGHLIGHT_CUSTOM_ID = "viewport-selection";
+  /** Filtered subset (multi-material; hides main mesh via draw range). */
+  const FILTER_VIS_CUSTOM_ID = "dashboard-filter-vis";
   const highlightMaterial = new THREE.MeshStandardMaterial({
     color: 0x2563eb,
     emissive: 0x1e3a8a,
@@ -262,6 +261,13 @@ export function initIfcViewport() {
     removeSelectionForEntry(entryId);
     clearSelectionHighlight();
     disposeEntryResources(entry);
+    try {
+      window.dispatchEvent(
+        new CustomEvent("dashboard:ifc-model-unloaded", { detail: { entryId } })
+      );
+    } catch {
+      /* ignore */
+    }
     refreshSelectionHighlight();
     updateSelectionSummaryFromIds();
     renderLoadedModelsList();
@@ -310,6 +316,11 @@ export function initIfcViewport() {
     setStatus("IFC — use Add IFC or drag & drop");
     setSelection("—");
     renderLoadedModelsList();
+    try {
+      window.dispatchEvent(new CustomEvent("dashboard:ifc-models-cleared"));
+    } catch {
+      /* ignore */
+    }
     await resetBackendIfcSession();
   }
 
@@ -413,10 +424,13 @@ export function initIfcViewport() {
     updateModelsCountBadge();
   }
 
+  /**
+   * @returns {Promise<LoadedIfcEntry | null>}
+   */
   async function loadFromBuffer(buffer, label) {
     if (!renderer || !scene || !camera) {
       setStatus("3D view not ready — check WebGL / console.", true);
-      return;
+      return null;
     }
     setStatus(`Loading ${label}…`);
     try {
@@ -442,9 +456,11 @@ export function initIfcViewport() {
       refreshStatusSummary();
       setSelection("—");
       renderLoadedModelsList();
+      return entry;
     } catch (e) {
       console.error(e);
       setStatus(e instanceof Error ? e.message : "IFC load failed", true);
+      return null;
     }
   }
 
@@ -463,7 +479,6 @@ export function initIfcViewport() {
         setStatus(
           `Model loaded — ${data.total_objects} objects parsed. JSON: ${data.json_file}`
         );
-        setLastJsonFile(data.json_file);
         return data.json_file;
       }
       console.warn("[IFC Parser] Backend error:", data.detail ?? data);
@@ -512,8 +527,22 @@ export function initIfcViewport() {
     }
     for (const file of list) {
       const buffer = await file.arrayBuffer();
-      void uploadIfcToBackend(file);
-      await loadFromBuffer(buffer, file.name);
+      const entry = await loadFromBuffer(buffer, file.name);
+      if (entry) {
+        const jsonFile = await uploadIfcToBackend(file);
+        entry.jsonFile = jsonFile ?? undefined;
+        if (jsonFile) {
+          try {
+            window.dispatchEvent(
+              new CustomEvent("dashboard:ifc-model-json", {
+                detail: { entryId: entry.id, jsonFile, label: entry.label },
+              })
+            );
+          } catch {
+            /* ignore */
+          }
+        }
+      }
     }
   }
 
@@ -917,6 +946,53 @@ export function initIfcViewport() {
   }
 
   if (placeholder) placeholder.hidden = true;
+
+  /**
+   * @param {LoadedIfcEntry} entry
+   * @param {number[] | null | undefined} ids
+   */
+  function applyFilterVisibilityToEntry(entry, ids) {
+    const model = entry.ifcModel;
+    if (!model?.geometry?.index || !model.ifcManager) return;
+    const geo = model.geometry;
+    const fullCount = geo.index.count;
+    try {
+      model.ifcManager.removeSubset(model.modelID, undefined, FILTER_VIS_CUSTOM_ID);
+    } catch {
+      /* ignore */
+    }
+    if (ids === null || ids === undefined) {
+      geo.setDrawRange(0, fullCount);
+      return;
+    }
+    geo.setDrawRange(0, 0);
+    if (ids.length === 0) return;
+    try {
+      model.createSubset({
+        scene: model,
+        ids,
+        removePrevious: true,
+        customID: FILTER_VIS_CUSTOM_ID,
+        applyBVH: true,
+      });
+    } catch (e) {
+      console.warn("IFC filter visibility:", e);
+      geo.setDrawRange(0, fullCount);
+    }
+  }
+
+  window.addEventListener("dashboard:ifc-filter-visibility", (ev) => {
+    const vis = /** @type {CustomEvent<{ visibility?: Record<string, number[] | null> }>} */ (ev)
+      .detail?.visibility;
+    if (!vis || typeof vis !== "object") return;
+    for (const entry of loadedModels) {
+      if (Object.prototype.hasOwnProperty.call(vis, entry.id)) {
+        applyFilterVisibilityToEntry(entry, vis[entry.id]);
+      } else {
+        applyFilterVisibilityToEntry(entry, null);
+      }
+    }
+  });
 
   updateModelsCountBadge();
   setStatus("IFC — use Add IFC or drag & drop");

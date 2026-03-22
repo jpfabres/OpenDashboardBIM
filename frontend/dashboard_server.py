@@ -221,6 +221,21 @@ def ifc_reset():
         raise HTTPException(status_code=500, detail=f"IFC reset failed: {str(e)}") from e
 
 
+@app.get("/api/ifc-verification-log")
+def ifc_verification_log():
+    """Fix Quantities log (used client-side to refine charts when element filters are active)."""
+    log_path = FIX_RESULTS_DIR / "verification_log.json"
+    if not log_path.is_file():
+        return JSONResponse({})
+    try:
+        with open(log_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return JSONResponse(data if isinstance(data, dict) else {})
+    except Exception as e:
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Could not read verification log: {str(e)}") from e
+
+
 @app.get("/api/ifc-health-stats")
 def ifc_health_stats():
     """Aggregates class distribution + Fix Quantities verification_log for IFC Health charts."""

@@ -35242,7 +35242,7 @@
       "Pset_BuildingCommon": {
         "Reference": "Project Information",
         "NumberOfStoreys": 2,
-        "IsLandmarked": false
+        "IsLandmarked": "UNKNOWN"
       }
     }
   },
@@ -35269,7 +35269,7 @@
     "psets": {
       "Pset_BuildingStoreyCommon": {
         "Reference": "8mm Head",
-        "AboveGround": false
+        "AboveGround": "UNKNOWN"
       }
     }
   },
@@ -35296,7 +35296,7 @@
     "psets": {
       "Pset_BuildingStoreyCommon": {
         "Reference": "8mm Head",
-        "AboveGround": false
+        "AboveGround": "UNKNOWN"
       }
     }
   },
