@@ -1,16 +1,13 @@
 /**
  * IFC viewport: web-ifc (WASM) + web-ifc-three IFCLoader + Three.js.
  * IFCLoader is loaded dynamically so a CDN failure does not break the rest of the app.
+ * Supports multiple IFC files (disciplines) with per-model placement.
  */
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 const WASM_PATH = "https://cdn.jsdelivr.net/npm/web-ifc@0.0.39/";
 const IFCLoader_MODULE = "https://cdn.jsdelivr.net/npm/web-ifc-three@0.0.126/IFCLoader.js";
-
-/** Public sample (CORS must allow your origin). */
-const SAMPLE_IFC_URL =
-  "https://thatopen.github.io/engine_components/resources/ifc/school_str.ifc";
 
 let ifcLoaderSingleton = null;
 
@@ -22,31 +19,54 @@ async function getIfcLoader() {
   return ifcLoaderSingleton;
 }
 
+/**
+ * @typedef {object} LoadedIfcEntry
+ * @property {string} id
+ * @property {string} label
+ * @property {THREE.Group} rootGroup
+ * @property {THREE.Object3D & {
+ *   modelID: number,
+ *   ifcManager: { removeSubset: (modelID: number, mat: THREE.Material, id: string) => void },
+ *   createSubset: (opts: object) => THREE.Object3D | undefined,
+ *   getExpressId: (geom: THREE.BufferGeometry, faceIndex: number) => number,
+ *   getItemProperties: (id: number, recursive: boolean) => Promise<unknown>,
+ *   close: (scene: THREE.Scene) => void,
+ * }} ifcModel
+ */
+
 export function initIfcViewport() {
   const host = document.getElementById("viewport-3d");
   const placeholder = host?.querySelector(".viewport-placeholder");
-  const statusEl = document.getElementById("ifc-viewer-status");
   const selectionEl = document.getElementById("ifc-selection");
   const fileInput = document.getElementById("ifc-file-input");
-  const btnOpen = document.getElementById("btn-ifc-open");
-  const btnSample = document.getElementById("btn-ifc-sample");
+  const addIfcWrap = document.getElementById("btn-ifc-open");
+  const btnClearAll = document.getElementById("btn-ifc-clear-all");
   const btnFixQty = document.getElementById("btn-fix-quantities");
+  const modelsListEl = document.getElementById("ifc-models-list");
 
   function setLastJsonFile(_filename) {
-    // reserved for future use
+    // reserved for future use (e.g. highlight BOQ row)
   }
 
-  if (!host) return;
+  if (!fileInput) {
+    console.warn("IFC: #ifc-file-input not found — Add IFC will not work.");
+  }
+  if (!host) {
+    console.warn("IFC: #viewport-3d not found — 3D viewer will not initialize.");
+    return;
+  }
 
-  host.title = "Drop an .ifc file here to load";
+  host.title = "Drop .ifc file(s) here to add to the scene";
 
   /** Required so drop can fire; also prevents opening the file when dropped outside the viewer. */
   document.addEventListener("dragover", (e) => e.preventDefault());
 
   function setStatus(text, isError = false) {
-    if (!statusEl) return;
-    statusEl.textContent = text;
-    statusEl.classList.toggle("err", isError);
+    const headerIfc = document.getElementById("header-ifc-summary");
+    if (headerIfc) {
+      headerIfc.textContent = text;
+      headerIfc.classList.toggle("err", isError);
+    }
   }
 
   function setSelection(text) {
@@ -70,8 +90,8 @@ export function initIfcViewport() {
     roughness: 0.5,
   });
 
-  /** @type {Set<number>} */
-  let selectedExpressIds = new Set();
+  /** @type {Map<string, Set<number>>} */
+  let selectedByModel = new Map();
   let selectionBoxDiv = null;
   let pointerSession = null;
 
@@ -81,7 +101,13 @@ export function initIfcViewport() {
   let controls = null;
   let raycaster = null;
   let pointer = null;
-  let currentModel = null;
+
+  /** @type {LoadedIfcEntry[]} */
+  let loadedModels = [];
+
+  /** Which model cards have their placement (X/Y/Z) section expanded. */
+  /** @type {Set<string>} */
+  const expandedModelIds = new Set();
 
   try {
     scene = new THREE.Scene();
@@ -127,9 +153,21 @@ export function initIfcViewport() {
     setStatus("3D view failed — WebGL or scripts blocked?", true);
   }
 
-  function fitCameraToObject(object) {
-    if (!camera || !controls) return;
-    const box = new THREE.Box3().setFromObject(object);
+  function fitCameraToAllLoaded() {
+    if (!camera || !controls || loadedModels.length === 0) return;
+    const box = new THREE.Box3();
+    let empty = true;
+    for (const { rootGroup } of loadedModels) {
+      const b = new THREE.Box3().setFromObject(rootGroup);
+      if (b.isEmpty()) continue;
+      if (empty) {
+        box.copy(b);
+        empty = false;
+      } else {
+        box.union(b);
+      }
+    }
+    if (empty) return;
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     const maxDim = Math.max(size.x, size.y, size.z, 1);
@@ -159,54 +197,194 @@ export function initIfcViewport() {
   });
 
   function clearSelectionHighlight() {
-    if (!currentModel?.ifcManager) return;
-    try {
-      currentModel.ifcManager.removeSubset(
-        currentModel.modelID,
-        highlightMaterial,
-        HIGHLIGHT_CUSTOM_ID
-      );
-    } catch (e) {
-      console.warn(e);
+    for (const { ifcModel } of loadedModels) {
+      if (!ifcModel?.ifcManager) continue;
+      try {
+        ifcModel.ifcManager.removeSubset(
+          ifcModel.modelID,
+          highlightMaterial,
+          HIGHLIGHT_CUSTOM_ID
+        );
+      } catch (e) {
+        console.warn(e);
+      }
     }
   }
 
   function refreshSelectionHighlight() {
     clearSelectionHighlight();
-    if (!currentModel || selectedExpressIds.size === 0) return;
-    try {
-      const mesh = currentModel.createSubset({
-        scene: currentModel,
-        ids: [...selectedExpressIds],
-        removePrevious: true,
-        material: highlightMaterial,
-        customID: HIGHLIGHT_CUSTOM_ID,
-      });
-      if (mesh) mesh.renderOrder = 1;
-    } catch (e) {
-      console.warn(e);
+    for (const entry of loadedModels) {
+      const ids = selectedByModel.get(entry.id);
+      if (!ids || ids.size === 0) continue;
+      try {
+        const mesh = entry.ifcModel.createSubset({
+          scene: entry.ifcModel,
+          ids: [...ids],
+          removePrevious: true,
+          material: highlightMaterial,
+          customID: HIGHLIGHT_CUSTOM_ID,
+        });
+        if (mesh) mesh.renderOrder = 1;
+      } catch (e) {
+        console.warn(e);
+      }
     }
   }
 
-  function disposeCurrent() {
-    selectedExpressIds.clear();
-    clearSelectionHighlight();
-    if (!currentModel || !scene) return;
+  function removeSelectionForEntry(entryId) {
+    selectedByModel.delete(entryId);
+  }
+
+  function disposeEntryResources(entry) {
     try {
-      currentModel.close(scene);
+      entry.ifcModel.close(scene);
     } catch (e) {
       console.warn(e);
-      scene.remove(currentModel);
-      currentModel.traverse?.((child) => {
-        if (child.geometry) child.geometry.dispose?.();
-        if (child.material) {
-          const m = child.material;
-          if (Array.isArray(m)) m.forEach((x) => x.dispose?.());
-          else m.dispose?.();
-        }
-      });
     }
-    currentModel = null;
+    if (entry.rootGroup.parent) {
+      entry.rootGroup.parent.remove(entry.rootGroup);
+    }
+    entry.rootGroup.traverse?.((child) => {
+      if (child.geometry) child.geometry.dispose?.();
+      if (child.material) {
+        const m = child.material;
+        if (Array.isArray(m)) m.forEach((x) => x.dispose?.());
+        else m.dispose?.();
+      }
+    });
+  }
+
+  function removeOneModel(entryId) {
+    const idx = loadedModels.findIndex((e) => e.id === entryId);
+    if (idx < 0) return;
+    const [entry] = loadedModels.splice(idx, 1);
+    expandedModelIds.delete(entryId);
+    removeSelectionForEntry(entryId);
+    clearSelectionHighlight();
+    disposeEntryResources(entry);
+    refreshSelectionHighlight();
+    updateSelectionSummaryFromIds();
+    renderLoadedModelsList();
+    if (loadedModels.length === 0) {
+      setStatus("IFC — use Add IFC or drag & drop");
+      setSelection("—");
+    } else {
+      fitCameraToAllLoaded();
+      refreshStatusSummary();
+    }
+  }
+
+  function clearAllModels() {
+    selectedByModel = new Map();
+    expandedModelIds.clear();
+    clearSelectionHighlight();
+    while (loadedModels.length) {
+      const entry = loadedModels.pop();
+      disposeEntryResources(entry);
+    }
+    setStatus("IFC — use Add IFC or drag & drop");
+    setSelection("—");
+    renderLoadedModelsList();
+  }
+
+  function refreshStatusSummary() {
+    if (loadedModels.length === 0) {
+      setStatus("IFC — use Add IFC or drag & drop");
+      return;
+    }
+    const names = loadedModels.map((e) => e.label).join(", ");
+    setStatus(
+      `${loadedModels.length} model(s): ${names} — click · Shift+click · Ctrl+drag box`
+    );
+  }
+
+  function updateModelsCountBadge() {
+    const el = document.getElementById("ifc-models-count");
+    if (!el) return;
+    const n = loadedModels.length;
+    el.textContent = n ? ` (${n})` : "";
+  }
+
+  function renderLoadedModelsList() {
+    if (btnClearAll) btnClearAll.disabled = loadedModels.length === 0;
+    if (!modelsListEl) return;
+    modelsListEl.replaceChildren();
+
+    for (const entry of loadedModels) {
+      const details = document.createElement("details");
+      details.className = "ifc-model-card";
+      details.dataset.entryId = entry.id;
+      details.open = expandedModelIds.has(entry.id);
+      details.addEventListener("toggle", () => {
+        if (details.open) expandedModelIds.add(entry.id);
+        else expandedModelIds.delete(entry.id);
+      });
+
+      const summary = document.createElement("summary");
+      summary.className = "ifc-model-card-summary";
+
+      const chev = document.createElement("span");
+      chev.className = "ifc-model-card-chevron";
+      chev.setAttribute("aria-hidden", "true");
+      chev.textContent = "▸";
+
+      const title = document.createElement("p");
+      title.className = "ifc-model-card-title";
+      title.textContent = entry.label;
+
+      const rm = document.createElement("button");
+      rm.type = "button";
+      rm.className = "ifc-model-card-remove";
+      rm.textContent = "Remove";
+      rm.title = "Remove this model from the scene";
+      const stopSummaryToggle = (ev) => ev.stopPropagation();
+      rm.addEventListener("mousedown", stopSummaryToggle);
+      rm.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        removeOneModel(entry.id);
+      });
+
+      summary.appendChild(chev);
+      summary.appendChild(title);
+      summary.appendChild(rm);
+      details.appendChild(summary);
+
+      const body = document.createElement("div");
+      body.className = "ifc-model-card-body";
+
+      const posWrap = document.createElement("div");
+      posWrap.className = "ifc-model-card-pos";
+
+      const axes = [
+        { key: "x", label: "X" },
+        { key: "y", label: "Y" },
+        { key: "z", label: "Z" },
+      ];
+      for (const { key, label } of axes) {
+        const lab = document.createElement("label");
+        lab.htmlFor = `ifc-pos-${entry.id}-${key}`;
+        lab.textContent = label;
+        const inp = document.createElement("input");
+        inp.type = "number";
+        inp.step = "any";
+        inp.id = `ifc-pos-${entry.id}-${key}`;
+        inp.value = String(entry.rootGroup.position[key]);
+        inp.title = `Position ${label} (scene units)`;
+        inp.addEventListener("change", () => {
+          const v = parseFloat(inp.value);
+          if (!Number.isFinite(v)) return;
+          entry.rootGroup.position[key] = v;
+        });
+        posWrap.appendChild(lab);
+        posWrap.appendChild(inp);
+      }
+
+      body.appendChild(posWrap);
+      details.appendChild(body);
+      modelsListEl.appendChild(details);
+    }
+    updateModelsCountBadge();
   }
 
   async function loadFromBuffer(buffer, label) {
@@ -214,19 +392,30 @@ export function initIfcViewport() {
       setStatus("3D view not ready — check WebGL / console.", true);
       return;
     }
-    disposeCurrent();
     setStatus(`Loading ${label}…`);
     try {
       const ifcLoader = await getIfcLoader();
       await ifcLoader.ifcManager.setWasmPath(WASM_PATH);
       const model = await ifcLoader.parse(buffer);
-      currentModel = model;
-      scene.add(model);
-      fitCameraToObject(model);
-      setStatus(
-        `${label} — click a part · Shift+click add/toggle · Ctrl+drag box-select`
-      );
+      const id =
+        typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : `ifc-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
+      const rootGroup = new THREE.Group();
+      rootGroup.name = `IFC:${label}`;
+      rootGroup.userData.ifcEntryId = id;
+
+      /** @type {LoadedIfcEntry} */
+      const entry = { id, label, rootGroup, ifcModel: model };
+      rootGroup.add(model);
+      scene.add(rootGroup);
+      loadedModels.push(entry);
+
+      fitCameraToAllLoaded();
+      refreshStatusSummary();
       setSelection("—");
+      renderLoadedModelsList();
     } catch (e) {
       console.error(e);
       setStatus(e instanceof Error ? e.message : "IFC load failed", true);
@@ -245,12 +434,13 @@ export function initIfcViewport() {
       if (res.ok && data.success) {
         console.log(`[IFC Parser] JSON generated: ${data.json_file}`);
         console.log(`[IFC Parser] Total objects: ${data.total_objects}`);
-        setStatus(`Model loaded — ${data.total_objects} objects parsed. JSON: ${data.json_file}`);
+        setStatus(
+          `Model loaded — ${data.total_objects} objects parsed. JSON: ${data.json_file}`
+        );
         setLastJsonFile(data.json_file);
         return data.json_file;
-      } else {
-        console.warn("[IFC Parser] Backend error:", data.detail ?? data);
       }
+      console.warn("[IFC Parser] Backend error:", data.detail ?? data);
     } catch (err) {
       console.warn("[IFC Parser] Could not reach backend:", err.message);
     }
@@ -259,11 +449,16 @@ export function initIfcViewport() {
 
   async function verifyJsonOnBackend() {
     try {
+      setStatus("Running Fix Quantities…");
       const res = await fetch("/verify", { method: "POST" });
       const data = await res.json();
       if (res.ok && data.success) {
-        console.log(`[Verification] Corrected: ${data.corrected_file}, defects: ${data.defects_found}`);
-        setStatus(`Fix Quantities done — ${data.defects_found} defect(s) corrected. Saved to backend/fix results/`);
+        console.log(
+          `[Verification] Corrected: ${data.corrected_file}, defects: ${data.defects_found}`
+        );
+        setStatus(
+          `Fix Quantities done — ${data.defects_found} defect(s) corrected. Saved to backend/fix results/`
+        );
       } else {
         setStatus(`Fix Quantities failed: ${data.detail ?? "unknown error"}`, true);
       }
@@ -273,30 +468,34 @@ export function initIfcViewport() {
     }
   }
 
-  async function loadIfcFile(file) {
-    const name = file.name?.toLowerCase() ?? "";
-    if (!name.endsWith(".ifc")) {
-      setStatus("Drop a file with a .ifc extension", true);
+  /**
+   * @param {File[]} files
+   */
+  async function loadIfcFiles(files) {
+    const list = Array.from(files).filter((f) =>
+      (f.name?.toLowerCase() ?? "").endsWith(".ifc")
+    );
+    if (list.length === 0) {
+      setStatus("Need at least one .ifc file", true);
       return;
     }
-    const buffer = await file.arrayBuffer();
-    // Run 3D load and backend upload in parallel
-    await Promise.all([
-      loadFromBuffer(buffer, file.name),
-      uploadIfcToBackend(file),
-    ]);
+    for (const file of list) {
+      const buffer = await file.arrayBuffer();
+      void uploadIfcToBackend(file);
+      await loadFromBuffer(buffer, file.name);
+    }
   }
 
   /** Drop on the 3D panel only (coordinates; works when target is the canvas). */
   function onDocumentDrop(e) {
     e.preventDefault();
-    const file = e.dataTransfer?.files?.[0];
-    if (!file || !file.name.toLowerCase().endsWith(".ifc")) return;
+    const dt = e.dataTransfer?.files;
+    if (!dt?.length) return;
     const rect = host.getBoundingClientRect();
     const { clientX: x, clientY: y } = e;
     if (x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) return;
     host.classList.remove("viewport-3d--drop-target");
-    void loadIfcFile(file).catch((err) => {
+    void loadIfcFiles(dt).catch((err) => {
       console.error(err);
       setStatus(err instanceof Error ? err.message : "Load failed", true);
     });
@@ -322,69 +521,89 @@ export function initIfcViewport() {
   host.addEventListener("dragleave", onDragLeaveHost);
   host.addEventListener("dragover", onDragOverHost);
 
-  btnOpen?.addEventListener("click", () => fileInput?.click());
-  fileInput?.addEventListener("change", async () => {
-    const file = fileInput.files?.[0];
+  btnClearAll?.addEventListener("click", () => {
+    clearAllModels();
+  });
+
+  async function onIfcFileInputChange() {
+    if (!fileInput) return;
+    /** FileList is live — clearing `value` empties it; snapshot files first. */
+    const files = Array.from(fileInput.files ?? []);
     fileInput.value = "";
-    if (!file) return;
+    if (!files.length) return;
     try {
-      await loadIfcFile(file);
+      await loadIfcFiles(files);
     } catch (e) {
       console.error(e);
       setStatus(e instanceof Error ? e.message : "Load failed", true);
     }
-  });
+  }
 
-  btnSample?.addEventListener("click", async () => {
-    try {
-      setStatus("Fetching sample IFC…");
-      const res = await fetch(SAMPLE_IFC_URL);
-      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-      const buffer = await res.arrayBuffer();
-      const sampleFilename = SAMPLE_IFC_URL.split("/").pop() || "sample.ifc";
-      const file = new File([buffer], sampleFilename, { type: "application/octet-stream" });
-      await Promise.all([
-        loadFromBuffer(buffer, sampleFilename),
-        uploadIfcToBackend(file),
-      ]);
-    } catch (e) {
-      console.error(e);
-      setStatus(
-        "Sample fetch blocked or failed — use Open IFC with a local .ifc file.",
-        true
-      );
-    }
+  fileInput?.addEventListener("change", onIfcFileInputChange);
+
+  /** Fallback when transparent overlay does not receive hits (some browsers / embedded WebViews). */
+  addIfcWrap?.addEventListener("click", (e) => {
+    if (e.target === fileInput) return;
+    fileInput?.click();
   });
 
   btnFixQty?.addEventListener("click", async () => {
-    setStatus("Running Fix Quantities…");
     await verifyJsonOnBackend();
   });
 
-  function raycastExpressIdAtEvent(event, canvasRect) {
+  /**
+   * @param {import("three").Object3D} obj
+   * @returns {LoadedIfcEntry | null}
+   */
+  function findEntryContainingObject(obj) {
+    let o = obj;
+    while (o) {
+      const hit = loadedModels.find((e) => e.rootGroup === o);
+      if (hit) return hit;
+      o = o.parent;
+    }
+    return null;
+  }
+
+  /**
+   * @returns {{ entry: LoadedIfcEntry, expressId: number } | null}
+   */
+  function raycastHitAtEvent(event, canvasRect) {
     pointer.x = ((event.clientX - canvasRect.left) / canvasRect.width) * 2 - 1;
     pointer.y = -((event.clientY - canvasRect.top) / canvasRect.height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
-    const hits = raycaster.intersectObject(currentModel, true);
+    const roots = loadedModels.map((e) => e.rootGroup);
+    if (roots.length === 0) return null;
+    const hits = raycaster.intersectObjects(roots, true);
     if (!hits.length) return null;
     const hit = hits[0];
+    const entry = findEntryContainingObject(hit.object);
+    if (!entry) return null;
     const geom = hit.object.geometry;
     const faceIndex = hit.faceIndex;
     if (faceIndex === undefined || !geom) return null;
     try {
-      return currentModel.getExpressId(geom, faceIndex);
+      const expressId = entry.ifcModel.getExpressId(geom, faceIndex);
+      return { entry, expressId };
     } catch {
       return null;
     }
   }
 
+  /**
+   * @returns {Map<string, Set<number>>}
+   */
   function collectExpressIdsInScreenRect(x0, y0, x1, y1, canvasRect) {
     const xMin = Math.min(x0, x1);
     const xMax = Math.max(x0, x1);
     const yMin = Math.min(y0, y1);
     const yMax = Math.max(y0, y1);
     const step = 14;
-    const ids = new Set();
+    /** @type {Map<string, Set<number>>} */
+    const out = new Map();
+    const roots = loadedModels.map((e) => e.rootGroup);
+    if (roots.length === 0) return out;
+
     for (let i = 0; i <= step; i++) {
       for (let j = 0; j <= step; j++) {
         const px = xMin + ((xMax - xMin) * i) / step;
@@ -400,42 +619,70 @@ export function initIfcViewport() {
         pointer.x = ((px - canvasRect.left) / canvasRect.width) * 2 - 1;
         pointer.y = -((py - canvasRect.top) / canvasRect.height) * 2 + 1;
         raycaster.setFromCamera(pointer, camera);
-        const hits = raycaster.intersectObject(currentModel, true);
+        const hits = raycaster.intersectObjects(roots, true);
         if (!hits.length) continue;
         const hit = hits[0];
+        const entry = findEntryContainingObject(hit.object);
+        if (!entry) continue;
         const geom = hit.object.geometry;
         const fi = hit.faceIndex;
         if (fi === undefined || !geom) continue;
         try {
-          ids.add(currentModel.getExpressId(geom, fi));
+          const expressId = entry.ifcModel.getExpressId(geom, fi);
+          if (!out.has(entry.id)) out.set(entry.id, new Set());
+          out.get(entry.id).add(expressId);
         } catch {
           /* ignore */
         }
       }
     }
-    return [...ids];
+    return out;
+  }
+
+  function totalSelectedCount() {
+    let n = 0;
+    selectedByModel.forEach((s) => {
+      n += s.size;
+    });
+    return n;
   }
 
   function updateSelectionSummaryFromIds() {
-    if (!currentModel) {
+    if (loadedModels.length === 0) {
       setSelection("—");
       return;
     }
-    if (selectedExpressIds.size === 0) {
+    if (totalSelectedCount() === 0) {
       setSelection("—");
       return;
     }
-    if (selectedExpressIds.size === 1) {
-      const expressID = [...selectedExpressIds][0];
-      setSelection(`expressID ${expressID} — loading properties…`);
-      currentModel
+    if (totalSelectedCount() === 1) {
+      let expressID = 0;
+      /** @type {LoadedIfcEntry | null} */
+      let onlyEntry = null;
+      selectedByModel.forEach((set, entryId) => {
+        if (set.size === 1) {
+          onlyEntry = loadedModels.find((e) => e.id === entryId) ?? null;
+          expressID = [...set][0];
+        }
+      });
+      if (!onlyEntry) {
+        setSelection("—");
+        return;
+      }
+      setSelection(
+        `${onlyEntry.label} · expressID ${expressID} — loading properties…`
+      );
+      onlyEntry.ifcModel
         .getItemProperties(expressID, true)
         .then((props) => {
-          if (!selectedExpressIds.has(expressID)) return;
+          if (totalSelectedCount() !== 1 || !selectedByModel.get(onlyEntry.id)?.has(expressID)) {
+            return;
+          }
           const name = props?.Name?.value ?? props?.name ?? "";
           const type = props?.type ?? "";
           const summary = [
-            `expressID: ${expressID}`,
+            `${onlyEntry.label} · expressID: ${expressID}`,
             name && `Name: ${name}`,
             type && `Type: ${type}`,
           ]
@@ -444,19 +691,24 @@ export function initIfcViewport() {
           setSelection(summary);
         })
         .catch(() => {
-          if (selectedExpressIds.has(expressID)) {
-            setSelection(`expressID: ${expressID}`);
+          if (selectedByModel.get(onlyEntry.id)?.has(expressID)) {
+            setSelection(`${onlyEntry.label} · expressID: ${expressID}`);
           }
         });
       return;
     }
-    const sorted = [...selectedExpressIds].sort((a, b) => a - b);
-    const preview = sorted.slice(0, 14).join(", ");
-    const more =
-      sorted.length > 14 ? ` (+${sorted.length - 14} more)` : "";
-    setSelection(
-      `${sorted.length} parts selected · expressIDs: ${preview}${more}`
-    );
+    const parts = [];
+    selectedByModel.forEach((set, entryId) => {
+      const entry = loadedModels.find((e) => e.id === entryId);
+      const lab = entry?.label ?? entryId;
+      [...set]
+        .sort((a, b) => a - b)
+        .forEach((eid) => parts.push(`${lab} · ${eid}`));
+    });
+    parts.sort();
+    const preview = parts.slice(0, 12).join(", ");
+    const more = parts.length > 12 ? ` (+${parts.length - 12} more)` : "";
+    setSelection(`${parts.length} parts · ${preview}${more}`);
   }
 
   function positionSelectionBox(x0, y0, x1, y1) {
@@ -480,13 +732,19 @@ export function initIfcViewport() {
     selectionBoxDiv.style.display = "none";
   }
 
+  /**
+   * @typedef {object} PointerHit
+   * @property {LoadedIfcEntry} entry
+   * @property {number} expressId
+   */
+
   function endPointerSession(event) {
     if (!pointerSession) {
       hideSelectionBox();
       if (controls) controls.enabled = true;
       return;
     }
-    if (!currentModel || !renderer) {
+    if (loadedModels.length === 0 || !renderer) {
       pointerSession = null;
       hideSelectionBox();
       if (controls) controls.enabled = true;
@@ -507,7 +765,7 @@ export function initIfcViewport() {
     const canvasRect = renderer.domElement.getBoundingClientRect();
 
     if (sess.boxModifier && sess.boxActive && moved) {
-      const ids = collectExpressIdsInScreenRect(
+      const idMap = collectExpressIdsInScreenRect(
         sess.startX,
         sess.startY,
         event.clientX,
@@ -515,26 +773,31 @@ export function initIfcViewport() {
         canvasRect
       );
       if (event.shiftKey) {
-        ids.forEach((id) => selectedExpressIds.add(id));
+        idMap.forEach((set, eid) => {
+          if (!selectedByModel.has(eid)) selectedByModel.set(eid, new Set());
+          const target = selectedByModel.get(eid);
+          set.forEach((x) => target.add(x));
+        });
       } else {
-        selectedExpressIds = new Set(ids);
+        selectedByModel = idMap;
       }
       refreshSelectionHighlight();
       updateSelectionSummaryFromIds();
-    } else if (!sess.boxModifier && !moved && sess.hitId !== null) {
+    } else if (!sess.boxModifier && !moved && sess.hit) {
+      const { entry, expressId } = sess.hit;
       if (sess.shiftKey) {
-        if (selectedExpressIds.has(sess.hitId)) {
-          selectedExpressIds.delete(sess.hitId);
-        } else {
-          selectedExpressIds.add(sess.hitId);
-        }
+        if (!selectedByModel.has(entry.id)) selectedByModel.set(entry.id, new Set());
+        const set = selectedByModel.get(entry.id);
+        if (set.has(expressId)) set.delete(expressId);
+        else set.add(expressId);
+        if (set.size === 0) selectedByModel.delete(entry.id);
       } else {
-        selectedExpressIds = new Set([sess.hitId]);
+        selectedByModel = new Map([[entry.id, new Set([expressId])]]);
       }
       refreshSelectionHighlight();
       updateSelectionSummaryFromIds();
-    } else if (!sess.boxModifier && !moved && sess.hitId === null) {
-      selectedExpressIds.clear();
+    } else if (!sess.boxModifier && !moved && !sess.hit) {
+      selectedByModel = new Map();
       clearSelectionHighlight();
       updateSelectionSummaryFromIds();
     }
@@ -544,18 +807,18 @@ export function initIfcViewport() {
   }
 
   function onPointerDown(event) {
-    if (!currentModel || !raycaster || !camera || !renderer || event.button !== 0) {
+    if (loadedModels.length === 0 || !raycaster || !camera || !renderer || event.button !== 0) {
       return;
     }
     const canvasRect = renderer.domElement.getBoundingClientRect();
-    const hitId = raycastExpressIdAtEvent(event, canvasRect);
+    const hit = raycastHitAtEvent(event, canvasRect);
     const boxModifier = event.ctrlKey || event.metaKey;
     pointerSession = {
       startX: event.clientX,
       startY: event.clientY,
       boxModifier,
       shiftKey: event.shiftKey,
-      hitId,
+      hit,
       boxActive: false,
     };
     if (boxModifier) {
@@ -597,7 +860,7 @@ export function initIfcViewport() {
   }
 
   document.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape" || !currentModel || selectedExpressIds.size === 0) {
+    if (e.key !== "Escape" || loadedModels.length === 0 || totalSelectedCount() === 0) {
       return;
     }
     const t = document.activeElement;
@@ -609,7 +872,7 @@ export function initIfcViewport() {
     ) {
       return;
     }
-    selectedExpressIds.clear();
+    selectedByModel = new Map();
     clearSelectionHighlight();
     updateSelectionSummaryFromIds();
   });
@@ -623,6 +886,9 @@ export function initIfcViewport() {
   }
 
   if (placeholder) placeholder.hidden = true;
+
+  updateModelsCountBadge();
+  setStatus("IFC — use Add IFC or drag & drop");
 
   function tick() {
     requestAnimationFrame(tick);

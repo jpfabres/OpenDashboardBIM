@@ -1,132 +1,97 @@
 const viewport3d = document.getElementById("viewport-3d");
-const viewportSize = document.getElementById("viewport-size");
-const viewportDimReadout = document.getElementById("viewport-dim-readout");
 const apiStatus = document.getElementById("api-status");
+const LAYOUT_KEY = "dashboard-workspace-layout";
+const LAYOUT_LABELS = ["Stack + viewer", "Grid + viewer + BOQ"];
 
-function formatViewportRect(rect) {
-  const w = Math.round(rect.width);
-  const h = Math.round(rect.height);
-  viewportSize.textContent = `${w} × ${h}px`;
-  viewportDimReadout.textContent = `ResizeObserver: ${w}×${h} — use for camera / renderer sizing`;
+function dispatchViewport3dResize(rect, element) {
+  window.dispatchEvent(
+    new CustomEvent("dashboard:viewport3d", {
+      detail: {
+        width: rect.width,
+        height: rect.height,
+        element: element ?? viewport3d,
+      },
+    })
+  );
 }
 
-/** Fires when the 3D panel size changes (replace with Three.js setSize + setPixelRatio). */
+/** Notifies the IFC viewer when the 3D panel size changes (Three.js setSize + pixel ratio). */
 const ro = new ResizeObserver((entries) => {
   for (const entry of entries) {
-    formatViewportRect(entry.contentRect);
-    window.dispatchEvent(
-      new CustomEvent("dashboard:viewport3d", {
-        detail: {
-          width: entry.contentRect.width,
-          height: entry.contentRect.height,
-          element: entry.target,
-        },
-      })
-    );
+    dispatchViewport3dResize(entry.contentRect, entry.target);
   }
 });
 
 if (viewport3d) {
   ro.observe(viewport3d);
-  formatViewportRect(viewport3d.getBoundingClientRect());
+  dispatchViewport3dResize(viewport3d.getBoundingClientRect());
 }
 
-// Sample bar chart (placeholder data)
-const throughputEl = document.getElementById("chart-throughput");
-if (throughputEl) {
-  const values = [42, 68, 55, 80, 48, 72, 61];
-  const max = Math.max(...values);
-  values.forEach((v) => {
-    const bar = document.createElement("div");
-    bar.className = "bar";
-    bar.style.height = `${(v / max) * 100}%`;
-    bar.title = String(v);
-    throughputEl.appendChild(bar);
+const workspaceShell = document.getElementById("workspace-shell");
+const layoutLabelEl = document.getElementById("layout-label");
+const btnLayoutPrev = document.getElementById("btn-layout-prev");
+const btnLayoutNext = document.getElementById("btn-layout-next");
+
+function setWorkspaceLayout(index) {
+  const n = ((index % 2) + 2) % 2;
+  const layout = n + 1;
+  if (workspaceShell) {
+    workspaceShell.dataset.layout = String(layout);
+  }
+  try {
+    localStorage.setItem(LAYOUT_KEY, String(layout));
+  } catch {
+    /* ignore */
+  }
+  if (layoutLabelEl) {
+    layoutLabelEl.textContent = LAYOUT_LABELS[n];
+  }
+  document.querySelectorAll("[data-layout-panel]").forEach((el) => {
+    const panel = el.dataset.layoutPanel;
+    const active = panel === String(layout);
+    el.setAttribute("aria-hidden", active ? "false" : "true");
   });
+  if (viewport3d) {
+    requestAnimationFrame(() => {
+      dispatchViewport3dResize(viewport3d.getBoundingClientRect());
+    });
+  }
 }
 
-// Sparkline SVG
-const latencyEl = document.getElementById("chart-latency");
-if (latencyEl) {
-  const pts = [12, 18, 14, 22, 16, 19, 15, 24, 20, 17];
-  const w = 280;
-  const h = 72;
-  const pad = 4;
-  const min = Math.min(...pts);
-  const max = Math.max(...pts);
-  const span = max - min || 1;
-  const path = pts
-    .map((p, i) => {
-      const x = pad + (i / (pts.length - 1)) * (w - pad * 2);
-      const y = h - pad - ((p - min) / span) * (h - pad * 2);
-      return `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`;
-    })
-    .join(" ");
-  latencyEl.innerHTML = `
-    <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#4d9fff" stop-opacity="0.35"/>
-          <stop offset="100%" stop-color="#4d9fff" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <path d="${path} L ${w - pad},${h} L ${pad},${h} Z" fill="url(#lg)" />
-      <path d="${path}" fill="none" stroke="#4d9fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-  `;
+function currentLayoutIndex() {
+  const v = workspaceShell?.dataset.layout;
+  const layout = v === "2" ? 2 : 1;
+  return layout - 1;
 }
 
-// Donut chart (SVG)
-const donutEl = document.getElementById("chart-donut");
-const legendEl = document.getElementById("donut-legend");
-if (donutEl && legendEl) {
-  const segments = [
-    { label: "Primary", value: 45, color: "#4d9fff" },
-    { label: "Secondary", value: 30, color: "#7c5cff" },
-    { label: "Other", value: 25, color: "#f0b429" },
-  ];
-  const total = segments.reduce((s, x) => s + x.value, 0);
-  let angle = -90;
-  const cx = 44;
-  const cy = 44;
-  const r = 32;
-  const inner = 22;
-  const paths = [];
-  segments.forEach((seg) => {
-    const sweep = (seg.value / total) * 360;
-    const start = (angle * Math.PI) / 180;
-    const end = ((angle + sweep) * Math.PI) / 180;
-    const x1 = cx + r * Math.cos(start);
-    const y1 = cy + r * Math.sin(start);
-    const x2 = cx + r * Math.cos(end);
-    const y2 = cy + r * Math.sin(end);
-    const x3 = cx + inner * Math.cos(end);
-    const y3 = cy + inner * Math.sin(end);
-    const x4 = cx + inner * Math.cos(start);
-    const y4 = cy + inner * Math.sin(start);
-    const large = sweep > 180 ? 1 : 0;
-    const d = `M ${x1},${y1} A ${r},${r} 0 ${large},1 ${x2},${y2} L ${x3},${y3} A ${inner},${inner} 0 ${large},0 ${x4},${y4} Z`;
-    paths.push(`<path d="${d}" fill="${seg.color}" />`);
-    angle += sweep;
-  });
-  donutEl.innerHTML = `<svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${paths.join("")}</svg>`;
-  legendEl.innerHTML = segments
-    .map((s, i) => `<li class="c${i + 1}">${s.label} · ${s.value}%</li>`)
-    .join("");
+function initWorkspaceLayout() {
+  let initial = 0;
+  try {
+    const stored = localStorage.getItem(LAYOUT_KEY);
+    if (stored === "1" || stored === "2") {
+      initial = Number(stored) - 1;
+    }
+  } catch {
+    /* ignore */
+  }
+  setWorkspaceLayout(initial);
 }
 
-// Sample tables
-const activityRows = [
-  ["10:02", "Sync completed", "ok"],
-  ["09:58", "Import queued", "ok"],
-  ["09:41", "Validation warning", "warn"],
-  ["09:15", "Model loaded", "ok"],
-];
+btnLayoutPrev?.addEventListener("click", () => {
+  setWorkspaceLayout(currentLayoutIndex() - 1);
+});
 
-const itemsRows = [
-  ["Zone A", "128", "—"],
-  ["Zone B", "94", "Review"],
-  ["Shared", "56", "—"],
+btnLayoutNext?.addEventListener("click", () => {
+  setWorkspaceLayout(currentLayoutIndex() + 1);
+});
+
+initWorkspaceLayout();
+
+const boqRows = [
+  ["W-001", "Concrete wall type A", "124", "m²"],
+  ["S-014", "Steel beam HEA 200", "18", "m"],
+  ["F-003", "Floor finish", "420", "m²"],
+  ["C-102", "Ceiling tiles", "380", "m²"],
 ];
 
 function fillTable(tbodyId, rows, badgeCol) {
@@ -153,8 +118,7 @@ function escapeHtml(s) {
   return div.innerHTML;
 }
 
-fillTable("table-activity", activityRows, 2);
-fillTable("table-items", itemsRows, -1);
+fillTable("table-boq", boqRows, -1);
 
 async function fetchJson(path) {
   const res = await fetch(path);
