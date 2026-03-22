@@ -48,6 +48,28 @@ export function initIfcViewport() {
     if (selectionEl) selectionEl.textContent = text;
   }
 
+  /** Highlight overlay for selected IFC elements (subset mesh, shared geometry buffers). */
+  const HIGHLIGHT_CUSTOM_ID = "viewport-selection";
+  const highlightMaterial = new THREE.MeshStandardMaterial({
+    color: 0x2563eb,
+    emissive: 0x1e3a8a,
+    emissiveIntensity: 0.45,
+    opacity: 0.9,
+    transparent: true,
+    depthTest: true,
+    depthWrite: false,
+    polygonOffset: true,
+    polygonOffsetFactor: -1,
+    polygonOffsetUnits: -1,
+    metalness: 0.12,
+    roughness: 0.5,
+  });
+
+  /** @type {Set<number>} */
+  let selectedExpressIds = new Set();
+  let selectionBoxDiv = null;
+  let pointerSession = null;
+
   let scene = null;
   let camera = null;
   let renderer = null;
@@ -75,6 +97,11 @@ export function initIfcViewport() {
 
     const inner = document.getElementById("viewport-inner");
     (inner ?? host).appendChild(renderer.domElement);
+
+    selectionBoxDiv = document.createElement("div");
+    selectionBoxDiv.className = "viewport-selection-box";
+    selectionBoxDiv.setAttribute("aria-hidden", "true");
+    (inner ?? host).appendChild(selectionBoxDiv);
 
     scene.add(new THREE.AmbientLight(0xffffff, 0.55));
     const dir = new THREE.DirectionalLight(0xffffff, 0.85);
@@ -126,7 +153,39 @@ export function initIfcViewport() {
     resize(width, height);
   });
 
+  function clearSelectionHighlight() {
+    if (!currentModel?.ifcManager) return;
+    try {
+      currentModel.ifcManager.removeSubset(
+        currentModel.modelID,
+        highlightMaterial,
+        HIGHLIGHT_CUSTOM_ID
+      );
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+
+  function refreshSelectionHighlight() {
+    clearSelectionHighlight();
+    if (!currentModel || selectedExpressIds.size === 0) return;
+    try {
+      const mesh = currentModel.createSubset({
+        scene: currentModel,
+        ids: [...selectedExpressIds],
+        removePrevious: true,
+        material: highlightMaterial,
+        customID: HIGHLIGHT_CUSTOM_ID,
+      });
+      if (mesh) mesh.renderOrder = 1;
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+
   function disposeCurrent() {
+    selectedExpressIds.clear();
+    clearSelectionHighlight();
     if (!currentModel || !scene) return;
     try {
       currentModel.close(scene);
@@ -159,7 +218,9 @@ export function initIfcViewport() {
       currentModel = model;
       scene.add(model);
       fitCameraToObject(model);
-      setStatus(`${label} — click a surface to inspect`);
+      setStatus(
+        `${label} — click a part · Shift+click add/toggle · Ctrl+drag box-select`
+      );
       setSelection("—");
     } catch (e) {
       console.error(e);
@@ -269,30 +330,77 @@ export function initIfcViewport() {
     }
   });
 
-  function onPointerDown(event) {
-    if (!currentModel || !raycaster || !camera || !renderer || event.button !== 0) return;
-    const rect = renderer.domElement.getBoundingClientRect();
-    pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  function raycastExpressIdAtEvent(event, canvasRect) {
+    pointer.x = ((event.clientX - canvasRect.left) / canvasRect.width) * 2 - 1;
+    pointer.y = -((event.clientY - canvasRect.top) / canvasRect.height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
     const hits = raycaster.intersectObject(currentModel, true);
-    if (!hits.length) {
-      setSelection("—");
-      return;
-    }
+    if (!hits.length) return null;
     const hit = hits[0];
     const geom = hit.object.geometry;
     const faceIndex = hit.faceIndex;
-    if (faceIndex === undefined || !geom) {
-      setSelection("Hit has no face index");
+    if (faceIndex === undefined || !geom) return null;
+    try {
+      return currentModel.getExpressId(geom, faceIndex);
+    } catch {
+      return null;
+    }
+  }
+
+  function collectExpressIdsInScreenRect(x0, y0, x1, y1, canvasRect) {
+    const xMin = Math.min(x0, x1);
+    const xMax = Math.max(x0, x1);
+    const yMin = Math.min(y0, y1);
+    const yMax = Math.max(y0, y1);
+    const step = 14;
+    const ids = new Set();
+    for (let i = 0; i <= step; i++) {
+      for (let j = 0; j <= step; j++) {
+        const px = xMin + ((xMax - xMin) * i) / step;
+        const py = yMin + ((yMax - yMin) * j) / step;
+        if (
+          px < canvasRect.left ||
+          px > canvasRect.right ||
+          py < canvasRect.top ||
+          py > canvasRect.bottom
+        ) {
+          continue;
+        }
+        pointer.x = ((px - canvasRect.left) / canvasRect.width) * 2 - 1;
+        pointer.y = -((py - canvasRect.top) / canvasRect.height) * 2 + 1;
+        raycaster.setFromCamera(pointer, camera);
+        const hits = raycaster.intersectObject(currentModel, true);
+        if (!hits.length) continue;
+        const hit = hits[0];
+        const geom = hit.object.geometry;
+        const fi = hit.faceIndex;
+        if (fi === undefined || !geom) continue;
+        try {
+          ids.add(currentModel.getExpressId(geom, fi));
+        } catch {
+          /* ignore */
+        }
+      }
+    }
+    return [...ids];
+  }
+
+  function updateSelectionSummaryFromIds() {
+    if (!currentModel) {
+      setSelection("—");
       return;
     }
-    try {
-      const expressID = currentModel.getExpressId(geom, faceIndex);
+    if (selectedExpressIds.size === 0) {
+      setSelection("—");
+      return;
+    }
+    if (selectedExpressIds.size === 1) {
+      const expressID = [...selectedExpressIds][0];
       setSelection(`expressID ${expressID} — loading properties…`);
       currentModel
         .getItemProperties(expressID, true)
         .then((props) => {
+          if (!selectedExpressIds.has(expressID)) return;
           const name = props?.Name?.value ?? props?.name ?? "";
           const type = props?.type ?? "";
           const summary = [
@@ -304,15 +412,183 @@ export function initIfcViewport() {
             .join(" · ");
           setSelection(summary);
         })
-        .catch(() => setSelection(`expressID: ${expressID}`));
-    } catch (err) {
-      console.warn(err);
-      setSelection("Could not resolve expressID for this hit");
+        .catch(() => {
+          if (selectedExpressIds.has(expressID)) {
+            setSelection(`expressID: ${expressID}`);
+          }
+        });
+      return;
+    }
+    const sorted = [...selectedExpressIds].sort((a, b) => a - b);
+    const preview = sorted.slice(0, 14).join(", ");
+    const more =
+      sorted.length > 14 ? ` (+${sorted.length - 14} more)` : "";
+    setSelection(
+      `${sorted.length} parts selected · expressIDs: ${preview}${more}`
+    );
+  }
+
+  function positionSelectionBox(x0, y0, x1, y1) {
+    if (!selectionBoxDiv) return;
+    const innerEl = document.getElementById("viewport-inner");
+    if (!innerEl) return;
+    const innerRect = innerEl.getBoundingClientRect();
+    const left = Math.min(x0, x1) - innerRect.left;
+    const top = Math.min(y0, y1) - innerRect.top;
+    const w = Math.abs(x1 - x0);
+    const h = Math.abs(y1 - y0);
+    selectionBoxDiv.style.display = "block";
+    selectionBoxDiv.style.left = `${left}px`;
+    selectionBoxDiv.style.top = `${top}px`;
+    selectionBoxDiv.style.width = `${w}px`;
+    selectionBoxDiv.style.height = `${h}px`;
+  }
+
+  function hideSelectionBox() {
+    if (!selectionBoxDiv) return;
+    selectionBoxDiv.style.display = "none";
+  }
+
+  function endPointerSession(event) {
+    if (!pointerSession) {
+      hideSelectionBox();
+      if (controls) controls.enabled = true;
+      return;
+    }
+    if (!currentModel || !renderer) {
+      pointerSession = null;
+      hideSelectionBox();
+      if (controls) controls.enabled = true;
+      return;
+    }
+    const sess = pointerSession;
+    pointerSession = null;
+    if (sess.boxModifier) {
+      try {
+        renderer.domElement.releasePointerCapture(event.pointerId);
+      } catch {
+        /* ignore */
+      }
+    }
+    const dx = event.clientX - sess.startX;
+    const dy = event.clientY - sess.startY;
+    const moved = Math.hypot(dx, dy) >= 5;
+    const canvasRect = renderer.domElement.getBoundingClientRect();
+
+    if (sess.boxModifier && sess.boxActive && moved) {
+      const ids = collectExpressIdsInScreenRect(
+        sess.startX,
+        sess.startY,
+        event.clientX,
+        event.clientY,
+        canvasRect
+      );
+      if (event.shiftKey) {
+        ids.forEach((id) => selectedExpressIds.add(id));
+      } else {
+        selectedExpressIds = new Set(ids);
+      }
+      refreshSelectionHighlight();
+      updateSelectionSummaryFromIds();
+    } else if (!sess.boxModifier && !moved && sess.hitId !== null) {
+      if (sess.shiftKey) {
+        if (selectedExpressIds.has(sess.hitId)) {
+          selectedExpressIds.delete(sess.hitId);
+        } else {
+          selectedExpressIds.add(sess.hitId);
+        }
+      } else {
+        selectedExpressIds = new Set([sess.hitId]);
+      }
+      refreshSelectionHighlight();
+      updateSelectionSummaryFromIds();
+    } else if (!sess.boxModifier && !moved && sess.hitId === null) {
+      selectedExpressIds.clear();
+      clearSelectionHighlight();
+      updateSelectionSummaryFromIds();
+    }
+
+    hideSelectionBox();
+    if (controls) controls.enabled = true;
+  }
+
+  function onPointerDown(event) {
+    if (!currentModel || !raycaster || !camera || !renderer || event.button !== 0) {
+      return;
+    }
+    const canvasRect = renderer.domElement.getBoundingClientRect();
+    const hitId = raycastExpressIdAtEvent(event, canvasRect);
+    const boxModifier = event.ctrlKey || event.metaKey;
+    pointerSession = {
+      startX: event.clientX,
+      startY: event.clientY,
+      boxModifier,
+      shiftKey: event.shiftKey,
+      hitId,
+      boxActive: false,
+    };
+    if (boxModifier) {
+      try {
+        renderer.domElement.setPointerCapture(event.pointerId);
+      } catch {
+        /* ignore */
+      }
     }
   }
 
+  function onPointerMove(event) {
+    if (!pointerSession || !renderer || !controls) return;
+    const dx = event.clientX - pointerSession.startX;
+    const dy = event.clientY - pointerSession.startY;
+    if (Math.hypot(dx, dy) < 5) return;
+    if (pointerSession.boxModifier) {
+      if (!pointerSession.boxActive) {
+        pointerSession.boxActive = true;
+        controls.enabled = false;
+      }
+      positionSelectionBox(
+        pointerSession.startX,
+        pointerSession.startY,
+        event.clientX,
+        event.clientY
+      );
+    }
+  }
+
+  function onPointerUp(event) {
+    if (!pointerSession || event.button !== 0) return;
+    endPointerSession(event);
+  }
+
+  function onPointerCancel(event) {
+    if (!pointerSession) return;
+    endPointerSession(event);
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape" || !currentModel || selectedExpressIds.size === 0) {
+      return;
+    }
+    const t = document.activeElement;
+    if (
+      t &&
+      (t.tagName === "INPUT" ||
+        t.tagName === "TEXTAREA" ||
+        t.isContentEditable)
+    ) {
+      return;
+    }
+    selectedExpressIds.clear();
+    clearSelectionHighlight();
+    updateSelectionSummaryFromIds();
+  });
+
   if (renderer) {
-    renderer.domElement.addEventListener("pointerdown", onPointerDown);
+    const canvas = renderer.domElement;
+    canvas.addEventListener("pointerdown", onPointerDown);
+    canvas.addEventListener("pointermove", onPointerMove);
+    canvas.addEventListener("pointerup", onPointerUp);
+    canvas.addEventListener("pointercancel", onPointerCancel);
   }
 
   if (placeholder) placeholder.hidden = true;
