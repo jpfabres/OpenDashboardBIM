@@ -179,30 +179,62 @@
 
         <div class="workspace-main">
           <div class="visual-stack" data-layout-panel="1" aria-hidden="false">
-            <article class="visual-card visual-card--accent">
-              <span class="visual-card-label">Visual 1</span>
-            </article>
-            <article class="visual-card visual-card--accent">
-              <span class="visual-card-label">Visual 3</span>
-            </article>
-            <article class="visual-card visual-card--accent">
-              <span class="visual-card-label">Visual 4</span>
-            </article>
-          </div>
-
-          <div class="visual-grid" data-layout-panel="2" aria-hidden="true">
-            <article class="visual-card visual-card--accent visual-card--sm">
-              <span class="visual-card-label">Visual 1</span>
-            </article>
-            <article class="visual-card visual-card--accent visual-card--sm">
-              <span class="visual-card-label">Visual 2</span>
-            </article>
-            <article class="visual-card visual-card--accent visual-card--sm">
-              <span class="visual-card-label">Visual 3</span>
-            </article>
-            <article class="visual-card visual-card--accent visual-card--sm">
-              <span class="visual-card-label">Visual 4</span>
-            </article>
+            <section class="ifc-health-panel" id="ifc-health-panel" aria-label="IFC health">
+              <div class="ifc-health-head">
+                <h2 class="ifc-health-title">IFC Health</h2>
+                <p class="ifc-health-meta" id="ifc-health-meta"></p>
+              </div>
+              <div class="ifc-health-grid" id="ifc-health-grid">
+                <article class="ifc-health-graph-card">
+                  <h3 class="ifc-health-caption">Objects</h3>
+                  <div class="ifc-health-pie-inner">
+                    <canvas
+                      id="canvas-ifc-health-objects"
+                      aria-label="Objects that needed a correction versus objects with no correction"
+                    ></canvas>
+                  </div>
+                  <div class="ifc-health-legend-wrap">
+                    <ul class="ifc-health-legend" id="legend-ifc-health-objects"></ul>
+                  </div>
+                </article>
+                <article class="ifc-health-graph-card">
+                  <h3 class="ifc-health-caption">Class types</h3>
+                  <div class="ifc-health-pie-inner">
+                    <canvas
+                      id="canvas-ifc-health-classtypes"
+                      aria-label="IFC class types that had at least one problem versus types with none"
+                    ></canvas>
+                  </div>
+                  <div class="ifc-health-legend-wrap">
+                    <ul class="ifc-health-legend" id="legend-ifc-health-classtypes"></ul>
+                  </div>
+                </article>
+                <article class="ifc-health-graph-card">
+                  <h3 class="ifc-health-caption">By corrected attribute</h3>
+                  <div class="ifc-health-pie-inner">
+                    <canvas
+                      id="canvas-ifc-health-attr"
+                      aria-label="Share of all fixes by attribute name"
+                    ></canvas>
+                  </div>
+                  <div class="ifc-health-legend-wrap">
+                    <ul class="ifc-health-legend" id="legend-ifc-health-attr"></ul>
+                  </div>
+                </article>
+                <article class="ifc-health-graph-card">
+                  <h3 class="ifc-health-caption">By class (with problems)</h3>
+                  <div class="ifc-health-pie-inner">
+                    <canvas
+                      id="canvas-ifc-health-class"
+                      aria-label="Share of fixes by IFC class; only classes with at least one correction"
+                    ></canvas>
+                  </div>
+                  <div class="ifc-health-legend-wrap">
+                    <ul class="ifc-health-legend" id="legend-ifc-health-class"></ul>
+                  </div>
+                </article>
+              </div>
+            </section>
           </div>
 
           <div class="viewer-region" aria-label="3D viewport">

@@ -274,7 +274,32 @@ export function initIfcViewport() {
     }
   }
 
-  function clearAllModels() {
+  async function resetBackendIfcSession() {
+    try {
+      const res = await fetch("/api/ifc-reset", { method: "POST" });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        console.warn("[IFC] Session reset failed:", data.detail ?? res.statusText);
+        return;
+      }
+      console.log(
+        "[IFC] Cleared fix results and results JSON:",
+        data.removed_fix_results?.length ?? 0,
+        "fix file(s),",
+        data.removed_results?.length ?? 0,
+        "export(s)"
+      );
+    } catch (e) {
+      console.warn("[IFC] Session reset — could not reach backend:", e);
+    }
+    try {
+      window.dispatchEvent(new CustomEvent("dashboard:ifc-health-refresh"));
+    } catch {
+      /* ignore */
+    }
+  }
+
+  async function clearAllModels() {
     selectedByModel = new Map();
     expandedModelIds.clear();
     clearSelectionHighlight();
@@ -285,6 +310,7 @@ export function initIfcViewport() {
     setStatus("IFC — use Add IFC or drag & drop");
     setSelection("—");
     renderLoadedModelsList();
+    await resetBackendIfcSession();
   }
 
   function refreshStatusSummary() {
@@ -459,6 +485,11 @@ export function initIfcViewport() {
         setStatus(
           `Fix Quantities done — ${data.defects_found} defect(s) corrected. Saved to backend/fix results/`
         );
+        try {
+          window.dispatchEvent(new CustomEvent("dashboard:ifc-health-refresh"));
+        } catch {
+          /* ignore */
+        }
       } else {
         setStatus(`Fix Quantities failed: ${data.detail ?? "unknown error"}`, true);
       }
@@ -522,7 +553,7 @@ export function initIfcViewport() {
   host.addEventListener("dragover", onDragOverHost);
 
   btnClearAll?.addEventListener("click", () => {
-    clearAllModels();
+    void clearAllModels();
   });
 
   async function onIfcFileInputChange() {

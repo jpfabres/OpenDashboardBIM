@@ -139,6 +139,10 @@ document.getElementById("btn-health")?.addEventListener("click", async () => {
   }
 });
 
+import("./ifc-health.js")
+  .then((m) => m.initIfcHealth())
+  .catch((err) => console.error("IFC health charts failed to load:", err));
+
 /** Dynamic import so a blocked CDN / failed IFC bundle does not stop the rest of this script. */
 import("./ifc-viewer.js")
   .then((m) => m.initIfcViewport())
