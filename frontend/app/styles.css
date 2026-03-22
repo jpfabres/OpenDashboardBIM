@@ -71,10 +71,28 @@ body {
   margin: 0;
 }
 
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .topbar-meta {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.topbar-photo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 7rem;
+  max-height: 3rem;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .pill {
