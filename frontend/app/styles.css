@@ -188,14 +188,6 @@ body {
   gap: 0.5rem;
 }
 
-.topbar-photo {
-  display: block;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
 .pill {
   font-size: 0.75rem;
   padding: 0.35rem 0.65rem;
