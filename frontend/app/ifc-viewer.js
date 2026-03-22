@@ -174,6 +174,27 @@ export function initIfcViewport() {
     await loadFromBuffer(buffer, label);
   }
 
+  async function uploadIfcToBackend(file) {
+    const form = new FormData();
+    form.append("file", file);
+    try {
+      const res = await fetch("http://127.0.0.1:8000/upload", {
+        method: "POST",
+        body: form,
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        console.log(`[IFC Parser] JSON generated: ${data.json_file}`);
+        console.log(`[IFC Parser] Total objects: ${data.total_objects}`);
+        setStatus(`Model loaded — ${data.total_objects} objects parsed. JSON: ${data.json_file}`);
+      } else {
+        console.warn("[IFC Parser] Backend error:", data.detail ?? data);
+      }
+    } catch (err) {
+      console.warn("[IFC Parser] Could not reach backend:", err.message);
+    }
+  }
+
   async function loadIfcFile(file) {
     const name = file.name?.toLowerCase() ?? "";
     if (!name.endsWith(".ifc")) {
@@ -181,7 +202,11 @@ export function initIfcViewport() {
       return;
     }
     const buffer = await file.arrayBuffer();
-    await loadFromBuffer(buffer, file.name);
+    // Run 3D load and backend upload in parallel
+    await Promise.all([
+      loadFromBuffer(buffer, file.name),
+      uploadIfcToBackend(file),
+    ]);
   }
 
   /** Drop on the 3D panel only (coordinates; works when target is the canvas). */
