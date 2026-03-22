@@ -2,7 +2,7 @@
 REST API under /api/* and static frontend at /.
 
 LAN / team access (same Wi‑Fi): from repo root run
-  python backend/serve.py
+  python frontend/serve.py
 That binds 0.0.0.0 and prints a shareable http://<ip>:8000 URL.
 """
 
@@ -13,8 +13,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-# Repo root is one level above backend/
-FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
+# This package directory is the static root (index.html, app/, etc.)
+FRONTEND_DIR = Path(__file__).resolve().parent
 
 app = FastAPI(
     title="Hackathon API",

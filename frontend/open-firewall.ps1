@@ -1,7 +1,7 @@
 # Run once as Administrator so Windows allows inbound TCP on the dashboard port.
 # Right-click PowerShell -> Run as administrator, then:
 #   Set-Location C:\path\to\OpenDashboardBIM
-#   .\backend\open-firewall.ps1
+#   .\frontend\open-firewall.ps1
 
 $Port = if ($env:PORT) { [int]$env:PORT } else { 8000 }
 $RuleName = "Open Dashboard FastAPI (port $Port)"

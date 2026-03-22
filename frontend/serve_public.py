@@ -9,8 +9,8 @@ Prerequisite (one-time):
      Or set environment variable NGROK_AUTHTOKEN to that token (no spaces).
 
 From repo root:
-  pip install -r backend/requirements.txt
-  python backend/serve_public.py
+  pip install -r frontend/requirements.txt
+  python frontend/serve_public.py
 
 Share the printed "PUBLIC URL" with anyone; it works outside your Wi‑Fi.
 Reload is disabled here so the process stays stable with the tunnel.
@@ -98,7 +98,7 @@ def main() -> None:
     print()
 
     uvicorn.run(
-        "backend.dashboard_server:app",
+        "frontend.dashboard_server:app",
         host=HOST,
         port=PORT,
         reload=False,

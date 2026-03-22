@@ -2,12 +2,12 @@
 Start the dashboard (API + static frontend) on all interfaces (0.0.0.0).
 
 Usage from repo root:
-  python backend/serve.py
+  python frontend/serve.py
 
 Optional env:
   PORT=8000   HOST=0.0.0.0
 
-For a public HTTPS link with ngrok, run:  python backend/serve_public.py
+For a public HTTPS link with ngrok, run:  python frontend/serve_public.py
 """
 
 from __future__ import annotations
@@ -51,10 +51,10 @@ if __name__ == "__main__":
     print(f"  API docs: http://{lan}:{PORT}/docs")
     print(f"  Listening on {HOST}:{PORT} (all interfaces)")
     print(f"  ───────────────────────────────────────")
-    print("  If others cannot connect: run backend/open-firewall.ps1 once as Administrator.")
+    print("  If others cannot connect: run frontend/open-firewall.ps1 once as Administrator.")
     print()
     uvicorn.run(
-        "backend.dashboard_server:app",
+        "frontend.dashboard_server:app",
         host=HOST,
         port=PORT,
         reload=True,
