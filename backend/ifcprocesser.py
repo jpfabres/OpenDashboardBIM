@@ -82,6 +82,77 @@ def _collect_psets(obj, prop_names_set):
     return psets
 
 
+def _extract_prop_value_from_single(prop):
+    """Extract value from IfcPropertySingleValue."""
+    val = getattr(prop, "NominalValue", None)
+    if val is None:
+        return None
+    if hasattr(val, "wrappedValue"):
+        return val.wrappedValue
+    try:
+        return str(val)
+    except Exception:
+        return None
+
+
+def _extract_material_properties(mat):
+    """
+    Extract all property sets from IfcMaterial.HasProperties.
+    Returns dict keyed by pset name, each value is a dict of property name → value.
+    Handles both IFC4 (IfcMaterialProperties with .Properties) and
+    IFC 2x3 (IfcExtendedMaterialProperties).
+    """
+    psets = {}
+    if not hasattr(mat, "HasProperties"):
+        return psets
+
+    for mat_pset in mat.HasProperties:
+        pset_name = getattr(mat_pset, "Name", None) or mat_pset.is_a()
+        props = {}
+
+        # IFC4: IfcMaterialProperties has a .Properties list of IfcPropertySingleValue
+        if mat_pset.is_a("IfcMaterialProperties"):
+            prop_list = getattr(mat_pset, "Properties", None) or []
+            for p in prop_list:
+                val = _extract_prop_value_from_single(p)
+                if val is not None:
+                    props[p.Name] = val
+
+        # IFC 2x3: IfcExtendedMaterialProperties
+        elif mat_pset.is_a("IfcExtendedMaterialProperties"):
+            extended = getattr(mat_pset, "ExtendedProperties", None) or []
+            for prop in extended:
+                val = getattr(prop, "NominalValue", None)
+                if val is not None:
+                    props[prop.Name] = val.wrappedValue if hasattr(val, "wrappedValue") else str(val)
+                else:
+                    raw = getattr(prop, "EnumerationValues", None)
+                    if raw:
+                        props[prop.Name] = [v.wrappedValue if hasattr(v, "wrappedValue") else str(v) for v in raw]
+
+        # Fallback: named attribute subtypes
+        else:
+            try:
+                attrs = mat_pset.wrapped_data.declaration().attributes()
+            except Exception:
+                attrs = []
+            for attr in attrs:
+                name = attr.name()
+                if name in ("Material", "Name", "Description"):
+                    continue
+                try:
+                    value = getattr(mat_pset, name, None)
+                    if value is not None:
+                        props[name] = value
+                except Exception:
+                    pass
+
+        if props:
+            psets[pset_name] = props
+
+    return psets
+
+
 def _extract_material(obj):
     """Return material info from IfcRelAssociatesMaterial."""
     materials = []
@@ -95,7 +166,11 @@ def _extract_material(obj):
         mat = assoc.RelatingMaterial
 
         if mat.is_a("IfcMaterial"):
-            materials.append({"type": "IfcMaterial", "name": mat.Name})
+            entry = {"type": "IfcMaterial", "name": mat.Name}
+            mat_props = _extract_material_properties(mat)
+            if mat_props:
+                entry["properties"] = mat_props
+            materials.append(entry)
 
         elif mat.is_a("IfcMaterialList"):
             materials.append({
@@ -108,28 +183,40 @@ def _extract_material(obj):
             layers = []
             if layer_set and hasattr(layer_set, "MaterialLayers") and layer_set.MaterialLayers:
                 for layer in layer_set.MaterialLayers:
-                    layers.append({
+                    mat_props = _extract_material_properties(layer.Material) if layer.Material else {}
+                    layer_entry = {
                         "material": layer.Material.Name if layer.Material else None,
-                        "thickness": layer.LayerThickness
-                    })
+                        "thickness": layer.LayerThickness,
+                    }
+                    if mat_props:
+                        layer_entry["properties"] = mat_props
+                    layers.append(layer_entry)
             materials.append({"type": "IfcMaterialLayerSetUsage", "layers": layers})
 
         elif mat.is_a("IfcMaterialLayerSet"):
             layers = []
             if hasattr(mat, "MaterialLayers") and mat.MaterialLayers:
                 for layer in mat.MaterialLayers:
-                    layers.append({
+                    mat_props = _extract_material_properties(layer.Material) if layer.Material else {}
+                    layer_entry = {
                         "material": layer.Material.Name if layer.Material else None,
-                        "thickness": layer.LayerThickness
-                    })
+                        "thickness": layer.LayerThickness,
+                    }
+                    if mat_props:
+                        layer_entry["properties"] = mat_props
+                    layers.append(layer_entry)
             materials.append({"type": "IfcMaterialLayerSet", "layers": layers})
 
         elif mat.is_a("IfcMaterialLayer"):
-            materials.append({
+            mat_props = _extract_material_properties(mat.Material) if mat.Material else {}
+            entry = {
                 "type": "IfcMaterialLayer",
                 "material": mat.Material.Name if mat.Material else None,
-                "thickness": mat.LayerThickness
-            })
+                "thickness": mat.LayerThickness,
+            }
+            if mat_props:
+                entry["properties"] = mat_props
+            materials.append(entry)
 
     return materials
 
