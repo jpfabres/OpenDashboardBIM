@@ -115,9 +115,17 @@
             <h2 class="filter-rail-title">Filters</h2>
             <div class="filter-scroll" id="element-filters-root">
               <p class="filter-empty-hint" id="element-filters-hint">
-                Load an IFC (Add IFC or drag and drop) to filter by storey, class, and material.
+                Load an IFC (Add IFC or drag and drop) to filter by loaded model, storey, class, and material.
               </p>
-              <details class="filter-details" id="filter-details-story" open>
+              <details class="filter-details" id="filter-details-ifc">
+                <summary class="filter-details-summary">
+                  <span class="filter-details-chevron" aria-hidden="true">▸</span>
+                  <span class="filter-details-title">Loaded IFC</span>
+                  <span class="filter-details-count" id="filter-count-ifc" aria-live="polite"></span>
+                </summary>
+                <div class="filter-details-inner" id="filter-list-ifc"></div>
+              </details>
+              <details class="filter-details" id="filter-details-story">
                 <summary class="filter-details-summary">
                   <span class="filter-details-chevron" aria-hidden="true">▸</span>
                   <span class="filter-details-title">Building story</span>
@@ -125,7 +133,7 @@
                 </summary>
                 <div class="filter-details-inner" id="filter-list-story"></div>
               </details>
-              <details class="filter-details" id="filter-details-class" open>
+              <details class="filter-details" id="filter-details-class">
                 <summary class="filter-details-summary">
                   <span class="filter-details-chevron" aria-hidden="true">▸</span>
                   <span class="filter-details-title">Class</span>
@@ -133,7 +141,7 @@
                 </summary>
                 <div class="filter-details-inner" id="filter-list-class"></div>
               </details>
-              <details class="filter-details" id="filter-details-material" open>
+              <details class="filter-details" id="filter-details-material">
                 <summary class="filter-details-summary">
                   <span class="filter-details-chevron" aria-hidden="true">▸</span>
                   <span class="filter-details-title">Material name</span>

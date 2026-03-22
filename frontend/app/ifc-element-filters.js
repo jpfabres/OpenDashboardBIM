@@ -1,12 +1,13 @@
 /**
- * Cascading element filters: building story → IFC class → material name (from export JSON).
+ * Element filters: Loaded IFC (per-model on/off), plus cascading building story → IFC class → material
+ * (from export JSON). Story/class/material universes merge all loaded models; IFC only affects visibility.
  * Drives 3D visibility (via dashboard:ifc-filter-visibility) and IFC Health charts.
  */
 
 const NO_STORY = "(Unassigned storey)";
 const NO_MATERIAL = "(No material)";
 
-/** @type {Map<string, { jsonFile: string, label: string }>} */
+/** @type {Map<string, { jsonFile: string | null, label: string }>} */
 const registry = new Map();
 
 /** @type {Map<string, Record<string, unknown>>} */
@@ -18,6 +19,9 @@ let selectedStories = new Set();
 let selectedClasses = new Set();
 /** @type {Set<string>} */
 let selectedMaterials = new Set();
+
+/** @type {Set<string>} */
+let selectedEntryIds = new Set();
 
 /** Full universes (for “all selected” detection) */
 let universeStories = new Set();
@@ -108,11 +112,87 @@ function passesMaterials(materialNames, sel, universe) {
   return materialNames.some((m) => sel.has(m));
 }
 
+function universeEntryIdSet() {
+  return new Set(registry.keys());
+}
+
+/**
+ * Map any string form of an id to the key object actually stored in `registry` (Set.has is
+ * sensitive to subtle mismatches vs checkbox getAttribute with 2+ models).
+ * @param {unknown} raw
+ * @returns {string | null}
+ */
+function canonicalRegistryEntryId(raw) {
+  const s = String(raw ?? "").trim();
+  if (!s) return null;
+  for (const k of registry.keys()) {
+    if (String(k) === s) return k;
+  }
+  return null;
+}
+
+/** @param {string} entryKey */
+function selectedEntryIdsContains(entryKey) {
+  const need = String(entryKey);
+  for (const x of selectedEntryIds) {
+    if (String(x) === need) return true;
+  }
+  return false;
+}
+
+/**
+ * True when every loaded model id is checked (do not use size-only heuristics — with 2+ models
+ * `selectedEntryIds.size === universe.size` can still be the wrong set).
+ */
+function allIfcModelsSelected() {
+  const universe = universeEntryIdSet();
+  if (universe.size === 0) return true;
+  return [...universe].every((id) => selectedEntryIdsContains(id));
+}
+
+function sanitizeSelectedEntryIds() {
+  const universe = universeEntryIdSet();
+  const next = new Set();
+  for (const raw of selectedEntryIds) {
+    const c = canonicalRegistryEntryId(raw);
+    if (c && universe.has(c)) next.add(c);
+  }
+  selectedEntryIds.clear();
+  for (const id of next) selectedEntryIds.add(id);
+}
+
+/**
+ * Models whose JSON feeds story / class / material universes and `mergedObjects()`.
+ * Intentionally ignores Loaded IFC checkboxes so those filters behave like before the IFC
+ * section existed; IFC only gates per-model visibility in `emitVisibility` / `passesEntry`.
+ */
+function registryEntryIdsForFilterData() {
+  if (registry.size === 0) return [];
+  return [...registry.keys()];
+}
+
+/**
+ * Whether elements from this model are included (IFC checkbox dimension).
+ * @param {string} entryId
+ */
+function passesEntry(entryId) {
+  const universe = universeEntryIdSet();
+  const eid = String(entryId);
+  if (universe.size === 0) return true;
+  if (selectedEntryIds.size === 0) return false;
+  if (allIfcModelsSelected()) return true;
+  return selectedEntryIdsContains(eid);
+}
+
 function recomputeUniverses() {
   universeStories = new Set();
   universeClasses = new Set();
   universeMaterials = new Set();
-  for (const data of jsonByFile.values()) {
+  for (const id of registryEntryIdsForFilterData()) {
+    const meta = registry.get(id);
+    if (!meta) continue;
+    const data = jsonByFile.get(meta.jsonFile);
+    if (!data) continue;
     for (const row of rowsFromJson(data)) {
       universeStories.add(row.story);
       if (row.class) universeClasses.add(row.class);
@@ -122,6 +202,16 @@ function recomputeUniverses() {
 }
 
 function pruneSelections() {
+  for (const s of [...selectedStories]) {
+    if (!universeStories.has(s)) selectedStories.delete(s);
+  }
+  for (const c of [...selectedClasses]) {
+    if (!universeClasses.has(c)) selectedClasses.delete(c);
+  }
+  for (const m of [...selectedMaterials]) {
+    if (!universeMaterials.has(m)) selectedMaterials.delete(m);
+  }
+
   const storyRows = rowsFromJson(mergedObjects());
   const classesFromStories = new Set();
   const matsFromStoriesClasses = new Set();
@@ -149,8 +239,11 @@ function pruneSelections() {
 function mergedObjects() {
   /** @type {Record<string, unknown>} */
   const out = {};
-  for (const data of jsonByFile.values()) {
-    Object.assign(out, data);
+  for (const id of registryEntryIdsForFilterData()) {
+    const meta = registry.get(id);
+    if (!meta) continue;
+    const data = jsonByFile.get(meta.jsonFile);
+    if (data) Object.assign(out, data);
   }
   return out;
 }
@@ -187,22 +280,36 @@ function emitVisibility() {
   }
 
   for (const [entryId, meta] of registry) {
-    const data = jsonByFile.get(meta.jsonFile);
+    const key = String(entryId);
+    const jf = meta.jsonFile;
+    const data = jf ? jsonByFile.get(jf) : undefined;
     if (!data) {
-      visibility[entryId] = null;
+      visibility[key] = passesEntry(key) ? null : [];
+      continue;
+    }
+    if (!passesEntry(key)) {
+      visibility[key] = [];
       continue;
     }
     const vis = visibleExpressIdsForData(data);
-    visibility[entryId] = [...vis];
+    visibility[key] = [...vis];
   }
 
   window.dispatchEvent(new CustomEvent("dashboard:ifc-filter-visibility", { detail: { visibility } }));
 
   /** @type {Record<string, number[]>} */
   const visibleByFile = {};
-  for (const f of new Set([...registry.values()].map((x) => x.jsonFile))) {
+  for (const f of new Set(
+    [...registry.values()].map((x) => x.jsonFile).filter((jf) => typeof jf === "string" && jf.length > 0)
+  )) {
     const data = jsonByFile.get(f);
     if (!data) continue;
+    const entriesForFile = [...registry.entries()].filter(([, m]) => m.jsonFile === f);
+    const anyPass = entriesForFile.some(([eid]) => passesEntry(eid));
+    if (!anyPass) {
+      visibleByFile[f] = [];
+      continue;
+    }
     visibleByFile[f] = [...visibleExpressIdsForData(data)];
   }
   window.dispatchEvent(new CustomEvent("dashboard:ifc-health-visibility", { detail: { visibleByFile } }));
@@ -210,27 +317,62 @@ function emitVisibility() {
 
 function renderFilterLists() {
   const hint = document.getElementById("element-filters-hint");
+  const listIfc = document.getElementById("filter-list-ifc");
   const listStory = document.getElementById("filter-list-story");
   const listClass = document.getElementById("filter-list-class");
   const listMat = document.getElementById("filter-list-material");
+  const cIfc = document.getElementById("filter-count-ifc");
   const cStory = document.getElementById("filter-count-story");
   const cClass = document.getElementById("filter-count-class");
   const cMat = document.getElementById("filter-count-material");
 
   if (!listStory || !listClass || !listMat) return;
 
-  if (!dataLoaded || jsonByFile.size === 0) {
+  if (!dataLoaded || registry.size === 0) {
     if (hint) hint.hidden = false;
+    if (listIfc) listIfc.replaceChildren();
     listStory.replaceChildren();
     listClass.replaceChildren();
     listMat.replaceChildren();
+    if (cIfc) cIfc.textContent = "";
     if (cStory) cStory.textContent = "";
     if (cClass) cClass.textContent = "";
     if (cMat) cMat.textContent = "";
     return;
   }
 
-  if (hint) hint.hidden = true;
+  if (hint) hint.hidden = jsonByFile.size > 0;
+
+  const universeEntries = universeEntryIdSet();
+  const entryIdsSorted = [...universeEntries].sort((a, b) => {
+    const la = registry.get(a)?.label ?? a;
+    const lb = registry.get(b)?.label ?? b;
+    return la.localeCompare(lb);
+  });
+
+  if (listIfc) {
+    listIfc.replaceChildren();
+    for (const entryId of entryIdsSorted) {
+      const meta = registry.get(entryId);
+      const text = meta?.label ?? entryId;
+      const lab = document.createElement("label");
+      lab.className = "filter-option";
+      const inp = document.createElement("input");
+      inp.type = "checkbox";
+      inp.checked = selectedEntryIdsContains(entryId);
+      inp.setAttribute("data-filter-dim", "entry");
+      inp.setAttribute("data-filter-val", String(entryId));
+      const span = document.createElement("span");
+      span.textContent = text;
+      lab.appendChild(inp);
+      lab.appendChild(span);
+      listIfc.appendChild(lab);
+    }
+  }
+  if (cIfc) {
+    cIfc.textContent =
+      entryIdsSorted.length > 0 ? `(${selectedEntryIds.size}/${entryIdsSorted.length})` : "";
+  }
 
   const allRows = rowsFromJson(mergedObjects());
 
@@ -259,16 +401,17 @@ function renderFilterLists() {
   function fillList(el, options, sel, universe, namePrefix) {
     el.replaceChildren();
     for (const opt of options) {
-      const id = `${namePrefix}-${encodeURIComponent(opt).slice(0, 80)}`;
+      const valStr = String(opt);
+      const id = `${namePrefix}-${encodeURIComponent(valStr).slice(0, 80)}`;
       const label = document.createElement("label");
       label.className = "filter-option";
       const inp = document.createElement("input");
       inp.type = "checkbox";
-      inp.checked = sel.has(opt);
-      inp.dataset.dim = namePrefix;
-      inp.dataset.value = opt;
+      inp.checked = sel.has(valStr) || sel.has(opt);
+      inp.setAttribute("data-filter-dim", namePrefix);
+      inp.setAttribute("data-filter-val", valStr);
       const span = document.createElement("span");
-      span.textContent = opt;
+      span.textContent = valStr;
       label.appendChild(inp);
       label.appendChild(span);
       el.appendChild(label);
@@ -280,20 +423,44 @@ function renderFilterLists() {
   fillList(listMat, matList, selectedMaterials, universeMaterials, "material");
 }
 
+function collapseFilterDetails() {
+  for (const id of [
+    "filter-details-ifc",
+    "filter-details-story",
+    "filter-details-class",
+    "filter-details-material",
+  ]) {
+    const det = document.getElementById(id);
+    if (det instanceof HTMLDetailsElement) det.open = false;
+  }
+}
+
 function onCheckboxChange(ev) {
   const t = ev.target;
   if (!(t instanceof HTMLInputElement) || t.type !== "checkbox") return;
-  const dim = t.dataset.dim;
-  const val = t.dataset.value;
-  if (!dim || val === undefined) return;
-  /** @type {Set<string> | undefined} */
-  let set;
-  if (dim === "story") set = selectedStories;
-  else if (dim === "class") set = selectedClasses;
-  else if (dim === "material") set = selectedMaterials;
-  else return;
-  if (t.checked) set.add(val);
-  else set.delete(val);
+  const dim = t.getAttribute("data-filter-dim");
+  const valRaw = t.getAttribute("data-filter-val");
+  if (!dim) return;
+
+  if (dim === "entry") {
+    const canon = canonicalRegistryEntryId(valRaw);
+    if (!canon) return;
+    if (t.checked) selectedEntryIds.add(canon);
+    else selectedEntryIds.delete(canon);
+    sanitizeSelectedEntryIds();
+  } else {
+    if (valRaw === null) return;
+    const v = String(valRaw);
+    /** @type {Set<string> | undefined} */
+    let set;
+    if (dim === "story") set = selectedStories;
+    else if (dim === "class") set = selectedClasses;
+    else if (dim === "material") set = selectedMaterials;
+    else return;
+    if (t.checked) set.add(v);
+    else set.delete(v);
+  }
+  recomputeUniverses();
   pruneSelections();
   renderFilterLists();
   emitVisibility();
@@ -305,35 +472,66 @@ async function fetchJsonForFile(jsonFile) {
   return res.json();
 }
 
-async function registerModel(entryId, jsonFile, _label) {
-  if (!jsonFile) return;
-  registry.set(entryId, { jsonFile, label: _label });
-  if (!jsonByFile.has(jsonFile)) {
-    try {
-      const data = await fetchJsonForFile(jsonFile);
-      if (data && typeof data === "object") jsonByFile.set(jsonFile, data);
-    } catch (e) {
-      console.warn("[IFC filters] Could not load JSON:", jsonFile, e);
-    }
+/** Same JSON can be requested from sync + event; share one fetch. */
+const jsonLoadPromises = new Map();
+
+async function ensureJsonLoaded(jsonFile) {
+  if (!jsonFile || jsonByFile.has(jsonFile)) return;
+  let p = jsonLoadPromises.get(jsonFile);
+  if (!p) {
+    p = fetchJsonForFile(jsonFile)
+      .then((data) => {
+        if (data && typeof data === "object") jsonByFile.set(jsonFile, data);
+      })
+      .catch((e) => {
+        console.warn("[IFC filters] Could not load JSON:", jsonFile, e);
+      })
+      .finally(() => {
+        jsonLoadPromises.delete(jsonFile);
+      });
+    jsonLoadPromises.set(jsonFile, p);
   }
+  await p;
+}
+
+async function registerModel(entryId, jsonFile, _label) {
+  const alreadyRegistered = registry.has(entryId);
+  registry.set(entryId, { jsonFile: jsonFile || null, label: _label });
+  if (jsonFile) await ensureJsonLoaded(jsonFile);
+
+  if (!alreadyRegistered) {
+    selectedEntryIds = new Set(registry.keys());
+  } else {
+    sanitizeSelectedEntryIds();
+  }
+
   recomputeUniverses();
-  selectedStories = new Set(universeStories);
-  selectedClasses = new Set(universeClasses);
-  selectedMaterials = new Set(universeMaterials);
+  if (!alreadyRegistered) {
+    selectedStories = new Set(universeStories);
+    selectedClasses = new Set(universeClasses);
+    selectedMaterials = new Set(universeMaterials);
+  } else {
+    pruneSelections();
+  }
   dataLoaded = true;
   renderFilterLists();
+  collapseFilterDetails();
   emitVisibility();
 }
 
 function unregisterModel(entryId) {
   registry.delete(entryId);
-  const used = new Set([...registry.values()].map((x) => x.jsonFile));
+  selectedEntryIds.delete(entryId);
+  const used = new Set(
+    [...registry.values()].map((x) => x.jsonFile).filter((f) => f != null && String(f).length > 0)
+  );
   for (const f of [...jsonByFile.keys()]) {
     if (!used.has(f)) jsonByFile.delete(f);
   }
   recomputeUniverses();
   if (registry.size === 0) {
     dataLoaded = false;
+    selectedEntryIds.clear();
     selectedStories.clear();
     selectedClasses.clear();
     selectedMaterials.clear();
@@ -351,6 +549,7 @@ function clearAllModels() {
   registry.clear();
   jsonByFile.clear();
   dataLoaded = false;
+  selectedEntryIds.clear();
   selectedStories.clear();
   selectedClasses.clear();
   selectedMaterials.clear();
@@ -362,20 +561,49 @@ function clearAllModels() {
 }
 
 export function initIfcElementFilters() {
-  const root = document.getElementById("element-filters-root");
-  root?.addEventListener("change", onCheckboxChange);
+  document.addEventListener(
+    "change",
+    (ev) => {
+      const t = ev.target;
+      if (!(t instanceof HTMLInputElement) || t.type !== "checkbox") return;
+      const root = document.getElementById("element-filters-root");
+      if (!root || !root.contains(t)) return;
+      onCheckboxChange(ev);
+    },
+    true
+  );
 
   window.addEventListener("dashboard:ifc-model-json", (ev) => {
-    const d = /** @type {CustomEvent<{ entryId: string; jsonFile: string | null; label: string }>} */ (ev).detail;
-    if (d?.entryId && d.jsonFile) void registerModel(d.entryId, d.jsonFile, d.label);
+    const d = /** @type {CustomEvent<{ entryId?: unknown; jsonFile?: unknown; label?: unknown }>} */ (ev).detail;
+    if (d == null) return;
+    const rawId = d.entryId;
+    const entryId = rawId != null && rawId !== "" ? String(rawId) : "";
+    if (!entryId) return;
+    const jf = d.jsonFile != null && d.jsonFile !== "" ? String(d.jsonFile) : null;
+    const label = typeof d.label === "string" && d.label.length > 0 ? d.label : entryId;
+    void registerModel(entryId, jf, label);
   });
 
   window.addEventListener("dashboard:ifc-model-unloaded", (ev) => {
-    const d = /** @type {CustomEvent<{ entryId: string }>} */ (ev).detail;
-    if (d?.entryId) unregisterModel(d.entryId);
+    const d = /** @type {CustomEvent<{ entryId?: unknown }>} */ (ev).detail;
+    const id = d?.entryId != null && d.entryId !== "" ? String(d.entryId) : "";
+    if (id) unregisterModel(id);
   });
 
   window.addEventListener("dashboard:ifc-models-cleared", () => {
     clearAllModels();
   });
+}
+
+/**
+ * Called by the IFC viewer after a model is registered so filters stay in sync even if a
+ * `dashboard:ifc-model-json` event was missed (load order / timing).
+ * @param {string} entryId
+ * @param {string | null | undefined} jsonFile
+ * @param {string} label
+ */
+export function registerIfcModelFromViewer(entryId, jsonFile, label) {
+  const jf = jsonFile != null && String(jsonFile).length > 0 ? String(jsonFile) : null;
+  const lab = typeof label === "string" && label.length > 0 ? label : String(entryId);
+  void registerModel(String(entryId), jf, lab);
 }

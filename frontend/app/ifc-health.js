@@ -36,6 +36,377 @@ let cachedModelJsonFile = /** @type {string | null} */ (null);
 /** Cached verification log from /api/ifc-verification-log */
 let cachedVerificationLog = /** @type {Record<string, unknown> | null} */ (null);
 
+/** Latest full sidebar-driven visibility (entry id → express ids); not updated by pie-drill events. */
+let lastSidebarVisibility = /** @type {Record<string, number[] | null> | null} */ (null);
+
+/** json_file basename → viewer entry id (from dashboard:ifc-model-json). */
+const entryIdByJsonFile = /** @type {Map<string, string>} */ (new Map());
+
+/**
+ * @typedef {{
+ *   kind: "class" | "attr" | "objects" | "classtypes",
+ *   className?: string,
+ *   classes?: string[],
+ *   attribute?: string,
+ *   attributes?: string[],
+ *   objectsMode?: "corrected" | "clean",
+ *   classtypesMode?: "issues" | "clean",
+ * }} PieDrillSpec
+ */
+
+/** Active pie drill (filters 3D on top of sidebar selection). */
+let activePieDrill = /** @type {PieDrillSpec | null} */ (null);
+
+/** Per-chart drill metadata aligned with drawn slices (same order as drawPie). */
+const pieSliceDrillByChart = {
+  class: /** @type {PieDrillSpec[]} */ ([]),
+  attr: /** @type {PieDrillSpec[]} */ ([]),
+  objects: /** @type {PieDrillSpec[]} */ ([]),
+  classtypes: /** @type {PieDrillSpec[]} */ ([]),
+};
+
+/** `work.by_class` from last chart render (sidebar-filtered); used for class-types pie drill. */
+let cachedWorkByClass = /** @type {{ class: string; fixed: number }[]} */ ([]);
+
+/** Slice value arrays for hit-testing (aligned with `pieSliceDrillByChart`). */
+const lastPieSlices = {
+  class: /** @type {{ value: number; label: string; sub?: string }[]} */ ([]),
+  attr: /** @type {{ value: number; label: string; sub?: string }[]} */ ([]),
+  objects: /** @type {{ value: number; label: string; sub?: string }[]} */ ([]),
+  classtypes: /** @type {{ value: number; label: string; sub?: string }[]} */ ([]),
+};
+
+const PIE_CHART_BY_CANVAS_ID = {
+  "canvas-ifc-health-class": "class",
+  "canvas-ifc-health-attr": "attr",
+  "canvas-ifc-health-objects": "objects",
+  "canvas-ifc-health-classtypes": "classtypes",
+};
+
+/** @param {Record<string, number[] | null | undefined>} vis */
+function cloneVisibility(vis) {
+  /** @type {Record<string, number[] | null>} */
+  const out = {};
+  for (const [k, v] of Object.entries(vis)) {
+    out[k] = v === null || v === undefined ? null : [...v];
+  }
+  return out;
+}
+
+/**
+ * @param {Record<string, unknown>} modelJson
+ * @returns {number[]}
+ */
+function allExpressIds(modelJson) {
+  const out = [];
+  for (const k of Object.keys(modelJson)) {
+    const id = Number(k);
+    if (Number.isFinite(id)) out.push(id);
+  }
+  return out;
+}
+
+/**
+ * @param {Record<string, unknown>} modelJson
+ * @param {Set<string>} gids
+ * @returns {number[]}
+ */
+function expressIdsForGlobalIds(modelJson, gids) {
+  const out = [];
+  for (const [k, v] of Object.entries(modelJson)) {
+    const id = Number(k);
+    if (!v || typeof v !== "object") continue;
+    const gid = /** @type {{ globalId?: string }} */ (v).globalId;
+    if (typeof gid === "string" && gid && gids.has(gid)) out.push(id);
+  }
+  return out;
+}
+
+/**
+ * @param {Record<string, unknown>} verificationLog
+ * @returns {Set<string>}
+ */
+function allCorrectedGlobalIds(verificationLog) {
+  const gids = new Set();
+  if (!verificationLog || typeof verificationLog !== "object") return gids;
+  for (const entries of Object.values(verificationLog)) {
+    if (!Array.isArray(entries)) continue;
+    for (const entry of entries) {
+      if (!entry || typeof entry !== "object") continue;
+      for (const gid of Object.keys(entry)) {
+        if (gid) gids.add(gid);
+      }
+    }
+  }
+  return gids;
+}
+
+/**
+ * @param {Record<string, unknown>} verificationLog
+ * @param {string} className
+ * @returns {Set<string>}
+ */
+function globalIdsFixedForClass(verificationLog, className) {
+  const gids = new Set();
+  const entries = verificationLog[className];
+  if (!Array.isArray(entries)) return gids;
+  for (const entry of entries) {
+    if (!entry || typeof entry !== "object") continue;
+    for (const gid of Object.keys(entry)) {
+      if (gid) gids.add(gid);
+    }
+  }
+  return gids;
+}
+
+/**
+ * @param {Record<string, unknown>} modelJson
+ * @param {Record<string, unknown>} verificationLog
+ * @param {string} className
+ * @returns {number[]}
+ */
+function expressIdsForClassFixSlice(modelJson, verificationLog, className) {
+  const gids = globalIdsFixedForClass(verificationLog, className);
+  return expressIdsForGlobalIds(modelJson, gids);
+}
+
+/**
+ * @param {Record<string, unknown>} modelJson
+ * @param {Record<string, unknown>} verificationLog
+ * @param {string[]} classNames
+ * @returns {number[]}
+ */
+function expressIdsForMergedClassFixSlices(modelJson, verificationLog, classNames) {
+  const merged = new Set();
+  for (const cn of classNames) {
+    for (const id of expressIdsForClassFixSlice(modelJson, verificationLog, cn)) {
+      merged.add(id);
+    }
+  }
+  return [...merged];
+}
+
+/**
+ * @param {Record<string, unknown>} verificationLog
+ * @param {string} attrName
+ * @returns {Set<string>}
+ */
+function globalIdsWithAttributeFix(verificationLog, attrName) {
+  const gids = new Set();
+  if (!verificationLog || typeof verificationLog !== "object") return gids;
+  for (const entries of Object.values(verificationLog)) {
+    if (!Array.isArray(entries)) continue;
+    for (const entry of entries) {
+      if (!entry || typeof entry !== "object") continue;
+      for (const [gid, attrs] of Object.entries(entry)) {
+        if (!Array.isArray(attrs)) continue;
+        if (attrs.includes(attrName)) gids.add(gid);
+      }
+    }
+  }
+  return gids;
+}
+
+/**
+ * @param {Record<string, unknown>} verificationLog
+ * @param {string[]} attrNames
+ * @returns {Set<string>}
+ */
+function globalIdsWithAnyAttributeFix(verificationLog, attrNames) {
+  const gids = new Set();
+  if (!verificationLog || typeof verificationLog !== "object") return gids;
+  const set = new Set(attrNames);
+  for (const entries of Object.values(verificationLog)) {
+    if (!Array.isArray(entries)) continue;
+    for (const entry of entries) {
+      if (!entry || typeof entry !== "object") continue;
+      for (const [gid, attrs] of Object.entries(entry)) {
+        if (!Array.isArray(attrs)) continue;
+        for (const a of attrs) {
+          if (typeof a === "string" && set.has(a)) {
+            gids.add(gid);
+            break;
+          }
+        }
+      }
+    }
+  }
+  return gids;
+}
+
+/**
+ * @param {PieDrillSpec} spec
+ * @param {Record<string, unknown>} modelJson
+ * @param {Record<string, unknown>} verificationLog
+ * @param {{ byClassRows: { class: string; fixed: number }[] }} ctx
+ * @returns {number[]}
+ */
+function expressIdsForPieDrill(spec, modelJson, verificationLog, ctx) {
+  switch (spec.kind) {
+    case "class": {
+      if (spec.classes?.length) {
+        return expressIdsForMergedClassFixSlices(modelJson, verificationLog, spec.classes);
+      }
+      if (spec.className) {
+        return expressIdsForClassFixSlice(modelJson, verificationLog, spec.className);
+      }
+      return [];
+    }
+    case "attr": {
+      if (spec.attributes?.length) {
+        const g = globalIdsWithAnyAttributeFix(verificationLog, spec.attributes);
+        return expressIdsForGlobalIds(modelJson, g);
+      }
+      if (spec.attribute) {
+        const g = globalIdsWithAttributeFix(verificationLog, spec.attribute);
+        return expressIdsForGlobalIds(modelJson, g);
+      }
+      return [];
+    }
+    case "objects": {
+      const corrected = allCorrectedGlobalIds(verificationLog);
+      if (spec.objectsMode === "corrected") {
+        return expressIdsForGlobalIds(modelJson, corrected);
+      }
+      if (spec.objectsMode === "clean") {
+        const out = [];
+        for (const [k, v] of Object.entries(modelJson)) {
+          const id = Number(k);
+          if (!v || typeof v !== "object") continue;
+          const gid = /** @type {{ globalId?: string }} */ (v).globalId;
+          if (typeof gid !== "string" || !gid) continue;
+          if (!corrected.has(gid)) out.push(id);
+        }
+        return out;
+      }
+      return [];
+    }
+    case "classtypes": {
+      const rows = ctx.byClassRows;
+      const withIssues = new Set(rows.filter((x) => x.fixed > 0).map((x) => x.class));
+      const noIssues = new Set(rows.filter((x) => x.fixed === 0).map((x) => x.class));
+      const target = spec.classtypesMode === "issues" ? withIssues : noIssues;
+      const out = [];
+      for (const [k, v] of Object.entries(modelJson)) {
+        const id = Number(k);
+        if (!v || typeof v !== "object") continue;
+        const cls = /** @type {{ class?: string }} */ (v).class;
+        if (typeof cls === "string" && cls && target.has(cls)) out.push(id);
+      }
+      return out;
+    }
+    default:
+      return [];
+  }
+}
+
+/**
+ * @param {number[]} sliceIds
+ * @param {Set<number>} base
+ * @returns {number[]}
+ */
+function intersectIds(sliceIds, base) {
+  return sliceIds.filter((id) => base.has(id));
+}
+
+/**
+ * @param {string | null} jsonFile
+ * @param {Record<string, unknown>} modelJson
+ * @returns {Set<number>}
+ */
+function baseVisibleIdSet(jsonFile, modelJson) {
+  if (
+    jsonFile &&
+    lastVisibleByFile &&
+    Object.prototype.hasOwnProperty.call(lastVisibleByFile, jsonFile) &&
+    Array.isArray(lastVisibleByFile[jsonFile])
+  ) {
+    return new Set(/** @type {number[]} */ (lastVisibleByFile[jsonFile]));
+  }
+  return new Set(allExpressIds(modelJson));
+}
+
+function emitPieDrillToViewport() {
+  if (!activePieDrill || !cachedModelJson || !cachedVerificationLog) return;
+  const jf = typeof cachedPayload?.json_file === "string" ? cachedPayload.json_file : null;
+  if (!jf) return;
+  const entryId = entryIdByJsonFile.get(jf);
+  if (!entryId) return;
+
+  if (!lastSidebarVisibility) {
+    const base = baseVisibleIdSet(jf, cachedModelJson);
+    lastSidebarVisibility = { [entryId]: [...base] };
+  }
+
+  const work = /** @type {Record<string, unknown>} */ (cachedVerificationLog);
+  const sliceIds = expressIdsForPieDrill(activePieDrill, cachedModelJson, work, {
+    byClassRows: cachedWorkByClass,
+  });
+  const base = baseVisibleIdSet(jf, cachedModelJson);
+  const filtered = intersectIds(sliceIds, base);
+
+  const vis = cloneVisibility(lastSidebarVisibility);
+  vis[entryId] = filtered;
+  window.dispatchEvent(
+    new CustomEvent("dashboard:ifc-filter-visibility", {
+      detail: { visibility: vis, source: "pie-drill" },
+    })
+  );
+}
+
+function clearPieDrill() {
+  if (!activePieDrill) return;
+  activePieDrill = null;
+  if (lastSidebarVisibility) {
+    window.dispatchEvent(
+      new CustomEvent("dashboard:ifc-filter-visibility", {
+        detail: { visibility: cloneVisibility(lastSidebarVisibility) },
+      })
+    );
+  }
+}
+
+/**
+ * @param {HTMLCanvasElement} canvas
+ * @param {number} clientX
+ * @param {number} clientY
+ * @param {{ value: number; label: string; sub?: string }[]} slices
+ * @param {number} [baseSize]
+ * @returns {number | null}
+ */
+function pieHitSliceIndex(canvas, clientX, clientY, slices, baseSize = PIE_BASE_SIZE) {
+  const sum = slices.reduce((s, x) => s + x.value, 0);
+  if (sum <= 0 || slices.length === 0) return null;
+
+  const w = measurePieSize(canvas, baseSize);
+  const h = w;
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = w / rect.width;
+  const scaleY = h / rect.height;
+  const x = (clientX - rect.left) * scaleX;
+  const y = (clientY - rect.top) * scaleY;
+  const cx = w / 2;
+  const cy = h / 2;
+  const r = w * 0.38;
+  const rIn = r * 0.52;
+  const dx = x - cx;
+  const dy = y - cy;
+  const dist = Math.hypot(dx, dy);
+  if (dist < rIn || dist > r) return null;
+
+  const clickAngle = Math.atan2(dy, dx);
+  let start = -Math.PI / 2;
+  for (let i = 0; i < slices.length; i++) {
+    const sweep = (slices[i].value / sum) * Math.PI * 2;
+    let delta = clickAngle - start;
+    const twoPi = Math.PI * 2;
+    delta = ((delta % twoPi) + twoPi) % twoPi;
+    if (delta >= 0 && delta < sweep) return i;
+    start += sweep;
+  }
+  return null;
+}
+
 /**
  * Rebuild IFC Health aggregates for a subset of express IDs (matches sidebar filters).
  * @param {Record<string, unknown>} data
@@ -373,11 +744,21 @@ function renderCharts(data) {
   const baseByClass = Array.isArray(data.by_class) ? data.by_class : [];
   const hasJson = baseByClass.length > 0;
   const byClassArr = Array.isArray(work.by_class) ? work.by_class : [];
+  cachedWorkByClass = byClassArr;
 
   /** Charts only after Fix Quantities produced a verification log (and we have class data). */
   const showCharts = ok && hasLog && hasJson;
 
   if (!showCharts) {
+    if (activePieDrill) clearPieDrill();
+    pieSliceDrillByChart.class = [];
+    pieSliceDrillByChart.attr = [];
+    pieSliceDrillByChart.objects = [];
+    pieSliceDrillByChart.classtypes = [];
+    lastPieSlices.class = [];
+    lastPieSlices.attr = [];
+    lastPieSlices.objects = [];
+    lastPieSlices.classtypes = [];
     drawPie(canvasClass, [], PIE_BASE_SIZE);
     drawPie(canvasAttr, [], PIE_BASE_SIZE);
     drawPie(canvasObjects, [], PIE_BASE_SIZE);
@@ -405,15 +786,25 @@ function renderCharts(data) {
   /* 1 — By class: only classes with fixed > 0; slice size = correction count (like attributes). */
   const rawClassProblems = byClassArr.filter((x) => x.fixed > 0);
   if (rawClassProblems.length === 0) {
+    pieSliceDrillByChart.class = [];
+    lastPieSlices.class = [];
     drawPie(canvasClass, [], PIE_BASE_SIZE);
     fillLegendPlaceholder(legClass, "No class had a logged correction — nothing to show here.");
   } else {
     const classForPie = capSlices(rawClassProblems, (x) => x.fixed, mergeClassProblemSlices);
+    pieSliceDrillByChart.class = classForPie.map((x, idx) => {
+      if (rawClassProblems.length > MAX_SLICES && idx === classForPie.length - 1) {
+        const tail = rawClassProblems.slice(MAX_SLICES - 1);
+        return /** @type {PieDrillSpec} */ ({ kind: "class", classes: tail.map((t) => t.class) });
+      }
+      return /** @type {PieDrillSpec} */ ({ kind: "class", className: x.class });
+    });
     const classSlices = classForPie.map((x) => ({
       value: x.fixed,
       label: x.class,
       sub: `${x.fixed} correction(s) · ${x.total} object(s) of this class in model`,
     }));
+    lastPieSlices.class = classSlices;
     drawPie(canvasClass, classSlices, PIE_BASE_SIZE);
     fillLegend(legClass, classSlices);
   }
@@ -421,6 +812,8 @@ function renderCharts(data) {
   /* 2 — By attribute (only attributes with defects; unchanged idea). */
   const rawAttr = work.by_attribute?.filter((x) => x.count > 0) ?? [];
   if (rawAttr.length === 0) {
+    pieSliceDrillByChart.attr = [];
+    lastPieSlices.attr = [];
     drawPie(canvasAttr, [], PIE_BASE_SIZE);
     fillLegendPlaceholder(
       legAttr,
@@ -428,6 +821,13 @@ function renderCharts(data) {
     );
   } else {
     const attrForPie = capSlices(rawAttr, (x) => x.count, mergeAttrSlices);
+    pieSliceDrillByChart.attr = attrForPie.map((x, idx) => {
+      if (rawAttr.length > MAX_SLICES && idx === attrForPie.length - 1) {
+        const tail = rawAttr.slice(MAX_SLICES - 1);
+        return /** @type {PieDrillSpec} */ ({ kind: "attr", attributes: tail.map((t) => t.attribute) });
+      }
+      return /** @type {PieDrillSpec} */ ({ kind: "attr", attribute: x.attribute });
+    });
     const totalAttr = attrForPie.reduce((s, x) => s + x.count, 0);
     const attrSlices = attrForPie.map((x) => ({
       value: x.count,
@@ -437,6 +837,7 @@ function renderCharts(data) {
           ? `${Math.round((1000 * x.count) / totalAttr) / 10}% of all fixes`
           : "0% of fixes",
     }));
+    lastPieSlices.attr = attrSlices;
     drawPie(canvasAttr, attrSlices, PIE_BASE_SIZE);
     fillLegend(legAttr, attrSlices);
   }
@@ -446,16 +847,20 @@ function renderCharts(data) {
   const nFixed = totals.fixed_objects ?? 0;
   const nClean = Math.max(0, nObj - nFixed);
   if (nObj <= 0) {
+    pieSliceDrillByChart.objects = [];
+    lastPieSlices.objects = [];
     drawPie(canvasObjects, [], PIE_BASE_SIZE);
     fillLegendPlaceholder(legObjects, "No objects in export.");
   } else {
     const objectSlices = [];
+    pieSliceDrillByChart.objects = [];
     if (nFixed > 0) {
       objectSlices.push({
         value: nFixed,
         label: "Objects corrected",
         sub: `${Math.round((1000 * nFixed) / nObj) / 10}% of all objects`,
       });
+      pieSliceDrillByChart.objects.push({ kind: "objects", objectsMode: "corrected" });
     }
     if (nClean > 0) {
       objectSlices.push({
@@ -463,7 +868,9 @@ function renderCharts(data) {
         label: "No correction needed",
         sub: `${Math.round((1000 * nClean) / nObj) / 10}% of all objects`,
       });
+      pieSliceDrillByChart.objects.push({ kind: "objects", objectsMode: "clean" });
     }
+    lastPieSlices.objects = objectSlices;
     drawPie(canvasObjects, objectSlices, PIE_BASE_SIZE);
     fillLegend(legObjects, objectSlices);
   }
@@ -473,16 +880,20 @@ function renderCharts(data) {
   const nTypesWithProblems = byClassArr.filter((x) => x.fixed > 0).length;
   const nTypesClean = Math.max(0, nTypes - nTypesWithProblems);
   if (nTypes <= 0) {
+    pieSliceDrillByChart.classtypes = [];
+    lastPieSlices.classtypes = [];
     drawPie(canvasClassTypes, [], PIE_BASE_SIZE);
     fillLegendPlaceholder(legClassTypes, "No class breakdown.");
   } else {
     const typeSlices = [];
+    pieSliceDrillByChart.classtypes = [];
     if (nTypesWithProblems > 0) {
       typeSlices.push({
         value: nTypesWithProblems,
         label: "Class types with issues",
         sub: `${Math.round((1000 * nTypesWithProblems) / nTypes) / 10}% of class types in model`,
       });
+      pieSliceDrillByChart.classtypes.push({ kind: "classtypes", classtypesMode: "issues" });
     }
     if (nTypesClean > 0) {
       typeSlices.push({
@@ -490,7 +901,9 @@ function renderCharts(data) {
         label: "Class types with no issues",
         sub: `${Math.round((1000 * nTypesClean) / nTypes) / 10}% of class types in model`,
       });
+      pieSliceDrillByChart.classtypes.push({ kind: "classtypes", classtypesMode: "clean" });
     }
+    lastPieSlices.classtypes = typeSlices;
     drawPie(canvasClassTypes, typeSlices, PIE_BASE_SIZE);
     fillLegend(legClassTypes, typeSlices);
   }
@@ -506,7 +919,12 @@ function renderCharts(data) {
       `${(totals.fixed_objects ?? 0).toLocaleString()} correction(s) logged`,
     ];
     if (filtered) parts.push("Filtered to match sidebar selection");
+    if (activePieDrill) parts.push("3D filtered by pie slice");
     meta.textContent = parts.join(" · ");
+  }
+
+  if (activePieDrill) {
+    emitPieDrillToViewport();
   }
 }
 
@@ -517,6 +935,7 @@ async function fetchStats() {
 
 export async function refreshIfcHealth() {
   try {
+    if (activePieDrill) clearPieDrill();
     cachedVerificationLog = null;
     const data = await fetchStats();
     const jf = typeof data.json_file === "string" ? data.json_file : null;
@@ -549,6 +968,60 @@ export function initIfcHealth() {
   const panel = document.getElementById("ifc-health-panel");
 
   void refreshIfcHealth();
+
+  window.addEventListener("dashboard:ifc-filter-visibility", (ev) => {
+    const d = /** @type {CustomEvent<{ visibility?: Record<string, number[] | null>; source?: string }>} */ (ev).detail;
+    if (!d?.visibility || typeof d.visibility !== "object") return;
+    if (d.source === "pie-drill") return;
+    lastSidebarVisibility = cloneVisibility(d.visibility);
+  });
+
+  window.addEventListener("dashboard:ifc-model-json", (ev) => {
+    const d = /** @type {CustomEvent<{ entryId?: string; jsonFile?: string }>} */ (ev).detail;
+    if (d?.jsonFile && d?.entryId) entryIdByJsonFile.set(d.jsonFile, d.entryId);
+  });
+
+  window.addEventListener("dashboard:ifc-model-unloaded", (ev) => {
+    const id = /** @type {CustomEvent<{ entryId?: string }>} */ (ev).detail?.entryId;
+    if (!id) return;
+    for (const [jf, eid] of [...entryIdByJsonFile.entries()]) {
+      if (eid === id) entryIdByJsonFile.delete(jf);
+    }
+  });
+
+  window.addEventListener("dashboard:ifc-models-cleared", () => {
+    entryIdByJsonFile.clear();
+  });
+
+  grid?.addEventListener("pointerdown", (ev) => {
+    const t = ev.target;
+    if (!(t instanceof HTMLCanvasElement)) return;
+    const key = PIE_CHART_BY_CANVAS_ID[/** @type {keyof typeof PIE_CHART_BY_CANVAS_ID} */ (t.id)];
+    if (!key) return;
+    const slices = lastPieSlices[key];
+    const drills = pieSliceDrillByChart[key];
+    if (!slices.length || !drills.length) return;
+    const idx = pieHitSliceIndex(t, ev.clientX, ev.clientY, slices);
+    if (idx === null) {
+      clearPieDrill();
+      if (cachedPayload) renderCharts(cachedPayload);
+      return;
+    }
+    const spec = drills[idx];
+    if (!spec) return;
+    activePieDrill = spec;
+    emitPieDrillToViewport();
+    if (cachedPayload) renderCharts(cachedPayload);
+  });
+
+  document.addEventListener("pointerdown", (ev) => {
+    const t = ev.target;
+    if (t instanceof HTMLCanvasElement && /^canvas-ifc-health-/.test(t.id)) return;
+    if (activePieDrill) {
+      clearPieDrill();
+      if (cachedPayload) renderCharts(cachedPayload);
+    }
+  });
 
   window.addEventListener("dashboard:ifc-health-visibility", (ev) => {
     const d = /** @type {CustomEvent<{ visibleByFile?: Record<string, number[]> }>} */ (ev).detail;

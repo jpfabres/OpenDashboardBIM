@@ -143,11 +143,12 @@ import("./ifc-health.js")
   .then((m) => m.initIfcHealth())
   .catch((err) => console.error("IFC health charts failed to load:", err));
 
-import("./ifc-element-filters.js")
-  .then((m) => m.initIfcElementFilters())
-  .catch((err) => console.error("IFC element filters failed to load:", err));
-
-/** Dynamic import so a blocked CDN / failed IFC bundle does not stop the rest of this script. */
-import("./ifc-viewer.js")
-  .then((m) => m.initIfcViewport())
-  .catch((err) => console.error("IFC viewer failed to load:", err));
+Promise.all([
+  import("./ifc-element-filters.js").then((m) => m.initIfcElementFilters()),
+  /** Dynamic import so a blocked CDN / failed IFC bundle does not stop the rest of this script. */
+  import("./ifc-viewer.js").then((m) => m.initIfcViewport()),
+])
+  .then(() => {
+    window.dispatchEvent(new CustomEvent("dashboard:ifc-filter-sync-request"));
+  })
+  .catch((err) => console.error("IFC viewer or filters failed to load:", err));

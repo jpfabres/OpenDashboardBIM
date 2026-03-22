@@ -531,16 +531,14 @@ export function initIfcViewport() {
       if (entry) {
         const jsonFile = await uploadIfcToBackend(file);
         entry.jsonFile = jsonFile ?? undefined;
-        if (jsonFile) {
-          try {
-            window.dispatchEvent(
-              new CustomEvent("dashboard:ifc-model-json", {
-                detail: { entryId: entry.id, jsonFile, label: entry.label },
-              })
-            );
-          } catch {
-            /* ignore */
-          }
+        try {
+          window.dispatchEvent(
+            new CustomEvent("dashboard:ifc-model-json", {
+              detail: { entryId: entry.id, jsonFile: jsonFile ?? null, label: entry.label },
+            })
+          );
+        } catch {
+          /* ignore */
         }
       }
     }
@@ -986,12 +984,34 @@ export function initIfcViewport() {
       .detail?.visibility;
     if (!vis || typeof vis !== "object") return;
     for (const entry of loadedModels) {
-      if (Object.prototype.hasOwnProperty.call(vis, entry.id)) {
-        applyFilterVisibilityToEntry(entry, vis[entry.id]);
+      const id = String(entry.id);
+      if (Object.prototype.hasOwnProperty.call(vis, id)) {
+        applyFilterVisibilityToEntry(entry, vis[id]);
       } else {
         applyFilterVisibilityToEntry(entry, null);
       }
     }
+  });
+
+  window.addEventListener("dashboard:ifc-filter-sync-request", () => {
+    import("./ifc-element-filters.js")
+      .then((mod) => {
+        const reg = mod.registerIfcModelFromViewer;
+        if (typeof reg !== "function") return;
+        for (const entry of loadedModels) {
+          try {
+            window.dispatchEvent(
+              new CustomEvent("dashboard:ifc-model-json", {
+                detail: { entryId: entry.id, jsonFile: entry.jsonFile ?? null, label: entry.label },
+              })
+            );
+          } catch {
+            /* ignore */
+          }
+          reg(entry.id, entry.jsonFile ?? null, entry.label);
+        }
+      })
+      .catch(() => {});
   });
 
   updateModelsCountBadge();
