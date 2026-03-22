@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <!-- Resolve bare imports for web-ifc-three (Three + web-ifc WASM API). -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+          "three/": "https://cdn.jsdelivr.net/npm/three@0.164.1/",
+          "three/examples/jsm/utils/BufferGeometryUtils": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/utils/BufferGeometryUtils.js",
+          "web-ifc": "https://cdn.jsdelivr.net/npm/web-ifc@0.0.39/web-ifc-api.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <h1 class="brand-title">Open Dashboard</h1>
+        </div>
+        <div class="topbar-meta">
+          <span class="pill" id="api-status" title="Last /api/health check">API —</span>
+          <button type="button" class="btn btn-ghost" id="btn-health" title="Ping /api/health">
+            Check API
+          </button>
+        </div>
+      </header>
+
+      <div class="main-grid">
+        <section class="panel panel-3d" aria-label="3D model viewport">
+          <div class="panel-head panel-head-3d">
+            <div class="panel-head-title">
+              <h2>3D model</h2>
+              <span class="panel-sub" id="viewport-size">— × —</span>
+            </div>
+            <div class="viewport-toolbar">
+              <input type="file" id="ifc-file-input" accept=".ifc,.IFC" hidden />
+              <button type="button" class="btn btn-ghost btn-sm" id="btn-ifc-open" title="Open a local .ifc file">
+                Open IFC
+              </button>
+              <button type="button" class="btn btn-ghost btn-sm" id="btn-ifc-sample" title="Load a small public sample (needs network)">
+                Load sample
+              </button>
+              <span class="panel-sub ifc-status" id="ifc-viewer-status">IFC — use Open or Sample</span>
+            </div>
+          </div>
+          <p class="ifc-selection" id="ifc-selection" aria-live="polite">Selection — click a surface after loading</p>
+          <div class="viewport-3d" id="viewport-3d">
+            <div class="viewport-inner" id="viewport-inner"></div>
+            <div class="viewport-placeholder">
+              <p class="viewport-hint">IFC viewer — drag &amp; drop a .ifc file here, or use Open / Sample.</p>
+              <p class="viewport-dim" id="viewport-dim-readout" aria-live="polite"></p>
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel panel-charts" aria-label="Dashboard charts">
+          <div class="panel-head">
+            <h2>Metrics</h2>
+          </div>
+          <div class="charts-stack">
+            <article class="chart-card">
+              <h3 class="chart-title">Throughput</h3>
+              <div class="chart-bars" id="chart-throughput" role="img" aria-label="Sample throughput bars"></div>
+            </article>
+            <article class="chart-card">
+              <h3 class="chart-title">Latency</h3>
+              <div class="sparkline" id="chart-latency" role="img" aria-label="Sample latency sparkline"></div>
+            </article>
+            <article class="chart-card">
+              <h3 class="chart-title">Allocation</h3>
+              <div class="donut-wrap">
+                <div class="donut" id="chart-donut" role="img" aria-label="Sample allocation"></div>
+                <ul class="donut-legend" id="donut-legend"></ul>
+              </div>
+            </article>
+          </div>
+        </aside>
+      </div>
+
+      <section class="tables-row" aria-label="Data tables">
+        <div class="panel panel-table">
+          <div class="panel-head">
+            <h2>Recent activity</h2>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Event</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="table-activity"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel panel-table">
+          <div class="panel-head">
+            <h2>Items</h2>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody id="table-items"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>
