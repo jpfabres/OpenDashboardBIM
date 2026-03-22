@@ -540,6 +540,68 @@ body {
   accent-color: var(--accent);
 }
 
+.filter-empty-hint {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.filter-details {
+  margin: 0;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border);
+}
+
+.filter-details-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.filter-details-summary::-webkit-details-marker {
+  display: none;
+}
+
+.filter-details-chevron {
+  display: inline-block;
+  font-size: 0.55rem;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+
+.filter-details[open] .filter-details-chevron {
+  transform: rotate(90deg);
+}
+
+.filter-details-title {
+  flex: 1;
+}
+
+.filter-details-count {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.filter-details-inner {
+  padding: 0 0.5rem 0.55rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .filter-rail-footer {
   flex-shrink: 0;
   margin-top: auto;
@@ -637,9 +699,9 @@ body {
   align-content: stretch;
 }
 
-/* Layout 1: stacked visuals | 3D */
+/* Layout 1: stacked visuals | 3D — wider chart column, smaller viewer is OK */
 .workspace-shell[data-layout="1"] .workspace-main {
-  grid-template-columns: minmax(160px, 240px) minmax(280px, 1fr);
+  grid-template-columns: minmax(300px, min(56vw, 620px)) minmax(200px, 1fr);
   grid-template-rows: 1fr;
   grid-template-areas:
     "stack viewer";
@@ -653,22 +715,17 @@ body {
   grid-area: viewer;
 }
 
-.workspace-shell[data-layout="1"] .visual-grid,
 .workspace-shell[data-layout="1"] .panel-boq {
   display: none;
 }
 
-/* Layout 2: 2×2 visuals + 3D on first row; BOQ full width second row */
+/* Layout 2: 3D full width top row; BOQ full width second row */
 .workspace-shell[data-layout="2"] .workspace-main {
-  grid-template-columns: minmax(200px, 1fr) minmax(280px, 1.2fr);
+  grid-template-columns: 1fr;
   grid-template-rows: minmax(260px, 1fr) auto;
   grid-template-areas:
-    "grid viewer"
-    "boq boq";
-}
-
-.workspace-shell[data-layout="2"] .visual-grid {
-  grid-area: grid;
+    "viewer"
+    "boq";
 }
 
 .workspace-shell[data-layout="2"] .viewer-region {
@@ -690,36 +747,182 @@ body {
   min-height: 0;
 }
 
-.visual-grid {
+/* Let IFC Health use most of the stack column height; placeholders stay compact */
+.visual-stack .ifc-health-panel {
+  flex: 1 1 auto;
+  min-height: min(70vh, 720px);
+}
+
+/* IFC Health: 2×2 grid of self-contained graph cards (title + donut + legend) */
+.ifc-health-panel {
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(155deg, rgba(30, 58, 95, 0.55), rgba(15, 23, 42, 0.92));
+  padding: 0.65rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.ifc-health-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.ifc-health-title {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ifc-health-meta {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: rgba(226, 232, 240, 0.88);
+}
+
+.ifc-health-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 0.65rem;
+  gap: 0.65rem 0.7rem;
   min-height: 0;
+  flex: 1 1 auto;
+  align-content: stretch;
 }
 
-.visual-card {
+.ifc-health-graph-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+  min-height: 0;
+  padding: 0.5rem 0.55rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(145deg, var(--visual-blue), var(--visual-blue-deep));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.ifc-health-caption {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  line-height: 1.25;
+}
+
+.ifc-health-pie-inner {
+  flex: 0 0 auto;
+  min-height: 150px;
+  max-height: min(30vh, 240px);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 4.5rem;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  flex: 1;
+  min-width: 0;
 }
 
-.visual-card--sm {
+.ifc-health-pie-inner canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.ifc-health-legend-wrap {
+  flex: 1 1 auto;
   min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.5);
+  padding: 0.45rem 0.5rem;
 }
 
-.visual-card-label {
-  font-size: 0.85rem;
+.ifc-health-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: #e2e8f0;
+}
+
+.ifc-health-legend-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ifc-health-legend-top {
+  display: grid;
+  grid-template-columns: 11px 1fr auto;
+  gap: 0.45rem;
+  align-items: start;
+}
+
+.ifc-health-legend-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.ifc-health-legend-text {
+  min-width: 0;
+  word-break: break-word;
+}
+
+.ifc-health-legend-text strong {
   font-weight: 700;
-  letter-spacing: 0.04em;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  font-size: 0.84rem;
+  color: #f8fafc;
+}
+
+.ifc-health-legend-sub {
+  display: block;
+  padding-left: calc(11px + 0.45rem);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: rgba(186, 198, 214, 0.98);
+  font-weight: 500;
+}
+
+.ifc-health-legend-pct {
+  font-variant-numeric: tabular-nums;
+  color: #94a3b8;
+  font-weight: 700;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.ifc-health-placeholder-text {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: rgba(203, 213, 225, 0.95);
+  font-weight: 500;
 }
 
 .panel-boq {
@@ -756,7 +959,6 @@ body {
 
   .workspace-shell[data-layout="2"] .workspace-main {
     grid-template-areas:
-      "grid"
       "viewer"
       "boq";
   }
