@@ -1,11 +1,12 @@
 {
   "folders": [
     {
-      "name": "OpenDashboardBIM",
-      "path": "."
+      "name": "OpenDashboardBIM — frontend",
+      "path": "frontend"
     }
   ],
   "settings": {
+    "terminal.integrated.cwd": "${workspaceFolder}/..",
     "files.exclude": {
       "**/__pycache__": true,
       "**/.pytest_cache": true
