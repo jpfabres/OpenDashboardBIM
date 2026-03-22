@@ -1,5 +1,5 @@
 """
-Run the API + static frontend and expose it on the internet with ngrok (HTTPS public URL).
+Run the dashboard (API + static frontend) and expose it with ngrok (HTTPS public URL).
 
 Prerequisite (one-time):
   1. Create a free account at https://dashboard.ngrok.com/signup
@@ -8,9 +8,9 @@ Prerequisite (one-time):
        ngrok config add-authtoken YOUR_TOKEN_HERE
      Or set environment variable NGROK_AUTHTOKEN to that token (no spaces).
 
-Then from the project root:
-  pip install -r requirements.txt
-  python serve_public.py
+From repo root:
+  pip install -r backend/requirements.txt
+  python backend/serve_public.py
 
 Share the printed "PUBLIC URL" with anyone; it works outside your Wi‑Fi.
 Reload is disabled here so the process stays stable with the tunnel.
@@ -21,16 +21,21 @@ from __future__ import annotations
 import atexit
 import os
 import socket
+import sys
+from pathlib import Path
 
 import uvicorn
 from pyngrok import conf, ngrok
 from pyngrok.exception import PyngrokError
 
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 DEFAULT_PORT = 8000
 HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = int(os.environ.get("PORT", str(DEFAULT_PORT)))
 
-# Optional: set via env so you never run `ngrok config` (same value as dashboard token)
 _authtoken = os.environ.get("NGROK_AUTHTOKEN")
 if _authtoken:
     conf.get_default().auth_token = _authtoken
@@ -53,7 +58,6 @@ def main() -> None:
     lan = _guess_lan_ipv4()
 
     try:
-        # Forwards public HTTPS traffic to this machine on PORT (pyngrok installs the ngrok agent if needed).
         tunnel = ngrok.connect(PORT, "http")
         public_url = tunnel.public_url
     except PyngrokError as e:
@@ -82,9 +86,9 @@ def main() -> None:
 
     print()
     print("  Open Dashboard — public via ngrok")
-    print("  ───────────────────────────────────────")
+    print(f"  ───────────────────────────────────────")
     print(f"  PUBLIC URL (share this):  {public_url}")
-    print("  ───────────────────────────────────────")
+    print(f"  ───────────────────────────────────────")
     print(f"  This PC:    http://127.0.0.1:{PORT}")
     print(f"  LAN:        http://{lan}:{PORT}")
     print(f"  API docs:   {public_url}/docs")
@@ -94,7 +98,7 @@ def main() -> None:
     print()
 
     uvicorn.run(
-        "app.main:app",
+        "backend.dashboard_server:app",
         host=HOST,
         port=PORT,
         reload=False,

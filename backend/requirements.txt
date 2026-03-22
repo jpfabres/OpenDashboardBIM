@@ -1,4 +1,8 @@
-fastapi
-uvicorn[standard]
-ifcopenshell
+# IFC API + dashboard server
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
 python-multipart
+ifcopenshell
+
+# Public HTTPS URL for demos (python backend/serve_public.py)
+pyngrok>=7.2.0

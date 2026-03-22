@@ -1,8 +1,8 @@
 """
 REST API under /api/* and static frontend at /.
 
-LAN / team access (same Wi‑Fi): from project root run
-  python serve.py
+LAN / team access (same Wi‑Fi): from repo root run
+  python backend/serve.py
 That binds 0.0.0.0 and prints a shareable http://<ip>:8000 URL.
 """
 
@@ -13,6 +13,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
+# Repo root is one level above backend/
 FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
 
 app = FastAPI(
@@ -21,7 +22,6 @@ app = FastAPI(
     version="0.1.0",
 )
 
-# Allow local dev tools / separate ports if you later split frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -46,7 +46,6 @@ async def serve_index():
     return FileResponse(FRONTEND_DIR / "index.html")
 
 
-# CSS/JS under /static/* — keeps /docs and OpenAPI working
 app.mount(
     "/static",
     StaticFiles(directory=str(FRONTEND_DIR)),
