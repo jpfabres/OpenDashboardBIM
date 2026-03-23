@@ -724,25 +724,45 @@ body {
   display: none;
 }
 
-/* Layout 2: 3D full width top row; BOQ full width second row */
+/* Layout 2: 3D + BOQ split (resizable) */
 .workspace-shell[data-layout="2"] .workspace-main {
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(260px, 1fr) auto;
-  grid-template-areas:
-    "viewer"
-    "boq";
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .workspace-shell[data-layout="2"] .viewer-region {
-  grid-area: viewer;
+  flex: 0 0 var(--boq-viewer-h, 50vh);
+  height: var(--boq-viewer-h, 50vh);
+  min-height: 160px;
+  max-height: calc(100% - 180px);
 }
 
 .workspace-shell[data-layout="2"] .panel-boq {
-  grid-area: boq;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+  height: auto;
 }
 
 .workspace-shell[data-layout="2"] .visual-stack {
   display: none;
+}
+
+.boq-splitter {
+  display: none;
+}
+
+.workspace-shell[data-layout="2"] .boq-splitter {
+  display: block;
+  flex: 0 0 10px;
+  cursor: row-resize;
+  background: rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .visual-stack {
@@ -944,8 +964,7 @@ body {
 }
 
 .panel-boq {
-  min-height: 180px;
-  max-height: 280px;
+  min-height: 240px;
 }
 
 @media (max-width: 960px) {
@@ -959,8 +978,7 @@ body {
     max-height: 40vh;
   }
 
-  .workspace-shell[data-layout="1"] .workspace-main,
-  .workspace-shell[data-layout="2"] .workspace-main {
+  .workspace-shell[data-layout="1"] .workspace-main {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-template-areas:
@@ -975,10 +993,27 @@ body {
       "viewer";
   }
 
+  .workspace-shell[data-layout="2"] .boq-splitter {
+    display: none;
+  }
+
   .workspace-shell[data-layout="2"] .workspace-main {
-    grid-template-areas:
-      "viewer"
-      "boq";
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .workspace-shell[data-layout="2"] .viewer-region {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: 220px;
+    max-height: none;
+  }
+
+  .workspace-shell[data-layout="2"] .panel-boq {
+    flex: 1 1 auto;
+    height: auto;
+    max-height: none;
   }
 }
 
@@ -1246,6 +1281,15 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: 0.7rem;
+}
+
+.data-table th[data-boq-group-col] {
+  cursor: pointer;
+  user-select: none;
+}
+
+.data-table th[data-boq-group-col].boq-group-active {
+  color: var(--accent);
 }
 
 .data-table tbody tr:hover td {

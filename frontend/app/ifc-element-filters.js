@@ -211,29 +211,6 @@ function pruneSelections() {
   for (const m of [...selectedMaterials]) {
     if (!universeMaterials.has(m)) selectedMaterials.delete(m);
   }
-
-  const storyRows = rowsFromJson(mergedObjects());
-  const classesFromStories = new Set();
-  const matsFromStoriesClasses = new Set();
-
-  for (const row of storyRows) {
-    if (passesDimension(row.story, selectedStories, universeStories)) {
-      if (row.class) classesFromStories.add(row.class);
-    }
-  }
-
-  for (const row of storyRows) {
-    if (!passesDimension(row.story, selectedStories, universeStories)) continue;
-    if (!passesDimension(row.class, selectedClasses, universeClasses)) continue;
-    for (const m of row.materialNames) matsFromStoriesClasses.add(m);
-  }
-
-  for (const c of [...selectedClasses]) {
-    if (!classesFromStories.has(c)) selectedClasses.delete(c);
-  }
-  for (const m of [...selectedMaterials]) {
-    if (!matsFromStoriesClasses.has(m)) selectedMaterials.delete(m);
-  }
 }
 
 function mergedObjects() {
@@ -279,6 +256,11 @@ function emitVisibility() {
     return;
   }
 
+  const lowerFiltersActive =
+    selectionActive(selectedStories, universeStories) ||
+    selectionActive(selectedClasses, universeClasses) ||
+    selectionActive(selectedMaterials, universeMaterials);
+
   for (const [entryId, meta] of registry) {
     const key = String(entryId);
     const jf = meta.jsonFile;
@@ -289,6 +271,10 @@ function emitVisibility() {
     }
     if (!passesEntry(key)) {
       visibility[key] = [];
+      continue;
+    }
+    if (!lowerFiltersActive) {
+      visibility[key] = null;
       continue;
     }
     const vis = visibleExpressIdsForData(data);

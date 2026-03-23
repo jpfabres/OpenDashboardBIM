@@ -1,7 +1,7 @@
 const viewport3d = document.getElementById("viewport-3d");
 const apiStatus = document.getElementById("api-status");
 const LAYOUT_KEY = "dashboard-workspace-layout";
-const LAYOUT_LABELS = ["Stack + viewer", "Grid + viewer + BOQ"];
+const LAYOUT_LABELS = ["IFC Health", "BOQ"];
 
 function dispatchViewport3dResize(rect, element) {
   window.dispatchEvent(
@@ -56,6 +56,12 @@ function setWorkspaceLayout(index) {
       dispatchViewport3dResize(viewport3d.getBoundingClientRect());
     });
   }
+
+  try {
+    window.dispatchEvent(new CustomEvent("dashboard:layout-changed", { detail: { layout: String(layout) } }));
+  } catch {
+    /* ignore */
+  }
 }
 
 function currentLayoutIndex() {
@@ -87,12 +93,98 @@ btnLayoutNext?.addEventListener("click", () => {
 
 initWorkspaceLayout();
 
-const boqRows = [
-  ["W-001", "Concrete wall type A", "124", "m²"],
-  ["S-014", "Steel beam HEA 200", "18", "m"],
-  ["F-003", "Floor finish", "420", "m²"],
-  ["C-102", "Ceiling tiles", "380", "m²"],
-];
+function initBoqSplitterResizer() {
+  const splitter = document.getElementById("boq-splitter");
+  const viewer = document.getElementById("viewer-region");
+  const main = splitter?.closest(".workspace-main");
+  if (!splitter || !viewer || !main) return;
+
+  const MIN_VIEWER_PX = 160;
+  const MIN_BOQ_PX = 240;
+
+  const STORAGE_KEY = "boq-viewer-h-px";
+
+  const getAvailable = () => {
+    const mainRect = main.getBoundingClientRect();
+    const available = Math.max(0, mainRect.height);
+    const splitterRect = splitter.getBoundingClientRect();
+    const splitterH = splitterRect.height || 10;
+    return { available, splitterH };
+  };
+
+  const setViewerHeightPx = (px) => {
+    const clamped = Math.max(MIN_VIEWER_PX, px);
+    viewer.style.flexBasis = `${clamped}px`;
+    viewer.style.height = `${clamped}px`;
+    main.style.setProperty("--boq-viewer-h", `${clamped}px`);
+  };
+
+  const applySavedSize = () => {
+    let saved = 0;
+    try {
+      saved = Number(localStorage.getItem(STORAGE_KEY));
+    } catch {
+      /* ignore */
+    }
+    if (!Number.isFinite(saved) || saved <= 0) return;
+    const { available, splitterH } = getAvailable();
+    const maxViewer = Math.max(MIN_VIEWER_PX, available - splitterH - MIN_BOQ_PX);
+    setViewerHeightPx(Math.min(saved, maxViewer));
+  };
+
+  let dragging = false;
+  let startY = 0;
+  let startViewerH = 0;
+
+  const onPointerDown = (e) => {
+    if (e.button !== 0) return;
+    if (workspaceShell?.dataset.layout !== "2") return;
+    dragging = true;
+    startY = e.clientY;
+    startViewerH = viewer.getBoundingClientRect().height;
+    try {
+      splitter.setPointerCapture(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    e.preventDefault();
+  };
+
+  const onPointerMove = (e) => {
+    if (!dragging) return;
+    const dy = e.clientY - startY;
+    const { available, splitterH } = getAvailable();
+    const maxViewer = Math.max(MIN_VIEWER_PX, available - splitterH - MIN_BOQ_PX);
+    const nextViewerH = startViewerH - dy;
+    setViewerHeightPx(Math.min(maxViewer, nextViewerH));
+  };
+
+  const onPointerUp = () => {
+    if (!dragging) return;
+    dragging = false;
+    try {
+      const saved = Math.round(viewer.getBoundingClientRect().height);
+      localStorage.setItem(STORAGE_KEY, String(saved));
+    } catch {
+      /* ignore */
+    }
+  };
+
+  splitter.addEventListener("pointerdown", onPointerDown);
+  window.addEventListener("pointermove", onPointerMove);
+  window.addEventListener("pointerup", onPointerUp);
+  window.addEventListener("pointercancel", onPointerUp);
+
+  window.addEventListener("dashboard:layout-changed", (ev) => {
+    if (ev?.detail?.layout !== "2") return;
+    applySavedSize();
+  });
+
+  // Initial apply.
+  if (workspaceShell?.dataset.layout === "2") applySavedSize();
+}
+
+initBoqSplitterResizer();
 
 function fillTable(tbodyId, rows, badgeCol) {
   const tb = document.getElementById(tbodyId);
@@ -118,7 +210,399 @@ function escapeHtml(s) {
   return div.innerHTML;
 }
 
-fillTable("table-boq", boqRows, -1);
+/** @type {Map<string, { label: string, jsonFile: string | null }>} */
+const boqModelRegistry = new Map();
+/** @type {Map<string, Record<string, unknown>>} */
+const boqJsonByFile = new Map();
+/** @type {Map<string, Promise<void>>} */
+const boqJsonLoadPromises = new Map();
+/** @type {Map<string, Set<number>>} */
+let boqVisibleByFile = new Map();
+
+const BOQ_DEFAULT_GROUP_BY = ["name", "class", "material", "unit"];
+/** @type {Array<"name" | "class" | "material" | "unit">} */
+let boqGroupBy = [...BOQ_DEFAULT_GROUP_BY];
+let boqBaseDirty = true;
+/** @type {Array<{
+ *   baseKey: string,
+ *   class: string,
+ *   name: string,
+ *   material: string,
+ *   unit: string,
+ *   qty: number,
+ *   weightKg: number,
+ *   expressIds: Set<number>
+ * }>} */
+let boqBaseGroups = [];
+
+const NO_STORY = "(Unassigned storey)";
+const NO_MATERIAL = "(No material)";
+
+function materialNamesFromEntry(materials) {
+  if (!Array.isArray(materials)) return [];
+  const out = [];
+  for (const m of materials) {
+    if (!m || typeof m !== "object") continue;
+    const o = /** @type {Record<string, unknown>} */ (m);
+    if (o.type === "IfcMaterial" && typeof o.name === "string" && o.name) {
+      out.push(o.name);
+    } else if (o.type === "IfcMaterialList" && Array.isArray(o.materials)) {
+      for (const n of o.materials) {
+        if (typeof n === "string" && n) out.push(n);
+      }
+    } else if (Array.isArray(o.layers)) {
+      for (const layer of o.layers) {
+        if (layer && typeof layer === "object" && typeof layer.material === "string" && layer.material) {
+          out.push(layer.material);
+        }
+      }
+    } else if (typeof o.material === "string" && o.material) {
+      out.push(o.material);
+    }
+  }
+  return [...new Set(out)];
+}
+
+/**
+ * Pick a main quantity for first BOQ population.
+ * Priority: Volume (m3), Area (m2), Length (m), else Count (pcs).
+ * @param {Record<string, unknown> | null} dims
+ */
+function quantityFromDimensions(dims) {
+  if (!dims || typeof dims !== "object") return { qty: 1, unit: "pcs" };
+  const qOrder = [
+    { keys: ["NetVolume", "GrossVolume", "Volume"], unit: "m3" },
+    { keys: ["NetArea", "GrossArea", "Area"], unit: "m2" },
+    { keys: ["Length", "NetLength", "GrossLength"], unit: "m" },
+  ];
+  for (const { keys, unit } of qOrder) {
+    for (const k of keys) {
+      const v = Number(dims[k]);
+      if (Number.isFinite(v) && v > 0) return { qty: v, unit };
+    }
+  }
+  return { qty: 1, unit: "pcs" };
+}
+
+/**
+ * @param {number} value
+ */
+function fmtQty(value) {
+  const rounded3 = Math.round(value * 1000) / 1000;
+  return Number.isInteger(rounded3) ? String(rounded3) : rounded3.toFixed(3).replace(/\.?0+$/, "");
+}
+
+/**
+ * @param {Record<string, unknown> | null} dims
+ */
+function weightFromDimensions(dims) {
+  if (!dims || typeof dims !== "object") return null;
+  const keys = ["NetWeight", "GrossWeight", "Weight", "Mass"];
+  for (const k of keys) {
+    const v = Number(dims[k]);
+    if (Number.isFinite(v) && v > 0) return v;
+  }
+  return null;
+}
+
+/**
+ * @param {Record<string, unknown> | null} psets
+ */
+function weightFromPsets(psets) {
+  if (!psets || typeof psets !== "object") return null;
+  for (const pset of Object.values(psets)) {
+    if (!pset || typeof pset !== "object") continue;
+    const pObj = /** @type {Record<string, unknown>} */ (pset);
+    for (const [k, raw] of Object.entries(pObj)) {
+      if (/massdensity/i.test(k)) continue;
+      if (!/(^|_)(netweight|grossweight|weight|mass)$/i.test(k)) continue;
+      const v = Number(raw);
+      if (Number.isFinite(v) && v > 0) return v;
+    }
+  }
+  return null;
+}
+
+/**
+ * @param {Record<string, unknown>} obj
+ */
+function weightFromObject(obj) {
+  const dims = obj.dimensions && typeof obj.dimensions === "object"
+    ? /** @type {Record<string, unknown>} */ (obj.dimensions)
+    : null;
+  const fromDims = weightFromDimensions(dims);
+  if (fromDims != null) return fromDims;
+  const psets = obj.psets && typeof obj.psets === "object"
+    ? /** @type {Record<string, unknown>} */ (obj.psets)
+    : null;
+  return weightFromPsets(psets);
+}
+
+function arraysEqual(a, b) {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
+}
+
+/**
+ * Builds base aggregation from currently visible expressIDs.
+ * We aggregate at the smallest “stable” level: (class, name, material, unit).
+ */
+function rebuildBoqBaseGroups() {
+  /** @type {Map<string, {
+   *   baseKey: string,
+   *   class: string,
+   *   name: string,
+   *   material: string,
+   *   unit: string,
+   *   qty: number,
+   *   weightKg: number,
+   *   expressIds: Set<number>
+   * }>} */
+  const baseMap = new Map();
+
+  for (const [, meta] of boqModelRegistry) {
+    const jf = meta.jsonFile;
+    if (!jf) continue;
+    const data = boqJsonByFile.get(jf);
+    if (!data) continue;
+    const visibleIds = boqVisibleByFile.get(jf);
+
+    for (const [expressId, raw] of Object.entries(data)) {
+      const expressIdNum = Number(expressId);
+      if (visibleIds && !visibleIds.has(expressIdNum)) continue;
+      if (!raw || typeof raw !== "object") continue;
+
+      const obj = /** @type {Record<string, unknown>} */ (raw);
+      const cls = typeof obj.class === "string" && obj.class ? obj.class : "IfcElement";
+      const name = typeof obj.name === "string" && obj.name.trim() ? obj.name.trim() : cls;
+      const mats = materialNamesFromEntry(obj.materials);
+      const material = mats.length ? mats.join(", ") : NO_MATERIAL;
+
+      const q = quantityFromDimensions(
+        obj.dimensions && typeof obj.dimensions === "object"
+          ? /** @type {Record<string, unknown>} */ (obj.dimensions)
+          : null
+      );
+      const weightKg = weightFromObject(obj) ?? 0;
+
+      const baseKey = [cls, name, material, q.unit].join("|");
+      const existing = baseMap.get(baseKey);
+      if (existing) {
+        existing.qty += q.qty;
+        existing.weightKg += weightKg;
+        existing.expressIds.add(expressIdNum);
+      } else {
+        const group = {
+          baseKey,
+          class: cls,
+          name,
+          material,
+          unit: q.unit,
+          qty: q.qty,
+          weightKg,
+          expressIds: new Set([expressIdNum]),
+        };
+        baseMap.set(baseKey, group);
+      }
+    }
+  }
+
+  boqBaseGroups = [...baseMap.values()].sort((a, b) => {
+    const k1 = `${a.class}|${a.name}|${a.material}|${a.unit}`;
+    const k2 = `${b.class}|${b.name}|${b.material}|${b.unit}`;
+    return k1.localeCompare(k2);
+  });
+  boqBaseDirty = false;
+}
+
+/**
+ * Build the display rows based on current groupBy columns.
+ * Output columns: Name, Class, Material, Qty, Unit, Weight(kg)
+ * @returns {Array<[string, string, string, string, string, string]>}
+ */
+function buildBoqDisplayRows() {
+  if (boqBaseDirty) rebuildBoqBaseGroups();
+
+  /** @type {Map<string, { name: string, class: string, material: string, unit: string, qty: number, weightKg: number }>} */
+  const grouped = new Map();
+
+  const groupIncludes = (col) => boqGroupBy.includes(col);
+  const nameVal = (g) => (groupIncludes("name") ? g.name : "—");
+  const classVal = (g) => (groupIncludes("class") ? g.class : "—");
+  const materialVal = (g) => (groupIncludes("material") ? g.material : "—");
+
+  for (const g of boqBaseGroups) {
+    // Ensure unit never “mixes” across groups.
+    const unit = g.unit;
+    const key = [nameVal(g), classVal(g), materialVal(g), unit].join("|");
+    const existing = grouped.get(key);
+    if (existing) {
+      existing.qty += g.qty;
+      existing.weightKg += g.weightKg;
+    } else {
+      grouped.set(key, {
+        name: nameVal(g),
+        class: classVal(g),
+        material: materialVal(g),
+        unit,
+        qty: g.qty,
+        weightKg: g.weightKg,
+      });
+    }
+  }
+
+  const rows = [...grouped.values()]
+    .sort((a, b) => {
+      const k1 = `${a.class}|${a.name}|${a.material}|${a.unit}`;
+      const k2 = `${b.class}|${b.name}|${b.material}|${b.unit}`;
+      return k1.localeCompare(k2);
+    })
+    .map((g) => [
+      g.name,
+      g.class,
+      g.material,
+      fmtQty(g.qty),
+      g.unit,
+      g.weightKg > 0 ? fmtQty(g.weightKg) : "—",
+    ]);
+
+  if (rows.length === 0) {
+    return [[
+      "Load IFC model(s) to populate the BOQ table",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+    ]];
+  }
+
+  return rows;
+}
+
+function syncBoqHeaderActiveState() {
+  const tbody = document.getElementById("table-boq");
+  const table = tbody?.closest("table");
+  if (!table) return;
+  const ths = table.querySelectorAll("thead th[data-boq-group-col]");
+  ths.forEach((th) => {
+    const col = th.dataset.boqGroupCol;
+    th.classList.toggle("boq-group-active", boqGroupBy.includes(col));
+  });
+}
+
+function renderBoqTable() {
+  syncBoqHeaderActiveState();
+  fillTable("table-boq", buildBoqDisplayRows(), -1);
+}
+
+function setBoqGroupBy(col) {
+  const defaultMode = [...BOQ_DEFAULT_GROUP_BY];
+  const next = col === "unit" ? ["unit"] : [col, "unit"];
+  boqGroupBy = arraysEqual(boqGroupBy, next) ? defaultMode : next;
+  renderBoqTable();
+}
+
+async function ensureBoqJsonLoaded(jsonFile) {
+  if (!jsonFile || boqJsonByFile.has(jsonFile)) return;
+  let p = boqJsonLoadPromises.get(jsonFile);
+  if (!p) {
+    p = fetch(`/download/${encodeURIComponent(jsonFile)}`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`${res.status}`);
+        return res.json();
+      })
+      .then((data) => {
+        if (data && typeof data === "object") boqJsonByFile.set(jsonFile, data);
+      })
+      .catch((e) => {
+        console.warn("[BOQ] Could not load JSON:", jsonFile, e);
+      })
+      .finally(() => {
+        boqJsonLoadPromises.delete(jsonFile);
+      });
+    boqJsonLoadPromises.set(jsonFile, p);
+  }
+  await p;
+}
+
+window.addEventListener("dashboard:ifc-model-json", (ev) => {
+  const d = /** @type {CustomEvent<{ entryId?: unknown; jsonFile?: unknown; label?: unknown }>} */ (ev).detail;
+  if (!d) return;
+  const entryId = d.entryId != null && d.entryId !== "" ? String(d.entryId) : "";
+  if (!entryId) return;
+  const jsonFile = d.jsonFile != null && d.jsonFile !== "" ? String(d.jsonFile) : null;
+  const label = typeof d.label === "string" && d.label ? d.label : entryId;
+  boqModelRegistry.set(entryId, { label, jsonFile });
+  void (async () => {
+    if (jsonFile) await ensureBoqJsonLoaded(jsonFile);
+    boqBaseDirty = true;
+    renderBoqTable();
+  })();
+});
+
+window.addEventListener("dashboard:ifc-model-unloaded", (ev) => {
+  const d = /** @type {CustomEvent<{ entryId?: unknown }>} */ (ev).detail;
+  const id = d?.entryId != null && d.entryId !== "" ? String(d.entryId) : "";
+  if (!id) return;
+  boqModelRegistry.delete(id);
+
+  const usedFiles = new Set(
+    [...boqModelRegistry.values()].map((x) => x.jsonFile).filter((x) => typeof x === "string" && x.length > 0)
+  );
+  for (const f of [...boqJsonByFile.keys()]) {
+    if (!usedFiles.has(f)) boqJsonByFile.delete(f);
+  }
+  boqBaseDirty = true;
+  renderBoqTable();
+});
+
+window.addEventListener("dashboard:ifc-models-cleared", () => {
+  boqModelRegistry.clear();
+  boqJsonByFile.clear();
+  boqVisibleByFile = new Map();
+  boqBaseGroups = [];
+  boqBaseDirty = true;
+  renderBoqTable();
+});
+
+window.addEventListener("dashboard:ifc-health-visibility", (ev) => {
+  const detail = /** @type {CustomEvent<{ visibleByFile?: Record<string, number[]> }>} */ (ev).detail;
+  const byFile = detail?.visibleByFile;
+  if (!byFile || typeof byFile !== "object") return;
+  const next = new Map();
+  for (const [jsonFile, ids] of Object.entries(byFile)) {
+    if (!Array.isArray(ids)) continue;
+    next.set(
+      jsonFile,
+      new Set(ids.map((x) => Number(x)).filter((x) => Number.isFinite(x)))
+    );
+  }
+  boqVisibleByFile = next;
+  boqBaseDirty = true;
+  renderBoqTable();
+});
+
+(function initBoqGroupingByColumns() {
+  const tbody = document.getElementById("table-boq");
+  const table = tbody?.closest("table");
+  const thead = table?.querySelector("thead");
+  if (!thead) return;
+
+  thead.addEventListener("click", (ev) => {
+    const target = ev.target;
+    const th = target instanceof Element ? target.closest("th[data-boq-group-col]") : null;
+    if (!th) return;
+    const col = th instanceof HTMLElement ? th.dataset.boqGroupCol : null;
+    if (!col) return;
+    setBoqGroupBy(col);
+  });
+})();
+
+renderBoqTable();
 
 async function fetchJson(path) {
   const res = await fetch(path);

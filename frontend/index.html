@@ -257,7 +257,7 @@
             </section>
           </div>
 
-          <div class="viewer-region" aria-label="3D viewport">
+          <div class="viewer-region" id="viewer-region" aria-label="3D viewport">
             <div class="viewport-3d" id="viewport-3d">
               <div class="viewport-inner" id="viewport-inner"></div>
               <div class="viewport-placeholder">
@@ -269,7 +269,16 @@
             </div>
           </div>
 
-          <section class="panel panel-boq" data-layout-panel="2" aria-hidden="true">
+          <div
+            class="boq-splitter"
+            id="boq-splitter"
+            role="separator"
+            aria-orientation="horizontal"
+            aria-label="Resize BOQ panel"
+            title="Drag to resize"
+          ></div>
+
+          <section class="panel panel-boq" id="boq-panel" data-layout-panel="2" aria-hidden="true">
             <div class="panel-head">
               <h2>Bill of quantities</h2>
             </div>
@@ -277,10 +286,12 @@
               <table class="data-table">
                 <thead>
                   <tr>
-                    <th>Reference</th>
-                    <th>Description</th>
+                    <th data-boq-group-col="name">Name</th>
+                    <th data-boq-group-col="class">Class</th>
+                    <th data-boq-group-col="material">Material</th>
                     <th>Qty</th>
-                    <th>Unit</th>
+                    <th data-boq-group-col="unit">Unit</th>
+                    <th>Weight (kg)</th>
                   </tr>
                 </thead>
                 <tbody id="table-boq"></tbody>
