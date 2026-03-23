@@ -54,6 +54,14 @@
         <div class="topbar-right">
           <div class="topbar-meta">
             <span class="pill" id="api-status" title="Last /api/health check">API —</span>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="btn-generate-report"
+              title="Generate report for current page"
+            >
+              Generate report
+            </button>
             <button type="button" class="btn btn-ghost" id="btn-health" title="Ping /api/health">
               Check API
             </button>
@@ -64,6 +72,49 @@
       <div class="workspace-shell" id="workspace-shell" data-layout="1">
         <aside class="filter-rail" aria-label="Filters and layout">
           <div class="filter-rail-inner">
+            <div class="filter-rail-top">
+              <div class="layout-nav" role="group" aria-label="Workspace layout">
+                <button
+                  type="button"
+                  class="layout-nav-btn"
+                  id="btn-layout-prev"
+                  title="Previous layout"
+                  aria-controls="workspace-shell"
+                >
+                  <span class="layout-nav-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M14 6l-6 6 6 6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <span class="layout-nav-label" id="layout-label">Stack + viewer</span>
+                <button
+                  type="button"
+                  class="layout-nav-btn"
+                  id="btn-layout-next"
+                  title="Next layout"
+                  aria-controls="workspace-shell"
+                >
+                  <span class="layout-nav-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M10 6l6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
             <div class="filter-rail-ifc">
               <h2 class="filter-rail-ifc-title">IFC</h2>
               <details class="ifc-models-section" id="ifc-models-section" open>
@@ -151,47 +202,6 @@
               </details>
             </div>
             <div class="filter-rail-footer">
-              <div class="layout-nav" role="group" aria-label="Workspace layout">
-                <button
-                  type="button"
-                  class="layout-nav-btn"
-                  id="btn-layout-prev"
-                  title="Previous layout"
-                  aria-controls="workspace-shell"
-                >
-                  <span class="layout-nav-icon" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M14 6l-6 6 6 6"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </button>
-                <span class="layout-nav-label" id="layout-label">Stack + viewer</span>
-                <button
-                  type="button"
-                  class="layout-nav-btn"
-                  id="btn-layout-next"
-                  title="Next layout"
-                  aria-controls="workspace-shell"
-                >
-                  <span class="layout-nav-icon" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M10 6l6 6-6 6"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </div>
               <a class="info-link" href="/static/info.html">Info</a>
             </div>
           </div>
@@ -390,6 +400,7 @@
                     <th data-wbs-group-col="class">Class</th>
                     <th data-wbs-group-col="material">Material</th>
                     <th id="wbs-col-combined-title">WBS</th>
+                    <th>Units</th>
                   </tr>
                 </thead>
                 <tbody id="table-wbs"></tbody>
@@ -400,6 +411,7 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
     <script src="/static/app/app.js" type="module"></script>
   </body>
 </html>

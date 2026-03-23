@@ -49,7 +49,7 @@ const entryIdByJsonFile = /** @type {Map<string, string>} */ (new Map());
  *   classes?: string[],
  *   attribute?: string,
  *   attributes?: string[],
- *   objectsMode?: "corrected" | "clean",
+ *   objectsMode?: "corrected" | "clean" | "notfixable",
  *   classtypesMode?: "issues" | "clean",
  * }} PieDrillSpec
  */
@@ -123,21 +123,58 @@ function expressIdsForGlobalIds(modelJson, gids) {
 }
 
 /**
+ * @param {unknown} raw
+ * @returns {{ dimensionFixable: true | false | null | undefined, attributes: string[] }}
+ */
+function parseVerificationRecord(raw) {
+  if (Array.isArray(raw)) {
+    return {
+      // Legacy format: array meant "fixed attributes for this object".
+      dimensionFixable: true,
+      attributes: raw.filter((x) => typeof x === "string" && x.length > 0),
+    };
+  }
+  if (!raw || typeof raw !== "object") {
+    return { dimensionFixable: undefined, attributes: [] };
+  }
+  const obj = /** @type {Record<string, unknown>} */ (raw);
+  const fixVal = obj["Dimension Fixable"];
+  const dimensionFixable = fixVal === true ? true : fixVal === false ? false : fixVal === null ? null : undefined;
+  const attrsRaw = obj.Attributes;
+  const attributes = Array.isArray(attrsRaw)
+    ? attrsRaw.filter((x) => typeof x === "string" && x.length > 0)
+    : [];
+  return { dimensionFixable, attributes };
+}
+
+/**
+ * @param {Record<string, unknown>} verificationLog
+ * @param {(rec: { className: string, gid: string, dimensionFixable: true | false | null | undefined, attributes: string[] }) => void} visit
+ */
+function forEachVerificationRecord(verificationLog, visit) {
+  if (!verificationLog || typeof verificationLog !== "object") return;
+  for (const [className, entries] of Object.entries(verificationLog)) {
+    if (!Array.isArray(entries)) continue;
+    for (const entry of entries) {
+      if (!entry || typeof entry !== "object") continue;
+      for (const [gid, raw] of Object.entries(entry)) {
+        if (!gid) continue;
+        const parsed = parseVerificationRecord(raw);
+        visit({ className, gid, ...parsed });
+      }
+    }
+  }
+}
+
+/**
  * @param {Record<string, unknown>} verificationLog
  * @returns {Set<string>}
  */
 function allCorrectedGlobalIds(verificationLog) {
   const gids = new Set();
-  if (!verificationLog || typeof verificationLog !== "object") return gids;
-  for (const entries of Object.values(verificationLog)) {
-    if (!Array.isArray(entries)) continue;
-    for (const entry of entries) {
-      if (!entry || typeof entry !== "object") continue;
-      for (const gid of Object.keys(entry)) {
-        if (gid) gids.add(gid);
-      }
-    }
-  }
+  forEachVerificationRecord(verificationLog, ({ gid, dimensionFixable }) => {
+    if (dimensionFixable === true) gids.add(gid);
+  });
   return gids;
 }
 
@@ -148,14 +185,9 @@ function allCorrectedGlobalIds(verificationLog) {
  */
 function globalIdsFixedForClass(verificationLog, className) {
   const gids = new Set();
-  const entries = verificationLog[className];
-  if (!Array.isArray(entries)) return gids;
-  for (const entry of entries) {
-    if (!entry || typeof entry !== "object") continue;
-    for (const gid of Object.keys(entry)) {
-      if (gid) gids.add(gid);
-    }
-  }
+  forEachVerificationRecord(verificationLog, (rec) => {
+    if (rec.className === className && rec.dimensionFixable === true) gids.add(rec.gid);
+  });
   return gids;
 }
 
@@ -193,17 +225,9 @@ function expressIdsForMergedClassFixSlices(modelJson, verificationLog, className
  */
 function globalIdsWithAttributeFix(verificationLog, attrName) {
   const gids = new Set();
-  if (!verificationLog || typeof verificationLog !== "object") return gids;
-  for (const entries of Object.values(verificationLog)) {
-    if (!Array.isArray(entries)) continue;
-    for (const entry of entries) {
-      if (!entry || typeof entry !== "object") continue;
-      for (const [gid, attrs] of Object.entries(entry)) {
-        if (!Array.isArray(attrs)) continue;
-        if (attrs.includes(attrName)) gids.add(gid);
-      }
-    }
-  }
+  forEachVerificationRecord(verificationLog, ({ gid, dimensionFixable, attributes }) => {
+    if (dimensionFixable === true && attributes.includes(attrName)) gids.add(gid);
+  });
   return gids;
 }
 
@@ -214,23 +238,29 @@ function globalIdsWithAttributeFix(verificationLog, attrName) {
  */
 function globalIdsWithAnyAttributeFix(verificationLog, attrNames) {
   const gids = new Set();
-  if (!verificationLog || typeof verificationLog !== "object") return gids;
   const set = new Set(attrNames);
-  for (const entries of Object.values(verificationLog)) {
-    if (!Array.isArray(entries)) continue;
-    for (const entry of entries) {
-      if (!entry || typeof entry !== "object") continue;
-      for (const [gid, attrs] of Object.entries(entry)) {
-        if (!Array.isArray(attrs)) continue;
-        for (const a of attrs) {
-          if (typeof a === "string" && set.has(a)) {
-            gids.add(gid);
-            break;
-          }
-        }
+  forEachVerificationRecord(verificationLog, ({ gid, dimensionFixable, attributes }) => {
+    if (dimensionFixable !== true) return;
+    for (const a of attributes) {
+      if (set.has(a)) {
+        gids.add(gid);
+        break;
       }
     }
-  }
+  });
+  return gids;
+}
+
+/**
+ * @param {Record<string, unknown>} verificationLog
+ * @param {true | false | null} state
+ * @returns {Set<string>}
+ */
+function globalIdsForDimensionFixable(verificationLog, state) {
+  const gids = new Set();
+  forEachVerificationRecord(verificationLog, ({ gid, dimensionFixable }) => {
+    if (dimensionFixable === state) gids.add(gid);
+  });
   return gids;
 }
 
@@ -264,20 +294,17 @@ function expressIdsForPieDrill(spec, modelJson, verificationLog, ctx) {
       return [];
     }
     case "objects": {
-      const corrected = allCorrectedGlobalIds(verificationLog);
+      const corrected = globalIdsForDimensionFixable(verificationLog, true);
+      const clean = globalIdsForDimensionFixable(verificationLog, null);
+      const notFixable = globalIdsForDimensionFixable(verificationLog, false);
       if (spec.objectsMode === "corrected") {
         return expressIdsForGlobalIds(modelJson, corrected);
       }
       if (spec.objectsMode === "clean") {
-        const out = [];
-        for (const [k, v] of Object.entries(modelJson)) {
-          const id = Number(k);
-          if (!v || typeof v !== "object") continue;
-          const gid = /** @type {{ globalId?: string }} */ (v).globalId;
-          if (typeof gid !== "string" || !gid) continue;
-          if (!corrected.has(gid)) out.push(id);
-        }
-        return out;
+        return expressIdsForGlobalIds(modelJson, clean);
+      }
+      if (spec.objectsMode === "notfixable") {
+        return expressIdsForGlobalIds(modelJson, notFixable);
       }
       return [];
     }
@@ -442,48 +469,50 @@ function applyVisibilityToPayload(data, modelJson, visibleIds, verificationLog) 
 
   /** @type {Record<string, number>} */
   const fixedPerClass = {};
+  /** @type {Record<string, number>} */
+  const unfixablePerClass = {};
+  let fixedObjects = 0;
+  let cleanObjects = 0;
+  let notFixableObjects = 0;
   if (verificationLog && typeof verificationLog === "object") {
-    for (const [cls, entries] of Object.entries(verificationLog)) {
-      if (!Array.isArray(entries)) continue;
-      let n = 0;
-      for (const entry of entries) {
-        if (!entry || typeof entry !== "object") continue;
-        for (const [gid] of Object.entries(entry)) {
-          if (visibleGids.has(gid)) n++;
-        }
+    forEachVerificationRecord(verificationLog, ({ className, gid, dimensionFixable }) => {
+      if (!visibleGids.has(gid)) return;
+      if (dimensionFixable === true) {
+        fixedPerClass[className] = (fixedPerClass[className] || 0) + 1;
+        fixedObjects += 1;
+      } else if (dimensionFixable === null) {
+        cleanObjects += 1;
+      } else if (dimensionFixable === false) {
+        unfixablePerClass[className] = (unfixablePerClass[className] || 0) + 1;
+        notFixableObjects += 1;
       }
-      if (n > 0) fixedPerClass[cls] = n;
-    }
+    });
   }
 
   /** @type {Record<string, number>} */
   const attrCounts = {};
   if (verificationLog && typeof verificationLog === "object") {
-    for (const entries of Object.values(verificationLog)) {
-      if (!Array.isArray(entries)) continue;
-      for (const entry of entries) {
-        if (!entry || typeof entry !== "object") continue;
-        for (const [gid, attrs] of Object.entries(entry)) {
-          if (!visibleGids.has(gid)) continue;
-          if (!Array.isArray(attrs)) continue;
-          for (const a of attrs) {
-            if (typeof a === "string" && a) attrCounts[a] = (attrCounts[a] || 0) + 1;
-          }
-        }
+    forEachVerificationRecord(verificationLog, ({ gid, dimensionFixable, attributes }) => {
+      if (!visibleGids.has(gid) || dimensionFixable !== true) return;
+      for (const a of attributes) {
+        attrCounts[a] = (attrCounts[a] || 0) + 1;
       }
-    }
+    });
   }
 
-  /** @type {{ class: string, total: number, fixed: number, pct_fixed: number }[]} */
+  /** @type {{ class: string, total: number, fixed: number, unfixable: number, issue_count: number, pct_fixed: number }[]} */
   const by_class = [];
   for (const [cls, total] of Object.entries(classTotals).sort((a, b) => b[1] - a[1])) {
     const rawFixed = fixedPerClass[cls] ?? 0;
+    const rawUnfixable = unfixablePerClass[cls] ?? 0;
     const fixed = Math.min(rawFixed, total);
+    const unfixable = Math.min(rawUnfixable, Math.max(0, total - fixed));
+    const issue_count = fixed + unfixable;
     const pct = total ? Math.round((1000 * fixed) / total) / 10 : 0;
-    by_class.push({ class: cls, total, fixed, pct_fixed: pct });
+    by_class.push({ class: cls, total, fixed, unfixable, issue_count, pct_fixed: pct });
   }
 
-  const total_fixed_objects = by_class.reduce((s, x) => s + x.fixed, 0);
+  const total_fixed_objects = fixedObjects;
 
   const totalAttrDefects = Object.values(attrCounts).reduce((s, x) => s + x, 0);
   /** @type {{ attribute: string, count: number, pct_of_fixes: number }[]} */
@@ -502,6 +531,8 @@ function applyVisibilityToPayload(data, modelJson, visibleIds, verificationLog) 
       ...baseTotals,
       objects: totalObjects,
       fixed_objects: total_fixed_objects,
+      clean_objects: cleanObjects,
+      not_fixable_objects: notFixableObjects,
     },
     by_class,
     by_attribute,
@@ -845,7 +876,8 @@ function renderCharts(data) {
   /* 3 — Objects: corrected vs no correction needed. */
   const nObj = totals.objects ?? 0;
   const nFixed = totals.fixed_objects ?? 0;
-  const nClean = Math.max(0, nObj - nFixed);
+  const nNotFixable = totals.not_fixable_objects ?? 0;
+  const nClean = Math.max(0, totals.clean_objects ?? (nObj - nFixed - nNotFixable));
   if (nObj <= 0) {
     pieSliceDrillByChart.objects = [];
     lastPieSlices.objects = [];
@@ -870,6 +902,14 @@ function renderCharts(data) {
       });
       pieSliceDrillByChart.objects.push({ kind: "objects", objectsMode: "clean" });
     }
+    if (nNotFixable > 0) {
+      objectSlices.push({
+        value: nNotFixable,
+        label: "Not fixable",
+        sub: `${Math.round((1000 * nNotFixable) / nObj) / 10}% of all objects`,
+      });
+      pieSliceDrillByChart.objects.push({ kind: "objects", objectsMode: "notfixable" });
+    }
     lastPieSlices.objects = objectSlices;
     drawPie(canvasObjects, objectSlices, PIE_BASE_SIZE);
     fillLegend(legObjects, objectSlices);
@@ -877,7 +917,7 @@ function renderCharts(data) {
 
   /* 4 — Class types: IFC class names with ≥1 problem vs types with zero problems in this model. */
   const nTypes = byClassArr.length;
-  const nTypesWithProblems = byClassArr.filter((x) => x.fixed > 0).length;
+  const nTypesWithProblems = byClassArr.filter((x) => (Number(x.issue_count) || Number(x.fixed) || 0) > 0).length;
   const nTypesClean = Math.max(0, nTypes - nTypesWithProblems);
   if (nTypes <= 0) {
     pieSliceDrillByChart.classtypes = [];

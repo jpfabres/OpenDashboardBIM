@@ -9,6 +9,7 @@ That binds 0.0.0.0 and prints a shareable http://<ip>:8000 URL.
 import json
 import os
 import shutil
+import subprocess
 import sys
 import tempfile
 import traceback
@@ -31,9 +32,11 @@ from wbs_apply import apply_wbs  # noqa: E402
 UPLOAD_DIR = BACKEND_DIR / "uploads"
 RESULTS_DIR = BACKEND_DIR / "results"
 FIX_RESULTS_DIR = BACKEND_DIR / "fix results"
+REPORTS_DIR = BACKEND_DIR / "reports"
 UPLOAD_DIR.mkdir(exist_ok=True)
 RESULTS_DIR.mkdir(exist_ok=True)
 FIX_RESULTS_DIR.mkdir(exist_ok=True)
+REPORTS_DIR.mkdir(exist_ok=True)
 
 # This package directory is the static root (index.html, app/, etc.)
 FRONTEND_DIR = Path(__file__).resolve().parent
@@ -105,6 +108,17 @@ def _latest_results_json_path():
     json_files.sort(key=lambda f: os.path.getmtime(str(RESULTS_DIR / f)), reverse=True)
     return RESULTS_DIR / json_files[0]
 
+def _latest_verification_log_path():
+    """Newest verification log in fix results/ (supports legacy + per-model naming)."""
+    candidates = [p for p in FIX_RESULTS_DIR.iterdir() if p.is_file() and p.name.endswith("_verification_log.json")]
+    canonical = FIX_RESULTS_DIR / "verification_log.json"
+    if canonical.is_file():
+        candidates.append(canonical)
+    if not candidates:
+        return None
+    candidates.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return candidates[0]
+
 
 def _aggregate_ifc_health(results_path: Path) -> dict:
     """
@@ -122,20 +136,35 @@ def _aggregate_ifc_health(results_path: Path) -> dict:
         if isinstance(cls, str) and cls:
             class_totals[cls] = class_totals.get(cls, 0) + 1
 
-    log_path = FIX_RESULTS_DIR / "verification_log.json"
+    log_path = _latest_verification_log_path()
     fixed_per_class: dict[str, int] = {}
+    unfixable_per_class: dict[str, int] = {}
     attr_counts: dict[str, int] = {}
-    if log_path.exists():
+    fixed_objects = 0
+    clean_objects = 0
+    not_fixable_objects = 0
+    if log_path and log_path.exists():
         with open(log_path, "r", encoding="utf-8") as f:
             log = json.load(f)
         for cls, entries in log.items():
             if not isinstance(entries, list):
                 continue
-            fixed_per_class[cls] = len(entries)
             for entry in entries:
                 if not isinstance(entry, dict):
                     continue
-                for _gid, attrs in entry.items():
+                for _gid, rec in entry.items():
+                    if not isinstance(rec, dict):
+                        continue
+                    fixable = rec.get("Dimension Fixable")
+                    attrs = rec.get("Attributes")
+                    if fixable is True:
+                        fixed_per_class[cls] = fixed_per_class.get(cls, 0) + 1
+                        fixed_objects += 1
+                    elif fixable is False:
+                        unfixable_per_class[cls] = unfixable_per_class.get(cls, 0) + 1
+                        not_fixable_objects += 1
+                    elif fixable is None:
+                        clean_objects += 1
                     if not isinstance(attrs, list):
                         continue
                     for a in attrs:
@@ -147,17 +176,22 @@ def _aggregate_ifc_health(results_path: Path) -> dict:
     by_class = []
     for cls, total in sorted(class_totals.items(), key=lambda x: (-x[1], x[0])):
         raw_fixed = fixed_per_class.get(cls, 0)
+        raw_unfixable = unfixable_per_class.get(cls, 0)
         # Log may be from a different run than the newest results JSON — avoid % > 100.
         fixed = min(raw_fixed, total)
+        unfixable = min(raw_unfixable, max(0, total - fixed))
+        issue_count = fixed + unfixable
         pct = round(100.0 * fixed / total, 1) if total else 0.0
         by_class.append({
             "class": cls,
             "total": total,
             "fixed": fixed,
+            "unfixable": unfixable,
+            "issue_count": issue_count,
             "pct_fixed": pct,
         })
 
-    total_fixed_objects = sum(row["fixed"] for row in by_class)
+    total_fixed_objects = fixed_objects
 
     total_attr_defects = sum(attr_counts.values())
     by_attribute = []
@@ -174,7 +208,9 @@ def _aggregate_ifc_health(results_path: Path) -> dict:
         "totals": {
             "objects": total_objects,
             "fixed_objects": total_fixed_objects,
-            "has_verification_log": log_path.exists(),
+            "clean_objects": clean_objects,
+            "not_fixable_objects": not_fixable_objects,
+            "has_verification_log": bool(log_path and log_path.exists()),
         },
         "by_class": by_class,
         "by_attribute": by_attribute,
@@ -225,8 +261,8 @@ def ifc_reset():
 @app.get("/api/ifc-verification-log")
 def ifc_verification_log():
     """Fix Quantities log (used client-side to refine charts when element filters are active)."""
-    log_path = FIX_RESULTS_DIR / "verification_log.json"
-    if not log_path.is_file():
+    log_path = _latest_verification_log_path()
+    if not log_path or not log_path.is_file():
         return JSONResponse({})
     try:
         with open(log_path, "r", encoding="utf-8") as f:
@@ -256,6 +292,88 @@ def ifc_health_stats():
     except Exception as e:
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"IFC health aggregation failed: {str(e)}") from e
+
+
+@app.post("/api/reports/ifc-health-3d-pdf")
+def export_ifc_health_3d_pdf():
+    """
+    Experimental server-side 3D PDF export.
+    Requires env var IFC_3D_PDF_COMMAND with placeholders:
+      {results_json}, {verification_log}, {output_pdf}
+    """
+    results_path = _latest_results_json_path()
+    if not results_path:
+        raise HTTPException(status_code=404, detail="No IFC JSON in backend/results — upload an .ifc first.")
+
+    verification_log = _latest_verification_log_path()
+    command_templates = [
+        os.environ.get("IFC_3D_PDF_COMMAND", "").strip(),
+        os.environ.get("IFC_3D_PDF_FALLBACK_COMMAND", "").strip(),
+    ]
+    command_templates = [c for c in command_templates if c]
+    if not command_templates:
+        return JSONResponse(
+            status_code=501,
+            content={
+                "success": False,
+                "detail": (
+                    "3D PDF exporter is not configured on the server. "
+                    "Set IFC_3D_PDF_COMMAND (and optionally IFC_3D_PDF_FALLBACK_COMMAND) "
+                    "to enable this experimental option."
+                ),
+                "expected_placeholders": ["{results_json}", "{verification_log}", "{output_pdf}"],
+            },
+        )
+
+    output_name = f"{results_path.stem}_ifc_health_3d_report.pdf"
+    output_pdf = REPORTS_DIR / output_name
+    if output_pdf.exists():
+        try:
+            output_pdf.unlink()
+        except OSError:
+            traceback.print_exc()
+
+    last_error = ""
+    for idx, command_template in enumerate(command_templates):
+        try:
+            command = command_template.format(
+                results_json=str(results_path),
+                verification_log=str(verification_log) if verification_log else "",
+                output_pdf=str(output_pdf),
+            )
+        except Exception as e:
+            last_error = f"Invalid 3D PDF command template #{idx + 1}: {str(e)}"
+            continue
+
+        try:
+            proc = subprocess.run(
+                command,
+                shell=True,
+                capture_output=True,
+                text=True,
+                timeout=300,
+                cwd=str(BACKEND_DIR),
+            )
+        except subprocess.TimeoutExpired as e:
+            last_error = f"3D PDF exporter timed out on command #{idx + 1}: {str(e)}"
+            continue
+        except Exception as e:
+            traceback.print_exc()
+            last_error = f"3D PDF exporter failed to start on command #{idx + 1}: {str(e)}"
+            continue
+
+        if proc.returncode == 0 and output_pdf.exists():
+            return FileResponse(str(output_pdf), media_type="application/pdf", filename=output_name)
+
+        stderr = (proc.stderr or "").strip()
+        stdout = (proc.stdout or "").strip()
+        out = stderr or stdout
+        if proc.returncode != 0:
+            last_error = f"3D PDF exporter failed on command #{idx + 1} (code {proc.returncode}): {out[:500]}"
+        elif not output_pdf.exists():
+            last_error = f"3D PDF exporter command #{idx + 1} ended without creating output file."
+
+    raise HTTPException(status_code=500, detail=last_error or "3D PDF export failed.")
 
 
 @app.post("/verify")

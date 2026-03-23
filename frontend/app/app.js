@@ -1,5 +1,6 @@
 const viewport3d = document.getElementById("viewport-3d");
 const apiStatus = document.getElementById("api-status");
+const reportBtn = document.getElementById("btn-generate-report");
 const LAYOUT_KEY = "dashboard-workspace-layout";
 const LAYOUT_LABELS = ["IFC Health", "BOQ", "WBS"];
 
@@ -207,6 +208,30 @@ function fillTable(tbodyId, rows, badgeCol) {
     .join("");
 }
 
+/**
+ * Converts selected express IDs into per-entry selection payload for the 3D viewport.
+ * @param {Set<number>} expressIds
+ * @returns {Record<string, number[]>}
+ */
+function buildSelectionByEntry(expressIds) {
+  /** @type {Record<string, number[]>} */
+  const out = {};
+  if (!(expressIds instanceof Set) || expressIds.size === 0) return out;
+  for (const [entryId, meta] of boqModelRegistry) {
+    const jf = meta.jsonFile;
+    if (!jf) continue;
+    const data = boqJsonByFile.get(jf);
+    if (!data) continue;
+    const ids = [];
+    for (const key of Object.keys(data)) {
+      const n = Number(key);
+      if (Number.isFinite(n) && expressIds.has(n)) ids.push(n);
+    }
+    if (ids.length > 0) out[entryId] = ids;
+  }
+  return out;
+}
+
 function escapeHtml(s) {
   const div = document.createElement("div");
   div.textContent = s;
@@ -237,6 +262,10 @@ let boqBaseDirty = true;
  *   expressIds: Set<number>
  * }>} */
 let boqBaseGroups = [];
+/** @type {Array<{ cells: [string, string, string, string, string, string], expressIds: Set<number> }>} */
+let boqRenderedRows = [];
+/** @type {Array<{ memberBaseKeys: string[] }>} */
+let wbsRenderedRows = [];
 
 /** @type {Array<"name" | "class" | "material" | "qty" | "unit" | "weight">} */
 const BOQ_FILTER_COLS = ["name", "class", "material", "qty", "unit", "weight"];
@@ -261,10 +290,13 @@ let wbsHeaderB = "WBS B";
 let wbsHeaderE = "WBS E";
 let wbsCombinedHeader = "WBS";
 const WBS_MERGE_SEPARATOR = " || ";
+const WBS_UNIT_OPTIONS = ["UN", "KG", "M2", "M3", "M"];
 /** @type {Array<{ value: string, b: string, e: string }>} */
 let wbsCombinedOptions = [];
 /** @type {Map<string, { b: string, e: string }>} */
 let wbsCombinedLookup = new Map();
+/** @type {Map<string, string>} */
+const wbsUnitsByBaseKey = new Map();
 const WBS_DEFAULT_GROUP_BY = ["name", "class", "material"];
 /** @type {Array<"name" | "class" | "material">} */
 let wbsGroupBy = [...WBS_DEFAULT_GROUP_BY];
@@ -384,6 +416,19 @@ function normalizeFilter(s) {
   return String(s ?? "").trim().toLowerCase();
 }
 
+/**
+ * Remove unstable name suffixes so grouping by name is stable.
+ * @param {unknown} rawName
+ * @param {string} fallback
+ */
+function normalizeElementName(rawName, fallback) {
+  const base = typeof rawName === "string" && rawName.trim() ? rawName.trim() : fallback;
+  // Some exports append an express/element ID at the end of the name, e.g. "...:2357346".
+  const withoutTrailingId = base.replace(/:\s*\d+\s*$/, "");
+  const compact = withoutTrailingId.replace(/\s{2,}/g, " ").trim();
+  return compact || fallback;
+}
+
 function baseGroupMatchesFilters(g) {
   const f = boqFilters;
   const nameF = normalizeFilter(f.name);
@@ -433,7 +478,7 @@ function rebuildBoqBaseGroups() {
 
       const obj = /** @type {Record<string, unknown>} */ (raw);
       const cls = typeof obj.class === "string" && obj.class ? obj.class : "IfcElement";
-      const name = typeof obj.name === "string" && obj.name.trim() ? obj.name.trim() : cls;
+      const name = normalizeElementName(obj.name, cls);
       const mats = materialNamesFromEntry(obj.materials);
       const material = mats.length ? mats.join(", ") : NO_MATERIAL;
 
@@ -477,12 +522,12 @@ function rebuildBoqBaseGroups() {
 /**
  * Build the display rows based on current groupBy columns.
  * Output columns: Name, Class, Material, Qty, Unit, Weight(kg)
- * @returns {Array<[string, string, string, string, string, string]>}
+ * @returns {Array<{ cells: [string, string, string, string, string, string], expressIds: Set<number> }>}
  */
 function buildBoqDisplayRows() {
   if (boqBaseDirty) rebuildBoqBaseGroups();
 
-  /** @type {Map<string, { name: string, class: string, material: string, unit: string, qty: number, weightKg: number }>} */
+  /** @type {Map<string, { name: string, class: string, material: string, unit: string, qty: number, weightKg: number, expressIds: Set<number> }>} */
   const grouped = new Map();
 
   const groupIncludes = (col) => boqGroupBy.includes(col);
@@ -501,6 +546,7 @@ function buildBoqDisplayRows() {
     if (existing) {
       existing.qty += g.qty;
       existing.weightKg += g.weightKg;
+      for (const x of g.expressIds) existing.expressIds.add(x);
     } else {
       grouped.set(key, {
         name: nameVal(g),
@@ -509,6 +555,7 @@ function buildBoqDisplayRows() {
         unit,
         qty: g.qty,
         weightKg: g.weightKg,
+        expressIds: new Set(g.expressIds),
       });
     }
   }
@@ -519,24 +566,30 @@ function buildBoqDisplayRows() {
       const k2 = `${b.class}|${b.name}|${b.material}|${b.unit}`;
       return k1.localeCompare(k2);
     })
-    .map((g) => [
-      g.name,
-      g.class,
-      g.material,
-      fmtQty(g.qty),
-      g.unit,
-      g.weightKg > 0 ? fmtQty(g.weightKg) : "—",
-    ]);
+    .map((g) => ({
+      cells: [
+        g.name,
+        g.class,
+        g.material,
+        fmtQty(g.qty),
+        g.unit,
+        g.weightKg > 0 ? fmtQty(g.weightKg) : "—",
+      ],
+      expressIds: g.expressIds,
+    }));
 
   if (rows.length === 0) {
-    return [[
-      "Load IFC model(s) to populate the BOQ table",
-      "—",
-      "—",
-      "—",
-      "—",
-      "—",
-    ]];
+    return [{
+      cells: [
+        "Load IFC model(s) to populate the BOQ table",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+      ],
+      expressIds: new Set(),
+    }];
   }
 
   return rows;
@@ -570,7 +623,18 @@ function syncBoqHeaderFilterState() {
 function renderBoqTable() {
   syncBoqHeaderActiveState();
   syncBoqHeaderFilterState();
-  fillTable("table-boq", buildBoqDisplayRows(), -1);
+  boqRenderedRows = buildBoqDisplayRows();
+  fillTable(
+    "table-boq",
+    boqRenderedRows.map((x) => x.cells),
+    -1
+  );
+  const tb = document.getElementById("table-boq");
+  if (tb) {
+    [...tb.querySelectorAll("tr")].forEach((tr, idx) => {
+      tr.setAttribute("data-row-index", String(idx));
+    });
+  }
   renderWbsTable();
 }
 
@@ -830,6 +894,21 @@ function buildWbsCombinedSelectHtml(selectedValue) {
   `;
 }
 
+function buildWbsUnitSelectHtml(selectedValue) {
+  const optionsHtml = WBS_UNIT_OPTIONS
+    .map((unit) => {
+      const selected = unit === selectedValue ? ' selected="selected"' : "";
+      return `<option value="${escapeHtml(unit)}"${selected}>${escapeHtml(unit)}</option>`;
+    })
+    .join("");
+  return `
+    <select class="wbs-select" data-wbs-axis="unit">
+      <option value="">Select Unit</option>
+      ${optionsHtml}
+    </select>
+  `;
+}
+
 function renderWbsTable() {
   const tb = document.getElementById("table-wbs");
   if (!tb) return;
@@ -837,10 +916,13 @@ function renderWbsTable() {
   const combinedTitle = document.getElementById("wbs-col-combined-title");
   if (combinedTitle) combinedTitle.textContent = wbsCombinedHeader;
   const rows = buildWbsDisplayRows();
+  wbsRenderedRows = rows.map((r) => ({ memberBaseKeys: [...r.memberBaseKeys] }));
   if (rows.length === 0) {
+    wbsRenderedRows = [];
     tb.innerHTML = `
       <tr>
         <td>Load IFC model(s) to populate the WBS mapping table</td>
+        <td>—</td>
         <td>—</td>
         <td>—</td>
         <td>—</td>
@@ -849,30 +931,118 @@ function renderWbsTable() {
     return;
   }
   tb.innerHTML = rows
-    .map((row) => {
+    .map((row, idx) => {
       const memberMappings = row.memberBaseKeys.map((k) => wbsMappingsByBaseKey.get(k) ?? { b: "", e: "" });
       const firstB = memberMappings[0]?.b ?? "";
       const firstE = memberMappings[0]?.e ?? "";
       const hasUniformPair = memberMappings.every((m) => (m.b ?? "") === firstB && (m.e ?? "") === firstE);
       const combinedValue = hasUniformPair ? formatWbsCombinedValue(firstB, firstE) : "";
+      const memberUnits = row.memberBaseKeys.map((k) => wbsUnitsByBaseKey.get(k) ?? "");
+      const firstUnit = memberUnits[0] ?? "";
+      const hasUniformUnit = memberUnits.every((u) => u === firstUnit);
+      const unitValue = hasUniformUnit ? firstUnit : "";
 
       if (hasUniformPair) {
         for (const baseKey of row.memberBaseKeys) {
           wbsMappingsByBaseKey.set(baseKey, { b: firstB, e: firstE });
         }
       }
+      if (hasUniformUnit) {
+        for (const baseKey of row.memberBaseKeys) {
+          if (unitValue) wbsUnitsByBaseKey.set(baseKey, unitValue);
+          else wbsUnitsByBaseKey.delete(baseKey);
+        }
+      }
       return `
-        <tr data-base-keys="${escapeHtml(row.memberBaseKeys.join(","))}">
+        <tr data-row-index="${idx}" data-base-keys="${escapeHtml(row.memberBaseKeys.join(","))}">
           <td>${escapeHtml(row.name)}</td>
           <td>${escapeHtml(row.class)}</td>
           <td>${escapeHtml(row.material)}</td>
           <td title="${hasUniformPair ? "" : "Multiple values in group; setting a value will apply to all items in this group."}">
             ${buildWbsCombinedSelectHtml(combinedValue)}
           </td>
+          <td title="${hasUniformUnit ? "" : "Multiple values in group; setting a value will apply to all items in this group."}">
+            ${buildWbsUnitSelectHtml(unitValue)}
+          </td>
         </tr>
       `;
     })
     .join("");
+}
+
+/**
+ * @param {string[]} baseKeys
+ * @returns {Set<number>}
+ */
+function collectExpressIdsForBaseKeys(baseKeys) {
+  const keys = new Set(baseKeys);
+  const ids = new Set();
+  if (keys.size === 0) return ids;
+  if (boqBaseDirty) rebuildBoqBaseGroups();
+  for (const g of boqBaseGroups) {
+    if (!keys.has(g.baseKey)) continue;
+    for (const id of g.expressIds) ids.add(id);
+  }
+  return ids;
+}
+
+function initTableToViewportSelection() {
+  const tbodyBoq = document.getElementById("table-boq");
+  const tbodyWbs = document.getElementById("table-wbs");
+
+  /**
+   * @param {"boq"|"wbs"} tableKey
+   * @param {HTMLElement} tbody
+   * @param {HTMLElement} row
+   * @param {Set<number>} ids
+   */
+  function applyTableSelection(tableKey, tbody, row, ids) {
+    const idx = row.getAttribute("data-row-index") ?? "";
+    const already = row.classList.contains("table-row-selected");
+    const sameSelected = already && tbody.getAttribute("data-selected-row-index") === idx;
+    tbody.querySelectorAll("tr.table-row-selected").forEach((x) => x.classList.remove("table-row-selected"));
+    tbody.removeAttribute("data-selected-row-index");
+    if (sameSelected || ids.size === 0) {
+      window.dispatchEvent(
+        new CustomEvent("dashboard:ifc-select-expressids", {
+          detail: { selectionByEntry: {} },
+        })
+      );
+      return;
+    }
+    row.classList.add("table-row-selected");
+    tbody.setAttribute("data-selected-row-index", idx);
+    const selectionByEntry = buildSelectionByEntry(ids);
+    window.dispatchEvent(
+      new CustomEvent("dashboard:ifc-select-expressids", {
+        detail: { selectionByEntry, sourceTable: tableKey },
+      })
+    );
+  }
+
+  tbodyBoq?.addEventListener("click", (ev) => {
+    const target = ev.target;
+    if (!(target instanceof Element)) return;
+    const tr = target.closest("tr[data-row-index]");
+    if (!(tr instanceof HTMLElement) || !tbodyBoq.contains(tr)) return;
+    const idx = Number(tr.getAttribute("data-row-index"));
+    const row = Number.isFinite(idx) ? boqRenderedRows[idx] : null;
+    if (!row) return;
+    applyTableSelection("boq", tbodyBoq, tr, row.expressIds);
+  });
+
+  tbodyWbs?.addEventListener("click", (ev) => {
+    const target = ev.target;
+    if (!(target instanceof Element)) return;
+    if (target.closest("select, button, input, option")) return;
+    const tr = target.closest("tr[data-row-index]");
+    if (!(tr instanceof HTMLElement) || !tbodyWbs.contains(tr)) return;
+    const idx = Number(tr.getAttribute("data-row-index"));
+    const row = Number.isFinite(idx) ? wbsRenderedRows[idx] : null;
+    if (!row) return;
+    const ids = collectExpressIdsForBaseKeys(row.memberBaseKeys);
+    applyTableSelection("wbs", tbodyWbs, tr, ids);
+  });
 }
 
 function getWorksheetCellString(worksheet, address) {
@@ -902,11 +1072,11 @@ function readWbsOptionsFromWorksheet(worksheet) {
   const firstDataRow = 4;
   const headerRow = 3;
   const headerB = getWorksheetCellString(worksheet, `B${headerRow}`) || "WBS B";
-  const headerE = getWorksheetCellString(worksheet, `E${headerRow}`) || "WBS E";
+  const headerE = getWorksheetCellString(worksheet, `D${headerRow}`) || "WBS D";
   const combinedHeader = `${headerB} + ${headerE}`;
   for (let row = firstDataRow; row <= range.e.r + 1; row++) {
     const b = getWorksheetCellString(worksheet, `B${row}`);
-    const e = getWorksheetCellString(worksheet, `E${row}`);
+    const e = getWorksheetCellString(worksheet, `D${row}`);
     if (b) setB.add(b);
     if (b && e) {
       const existing = eByB.get(b) ?? new Set();
@@ -1005,7 +1175,7 @@ if (wbsTableBody) {
     const target = ev.target;
     if (!(target instanceof HTMLSelectElement)) return;
     const axis = target.dataset.wbsAxis;
-    if (axis !== "combined") return;
+    if (axis !== "combined" && axis !== "unit") return;
     const tr = target.closest("tr[data-base-keys]");
     if (!(tr instanceof HTMLElement)) return;
     const baseKeysRaw = tr.dataset.baseKeys;
@@ -1014,10 +1184,18 @@ if (wbsTableBody) {
       .split(",")
       .map((x) => x.trim())
       .filter((x) => x.length > 0);
-    const selectedCombined = target.value || "";
-    const pair = wbsCombinedLookup.get(selectedCombined) ?? { b: "", e: "" };
+    if (axis === "combined") {
+      const selectedCombined = target.value || "";
+      const pair = wbsCombinedLookup.get(selectedCombined) ?? { b: "", e: "" };
+      for (const baseKey of baseKeys) {
+        wbsMappingsByBaseKey.set(baseKey, { b: pair.b, e: pair.e });
+      }
+      return;
+    }
+    const selectedUnit = target.value || "";
     for (const baseKey of baseKeys) {
-      wbsMappingsByBaseKey.set(baseKey, { b: pair.b, e: pair.e });
+      if (selectedUnit) wbsUnitsByBaseKey.set(baseKey, selectedUnit);
+      else wbsUnitsByBaseKey.delete(baseKey);
     }
   });
 }
@@ -1038,6 +1216,7 @@ if (wbsTableBody) {
 })();
 
 renderBoqTable();
+initTableToViewportSelection();
 
 async function fetchJson(path) {
   const res = await fetch(path);
@@ -1058,6 +1237,207 @@ document.getElementById("btn-health")?.addEventListener("click", async () => {
   }
 });
 
+function canvasToJpegDataUrl(canvas, quality = 0.92) {
+  if (!(canvas instanceof HTMLCanvasElement)) return null;
+  try {
+    const dataUrl = canvas.toDataURL("image/jpeg", quality);
+    return typeof dataUrl === "string" && dataUrl.startsWith("data:image/") ? dataUrl : null;
+  } catch {
+    return null;
+  }
+}
+
+function formatNow() {
+  try {
+    return new Date().toLocaleString();
+  } catch {
+    return String(new Date());
+  }
+}
+
+function readLegendRows(legendId) {
+  const root = document.getElementById(legendId);
+  if (!(root instanceof HTMLElement)) return [];
+  const rows = [];
+  root.querySelectorAll(".ifc-health-legend-item").forEach((item) => {
+    const label =
+      item.querySelector(".ifc-health-legend-text strong")?.textContent?.trim() ||
+      item.querySelector(".ifc-health-legend-text")?.textContent?.trim() ||
+      "";
+    const pct =
+      item.querySelector(".ifc-health-legend-pct")?.textContent?.trim() || "";
+    const sub = item.querySelector(".ifc-health-legend-sub")?.textContent?.trim() || "";
+    if (!label && !pct && !sub) return;
+    rows.push({ label, pct, sub });
+  });
+  return rows;
+}
+
+function downloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+async function generateHealthPdfReport() {
+  const jspdfNs = window.jspdf;
+  const JsPdfCtor = jspdfNs?.jsPDF;
+  if (!JsPdfCtor) {
+    throw new Error("PDF library not available in browser.");
+  }
+
+  const doc = new JsPdfCtor({ orientation: "portrait", unit: "pt", format: "a4" });
+  const pageW = doc.internal.pageSize.getWidth();
+  const pageH = doc.internal.pageSize.getHeight();
+  const margin = 28;
+  const contentW = pageW - margin * 2;
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(17);
+  doc.text("IFC Health Report", margin, 32);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(10);
+  doc.setTextColor(90, 100, 118);
+  doc.text(`Generated: ${formatNow()}`, margin, 48);
+
+  const healthMeta = document.getElementById("ifc-health-meta")?.textContent?.trim();
+  if (healthMeta) {
+    const wrapped = doc.splitTextToSize(healthMeta, contentW);
+    doc.text(wrapped, margin, 63);
+  }
+
+  const viewerCanvas = document.querySelector("#viewport-inner canvas");
+  const viewerImg = canvasToJpegDataUrl(viewerCanvas instanceof HTMLCanvasElement ? viewerCanvas : null, 0.9);
+  const viewerTop = 80;
+  const viewerH = 260;
+  if (viewerImg) {
+    doc.setTextColor(15, 23, 42);
+    doc.setFontSize(11);
+    doc.text("IFC viewport snapshot", margin, viewerTop - 8);
+    doc.addImage(viewerImg, "JPEG", margin, viewerTop, contentW, viewerH, undefined, "FAST");
+  } else {
+    doc.setDrawColor(160, 170, 185);
+    doc.rect(margin, viewerTop, contentW, viewerH);
+    doc.setTextColor(120, 128, 140);
+    doc.text("No IFC viewport image available.", margin + 10, viewerTop + 20);
+  }
+
+  const pieCharts = [
+    { id: "canvas-ifc-health-objects", label: "Objects", legendId: "legend-ifc-health-objects" },
+    { id: "canvas-ifc-health-classtypes", label: "Class types", legendId: "legend-ifc-health-classtypes" },
+    { id: "canvas-ifc-health-attr", label: "By corrected attribute", legendId: "legend-ifc-health-attr" },
+    { id: "canvas-ifc-health-class", label: "By class (with problems)", legendId: "legend-ifc-health-class" },
+  ];
+
+  const gridTop = viewerTop + viewerH + 34;
+  const gap = 16;
+  const cardW = (contentW - gap) / 2;
+  const cardH = 190;
+  doc.setTextColor(15, 23, 42);
+  doc.setFontSize(11);
+  doc.text("Health charts (2D)", margin, gridTop - 9);
+
+  pieCharts.forEach((chart, idx) => {
+    const col = idx % 2;
+    const row = Math.floor(idx / 2);
+    const x = margin + col * (cardW + gap);
+    const y = gridTop + row * (cardH + gap);
+    const canvas = document.getElementById(chart.id);
+    const img = canvasToJpegDataUrl(canvas instanceof HTMLCanvasElement ? canvas : null, 0.92);
+    const legendRows = readLegendRows(chart.legendId);
+
+    doc.setDrawColor(210, 216, 224);
+    doc.rect(x, y, cardW, cardH);
+    doc.setTextColor(30, 41, 59);
+    doc.setFontSize(10);
+    doc.text(chart.label, x + 8, y + 14);
+
+    const pieSize = Math.min(cardW - 16, 90);
+    const pieX = x + (cardW - pieSize) / 2;
+    const pieY = y + 20;
+    if (img) {
+      // Keep width==height so pies stay visually round (2D donut, not stretched).
+      doc.addImage(img, "JPEG", pieX, pieY, pieSize, pieSize, undefined, "FAST");
+    } else {
+      doc.setTextColor(120, 128, 140);
+      doc.text("Chart unavailable", x + 8, y + 34);
+    }
+
+    const legendStartY = pieY + pieSize + 10;
+    const legendMaxY = y + cardH - 8;
+    const legendMaxLines = Math.max(1, Math.floor((legendMaxY - legendStartY) / 10));
+    let lineY = legendStartY;
+    if (!legendRows.length) {
+      doc.setTextColor(120, 128, 140);
+      doc.setFontSize(8.5);
+      doc.text("- No legend values", x + 8, lineY);
+      return;
+    }
+
+    const visibleRows = legendRows.slice(0, legendMaxLines);
+    visibleRows.forEach((row) => {
+      const text = `- ${row.label || "(Unnamed)"}${row.pct ? `: ${row.pct}` : ""}`;
+      doc.setTextColor(51, 65, 85);
+      doc.setFontSize(8.5);
+      doc.text(text, x + 8, lineY);
+      lineY += 10;
+    });
+    if (legendRows.length > visibleRows.length && lineY <= legendMaxY) {
+      doc.setTextColor(120, 128, 140);
+      doc.setFontSize(8.2);
+      doc.text(`... +${legendRows.length - visibleRows.length} more`, x + 8, lineY);
+    }
+  });
+
+  doc.setFontSize(8.5);
+  doc.setTextColor(130, 138, 150);
+  doc.text(
+    "Note: pie charts are exported as 2D graphics; interactive 3D PDF embedding for IFC is not available in this frontend export yet.",
+    margin,
+    pageH - 16
+  );
+  doc.save(`ifc-health-report-${new Date().toISOString().slice(0, 10)}.pdf`);
+}
+
+async function handleGenerateReportClick() {
+  const layout = workspaceShell?.dataset.layout ?? "1";
+  if (!(reportBtn instanceof HTMLButtonElement)) return;
+  reportBtn.disabled = true;
+  const baseLabel = reportBtn.textContent;
+  reportBtn.textContent = "Generating…";
+
+  try {
+    if (layout !== "1") {
+      throw new Error("Report for this page is not implemented yet. Switch to IFC Health for now.");
+    }
+    await generateHealthPdfReport();
+    const headerIfc = document.getElementById("header-ifc-summary");
+    if (headerIfc) {
+      headerIfc.textContent = "Report generated — IFC snapshot and 2D charts.";
+      headerIfc.classList.remove("err");
+    }
+  } finally {
+    reportBtn.disabled = false;
+    reportBtn.textContent = baseLabel || "Generate report";
+  }
+}
+
+reportBtn?.addEventListener("click", () => {
+  void handleGenerateReportClick().catch((err) => {
+    const message = err instanceof Error ? err.message : "Could not generate report.";
+    const headerIfc = document.getElementById("header-ifc-summary");
+    if (headerIfc) {
+      headerIfc.textContent = `Report error: ${message}`;
+      headerIfc.classList.add("err");
+    }
+  });
+});
+
 import("./ifc-health.js")
   .then((m) => m.initIfcHealth())
   .catch((err) => console.error("IFC health charts failed to load:", err));
@@ -1076,6 +1456,7 @@ document.getElementById("btn-wbs-apply")?.addEventListener("click", async () => 
       material: row.material,
       wbs_b: firstB,
       wbs_e: firstE,
+      unit: wbsUnitsByBaseKey.get(row.memberBaseKeys[0]) ?? "",
     });
   }
   if (rules.length === 0) {

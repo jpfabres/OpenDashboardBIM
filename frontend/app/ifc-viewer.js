@@ -115,7 +115,8 @@ export function initIfcViewport() {
     camera = new THREE.PerspectiveCamera(45, 1, 0.1, 5000);
     camera.position.set(40, 40, 40);
 
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    // Keep drawing buffer so PDF export can capture the current 3D frame.
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     if ("outputColorSpace" in renderer) {
       renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -1012,6 +1013,24 @@ export function initIfcViewport() {
         }
       })
       .catch(() => {});
+  });
+
+  window.addEventListener("dashboard:ifc-select-expressids", (ev) => {
+    const detail =
+      /** @type {CustomEvent<{ selectionByEntry?: Record<string, number[]> }>} */ (ev).detail;
+    const byEntry = detail?.selectionByEntry;
+    if (!byEntry || typeof byEntry !== "object") return;
+    const next = new Map();
+    for (const [entryId, ids] of Object.entries(byEntry)) {
+      if (!Array.isArray(ids) || ids.length === 0) continue;
+      const entry = loadedModels.find((x) => String(x.id) === String(entryId));
+      if (!entry) continue;
+      const clean = ids.map((x) => Number(x)).filter((x) => Number.isFinite(x));
+      if (clean.length > 0) next.set(entry.id, new Set(clean));
+    }
+    selectedByModel = next;
+    refreshSelectionHighlight();
+    updateSelectionSummaryFromIds();
   });
 
   updateModelsCountBadge();

@@ -4231,15 +4231,6 @@
             }
         }
     ],
-    "IfcWall": [
-        {
-            "2HCTLeZVv1jA6TIVQ44$xn": {
-                "Dimension Fixable": null,
-                "Material Calcuable": true,
-                "Attributes": []
-            }
-        }
-    ],
     "IfcElementAssembly": [
         {
             "2HCTLeZVv1jA6TIVQ451zE": {
@@ -4816,28 +4807,42 @@
             }
         },
         {
-            "2HCTLeZVv1jA6TIVQ44$x$": {
+            "1FvNkk41X6sww0YIj_Ti7y": {
                 "Dimension Fixable": null,
                 "Material Calcuable": true,
                 "Attributes": []
             }
         },
         {
-            "2HCTLeZVv1jA6TIVQ44$xy": {
+            "1FvNkk41X6sww0YIj_Ti62": {
                 "Dimension Fixable": null,
                 "Material Calcuable": true,
                 "Attributes": []
             }
         },
         {
-            "2HCTLeZVv1jA6TIVQ44$xz": {
+            "1FvNkk41X6sww0YIj_Ti9H": {
                 "Dimension Fixable": null,
                 "Material Calcuable": true,
                 "Attributes": []
             }
         },
         {
-            "2HCTLeZVv1jA6TIVQ44$xw": {
+            "1FvNkk41X6sww0YIj_Ti9O": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1FvNkk41X6sww0YIj_Ti90": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1FvNkk41X6sww0YIj_TiAb": {
                 "Dimension Fixable": null,
                 "Material Calcuable": true,
                 "Attributes": []

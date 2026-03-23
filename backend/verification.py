@@ -75,6 +75,10 @@ def run_verification(input_json_path: str, output_dir: str) -> dict:
 
     with open(log_path, "w", encoding="utf-8") as f:
         json.dump(defect_dict_class, f, indent=4)
+    # Keep a canonical filename for consumers that read a fixed path.
+    canonical_log_path = os.path.join(output_dir, "verification_log.json")
+    with open(canonical_log_path, "w", encoding="utf-8") as f:
+        json.dump(defect_dict_class, f, indent=4)
 
     defects_found = sum(len(v) for v in defect_dict_class.values())
     return {

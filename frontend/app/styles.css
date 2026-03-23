@@ -25,24 +25,32 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
+  height: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: radial-gradient(ellipse 100% 90% at 50% -15%, #1a2d4a 0%, var(--bg) 50%);
   color: var(--text);
   line-height: 1.45;
+  overflow: hidden;
 }
 
 .app {
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 100vh;
   min-height: 0;
   padding: 0 1rem 1.25rem;
   margin: 0 auto;
   width: 100%;
+  overflow: hidden;
 }
 
 /* —— Header —— */
@@ -266,6 +274,13 @@ body {
   flex-direction: column;
   flex: 1;
   min-height: 0;
+}
+
+.filter-rail-top {
+  flex-shrink: 0;
+  padding: 0.75rem 0.65rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .filter-rail-ifc {
@@ -842,8 +857,7 @@ body {
   gap: 0.4rem;
   min-height: 0;
   flex: 1 1 auto;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -877,8 +891,11 @@ body {
   gap: 0.65rem 0.72rem;
   min-height: 0;
   flex: 1 1 auto;
+  max-height: 100%;
   align-content: stretch;
   align-items: stretch;
+  overflow: auto;
+  padding-right: 0.1rem;
 }
 
 /* Stacked: caption → pie → legend; card fills grid cell */
@@ -1024,7 +1041,41 @@ body {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.panel-wbs .panel-head {
+  align-items: center;
+}
+
+.panel-wbs .ifc-load-actions-inline .ifc-add-wrap {
+  width: auto;
+  flex: 0 0 auto;
+}
+
+.panel-wbs .ifc-load-actions-inline .ifc-add-label {
+  width: auto;
+  min-width: 0;
+  white-space: nowrap;
+  padding: 0.24rem 0.62rem;
+  font-size: 0.72rem;
+}
+
+.panel-wbs .ifc-load-actions-inline #btn-wbs-apply {
+  flex: 0 0 auto;
+  padding: 0.24rem 0.62rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.panel-wbs .ifc-load-actions-inline #wbs-file-summary {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .wbs-select {
@@ -1497,6 +1548,10 @@ body {
 
 .data-table tbody tr:hover td {
   background: rgba(77, 159, 255, 0.06);
+}
+
+.data-table tbody tr.table-row-selected td {
+  background: rgba(37, 99, 235, 0.22);
 }
 
 .badge-cell {
