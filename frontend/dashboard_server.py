@@ -25,14 +25,17 @@ BACKEND_DIR = Path(__file__).resolve().parent.parent / "backend"
 if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
+RUNTIME_DATA_DIR = Path(tempfile.gettempdir()) / "imasd-runtime"
+UPLOAD_DIR = RUNTIME_DATA_DIR / "uploads"
+RESULTS_DIR = RUNTIME_DATA_DIR / "results"
+FIX_RESULTS_DIR = RUNTIME_DATA_DIR / "fix results"
+REPORTS_DIR = RUNTIME_DATA_DIR / "reports"
+os.environ["IFC_RESULTS_DIR"] = str(RESULTS_DIR)
+
 from ifcprocesser import process_ifc2x3  # noqa: E402
 from verification import run_verification  # noqa: E402
 from wbs_apply import apply_wbs  # noqa: E402
 
-UPLOAD_DIR = BACKEND_DIR / "uploads"
-RESULTS_DIR = BACKEND_DIR / "results"
-FIX_RESULTS_DIR = BACKEND_DIR / "fix results"
-REPORTS_DIR = BACKEND_DIR / "reports"
 UPLOAD_DIR.mkdir(exist_ok=True)
 RESULTS_DIR.mkdir(exist_ok=True)
 FIX_RESULTS_DIR.mkdir(exist_ok=True)

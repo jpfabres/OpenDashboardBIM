@@ -3,7 +3,10 @@ import ifcopenshell.util.placement
 import json
 import os
 
-RESULTS_DIR = os.path.join(os.path.dirname(__file__), "results")
+RESULTS_DIR = os.environ.get(
+    "IFC_RESULTS_DIR",
+    os.path.join(os.path.dirname(__file__), "results"),
+)
 
 
 # ---------------------------------------------------------------------------

@@ -500,7 +500,7 @@ export function initIfcViewport() {
           `[Verification] Corrected: ${data.corrected_file}, defects: ${data.defects_found}`
         );
         setStatus(
-          `Fix Quantities done — ${data.defects_found} defect(s) corrected. Saved to backend/fix results/`
+          `Fix Quantities done — ${data.defects_found} defect(s) corrected. Saved to local runtime temp folder.`
         );
         try {
           window.dispatchEvent(new CustomEvent("dashboard:ifc-health-refresh"));

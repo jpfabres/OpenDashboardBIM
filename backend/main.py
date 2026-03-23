@@ -7,12 +7,15 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
+RUNTIME_DATA_DIR = os.path.join(tempfile.gettempdir(), "imasd-runtime")
+UPLOAD_DIR = os.path.join(RUNTIME_DATA_DIR, "uploads")
+RESULTS_DIR = os.path.join(RUNTIME_DATA_DIR, "results")
+FIX_RESULTS_DIR = os.path.join(RUNTIME_DATA_DIR, "fix results")
+os.environ["IFC_RESULTS_DIR"] = RESULTS_DIR
+
 from ifcprocesser import process_ifc2x3
 from verification import run_verification
 
-UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "..", "uploads")
-RESULTS_DIR = os.path.join(os.path.dirname(__file__), "results")
-FIX_RESULTS_DIR = os.path.join(os.path.dirname(__file__), "fix results")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(RESULTS_DIR, exist_ok=True)
 os.makedirs(FIX_RESULTS_DIR, exist_ok=True)

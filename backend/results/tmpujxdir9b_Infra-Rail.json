@@ -1,0 +1,2237 @@
+{
+  "61": {
+    "class": "IfcBuildingElementProxy",
+    "name": "rail",
+    "globalId": "3Ixq0AlaX2PR0EdMfWL49i",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 8660.254046503514,
+      "global_y": 55000.00001499836,
+      "global_z": 7602.582119028394,
+      "global_bottom_elevation": 7602.582119028394,
+      "global_top_elevation": 7602.582119028394,
+      "bottom_elevation": -172.0,
+      "top_elevation": -172.0,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_hot-rolled-steel"
+      }
+    ],
+    "psets": {}
+  },
+  "78": {
+    "class": "IfcBuildingElementProxy",
+    "name": "rail",
+    "globalId": "0gOEB3nvP8w8b2x7dkCurB",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 8660.254046503505,
+      "global_y": 55000.00001499835,
+      "global_z": 7602.582119028394,
+      "global_bottom_elevation": 7602.582119028394,
+      "global_top_elevation": 7602.582119028394,
+      "bottom_elevation": -172.0,
+      "top_elevation": -172.0,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_hot-rolled-steel"
+      }
+    ],
+    "psets": {}
+  },
+  "91": {
+    "class": "IfcBuildingElementProxy",
+    "name": "ballastbed",
+    "globalId": "2VSzSEJibEmQCf1lSBr3vL",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 8660.25404650351,
+      "global_y": 55000.00001499835,
+      "global_z": 7774.582119028394,
+      "global_bottom_elevation": 7774.582119028394,
+      "global_top_elevation": 7774.582119028394,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_ballast_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "109": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0mApyqgbP3kwWGcMHpBgdC",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 8815.722985710834,
+      "global_y": 54910.23997110989,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998727,
+      "top_elevation": -174.99999999998727,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "125": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1gG3H$M4nC18HrcjbZfxcQ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 9340.586866792293,
+      "global_y": 54607.209668079595,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998727,
+      "top_elevation": -174.99999999998727,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "133": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2pFyoP4czDyPD7YSYV0g1I",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 9865.450747873792,
+      "global_y": 54304.17936504931,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "141": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0LmYrpL31BLxBAY291UUPV",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 10390.314628955268,
+      "global_y": 54001.149062019016,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "149": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3CF5zUVrXC$xgrsKXU$XAx",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 10915.178510036734,
+      "global_y": 53698.11875898869,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998727,
+      "top_elevation": -174.99999999998727,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "157": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1jPuNq3399wwsfi63CaYtQ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 11440.042391118215,
+      "global_y": 53395.08845595841,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "165": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2hC6KuMWz8T8p3DKcB74Nr",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 11964.906272199696,
+      "global_y": 53092.05815292808,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "173": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3ooxVTKoDDyAfZgN27B0Xt",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 12489.770153281184,
+      "global_y": 52789.02784989779,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "181": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3QRjVXoH17pvJxTHfLfGTz",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 13014.634034362647,
+      "global_y": 52485.997546867475,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "189": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1A14NvUhv2_wMj4mxmA7o0",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 13539.497915444132,
+      "global_y": 52182.96724383718,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "197": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0rTKpqwfH8ZvpESUY9mK0D",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 14064.361796525602,
+      "global_y": 51879.936940806874,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "205": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0bjxY5edf3ORsHsGFLUXnG",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 14589.2256776071,
+      "global_y": 51576.90663777661,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "213": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1p7IOkE9j9cwFyx4_vQUH$",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 15114.089558688556,
+      "global_y": 51273.87633474627,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "221": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0X2A_iiNzCc9sTeIrZyf9i",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 15638.95343977004,
+      "global_y": 50970.84603171597,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "229": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "240DDX4Zv7ZRBebISw7amg",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 16163.817320851518,
+      "global_y": 50667.815728685666,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "237": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0SNcQbysLA08i6DTmPfdl$",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 16688.681201933003,
+      "global_y": 50364.785425655384,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "245": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1KgKJls3H9_u5Xd8c_HS7x",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 17213.54508301447,
+      "global_y": 50061.755122625094,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "253": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3b4O_fC9b728g3ldIvq6l2",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 17738.408964095946,
+      "global_y": 49758.72481959477,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "261": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "20FBV5Tcj4yeFIkA119U20",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 18263.272845177424,
+      "global_y": 49455.694516564465,
+      "global_z": 7599.5821190284105,
+      "global_bottom_elevation": 7599.5821190284105,
+      "global_top_elevation": 7599.5821190284105,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "269": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1J8_j1nRDDfQQXFNU6jh1C",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 18788.136726258897,
+      "global_y": 49152.66421353416,
+      "global_z": 7599.5821190284105,
+      "global_bottom_elevation": 7599.5821190284105,
+      "global_top_elevation": 7599.5821190284105,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "277": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3jf03qOPH8oftXrH9IVkSa",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 19313.000607340393,
+      "global_y": 48849.63391050388,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "285": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2SCufMLTX7xQpijUrlgbDl",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 19837.864488421874,
+      "global_y": 48546.60360747356,
+      "global_z": 7599.5821190284105,
+      "global_bottom_elevation": 7599.5821190284105,
+      "global_top_elevation": 7599.5821190284105,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "293": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3BWkltsLT1kg_mUdP5q1Mv",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 20362.728369503347,
+      "global_y": 48243.57330444325,
+      "global_z": 7599.5821190284105,
+      "global_bottom_elevation": 7599.5821190284105,
+      "global_top_elevation": 7599.5821190284105,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "301": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0NjD4eL$13aPRyMEU8_Pur",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 20887.592250584825,
+      "global_y": 47940.543001412945,
+      "global_z": 7599.5821190284105,
+      "global_bottom_elevation": 7599.5821190284105,
+      "global_top_elevation": 7599.5821190284105,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "309": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0y55PkXXrAfxfuCFlVHxdf",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 21412.456131666306,
+      "global_y": 47637.51269838267,
+      "global_z": 7599.5821190284105,
+      "global_bottom_elevation": 7599.5821190284105,
+      "global_top_elevation": 7599.5821190284105,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "317": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1DlyW6vE1AFxD298O5l6sU",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 21937.320012747776,
+      "global_y": 47334.482395352345,
+      "global_z": 7599.5821190284105,
+      "global_bottom_elevation": 7599.5821190284105,
+      "global_top_elevation": 7599.5821190284105,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "325": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3yQtEGRLLAuwH0EvMJUSpX",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 22462.183893829246,
+      "global_y": 47031.45209232203,
+      "global_z": 7599.5821190284105,
+      "global_bottom_elevation": 7599.5821190284105,
+      "global_top_elevation": 7599.5821190284105,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "333": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2mQystxXrBl9nXWHqw58UW",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 22987.047774910727,
+      "global_y": 46728.42178929174,
+      "global_z": 7599.582119028412,
+      "global_bottom_elevation": 7599.582119028412,
+      "global_top_elevation": 7599.582119028412,
+      "bottom_elevation": -174.9999999999818,
+      "top_elevation": -174.9999999999818,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "341": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2aNIR9HKD6lPzpHEoqth$b",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 23511.911655992222,
+      "global_y": 46425.391486261455,
+      "global_z": 7599.5821190284105,
+      "global_bottom_elevation": 7599.5821190284105,
+      "global_top_elevation": 7599.5821190284105,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "349": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2dSJ10Gxv9AR$_DmiMCtSq",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 24036.775537073685,
+      "global_y": 46122.361183231136,
+      "global_z": 7599.582119028412,
+      "global_bottom_elevation": 7599.582119028412,
+      "global_top_elevation": 7599.582119028412,
+      "bottom_elevation": -174.9999999999818,
+      "top_elevation": -174.9999999999818,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "357": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "225m02QHv3mhkTXinDpbnC",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 24561.63941815515,
+      "global_y": 45819.33088020083,
+      "global_z": 7599.582119028412,
+      "global_bottom_elevation": 7599.582119028412,
+      "global_top_elevation": 7599.582119028412,
+      "bottom_elevation": -174.9999999999818,
+      "top_elevation": -174.9999999999818,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "365": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2HKuqlX7D0UQ6Ws7xU2Tpj",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 25086.503299236632,
+      "global_y": 45516.30057717053,
+      "global_z": 7599.582119028412,
+      "global_bottom_elevation": 7599.582119028412,
+      "global_top_elevation": 7599.582119028412,
+      "bottom_elevation": -174.9999999999818,
+      "top_elevation": -174.9999999999818,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "373": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3615LYIInAVAKMJ7MpZ30R",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 25611.367180318128,
+      "global_y": 45213.270274140246,
+      "global_z": 7599.582119028412,
+      "global_bottom_elevation": 7599.582119028412,
+      "global_top_elevation": 7599.582119028412,
+      "bottom_elevation": -174.9999999999818,
+      "top_elevation": -174.9999999999818,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "401": {
+    "class": "IfcBuildingElementProxy",
+    "name": "rail",
+    "globalId": "14O93KCH5CcwgIvHrgZEXj",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 25980.762122192304,
+      "global_y": 45000.00001499855,
+      "global_z": 7602.582119028391,
+      "global_bottom_elevation": 7602.582119028391,
+      "global_top_elevation": 7602.582119028391,
+      "bottom_elevation": -172.0,
+      "top_elevation": -172.0,
+      "top_distance_to_next_story": 172.00000000000273,
+      "bottom_distance_to_next_story": 172.00000000000273
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_hot-rolled-steel"
+      }
+    ],
+    "psets": {}
+  },
+  "413": {
+    "class": "IfcBuildingElementProxy",
+    "name": "rail",
+    "globalId": "2$czTi6GrAHxd14aD6Qmmc",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 25980.762122192293,
+      "global_y": 45000.000014998535,
+      "global_z": 7602.582119028391,
+      "global_bottom_elevation": 7602.582119028391,
+      "global_top_elevation": 7602.582119028391,
+      "bottom_elevation": -172.0,
+      "top_elevation": -172.0,
+      "top_distance_to_next_story": 172.00000000000273,
+      "bottom_distance_to_next_story": 172.00000000000273
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_hot-rolled-steel"
+      }
+    ],
+    "psets": {}
+  },
+  "421": {
+    "class": "IfcBuildingElementProxy",
+    "name": "ballastbed",
+    "globalId": "29NeQDl9r0RPTH7F43W1He",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 25980.762122192296,
+      "global_y": 45000.000014998535,
+      "global_z": 7774.582119028391,
+      "global_bottom_elevation": 7774.582119028391,
+      "global_top_elevation": 7774.582119028391,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": 2.7284841053187847e-12,
+      "bottom_distance_to_next_story": 2.7284841053187847e-12
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_ballast_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "429": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2G0mFQhK929u_6An0lBNTZ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 26136.23106139962,
+      "global_y": 44910.23997111009,
+      "global_z": 7599.582119028404,
+      "global_bottom_elevation": 7599.582119028404,
+      "global_top_elevation": 7599.582119028404,
+      "bottom_elevation": -174.99999999998727,
+      "top_elevation": -174.99999999998727,
+      "top_distance_to_next_story": 174.99999999999,
+      "bottom_distance_to_next_story": 174.99999999999
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "437": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1Hb6PCblD2ZuvhFdwzUotD",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 26661.094942481093,
+      "global_y": 44607.209668079784,
+      "global_z": 7599.582119028404,
+      "global_bottom_elevation": 7599.582119028404,
+      "global_top_elevation": 7599.582119028404,
+      "bottom_elevation": -174.99999999998727,
+      "top_elevation": -174.99999999998727,
+      "top_distance_to_next_story": 174.99999999999,
+      "bottom_distance_to_next_story": 174.99999999999
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "445": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "15Q88nz595tP5ei3_pAQgO",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 27185.95882356258,
+      "global_y": 44304.179365049495,
+      "global_z": 7599.582119028405,
+      "global_bottom_elevation": 7599.582119028405,
+      "global_top_elevation": 7599.582119028405,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": 174.9999999999891,
+      "bottom_distance_to_next_story": 174.9999999999891
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "453": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0JskQH3CjFQwvVhALUzox1",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 27710.822704644062,
+      "global_y": 44001.1490620192,
+      "global_z": 7599.582119028405,
+      "global_bottom_elevation": 7599.582119028405,
+      "global_top_elevation": 7599.582119028405,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": 174.9999999999891,
+      "bottom_distance_to_next_story": 174.9999999999891
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "461": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1dc6DrbT90UA9pg9Z3rs4Z",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 28235.686585725525,
+      "global_y": 43698.11875898887,
+      "global_z": 7599.582119028404,
+      "global_bottom_elevation": 7599.582119028404,
+      "global_top_elevation": 7599.582119028404,
+      "bottom_elevation": -174.99999999998727,
+      "top_elevation": -174.99999999998727,
+      "top_distance_to_next_story": 174.99999999999,
+      "bottom_distance_to_next_story": 174.99999999999
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "469": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3eijguL1P9Nfvjs$Xpqdpu",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 28760.550466807003,
+      "global_y": 43395.08845595859,
+      "global_z": 7599.582119028405,
+      "global_bottom_elevation": 7599.582119028405,
+      "global_top_elevation": 7599.582119028405,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": 174.9999999999891,
+      "bottom_distance_to_next_story": 174.9999999999891
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "477": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2xpMIc_0H2iuAG4BcTIFAT",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 29285.414347888483,
+      "global_y": 43092.058152928264,
+      "global_z": 7599.582119028405,
+      "global_bottom_elevation": 7599.582119028405,
+      "global_top_elevation": 7599.582119028405,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": 174.9999999999891,
+      "bottom_distance_to_next_story": 174.9999999999891
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "485": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3qB7jvnzzCdhkb6SWzwgkc",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 29810.278228969975,
+      "global_y": 42789.027849897975,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": 174.99999999998727,
+      "bottom_distance_to_next_story": 174.99999999998727
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "493": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2vvVUDLqjBxRXxfI3C2q$r",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 30335.142110051445,
+      "global_y": 42485.99754686765,
+      "global_z": 7599.582119028405,
+      "global_bottom_elevation": 7599.582119028405,
+      "global_top_elevation": 7599.582119028405,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": 174.9999999999891,
+      "bottom_distance_to_next_story": 174.9999999999891
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "501": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0v0w97H9D0vhXlZ8fsd1v_",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 30860.005991132926,
+      "global_y": 42182.96724383735,
+      "global_z": 7599.582119028405,
+      "global_bottom_elevation": 7599.582119028405,
+      "global_top_elevation": 7599.582119028405,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": 174.9999999999891,
+      "bottom_distance_to_next_story": 174.9999999999891
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "509": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1j_ofp0_jDkQibnMsl$T_a",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 31384.86987221439,
+      "global_y": 41879.93694080706,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": 174.99999999998727,
+      "bottom_distance_to_next_story": 174.99999999998727
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "517": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3a7SkZ5Ar1xxhiVrdbOBRI",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 31909.73375329589,
+      "global_y": 41576.90663777679,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": 174.99999999998727,
+      "bottom_distance_to_next_story": 174.99999999998727
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "525": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1VhaT3K8H2lPdXb8NqCPZs",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 32434.597634377347,
+      "global_y": 41273.876334746456,
+      "global_z": 7599.582119028405,
+      "global_bottom_elevation": 7599.582119028405,
+      "global_top_elevation": 7599.582119028405,
+      "bottom_elevation": -174.99999999998636,
+      "top_elevation": -174.99999999998636,
+      "top_distance_to_next_story": 174.9999999999891,
+      "bottom_distance_to_next_story": 174.9999999999891
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "533": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0W$6qwCif1ePgGk6Sh$apd",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 32959.461515458825,
+      "global_y": 40970.84603171615,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": 174.99999999998727,
+      "bottom_distance_to_next_story": 174.99999999998727
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "541": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0BRh6j4b90nA0leMHsST_R",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 33484.325396540306,
+      "global_y": 40667.81572868586,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": 174.99999999998727,
+      "bottom_distance_to_next_story": 174.99999999998727
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "549": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0xoA7NQgD7lRlwTspYVfko",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 34009.189277621794,
+      "global_y": 40364.78542565557,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": 174.99999999998727,
+      "bottom_distance_to_next_story": 174.99999999998727
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "557": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0l0npIYpb0jwRcuQumw8GS",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 34534.05315870326,
+      "global_y": 40061.755122625276,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": 174.99999999998727,
+      "bottom_distance_to_next_story": 174.99999999998727
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "565": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "28xYqtZ4vF0RoQVLMjR04U",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 35058.917039784734,
+      "global_y": 39758.72481959496,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": 174.99999999998727,
+      "bottom_distance_to_next_story": 174.99999999998727
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "573": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1qU3xMaZz2Av3pVOxzfZKW",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 35583.780920866215,
+      "global_y": 39455.694516564654,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": 174.99999999998636,
+      "bottom_distance_to_next_story": 174.99999999998636
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "581": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "30nYk7ZUj7BeZTiiCyQzG3",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 36108.644801947696,
+      "global_y": 39152.66421353436,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": 174.99999999998636,
+      "bottom_distance_to_next_story": 174.99999999998636
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "589": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2fLDxlSJ5658K2aKlEUuO$",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 36633.508683029184,
+      "global_y": 38849.63391050406,
+      "global_z": 7599.582119028407,
+      "global_bottom_elevation": 7599.582119028407,
+      "global_top_elevation": 7599.582119028407,
+      "bottom_elevation": -174.99999999998454,
+      "top_elevation": -174.99999999998454,
+      "top_distance_to_next_story": 174.99999999998727,
+      "bottom_distance_to_next_story": 174.99999999998727
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "597": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3A9NNgob1BBODyEmbQaSNY",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 37158.372564110665,
+      "global_y": 38546.60360747374,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": 174.99999999998636,
+      "bottom_distance_to_next_story": 174.99999999998636
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "605": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0KPcs1y3j3YezA6xslC0pO",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 37683.23644519214,
+      "global_y": 38243.573304443446,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": 174.99999999998636,
+      "bottom_distance_to_next_story": 174.99999999998636
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "613": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3qFv979eH6S8MEUxE$yKtu",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 38208.10032627362,
+      "global_y": 37940.54300141313,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": 174.99999999998636,
+      "bottom_distance_to_next_story": 174.99999999998636
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "621": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2ea9NtvwjBGfaygNYjxAxe",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 38732.9642073551,
+      "global_y": 37637.51269838285,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": 174.99999999998636,
+      "bottom_distance_to_next_story": 174.99999999998636
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "629": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1TPGJrtGD5GuYtVCcv8tWE",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 39257.82808843657,
+      "global_y": 37334.48239535253,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": 174.99999999998636,
+      "bottom_distance_to_next_story": 174.99999999998636
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "637": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3PcU1ZuFj2Aev0J8hzhHvy",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 39782.69196951804,
+      "global_y": 37031.45209232222,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": 174.99999999998636,
+      "bottom_distance_to_next_story": 174.99999999998636
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "645": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "0dRF_swOj9Z89ywNzIYxlz",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 40307.55585059952,
+      "global_y": 36728.421789291926,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.9999999999818,
+      "top_elevation": -174.9999999999818,
+      "top_distance_to_next_story": 174.99999999998454,
+      "bottom_distance_to_next_story": 174.99999999998454
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "653": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1XcDIiNyv9uuTZP4jDMfO$",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 40832.41973168101,
+      "global_y": 36425.391486261644,
+      "global_z": 7599.582119028408,
+      "global_bottom_elevation": 7599.582119028408,
+      "global_top_elevation": 7599.582119028408,
+      "bottom_elevation": -174.99999999998363,
+      "top_elevation": -174.99999999998363,
+      "top_distance_to_next_story": 174.99999999998636,
+      "bottom_distance_to_next_story": 174.99999999998636
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "661": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "2UXPKrUxb1NPLYxy3$uCcp",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 41357.283612762476,
+      "global_y": 36122.36118323132,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.9999999999818,
+      "top_elevation": -174.9999999999818,
+      "top_distance_to_next_story": 174.99999999998454,
+      "bottom_distance_to_next_story": 174.99999999998454
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "669": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1o4sQbZYD7EfuX2weAoHYD",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 41882.14749384394,
+      "global_y": 35819.33088020103,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.9999999999818,
+      "top_elevation": -174.9999999999818,
+      "top_distance_to_next_story": 174.99999999998454,
+      "bottom_distance_to_next_story": 174.99999999998454
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "677": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "1_XScBOSD3h8oErFHWZl76",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 42407.01137492542,
+      "global_y": 35516.30057717072,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.9999999999818,
+      "top_elevation": -174.9999999999818,
+      "top_distance_to_next_story": 174.99999999998454,
+      "bottom_distance_to_next_story": 174.99999999998454
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "685": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sleeper wood",
+    "globalId": "3_fqSk$jXDlgUncZWfXZMS",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "Rail track",
+      "global_x": 42931.87525600692,
+      "global_y": 35213.270274140436,
+      "global_z": 7599.58211902841,
+      "global_bottom_elevation": 7599.58211902841,
+      "global_top_elevation": 7599.58211902841,
+      "bottom_elevation": -174.9999999999818,
+      "top_elevation": -174.9999999999818,
+      "top_distance_to_next_story": 174.99999999998454,
+      "bottom_distance_to_next_story": 174.99999999998454
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "710": {
+    "class": "IfcBuildingElementProxy",
+    "name": "geo-reference",
+    "globalId": "3Fit2Fad92zf2f6aWdJtF5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_black"
+      }
+    ],
+    "psets": {}
+  },
+  "695": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "00ZvlN19v73wE8JOyDmPjG",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 32294.9874330179,
+      "global_y": 34063.44093621458,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "702": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "3E8poO$Er6gPhLg44LF$bc",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 36987.04486973719,
+      "global_y": 45936.559063785375,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "42": {
+    "class": "IfcBuilding",
+    "name": "Rail track",
+    "globalId": "144_CJ8b1C7xe6fkDXe2iD",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 8660.25404650351,
+      "global_y": 55000.00001499835,
+      "global_z": 7774.582119028394,
+      "global_bottom_elevation": 7774.582119028394,
+      "global_top_elevation": 7774.582119028394,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "387": {
+    "class": "IfcBuilding",
+    "name": "Rail track",
+    "globalId": "1OAsMV9659sQQS2f3ETl_F",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 25980.762122192296,
+      "global_y": 45000.000014998535,
+      "global_z": 7774.582119028391,
+      "global_bottom_elevation": 7774.582119028391,
+      "global_top_elevation": 7774.582119028391,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "49": {
+    "class": "IfcBuildingStorey",
+    "name": "Rail track",
+    "globalId": "0vMmNglnHCxwAXN15KG$Y3",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 8660.25404650351,
+      "global_y": 55000.00001499835,
+      "global_z": 7774.582119028394,
+      "global_bottom_elevation": 7774.582119028394,
+      "global_top_elevation": 7774.582119028394,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "394": {
+    "class": "IfcBuildingStorey",
+    "name": "Rail track",
+    "globalId": "1Y4VQW3SD4UO4o4Dn6KDad",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 25980.762122192296,
+      "global_y": 45000.000014998535,
+      "global_z": 7774.582119028391,
+      "global_bottom_elevation": 7774.582119028391,
+      "global_top_elevation": 7774.582119028391,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "20": {
+    "class": "IfcSite",
+    "name": "environment - site",
+    "globalId": "23sFQGRy90RxVbRHD9iSE2",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "23": {
+    "class": "IfcSite",
+    "name": "road parking - site",
+    "globalId": "1adp27B_9CUfup2ojuKOng",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "30": {
+    "class": "IfcSite",
+    "name": "road river bridge - site",
+    "globalId": "3pnaj3EgL1cOScZHtoQhHO",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "36": {
+    "class": "IfcSite",
+    "name": "rail river bridge - site",
+    "globalId": "2Wad9UE39Fl81buLr2dp_x",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688766,
+      "global_y": 50000.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "381": {
+    "class": "IfcSite",
+    "name": "road rail bridge - site",
+    "globalId": "1$CApj9YLCeu0YyH5TXRVh",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.01615137755,
+      "global_y": 40000.00000000001,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "723": {
+    "class": "IfcSite",
+    "name": "road - site",
+    "globalId": "2syxA9_lr7Ew2uZai3VhhS",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  }
+}
