@@ -33,13 +33,12 @@ def _calc_material_attributes(v):
     material_type = mat_v["Materials and Finishes"]["Material Type"]
     try:
         if material_type == "Steel" or material_type == "Wood":
-            mat_v["Pset_MaterialCommon"]["Weight"] = ( mat_v["Pset_MaterialCommon"]["MassDensity"] * v["dimensions"]["Volume"] * 9.81)
+            mat_v["Pset_MaterialCommon"]["Weight"] = (mat_v["Pset_MaterialCommon"]["MassDensity"] * v["dimensions"]["Volume"] * 9.81)
         elif material_type == "Concrete":
             mat_v["Pset_MaterialCommon"]["Weight"] = v["dimensions"]["Volume"]
-        return(True)
+        return(True, "Weight")
     except KeyError as ex:
-        print(ex)
-        return (False)
+        return (False, None)
 
 def run_verification(input_json_path: str, output_dir: str) -> dict:
     """
@@ -57,8 +56,11 @@ def run_verification(input_json_path: str, output_dir: str) -> dict:
         defect_list = []
         if value["class"] == "IfcBeam" or value["class"] == "IfcColumn":
                 dim_fixable, dim_defect = _check_if_IfcBeam_IfcColumn_dimension_fixable(value)
-                defect_list.append(dim_defect)
-                mat_calcuable = _calc_material_attributes(value)
+                if dim_defect is not None:
+                    defect_list.append(dim_defect)
+                mat_calcuable, mat_defect = _calc_material_attributes(value)
+                if mat_defect is not None:
+                    defect_list.append(mat_defect)
         
         cls = value["class"]
         gid = value["globalId"]
@@ -68,7 +70,8 @@ def run_verification(input_json_path: str, output_dir: str) -> dict:
     name_stem = os.path.splitext(basename)[0]
     corrected_filename = f"{name_stem}_corrected.json"
     corrected_path = os.path.join(output_dir, corrected_filename)
-    log_path = os.path.join(output_dir, f"{name_stem}_verification_log.json")
+    log_filename = f"{name_stem}_verification_log.json"
+    log_path = os.path.join(output_dir, log_filename)
 
     with open(corrected_path, "w", encoding="utf-8") as f:
         json.dump(ifc_json_data, f, indent=4)
@@ -83,6 +86,6 @@ def run_verification(input_json_path: str, output_dir: str) -> dict:
     defects_found = sum(len(v) for v in defect_dict_class.values())
     return {
         "corrected_file": corrected_filename,
-        "log_file": "verification_log.json",
+        "log_file": log_filename,
         "defects_found": defects_found,
     }
