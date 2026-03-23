@@ -1,0 +1,5762 @@
+{
+    "IfcBeam": [
+        {
+            "0P6fee19b3m9zKXIcTtdfa": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdg6": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdgL": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdgb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdh5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdhi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdic": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdij": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPQt": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPR5": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPRJ": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPRX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPR$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPSN": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPSd": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        }
+    ],
+    "IfcColumn": [
+        {
+            "3OlNZqajP7VBJSCSih8zn8": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdJ5": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdKQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdLI": {
+                "Dimension Fixable": true,
+                "Material Calcuable": true,
+                "Attributes": [
+                    "Length"
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdLx": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdMa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTtdN5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": [
+                    null
+                ]
+            }
+        }
+    ],
+    "IfcCurtainWall": [
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnE$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZmxT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZmyW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcFooting": [
+        {
+            "2EAP4RW396gRsQoAr6RLyf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2EAP4RW396gRsQoAr6RL$v": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2EAP4RW396gRsQoAr6RL$X": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2EAP4RW396gRsQoAr6RL$f": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2EAP4RW396gRsQoAr6RL$H": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2EAP4RW396gRsQoAr6RL$P": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2EAP4RW396gRsQoAr6RL$1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2EAP4RW396gRsQoAr6RL$9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0uTs7uU5r4XucvDz8$gYj1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0uTs7uU5r4XucvDz8$gYiQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0uTs7uU5r4XucvDz8$gYla": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0uTs7uU5r4XucvDz8$gYl3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0uTs7uU5r4XucvDz8$gYkY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0uTs7uU5r4XucvDz8$gYk1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcMember": [
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfA": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf8": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf4": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfU": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfS": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfR": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfO": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfk": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfj": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjff": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfe": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfd": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfc": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjf_": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfz": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfy": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfx": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfw": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfv": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfu": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjft": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfs": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfq": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfp": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfo": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfn": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjfm": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeF": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeE": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeD": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeC": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeB": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeA": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje8": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje4": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeU": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeS": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeR": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeO": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjel": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjek": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjej": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjei": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjef": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjee": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjec": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjea": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOje_": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjez": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjey": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjex": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjew": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjes": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjer": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeq": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjep": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjeo": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjen": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjem": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhF": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhE": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhD": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhC": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhB": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjh6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjh5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjh4": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjh3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjh2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjh1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjh0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhU": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhk": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhc": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjha": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjh$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhs": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhq": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjhp": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjho": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjg7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjg6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjg5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjg4": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjgO": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjgN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjXb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjXa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjXZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjXY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjXX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjXW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjXo": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjXn": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjXm": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWF": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWE": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWD": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWC": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWB": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWA": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW8": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW4": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWU": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWS": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWR": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWO": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWk": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWj": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWe": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWd": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWc": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjW_": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWz": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjWy": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjZX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjZW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjZ$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjZ_": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjZz": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjZy": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjZx": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjZw": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjZv": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjd7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjd6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjd5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjx7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjx5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjx2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzk": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzj": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjze": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjzd": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2D_2WAKDnFpBtmwae9imjj": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2D_2WAKDnFpBtmwae9imji": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnF9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnFA": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnFB": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnF4": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnF5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnF6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnF7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnF0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnF1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnF2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnFS": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnFT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnFU": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnFV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnFO": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnFP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZnFQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zn6_": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zn6$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZmxH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZmxI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZmxJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxj": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxe": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxc": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmxd": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZmxW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZmxX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZmxZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZmuX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1ZmuY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmuy": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmuz": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmyu": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmyv": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmyw": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmyx": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmyq": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmyr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmys": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmo5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmo6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmo7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmo0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmo1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1Q7BRtBfbBFA2_NjK1Zmo2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcPlate": [
+        {
+            "2Z5czQDIL6ZfWDOpHrOji3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGF": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGD": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGB": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjG9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjG7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjG5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjG3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjG1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGR": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjxr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjG$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiS": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGy": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGx": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGw": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGv": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGu": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGt": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGs": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGq": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGp": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjGm": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJF": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJE": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJD": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJC": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ8": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ4": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJU": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJS": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJR": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJe": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJd": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJc": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjil": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJ_": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJz": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJw": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJv": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJu": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJt": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJs": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJq": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJp": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjJo": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjik": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjii": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIF": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIE": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjID": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIC": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIB": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI8": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI4": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjih": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjif": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjid": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIR": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjII": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIk": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIj": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjic": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjia": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIe": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjId": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjI_": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIz": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIy": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIx": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIw": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIv": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIu": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjYa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIn": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjIm": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLF": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLE": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLD": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLC": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLB": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLA": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjL9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjL8": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjL7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjL6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjL5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjiw": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLU": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLS": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLR": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLO": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjdg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLj": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLe": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLd": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLc": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "3bkd9yL$17xAEHPyoWj_zQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLx": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLw": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLv": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLu": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLt": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLs": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLq": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLp": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjLo": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjbC": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjK9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjK8": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjK7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjK6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjK5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjK4": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjK3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjK2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjK1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "3bkd9yL$17xAEHPyoWj_zT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjYn": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "3bkd9yL$17xAEHPyoWj_zW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKo": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKn": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjKm": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjYs": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjN0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjNV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOjYu": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Z5czQDIL6ZfWDOpHrOji1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcRoof": [
+        {
+            "2Z5czQDIL6ZfWDOpHrOjUo": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcSlab": [
+        {
+            "0P6fee19b3m9zKXIcTsP4F": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsP53": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsP60": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsP70": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsP7e": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPOk": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0P6fee19b3m9zKXIcTsPP8": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "3nXyL7J_vBw9_kcPARMoYg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ4513w": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ4513b": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ4513i": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ4513K": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ4513S": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ45137": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ4513E": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ4514t": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2EACJpOGr5R9nxhsUGFoqE": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "3a$TN3V$LDaxUZlofFGCV7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcWall": [
+        {
+            "2HCTLeZVv1jA6TIVQ44$xn": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcElementAssembly": [
+        {
+            "2HCTLeZVv1jA6TIVQ451zE": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451zF": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451_e": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451_A": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451$i": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451$E": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451$F": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451$C": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Wk": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451W0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451XY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451XZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451X5": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Yk": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Yl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Y1": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451YE": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Zh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Ze": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Zf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451ao": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451aK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451aL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451bt": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451bG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451bH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451bU": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451cx": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451GW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451GX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451GL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451GI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451GJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451GG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Ho": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451HK": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451HL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451HI": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451HJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451HG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451HH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Ip": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Im": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451In": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451I_": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451I$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Iy": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Iz": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Iw": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Ix": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Iu": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Iv": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Ic": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Id": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Ia": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Mb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451MY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451MZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451MW": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451MX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Mk": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Ml": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Mi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Mj": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Mg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Mh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451MD": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451MA": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451MB": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451M8": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451M9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Ns": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Nt": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Nq": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Nr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451No": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Np": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Nm": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Nn": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451N_": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451N$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ451Ny": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ44$x$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ44$xy": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ44$xz": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2HCTLeZVv1jA6TIVQ44$xw": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcBuildingElementPart": [
+        {
+            "1oXNJtsUhvKZCTKpPBkT2w": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2c4kBvsMS6dvs6V2OmoOyV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2mlLVE_HXhMvbwG48qmfuQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcReinforcingBar": [
+        {
+            "1WTfFeiIPBS8WdY3e3hISs": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hISt": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hISm": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZ6": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZ7": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZ0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZC": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZD": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZE": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZU": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZc": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJZj": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbi": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbk": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbq": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbt": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbm": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbo": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbp": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJbz": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJb_": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJc9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcA": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcB": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcS": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcO": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcQ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcc": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcd": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcZ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJci": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJce": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJcg": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJle": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1WTfFeiIPBS8WdY3e3hJlf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7HM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7Gl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7Sa": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7SR": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7SP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7SU": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7ST": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7SJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7SH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7SG": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7SM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7UO": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMXNn7dJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMjNn7dJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMfNn7dJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMXNn7c$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMjNn7c$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMfNn7c$": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMXNn7cs": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMjNn7cs": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMfNn7cs": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMXNn7cf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMjNn7cf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMfNn7cf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7if": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7s0": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7ny": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nn": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nt": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nh": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nf": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nl": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nj": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nb": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nR": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nP": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nV": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7nT": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7mJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7ub": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7uH": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7uN": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7uL": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7uB": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0lJ8QmMFL0DfwSSMrNn7u9": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcOpeningElement": [
+        {
+            "1T$IBpFOXoGedQM6yeDe1g": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2nt1cjIHBgCakiqgOevyfR": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "3b55HyKL8ueYHh6IMcElpX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "1S5U0S7SiziZwNTAbLXa8I": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "3Rw1kTvLw7iwdRo0xP6sxD": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2Dx_9DPEew48alI$3kpngS": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0VWMILFxpMLyY3PgfjQGXo": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "04jF6cKx9N06SfdoYwziyz": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2aFwUgjKe8oMu84z9sxzil": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "3C7k4apLl2VW5xc7AvCO27": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2twV7lnvc3KI5NfhFmlHzJ": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2ov1wr7gvXMIW1PhI5PzPr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2lU69tpe$39Bqrh8SLeIlr": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "3NaPFMB8XjaHKMg4HLIbfM": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "29BBzVH$gH1H1gtxi_XO6V": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2aJHjy2OnlqnAiUsB73g4z": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "2BKPVAViweDynMjsFy1Obx": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "3rcv6umAamN1D5xKy2arB2": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcBuilding": [
+        {
+            "1nih7PIXnFSQOy0Kq67irY": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcBuildingStorey": [
+        {
+            "0IIRXpmar0cPDIEiruoEh3": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        },
+        {
+            "0IIRXpmar0cPDIEiruoEhD": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ],
+    "IfcSite": [
+        {
+            "1nih7PIXnFSQOy0Kq67irX": {
+                "Dimension Fixable": null,
+                "Material Calcuable": true,
+                "Attributes": []
+            }
+        }
+    ]
+}
