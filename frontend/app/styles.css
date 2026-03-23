@@ -1398,7 +1398,16 @@ body {
   user-select: none;
 }
 
+.data-table th[data-wbs-group-col] {
+  cursor: pointer;
+  user-select: none;
+}
+
 .data-table th[data-boq-group-col].boq-group-active {
+  color: var(--accent);
+}
+
+.data-table th[data-wbs-group-col].boq-group-active {
   color: var(--accent);
 }
 

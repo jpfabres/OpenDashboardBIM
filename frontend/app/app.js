@@ -255,11 +255,19 @@ let boqFilterActiveBtn = null;
 /** @type {Map<string, { b: string, e: string }>} */
 const wbsMappingsByBaseKey = new Map();
 let wbsOptionsB = [];
-let wbsOptionsE = [];
 /** @type {Map<string, string[]>} */
 let wbsEByB = new Map();
 let wbsHeaderB = "WBS B";
 let wbsHeaderE = "WBS E";
+let wbsCombinedHeader = "WBS";
+const WBS_MERGE_SEPARATOR = " || ";
+/** @type {Array<{ value: string, b: string, e: string }>} */
+let wbsCombinedOptions = [];
+/** @type {Map<string, { b: string, e: string }>} */
+let wbsCombinedLookup = new Map();
+const WBS_DEFAULT_GROUP_BY = ["name", "class", "material"];
+/** @type {Array<"name" | "class" | "material">} */
+let wbsGroupBy = [...WBS_DEFAULT_GROUP_BY];
 
 const NO_STORY = "(Unassigned storey)";
 const NO_MATERIAL = "(No material)";
@@ -747,31 +755,92 @@ function getWbsRows() {
   }));
 }
 
+function syncWbsHeaderActiveState() {
+  const tbody = document.getElementById("table-wbs");
+  const table = tbody?.closest("table");
+  if (!table) return;
+  const ths = table.querySelectorAll("thead th[data-wbs-group-col]");
+  ths.forEach((th) => {
+    const col = th.dataset.wbsGroupCol;
+    th.classList.toggle("boq-group-active", wbsGroupBy.includes(col));
+  });
+}
+
+function setWbsGroupBy(col) {
+  const defaultMode = [...WBS_DEFAULT_GROUP_BY];
+  const next = [col];
+  wbsGroupBy = arraysEqual(wbsGroupBy, next) ? defaultMode : next;
+  renderWbsTable();
+}
+
+function buildWbsDisplayRows() {
+  const rawRows = getWbsRows();
+  /** @type {Map<string, { name: string, class: string, material: string, memberBaseKeys: string[] }>} */
+  const grouped = new Map();
+  const includes = (col) => wbsGroupBy.includes(col);
+  const fallback = "All";
+
+  for (const row of rawRows) {
+    const name = includes("name") ? row.name : fallback;
+    const cls = includes("class") ? row.class : fallback;
+    const material = includes("material") ? row.material : fallback;
+    const key = `${name}|${cls}|${material}`;
+    const existing = grouped.get(key);
+    if (existing) {
+      existing.memberBaseKeys.push(row.baseKey);
+    } else {
+      grouped.set(key, {
+        name,
+        class: cls,
+        material,
+        memberBaseKeys: [row.baseKey],
+      });
+    }
+  }
+
+  return [...grouped.values()].sort((a, b) =>
+    `${a.class}|${a.name}|${a.material}`.localeCompare(`${b.class}|${b.name}|${b.material}`)
+  );
+}
+
 function firstDescriptionForCode(code) {
   if (!code) return "";
   const values = wbsEByB.get(code) ?? [];
   return values.length > 0 ? values[0] : "";
 }
 
-function syncWbsCodeDatalist() {
-  const datalist = document.getElementById("wbs-b-options-list");
-  if (!(datalist instanceof HTMLDataListElement)) return;
-  datalist.innerHTML = wbsOptionsB.map((opt) => `<option value="${escapeHtml(opt)}"></option>`).join("");
+function formatWbsCombinedValue(b, e) {
+  if (!b) return "";
+  if (!e) return b;
+  return `${b}${WBS_MERGE_SEPARATOR}${e}`;
+}
+
+function buildWbsCombinedSelectHtml(selectedValue) {
+  const optionsHtml = wbsCombinedOptions
+    .map((opt) => {
+      const selected = opt.value === selectedValue ? ' selected="selected"' : "";
+      return `<option value="${escapeHtml(opt.value)}"${selected}>${escapeHtml(opt.value)}</option>`;
+    })
+    .join("");
+  return `
+    <select class="wbs-select" data-wbs-axis="combined">
+      <option value="">Select ${escapeHtml(wbsCombinedHeader)}</option>
+      ${optionsHtml}
+    </select>
+  `;
 }
 
 function renderWbsTable() {
   const tb = document.getElementById("table-wbs");
   if (!tb) return;
-  const titleB = document.getElementById("wbs-col-b-title");
-  const titleE = document.getElementById("wbs-col-e-title");
-  if (titleB) titleB.textContent = wbsHeaderB;
-  if (titleE) titleE.textContent = wbsHeaderE;
-  const rows = getWbsRows();
+  syncWbsHeaderActiveState();
+  const combinedTitle = document.getElementById("wbs-col-combined-title");
+  if (combinedTitle) combinedTitle.textContent = wbsCombinedHeader;
+  const rows = buildWbsDisplayRows();
   if (rows.length === 0) {
     tb.innerHTML = `
       <tr>
         <td>Load IFC model(s) to populate the WBS mapping table</td>
-        <td>—</td>
         <td>—</td>
         <td>—</td>
         <td>—</td>
@@ -781,27 +850,25 @@ function renderWbsTable() {
   }
   tb.innerHTML = rows
     .map((row) => {
-      const mapped = wbsMappingsByBaseKey.get(row.baseKey) ?? { b: "", e: "" };
-      const nextE = firstDescriptionForCode(mapped.b);
-      if (mapped.e !== nextE) {
-        wbsMappingsByBaseKey.set(row.baseKey, { b: mapped.b, e: nextE });
+      const memberMappings = row.memberBaseKeys.map((k) => wbsMappingsByBaseKey.get(k) ?? { b: "", e: "" });
+      const firstB = memberMappings[0]?.b ?? "";
+      const firstE = memberMappings[0]?.e ?? "";
+      const hasUniformPair = memberMappings.every((m) => (m.b ?? "") === firstB && (m.e ?? "") === firstE);
+      const combinedValue = hasUniformPair ? formatWbsCombinedValue(firstB, firstE) : "";
+
+      if (hasUniformPair) {
+        for (const baseKey of row.memberBaseKeys) {
+          wbsMappingsByBaseKey.set(baseKey, { b: firstB, e: firstE });
+        }
       }
       return `
-        <tr data-base-key="${escapeHtml(row.baseKey)}">
+        <tr data-base-keys="${escapeHtml(row.memberBaseKeys.join(","))}">
           <td>${escapeHtml(row.name)}</td>
           <td>${escapeHtml(row.class)}</td>
           <td>${escapeHtml(row.material)}</td>
-          <td>
-            <input
-              type="text"
-              class="wbs-code-input"
-              data-wbs-axis="b"
-              list="wbs-b-options-list"
-              placeholder="Select ${escapeHtml(wbsHeaderB)}"
-              value="${escapeHtml(mapped.b)}"
-            />
+          <td title="${hasUniformPair ? "" : "Multiple values in group; setting a value will apply to all items in this group."}">
+            ${buildWbsCombinedSelectHtml(combinedValue)}
           </td>
-          <td><span class="wbs-desc-text">${escapeHtml(nextE || "—")}</span></td>
         </tr>
       `;
     })
@@ -816,34 +883,47 @@ function getWorksheetCellString(worksheet, address) {
 
 function readWbsOptionsFromWorksheet(worksheet) {
   const setB = new Set();
-  const setE = new Set();
   /** @type {Map<string, Set<string>>} */
   const eByB = new Map();
+  /** @type {Map<string, { b: string, e: string }>} */
+  const pairLookup = new Map();
   const ref = worksheet["!ref"];
   if (!ref || !window.XLSX) {
-    return { b: [], e: [], eByB: new Map(), headerB: "WBS B", headerE: "WBS E" };
+    return {
+      b: [],
+      eByB: new Map(),
+      headerB: "WBS B",
+      headerE: "WBS E",
+      combinedHeader: "WBS",
+      combinedOptions: [],
+    };
   }
   const range = window.XLSX.utils.decode_range(ref);
   const firstDataRow = 4;
   const headerRow = 3;
   const headerB = getWorksheetCellString(worksheet, `B${headerRow}`) || "WBS B";
   const headerE = getWorksheetCellString(worksheet, `E${headerRow}`) || "WBS E";
+  const combinedHeader = `${headerB} + ${headerE}`;
   for (let row = firstDataRow; row <= range.e.r + 1; row++) {
     const b = getWorksheetCellString(worksheet, `B${row}`);
     const e = getWorksheetCellString(worksheet, `E${row}`);
     if (b) setB.add(b);
-    if (e) setE.add(e);
     if (b && e) {
       const existing = eByB.get(b) ?? new Set();
       existing.add(e);
       eByB.set(b, existing);
+      const combined = formatWbsCombinedValue(b, e);
+      pairLookup.set(combined, { b, e });
     }
   }
   const eByBArray = new Map();
   for (const [b, eSet] of eByB.entries()) {
     eByBArray.set(b, [...eSet]);
   }
-  return { b: [...setB], e: [...setE], eByB: eByBArray, headerB, headerE };
+  const combinedOptions = [...pairLookup.keys()]
+    .sort((a, b) => a.localeCompare(b))
+    .map((value) => ({ value, ...(pairLookup.get(value) ?? { b: "", e: "" }) }));
+  return { b: [...setB], eByB: eByBArray, headerB, headerE, combinedHeader, combinedOptions };
 }
 
 async function loadWbsFromFile(file) {
@@ -855,15 +935,16 @@ async function loadWbsFromFile(file) {
   if (!worksheet) return;
   const opts = readWbsOptionsFromWorksheet(worksheet);
   wbsOptionsB = opts.b;
-  wbsOptionsE = opts.e;
   wbsEByB = opts.eByB;
   wbsHeaderB = opts.headerB;
   wbsHeaderE = opts.headerE;
-  syncWbsCodeDatalist();
+  wbsCombinedHeader = opts.combinedHeader;
+  wbsCombinedOptions = opts.combinedOptions;
+  wbsCombinedLookup = new Map(wbsCombinedOptions.map((x) => [x.value, { b: x.b, e: x.e }]));
   renderWbsTable();
   const fileSummary = document.getElementById("wbs-file-summary");
   if (fileSummary) {
-    fileSummary.textContent = `${file.name} · ${wbsHeaderB}:${opts.b.length} ${wbsHeaderE}:${opts.e.length}`;
+    fileSummary.textContent = `${file.name} · ${wbsCombinedHeader}:${wbsCombinedOptions.length}`;
   }
 }
 
@@ -922,21 +1003,39 @@ const wbsTableBody = document.getElementById("table-wbs");
 if (wbsTableBody) {
   wbsTableBody.addEventListener("change", (ev) => {
     const target = ev.target;
-    if (!(target instanceof HTMLInputElement)) return;
+    if (!(target instanceof HTMLSelectElement)) return;
     const axis = target.dataset.wbsAxis;
-    if (axis !== "b") return;
-    const tr = target.closest("tr[data-base-key]");
+    if (axis !== "combined") return;
+    const tr = target.closest("tr[data-base-keys]");
     if (!(tr instanceof HTMLElement)) return;
-    const baseKey = tr.dataset.baseKey;
-    if (!baseKey) return;
-    const current = wbsMappingsByBaseKey.get(baseKey) ?? { b: "", e: "" };
-    current.b = target.value || "";
-    current.e = firstDescriptionForCode(current.b);
-    wbsMappingsByBaseKey.set(baseKey, current);
-    const descCell = tr.querySelector(".wbs-desc-text");
-    if (descCell) descCell.textContent = current.e || "—";
+    const baseKeysRaw = tr.dataset.baseKeys;
+    if (!baseKeysRaw) return;
+    const baseKeys = baseKeysRaw
+      .split(",")
+      .map((x) => x.trim())
+      .filter((x) => x.length > 0);
+    const selectedCombined = target.value || "";
+    const pair = wbsCombinedLookup.get(selectedCombined) ?? { b: "", e: "" };
+    for (const baseKey of baseKeys) {
+      wbsMappingsByBaseKey.set(baseKey, { b: pair.b, e: pair.e });
+    }
   });
 }
+
+(function initWbsGroupingByColumns() {
+  const tbody = document.getElementById("table-wbs");
+  const table = tbody?.closest("table");
+  const thead = table?.querySelector("thead");
+  if (!thead) return;
+  thead.addEventListener("click", (ev) => {
+    const target = ev.target;
+    const th = target instanceof Element ? target.closest("th[data-wbs-group-col]") : null;
+    if (!th) return;
+    const col = th instanceof HTMLElement ? th.dataset.wbsGroupCol : null;
+    if (!col) return;
+    setWbsGroupBy(col);
+  });
+})();
 
 renderBoqTable();
 
