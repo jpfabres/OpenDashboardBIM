@@ -274,7 +274,7 @@
             id="boq-splitter"
             role="separator"
             aria-orientation="horizontal"
-            aria-label="Resize BOQ panel"
+            aria-label="Resize lower panel"
             title="Drag to resize"
           ></div>
 
@@ -286,21 +286,121 @@
               <table class="data-table">
                 <thead>
                   <tr>
-                    <th data-boq-group-col="name">Name</th>
-                    <th data-boq-group-col="class">Class</th>
-                    <th data-boq-group-col="material">Material</th>
-                    <th>Qty</th>
-                    <th data-boq-group-col="unit">Unit</th>
-                    <th>Weight (kg)</th>
+                    <th data-boq-group-col="name">
+                      <span class="boq-th-label">Name</span>
+                      <button
+                        type="button"
+                        class="boq-filter-btn"
+                        aria-label="Filter by Name"
+                        data-boq-filter-col="name"
+                        title="Filter"
+                      >
+                        F
+                      </button>
+                    </th>
+                    <th data-boq-group-col="class">
+                      <span class="boq-th-label">Class</span>
+                      <button
+                        type="button"
+                        class="boq-filter-btn"
+                        aria-label="Filter by Class"
+                        data-boq-filter-col="class"
+                        title="Filter"
+                      >
+                        F
+                      </button>
+                    </th>
+                    <th data-boq-group-col="material">
+                      <span class="boq-th-label">Material</span>
+                      <button
+                        type="button"
+                        class="boq-filter-btn"
+                        aria-label="Filter by Material"
+                        data-boq-filter-col="material"
+                        title="Filter"
+                      >
+                        F
+                      </button>
+                    </th>
+                    <th>
+                      <span class="boq-th-label">Qty</span>
+                      <button
+                        type="button"
+                        class="boq-filter-btn"
+                        aria-label="Filter by Qty"
+                        data-boq-filter-col="qty"
+                        title="Filter"
+                      >
+                        F
+                      </button>
+                    </th>
+                    <th data-boq-group-col="unit">
+                      <span class="boq-th-label">Unit</span>
+                      <button
+                        type="button"
+                        class="boq-filter-btn"
+                        aria-label="Filter by Unit"
+                        data-boq-filter-col="unit"
+                        title="Filter"
+                      >
+                        F
+                      </button>
+                    </th>
+                    <th>
+                      <span class="boq-th-label">Weight (kg)</span>
+                      <button
+                        type="button"
+                        class="boq-filter-btn"
+                        aria-label="Filter by Weight"
+                        data-boq-filter-col="weight"
+                        title="Filter"
+                      >
+                        F
+                      </button>
+                    </th>
                   </tr>
                 </thead>
                 <tbody id="table-boq"></tbody>
               </table>
             </div>
           </section>
+
+          <section class="panel panel-wbs" id="wbs-panel" data-layout-panel="3" aria-hidden="true">
+            <div class="panel-head">
+              <h2>WBS Mapping</h2>
+              <div class="ifc-load-actions-inline">
+                <div class="ifc-add-wrap" title="Load a local .xlsx WBS template" id="btn-wbs-open">
+                  <label for="wbs-file-input" class="btn btn-ghost btn-sm ifc-add-label">Load WBS file</label>
+                  <input
+                    type="file"
+                    id="wbs-file-input"
+                    class="ifc-file-input-overlay"
+                    accept=".xlsx,.xlsm,.xls,.XLSX,.XLSM,.XLS"
+                  />
+                </div>
+                <span class="panel-sub" id="wbs-file-summary">No WBS file loaded</span>
+              </div>
+            </div>
+            <div class="table-scroll">
+              <datalist id="wbs-b-options-list"></datalist>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Material</th>
+                    <th id="wbs-col-b-title">WBS B</th>
+                    <th id="wbs-col-e-title">WBS E</th>
+                  </tr>
+                </thead>
+                <tbody id="table-wbs"></tbody>
+              </table>
+            </div>
+          </section>
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="/static/app/app.js" type="module"></script>
   </body>
 </html>
