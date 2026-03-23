@@ -1,0 +1,963 @@
+{
+  "336": {
+    "class": "IfcBuildingElementProxy",
+    "name": "geo-reference",
+    "globalId": "3Fit2Fad92zf2f6aWdJtF5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_black"
+      }
+    ],
+    "psets": {}
+  },
+  "34": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "1F4KLUGJf1aAa0YXxTvOR5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 2165.06350945405,
+      "global_y": 21249.99999999607,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "57": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "0uGYOC9Nz33PfGM5uuVHhW",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 8660.254037837336,
+      "global_y": 24999.999999996067,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "68": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "259jK4QKD3OPEdfCl4GH_l",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 4330.127018915183,
+      "global_y": 22499.999999996053,
+      "global_z": -1749.999999999998,
+      "global_bottom_elevation": -1749.999999999998,
+      "global_top_elevation": -1749.999999999998,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "79": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "0_AaoqH0fA_wWg2hQ6QoLY",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -6495.190528390323,
+      "global_y": 16249.999999996073,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "90": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "0X_fsZ0Kj9a8olHcZQNbJM",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 6495.190528376238,
+      "global_y": 23749.99999999606,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "101": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "3Awuj1sjH8ERw7F1J6oBZs",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -4330.127018929233,
+      "global_y": 17499.999999996067,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "109": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "3D4ahkhjP7dujyPNisZ2F$",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -7.040105354570315e-09,
+      "global_y": 19999.999999996067,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "120": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "0FQ6pMwzXBJucYaRTqfuw2",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -2165.063509468133,
+      "global_y": 18749.999999996064,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "249": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "0yh8Z9_qzCIgcsXg7r4Ix6",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 32475.952641923523,
+      "global_y": 38750.00000000399,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "263": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "1PI8m4Ts17Z8hvG889Pb1i",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 25980.76211354024,
+      "global_y": 35000.00000000398,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "274": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "398dvTdH9FKwML6pMEemhK",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 30310.889132462387,
+      "global_y": 37500.000000004,
+      "global_z": -1749.999999999998,
+      "global_bottom_elevation": -1749.999999999998,
+      "global_top_elevation": -1749.999999999998,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "285": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "0tZgj2n4j7neNsQ08k3WsT",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 41136.206679767885,
+      "global_y": 43750.000000003995,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "296": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "22Xr2mF15CbQCVR$W_$VLh",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 28145.825623001332,
+      "global_y": 36250.000000003995,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "304": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "1wwTT4jtX3C9e82mYC6YGT",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 38971.143170306794,
+      "global_y": 42500.000000004,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "315": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "1GXiy3xWf0fOQdC$gO8JfW",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 34641.01615138461,
+      "global_y": 40000.00000000399,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "326": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "0URFt4JXXD6OjZF8OrkR8N",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 36806.079660845695,
+      "global_y": 41250.000000004,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "355": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "1kpVA_DFf3PRJR$l8yqtLr",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -15155.444566234708,
+      "global_y": 11249.999999996076,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "370": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "3ctB5z6nHCoQBWFJYnFhI5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -8660.254037851419,
+      "global_y": 14999.999999996075,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "381": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "11LWvWX7HAOghcDUC_Fsn5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -12990.381056773575,
+      "global_y": 12499.999999996056,
+      "global_z": -1749.999999999998,
+      "global_bottom_elevation": -1749.999999999998,
+      "global_top_elevation": -1749.999999999998,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "392": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "2L8jfzclb09OjhbeQoBDvs",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -23815.698604079083,
+      "global_y": 6249.9999999960755,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "403": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "0SESIjUgvFsOoEqvCaV5Br",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -10825.317547312517,
+      "global_y": 13749.999999996064,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "411": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "1FDcvNA_L4dfRDGP$UNpz1",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -21650.635094617992,
+      "global_y": 7499.999999996069,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "422": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "0RPLlDbKvCJwFzsj8RPg4X",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -17320.508075695798,
+      "global_y": 9999.999999996071,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "430": {
+    "class": "IfcPipeSegment",
+    "name": "sewer pipe",
+    "globalId": "1PYbWto7LA0hTpEdNPg6Df",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -19485.571585156893,
+      "global_y": 8749.999999996067,
+      "global_z": -1749.9999999999975,
+      "global_bottom_elevation": -1749.9999999999975,
+      "global_top_elevation": -1749.9999999999975,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "146": {
+    "class": "IfcElementAssembly",
+    "name": "sewer manhole",
+    "globalId": "0dEBwmfnvBq9OyNfYNowGR",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 25656.00258712108,
+      "global_y": 34812.50000000319,
+      "global_z": 4.6924242269597015e-12,
+      "global_bottom_elevation": 4.6924242269597015e-12,
+      "global_top_elevation": 4.6924242269597015e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "182": {
+    "class": "IfcElementAssembly",
+    "name": "sewer manhole",
+    "globalId": "0xp5S6qvHAWPQZNi_oyNRF",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 8985.013564256287,
+      "global_y": 25187.499999996497,
+      "global_z": 5.991864782117772e-11,
+      "global_bottom_elevation": 5.991864782117772e-11,
+      "global_top_elevation": 5.991864782117772e-11,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "236": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "00ZvlN19v73wE8JOyDmPjG",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 32294.9874330179,
+      "global_y": 34063.44093621458,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "243": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "3E8poO$Er6gPhLg44LF$bc",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 36987.04486973719,
+      "global_y": 45936.559063785375,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "137": {
+    "class": "IfcBuilding",
+    "name": "road river bridge",
+    "globalId": "3vzNAxKB5AJA_Ehx4miINx",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568897,
+      "global_y": 30000.000000000175,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "214": {
+    "class": "IfcBuilding",
+    "name": "rail bridge",
+    "globalId": "2kjWGt90HF_gBQxs$Lsfkw",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688853,
+      "global_y": 50000.00000000009,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "227": {
+    "class": "IfcBuilding",
+    "name": "rail bridge",
+    "globalId": "3JNhAW3zLAmRKwMCykb3V5",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.016151377604,
+      "global_y": 40000.00000000019,
+      "global_z": -2.887645678129047e-12,
+      "global_bottom_elevation": -2.887645678129047e-12,
+      "global_top_elevation": -2.887645678129047e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "20": {
+    "class": "IfcSite",
+    "name": "environment - site",
+    "globalId": "23sFQGRy90RxVbRHD9iSE2",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "23": {
+    "class": "IfcSite",
+    "name": "road parking - site",
+    "globalId": "1adp27B_9CUfup2ojuKOng",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "131": {
+    "class": "IfcSite",
+    "name": "road river bridge - site",
+    "globalId": "3pnaj3EgL1cOScZHtoQhHO",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "208": {
+    "class": "IfcSite",
+    "name": "rail river bridge - site",
+    "globalId": "2Wad9UE39Fl81buLr2dp_x",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688766,
+      "global_y": 50000.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "221": {
+    "class": "IfcSite",
+    "name": "road rail bridge - site",
+    "globalId": "1$CApj9YLCeu0YyH5TXRVh",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.01615137755,
+      "global_y": 40000.00000000001,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "349": {
+    "class": "IfcSite",
+    "name": "road - site",
+    "globalId": "2syxA9_lr7Ew2uZai3VhhS",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  }
+}

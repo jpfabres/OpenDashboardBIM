@@ -1,0 +1,757 @@
+{
+  "209": {
+    "class": "IfcBeam",
+    "name": "girder",
+    "globalId": "0fqX614OH1YO1Njdxms2$Q",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 7748.223304703296,
+      "global_y": 4900.000000000046,
+      "global_z": 2344.6699141101185,
+      "global_bottom_elevation": 2344.6699141101185,
+      "global_top_elevation": 2344.6699141101185,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.05400000000000011,
+      "Volume": 0.05400000000000011,
+      "Length": 2699.9999999999427,
+      "CrossSectionArea": 0.020000000000000465,
+      "Area": 0.020000000000000465
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood_spruce_beam"
+      }
+    ],
+    "psets": {
+      "Pset_BeamCommon": {
+        "Status": null,
+        "IsExternal": false,
+        "LoadBearing": true
+      },
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.05400000000000011,
+        "Length": 2699.9999999999427,
+        "CrossSectionArea": 0.020000000000000465
+      }
+    }
+  },
+  "236": {
+    "class": "IfcBeam",
+    "name": "girder",
+    "globalId": "0rh7bRO0L9fg1NzgGKU$Ut",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 5968.933982822033,
+      "global_y": 3099.999999999951,
+      "global_z": 4123.959235991431,
+      "global_bottom_elevation": 4123.959235991431,
+      "global_top_elevation": 4123.959235991431,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.1160000000000022,
+      "Volume": 0.1160000000000022,
+      "Length": 5799.999999999974,
+      "CrossSectionArea": 0.02000000000000047,
+      "Area": 0.02000000000000047
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood_spruce_beam"
+      }
+    ],
+    "psets": {
+      "Pset_BeamCommon": {
+        "Status": null,
+        "IsExternal": false,
+        "LoadBearing": true
+      },
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.1160000000000022,
+        "Length": 5799.999999999974,
+        "CrossSectionArea": 0.02000000000000047
+      }
+    }
+  },
+  "257": {
+    "class": "IfcBeam",
+    "name": "girder",
+    "globalId": "3roxUKbVv98xiUcl22_T07",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 7748.223304703296,
+      "global_y": 8299.999999999989,
+      "global_z": 2344.669914110117,
+      "global_bottom_elevation": 2344.669914110117,
+      "global_top_elevation": 2344.669914110117,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.011999999999998965,
+      "Volume": 0.011999999999998965,
+      "Length": 599.9999999999343,
+      "CrossSectionArea": 0.020000000000000465,
+      "Area": 0.020000000000000465
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood_spruce_beam"
+      }
+    ],
+    "psets": {
+      "Pset_BeamCommon": {
+        "Status": null,
+        "IsExternal": false,
+        "LoadBearing": true
+      },
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.011999999999998965,
+        "Length": 599.9999999999343,
+        "CrossSectionArea": 0.020000000000000465
+      }
+    }
+  },
+  "278": {
+    "class": "IfcBeam",
+    "name": "girder",
+    "globalId": "0Lvk$Qa81D5et3l3a4S9Vk",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 6823.2233047033205,
+      "global_y": 4899.999999999989,
+      "global_z": 3269.6699141100985,
+      "global_bottom_elevation": 3269.6699141100985,
+      "global_top_elevation": 3269.6699141100985,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.08000000000000046,
+      "Volume": 0.08000000000000046,
+      "Length": 3999.9999999999313,
+      "CrossSectionArea": 0.02000000000000046,
+      "Area": 0.02000000000000046
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood_spruce_beam"
+      }
+    ],
+    "psets": {
+      "Pset_BeamCommon": {
+        "Status": null,
+        "IsExternal": false,
+        "LoadBearing": true
+      },
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.08000000000000046,
+        "Length": 3999.9999999999313,
+        "CrossSectionArea": 0.02000000000000046
+      }
+    }
+  },
+  "299": {
+    "class": "IfcBeam",
+    "name": "girder",
+    "globalId": "2ddLgAnQf4mBfh5IpUp54U",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 5050.000000000018,
+      "global_y": 3099.999999999945,
+      "global_z": 5025.735931288089,
+      "global_bottom_elevation": 5025.735931288089,
+      "global_top_elevation": 5025.735931288089,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.11600000000000217,
+      "Volume": 0.11600000000000217,
+      "Length": 5799.999999999974,
+      "CrossSectionArea": 0.020000000000000465,
+      "Area": 0.020000000000000465
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood_spruce_beam"
+      }
+    ],
+    "psets": {
+      "Pset_BeamCommon": {
+        "Status": null,
+        "IsExternal": false,
+        "LoadBearing": true
+      },
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.11600000000000217,
+        "Length": 5799.999999999974,
+        "CrossSectionArea": 0.020000000000000465
+      }
+    }
+  },
+  "320": {
+    "class": "IfcBeam",
+    "name": "girder",
+    "globalId": "2fjJuPht9EIQaZQYZfC1Op",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 4231.066017178026,
+      "global_y": 3099.999999999945,
+      "global_z": 4123.959235991433,
+      "global_bottom_elevation": 4123.959235991433,
+      "global_top_elevation": 4123.959235991433,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.11600000000000223,
+      "Volume": 0.11600000000000223,
+      "Length": 5799.999999999974,
+      "CrossSectionArea": 0.020000000000000472,
+      "Area": 0.020000000000000472
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood_spruce_beam"
+      }
+    ],
+    "psets": {
+      "Pset_BeamCommon": {
+        "Status": null,
+        "IsExternal": false,
+        "LoadBearing": true
+      },
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.11600000000000223,
+        "Length": 5799.999999999974,
+        "CrossSectionArea": 0.020000000000000472
+      }
+    }
+  },
+  "162": {
+    "class": "IfcBuildingElementProxy",
+    "name": "Group#21",
+    "globalId": "1CjP_CWub368bZVuVHeHs3",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 3200.000000000034,
+      "global_y": 4799.999999999943,
+      "global_z": -250.00000000000958,
+      "global_bottom_elevation": -250.00000000000958,
+      "global_top_elevation": -250.00000000000958,
+      "bottom_elevation": -250.0000000000078,
+      "top_elevation": -250.0000000000078,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "Default"
+      }
+    ],
+    "psets": {}
+  },
+  "372": {
+    "class": "IfcBuildingElementProxy",
+    "name": "origin",
+    "globalId": "2F44QMqSH3TOkM$SZoqCBe",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 1.0913936421275139e-11,
+      "global_y": 9.094947017729282e-12,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_white"
+      }
+    ],
+    "psets": {}
+  },
+  "391": {
+    "class": "IfcBuildingElementProxy",
+    "name": "geo-reference",
+    "globalId": "3Fit2Fad92zf2f6aWdJtF5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -28841.016151377524,
+      "global_y": -14199.999999999996,
+      "global_z": -1300.0000000000018,
+      "global_bottom_elevation": -1300.0000000000018,
+      "global_top_elevation": -1300.0000000000018,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_black"
+      }
+    ],
+    "psets": {}
+  },
+  "148": {
+    "class": "IfcChimney",
+    "name": "house - chimney",
+    "globalId": "3dkFAzOGrAIuOzY_RdrdVv",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 7700.000000000091,
+      "global_y": 8299.999999999975,
+      "global_z": -2.0588686311384662e-11,
+      "global_bottom_elevation": -2.0588686311384662e-11,
+      "global_top_elevation": -2.0588686311384662e-11,
+      "bottom_elevation": -1.8783907762554008e-11,
+      "top_elevation": -1.8783907762554008e-11,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_sand-lime"
+      }
+    ],
+    "psets": {}
+  },
+  "52": {
+    "class": "IfcFooting",
+    "name": "house - foundation",
+    "globalId": "0pFmhV8oD1dB40_b4pscr8",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 3000.0000000000277,
+      "global_y": 3000.000000000034,
+      "global_z": -500.00000000000034,
+      "global_bottom_elevation": -500.00000000000034,
+      "global_top_elevation": -500.00000000000034,
+      "bottom_elevation": -499.9999999999985,
+      "top_elevation": -499.9999999999985,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {}
+  },
+  "196": {
+    "class": "IfcRoof",
+    "name": "house - roof",
+    "globalId": "2iPwJwpPDCSgMheXwk9cBT",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 3000.0000000000164,
+      "global_y": 2999.999999999985,
+      "global_z": 1800.000000000035,
+      "global_bottom_elevation": 1800.000000000035,
+      "global_top_elevation": 1800.000000000035,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_RoofCommon": {
+        "Status": null,
+        "IsExternal": true
+      }
+    }
+  },
+  "71": {
+    "class": "IfcWall",
+    "name": "house - outer wall - house back",
+    "globalId": "0DyViLJJ175RvWQi1rE7a6",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 3200.00000000004,
+      "global_y": 8900.000000000015,
+      "global_z": -2.1799451133119875e-12,
+      "global_bottom_elevation": -2.1799451133119875e-12,
+      "global_top_elevation": -2.1799451133119875e-12,
+      "bottom_elevation": -3.75166564481333e-13,
+      "top_elevation": -3.75166564481333e-13,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 4.28651536853961,
+      "Volume": 4.28651536853961,
+      "Width": 200.0000000000794,
+      "Length": 5200.000000000204,
+      "NetSideArea": 21.43257684268954,
+      "Area": 21.43257684268954
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_sand-lime"
+      }
+    ],
+    "psets": {
+      "Pset_WallCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_WallBaseQuantities": {
+        "NetVolume": 4.28651536853961,
+        "Width": 200.0000000000794,
+        "Length": 5200.000000000204,
+        "NetSideArea": 21.43257684268954
+      }
+    }
+  },
+  "101": {
+    "class": "IfcWall",
+    "name": "house - outer wall - house front",
+    "globalId": "3SGBcf7Lv0r80vKtUCgOpf",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 3000.0000000000277,
+      "global_y": 3000.000000000008,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": -1.4210854715202004e-14,
+      "top_elevation": -1.4210854715202004e-14,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 2.9313093077792742,
+      "Volume": 2.9313093077792742,
+      "Width": 200.00000000009933,
+      "Length": 3800.0000000000714,
+      "NetSideArea": 14.65654653888909,
+      "Area": 14.65654653888909
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_sand-lime"
+      }
+    ],
+    "psets": {
+      "Pset_WallCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_WallBaseQuantities": {
+        "NetVolume": 2.9313093077792742,
+        "Width": 200.00000000009933,
+        "Length": 3800.0000000000714,
+        "NetSideArea": 14.65654653888909
+      }
+    }
+  },
+  "125": {
+    "class": "IfcWall",
+    "name": "house - outer wall - house front right",
+    "globalId": "3oNJ9yHi5FJuFnK8yg68Yt",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 8400.000000000042,
+      "global_y": 4899.999999999952,
+      "global_z": -2.347633198951371e-11,
+      "global_bottom_elevation": -2.347633198951371e-11,
+      "global_top_elevation": -2.347633198951371e-11,
+      "bottom_elevation": -2.1671553440683056e-11,
+      "top_elevation": -2.1671553440683056e-11,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.7456913421348146,
+      "Volume": 0.7456913421348146,
+      "Width": 200.0000000000498,
+      "Length": 1299.9999999999152,
+      "NetSideArea": 3.7284567106731448,
+      "Area": 3.7284567106731448
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_sand-lime"
+      }
+    ],
+    "psets": {
+      "Pset_WallCommon": {
+        "Status": null,
+        "IsExternal": true
+      },
+      "Qto_WallBaseQuantities": {
+        "NetVolume": 0.7456913421348146,
+        "Width": 200.0000000000498,
+        "Length": 1299.9999999999152,
+        "NetSideArea": 3.7284567106731448
+      }
+    }
+  },
+  "172": {
+    "class": "IfcWall",
+    "name": "house - inner wall",
+    "globalId": "2gTJhghMT81QThk15l2VwR",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 7100.000000000175,
+      "global_y": 4899.999999999953,
+      "global_z": -1.3557155398302712e-11,
+      "global_bottom_elevation": -1.3557155398302712e-11,
+      "global_top_elevation": -1.3557155398302712e-11,
+      "bottom_elevation": -1.1752376849472057e-11,
+      "top_elevation": -1.1752376849472057e-11,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 3.044574026405024,
+      "Volume": 3.044574026405024,
+      "Width": 200.00000000007506,
+      "Length": 3900.000000000167,
+      "NetSideArea": 15.222870132019404,
+      "Area": 15.222870132019404
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_sand-lime"
+      }
+    ],
+    "psets": {
+      "Pset_WallCommon": {
+        "Status": null,
+        "IsExternal": false,
+        "LoadBearing": true
+      },
+      "Qto_WallBaseQuantities": {
+        "NetVolume": 3.044574026405024,
+        "Width": 200.00000000007506,
+        "Length": 3900.000000000167,
+        "NetSideArea": 15.222870132019404
+      }
+    }
+  },
+  "343": {
+    "class": "IfcDiscreteAccessory",
+    "name": "beam shoe",
+    "globalId": "2r_8UEywH9_RLHe8z$Xa8J",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 7783.578643762592,
+      "global_y": 8299.999999999927,
+      "global_z": 2309.3145750507924,
+      "global_bottom_elevation": 2309.3145750507924,
+      "global_top_elevation": 2309.3145750507924,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {}
+  },
+  "359": {
+    "class": "IfcDiscreteAccessory",
+    "name": "beam shoe",
+    "globalId": "2cc4uJUVv5BevbidUpn1H3",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 7783.578643762581,
+      "global_y": 7600.000000000002,
+      "global_z": 2309.3145750507883,
+      "global_bottom_elevation": 2309.3145750507883,
+      "global_top_elevation": 2309.3145750507883,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {}
+  },
+  "30": {
+    "class": "IfcBuilding",
+    "name": "Single-family house",
+    "globalId": "0c$N1CTon2BB2Sp89385G8",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 3000.0000000000277,
+      "global_y": 3000.000000000008,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_BuildingCommon": {
+        "ConstructionMethod": "new construction"
+      }
+    }
+  },
+  "43": {
+    "class": "IfcBuildingStorey",
+    "name": "00 groundfloor",
+    "globalId": "1Ano2ZUxnEIvVQ_beukl8b",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 3000.0000000000277,
+      "global_y": 3000.000000000008,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "20": {
+    "class": "IfcSite",
+    "name": "environment - site",
+    "globalId": "23sFQGRy90RxVbRHD9iSE2",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "23": {
+    "class": "IfcSite",
+    "name": "house - site",
+    "globalId": "1Pbuu0tu59NfhrTsztVBK1",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 5800.000000000015,
+      "global_y": 5800.000000000001,
+      "global_z": -1300.0000000000018,
+      "global_bottom_elevation": -1300.0000000000018,
+      "global_top_elevation": -1300.0000000000018,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  }
+}

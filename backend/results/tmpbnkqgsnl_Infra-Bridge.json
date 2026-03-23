@@ -1,0 +1,2148 @@
+{
+  "59": {
+    "class": "IfcBeam",
+    "name": "road river bridge - abutment support beam",
+    "globalId": "322tROdCvE68UcU2Qe02GA",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road rail bridge - approach",
+      "global_x": 22654.99115576718,
+      "global_y": 31001.404273188182,
+      "global_z": -513.6789612918377,
+      "global_bottom_elevation": -513.6789612918377,
+      "global_top_elevation": -513.6789612918377,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": 0.0,
+      "bottom_distance_to_next_story": 0.0
+    },
+    "dimensions": {
+      "NetVolume": 0.3461128140335334,
+      "Volume": 0.3461128140335334
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.3461128140335334
+      }
+    }
+  },
+  "116": {
+    "class": "IfcBeam",
+    "name": "road river bridge - abutment support beam",
+    "globalId": "1Rd3zGyxjCSBQhmMuxTFJ7",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road rail bridge - approach",
+      "global_x": 13786.024995610822,
+      "global_y": 25880.904273188262,
+      "global_z": -513.6789612918377,
+      "global_bottom_elevation": -513.6789612918377,
+      "global_top_elevation": -513.6789612918377,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": 513.6789612918349,
+      "bottom_distance_to_next_story": 513.6789612918349
+    },
+    "dimensions": {
+      "NetVolume": 0.34611281403353333,
+      "Volume": 0.34611281403353333
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.34611281403353333
+      }
+    }
+  },
+  "288": {
+    "class": "IfcBeam",
+    "name": "road river bridge - main girder",
+    "globalId": "1dmYPmycr2LPQju29cHK45",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road rail bridge - superstructure",
+      "global_x": 22440.936710104896,
+      "global_y": 31022.157448661255,
+      "global_z": -113.67896129183805,
+      "global_bottom_elevation": -113.67896129183805,
+      "global_top_elevation": -113.67896129183805,
+      "bottom_elevation": -355.9999999999999,
+      "top_elevation": -355.9999999999999,
+      "top_distance_to_next_story": 355.9999999999999,
+      "bottom_distance_to_next_story": 355.9999999999999
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "300": {
+    "class": "IfcBeam",
+    "name": "road river bridge - main girder",
+    "globalId": "0fDVrF0456nhTwgIrF5CPd",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road rail bridge - superstructure",
+      "global_x": 21603.4367101049,
+      "global_y": 32472.750000000182,
+      "global_z": -113.67896129183805,
+      "global_bottom_elevation": -113.67896129183805,
+      "global_top_elevation": -113.67896129183805,
+      "bottom_elevation": -355.9999999999999,
+      "top_elevation": -355.9999999999999,
+      "top_distance_to_next_story": 355.9999999999999,
+      "bottom_distance_to_next_story": 355.9999999999999
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "308": {
+    "class": "IfcBeam",
+    "name": "road river bridge - main girder",
+    "globalId": "2kSK2Jw$z3JQs2YiiWmHXV",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road rail bridge - superstructure",
+      "global_x": 20765.936710104896,
+      "global_y": 33923.34255133912,
+      "global_z": -113.67896129183805,
+      "global_bottom_elevation": -113.67896129183805,
+      "global_top_elevation": -113.67896129183805,
+      "bottom_elevation": -355.9999999999999,
+      "top_elevation": -355.9999999999999,
+      "top_distance_to_next_story": 355.9999999999999,
+      "bottom_distance_to_next_story": 355.9999999999999
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "378": {
+    "class": "IfcBeam",
+    "name": "bridge road - cross girder",
+    "globalId": "3hqwHdFaf66Oki_1cxKAnF",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 22646.73798029412,
+      "global_y": 30765.6991924314,
+      "global_z": -513.678961291838,
+      "global_bottom_elevation": -513.678961291838,
+      "global_top_elevation": -513.678961291838,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.4800000000000016,
+      "Volume": 0.4800000000000016,
+      "Length": 4000.0000000000005,
+      "CrossSectionArea": 0.12000000000000037,
+      "Area": 0.12000000000000037
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {
+      "Pset_BeamCommon": {
+        "Status": null
+      },
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.4800000000000016,
+        "Length": 4000.0000000000005,
+        "CrossSectionArea": 0.12000000000000037
+      }
+    }
+  },
+  "435": {
+    "class": "IfcBeam",
+    "name": "bridge road - cross girder",
+    "globalId": "1glXn_b3PFhflp9CKhrvzD",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 18190.604265121277,
+      "global_y": 28192.949192431304,
+      "global_z": -513.678961291838,
+      "global_bottom_elevation": -513.678961291838,
+      "global_top_elevation": -513.678961291838,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.4800000000000016,
+      "Volume": 0.4800000000000016,
+      "Length": 4000.0000000000005,
+      "CrossSectionArea": 0.12000000000000037,
+      "Area": 0.12000000000000037
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {
+      "Pset_BeamCommon": {
+        "Status": null
+      },
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.4800000000000016,
+        "Length": 4000.0000000000005,
+        "CrossSectionArea": 0.12000000000000037
+      }
+    }
+  },
+  "486": {
+    "class": "IfcBeam",
+    "name": "bridge road - cross girder",
+    "globalId": "0sH1yiI49B6w$h$tWL2i3T",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 12037.579441273036,
+      "global_y": 29259.30080756895,
+      "global_z": -513.678961291838,
+      "global_bottom_elevation": -513.678961291838,
+      "global_top_elevation": -513.678961291838,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.4800000000000016,
+      "Volume": 0.4800000000000016,
+      "Length": 4000.0000000000005,
+      "CrossSectionArea": 0.12000000000000037,
+      "Area": 0.12000000000000037
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {
+      "Pset_BeamCommon": {
+        "Status": null
+      },
+      "Qto_BeamBaseQuantities": {
+        "NetVolume": 0.4800000000000016,
+        "Length": 4000.0000000000005,
+        "CrossSectionArea": 0.12000000000000037
+      }
+    }
+  },
+  "627": {
+    "class": "IfcBuildingElementProxy",
+    "name": "road rail bridge - name sign",
+    "globalId": "02Q1JJaeXCofF8bu9IDYbN",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 16220.508075698635,
+      "global_y": 48094.74411169153,
+      "global_z": 7024.582119052213,
+      "global_bottom_elevation": 7024.582119052213,
+      "global_top_elevation": 7024.582119052213,
+      "bottom_elevation": 7024.582119052213,
+      "top_elevation": 7024.582119052213,
+      "top_distance_to_next_story": -6782.261080344051,
+      "bottom_distance_to_next_story": -6782.261080344051
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_copper_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "654": {
+    "class": "IfcBuildingElementProxy",
+    "name": "road rail bridge - name sign",
+    "globalId": "38UHNG19HAuOHKeHr7iIlo",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 18420.508075694277,
+      "global_y": 51905.25588833575,
+      "global_z": 7024.582119022979,
+      "global_bottom_elevation": 7024.582119022979,
+      "global_top_elevation": 7024.582119022979,
+      "bottom_elevation": 7024.582119022979,
+      "top_elevation": 7024.582119022979,
+      "top_distance_to_next_story": -6782.261080314817,
+      "bottom_distance_to_next_story": -6782.261080314817
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_copper_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "707": {
+    "class": "IfcBuildingElementProxy",
+    "name": "rail bridge - filler",
+    "globalId": "1Ni63N3g9CwwsFbbNgF65B",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 21650.63509893967,
+      "global_y": 47500.00000749801,
+      "global_z": 3290.3456313007086,
+      "global_bottom_elevation": 3290.3456313007086,
+      "global_top_elevation": 3290.3456313007086,
+      "bottom_elevation": 3290.3456313007086,
+      "top_elevation": 3290.3456313007086,
+      "top_distance_to_next_story": -3048.024592592547,
+      "bottom_distance_to_next_story": -3048.024592592547
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "723": {
+    "class": "IfcBuildingElementProxy",
+    "name": "rail bridge - filler",
+    "globalId": "1ngF1j04v49eiBUKkKO16p",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 12990.381061095231,
+      "global_y": 52500.00000749808,
+      "global_z": 3290.3456313005427,
+      "global_bottom_elevation": 3290.3456313005427,
+      "global_top_elevation": 3290.3456313005427,
+      "bottom_elevation": 3290.3456313005427,
+      "top_elevation": 3290.3456313005427,
+      "top_distance_to_next_story": -3048.024592592381,
+      "bottom_distance_to_next_story": -3048.024592592381
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "837": {
+    "class": "IfcBuildingElementProxy",
+    "name": "road rail bridge - name sign",
+    "globalId": "0GcdwGAXbEP8fxME368hA4",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 33541.01615138739,
+      "global_y": 38094.74411169163,
+      "global_z": 7024.582119052211,
+      "global_bottom_elevation": 7024.582119052211,
+      "global_top_elevation": 7024.582119052211,
+      "bottom_elevation": 7024.582119052214,
+      "top_elevation": 7024.582119052214,
+      "top_distance_to_next_story": -7024.582119052211,
+      "bottom_distance_to_next_story": -7024.582119052211
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_copper_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "859": {
+    "class": "IfcBuildingElementProxy",
+    "name": "road rail bridge - name sign",
+    "globalId": "0gB41TAsXCeg1sVvBm2u9j",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 35741.01615138303,
+      "global_y": 41905.25588833587,
+      "global_z": 7024.582119022976,
+      "global_bottom_elevation": 7024.582119022976,
+      "global_top_elevation": 7024.582119022976,
+      "bottom_elevation": 7024.582119022979,
+      "top_elevation": 7024.582119022979,
+      "top_distance_to_next_story": -7024.582119022976,
+      "bottom_distance_to_next_story": -7024.582119022976
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_copper_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "902": {
+    "class": "IfcBuildingElementProxy",
+    "name": "rail bridge - filler",
+    "globalId": "2vnqnmqXH4Q9vBMUebOywv",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 38971.14317462843,
+      "global_y": 37500.00000749812,
+      "global_z": 3290.345631300706,
+      "global_bottom_elevation": 3290.345631300706,
+      "global_top_elevation": 3290.345631300706,
+      "bottom_elevation": 3290.3456313007086,
+      "top_elevation": 3290.3456313007086,
+      "top_distance_to_next_story": -3290.345631300706,
+      "bottom_distance_to_next_story": -3290.345631300706
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "910": {
+    "class": "IfcBuildingElementProxy",
+    "name": "rail bridge - filler",
+    "globalId": "2ZYxBDA4bC$vk_U2Y8GUqS",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 30310.88913678398,
+      "global_y": 42500.00000749818,
+      "global_z": 3290.34563130054,
+      "global_bottom_elevation": 3290.34563130054,
+      "global_top_elevation": 3290.34563130054,
+      "bottom_elevation": 3290.3456313005427,
+      "top_elevation": 3290.3456313005427,
+      "top_distance_to_next_story": -3290.34563130054,
+      "bottom_distance_to_next_story": -3290.34563130054
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "935": {
+    "class": "IfcBuildingElementProxy",
+    "name": "geo-reference",
+    "globalId": "3Fit2Fad92zf2f6aWdJtF5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_black"
+      }
+    ],
+    "psets": {}
+  },
+  "340": {
+    "class": "IfcColumn",
+    "name": "road river bridge pierstem",
+    "globalId": "0Gl168Rv1ErxU_Zx$i1I5m",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 21516.83416972649,
+      "global_y": 32422.750000000244,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 4.526915656682752,
+      "Volume": 4.526915656682752
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {
+      "Qto_ColumnBaseQuantities": {
+        "NetVolume": 4.526915656682752
+      }
+    }
+  },
+  "406": {
+    "class": "IfcColumn",
+    "name": "road river bridge pierstem",
+    "globalId": "3ul67tVf5Dl82Y_LatCAFo",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568896,
+      "global_y": 30000.000000000135,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 4.526915656682752,
+      "Volume": 4.526915656682752
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {
+      "Qto_ColumnBaseQuantities": {
+        "NetVolume": 4.526915656682752
+      }
+    }
+  },
+  "463": {
+    "class": "IfcColumn",
+    "name": "road river bridge pierstem",
+    "globalId": "1BTWAuNPH8_BiqEs5C5kK5",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 13167.483251840664,
+      "global_y": 27602.250000000102,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 4.526915656682752,
+      "Volume": 4.526915656682752
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {
+      "Qto_ColumnBaseQuantities": {
+        "NetVolume": 4.526915656682752
+      }
+    }
+  },
+  "536": {
+    "class": "IfcColumn",
+    "name": "rail bridge - pierstem",
+    "globalId": "13HNHx2iHDah6c_2Ir0QFv",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 20550.63509461104,
+      "global_y": 45594.74411167435,
+      "global_z": -489.99999999394004,
+      "global_bottom_elevation": -489.99999999394004,
+      "global_top_elevation": -489.99999999394004,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 24.950281166526725,
+      "Volume": 24.950281166526725
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {
+      "Pset_ColumnCommon": {
+        "Status": null
+      },
+      "Qto_ColumnBaseQuantities": {
+        "NetVolume": 24.950281166526725
+      }
+    }
+  },
+  "579": {
+    "class": "IfcColumn",
+    "name": "rail bridge - pierstem",
+    "globalId": "1Ov2FEORP589f6FJ7Vsjbf",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 11890.381056766608,
+      "global_y": 50594.744111674416,
+      "global_z": -489.9999999941061,
+      "global_bottom_elevation": -489.9999999941061,
+      "global_top_elevation": -489.9999999941061,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 24.950281166526725,
+      "Volume": 24.950281166526725
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {
+      "Pset_ColumnCommon": {
+        "Status": null
+      },
+      "Qto_ColumnBaseQuantities": {
+        "NetVolume": 24.950281166526725
+      }
+    }
+  },
+  "761": {
+    "class": "IfcColumn",
+    "name": "rail bridge - pierstem",
+    "globalId": "0XPURiAkzB3g2LT4CHIL$P",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 37871.14317029979,
+      "global_y": 35594.74411167445,
+      "global_z": -489.99999999394294,
+      "global_bottom_elevation": -489.99999999394294,
+      "global_top_elevation": -489.99999999394294,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 24.950281166526725,
+      "Volume": 24.950281166526725
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {
+      "Pset_ColumnCommon": {
+        "Status": null
+      },
+      "Qto_ColumnBaseQuantities": {
+        "NetVolume": 24.950281166526725
+      }
+    }
+  },
+  "796": {
+    "class": "IfcColumn",
+    "name": "rail bridge - pierstem",
+    "globalId": "0IBSrNevj23wueInn68pOs",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 29210.889132455362,
+      "global_y": 40594.744111674525,
+      "global_z": -489.999999994109,
+      "global_bottom_elevation": -489.999999994109,
+      "global_top_elevation": -489.999999994109,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 24.950281166526725,
+      "Volume": 24.950281166526725
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {
+      "Pset_ColumnCommon": {
+        "Status": null
+      },
+      "Qto_ColumnBaseQuantities": {
+        "NetVolume": 24.950281166526725
+      }
+    }
+  },
+  "362": {
+    "class": "IfcFooting",
+    "name": "foundation - bridge road",
+    "globalId": "1iUk9ABeL9eBJ7Sv9b$q0d",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 21516.834169726488,
+      "global_y": 32422.75000000024,
+      "global_z": -2800.0000000204986,
+      "global_bottom_elevation": -2800.0000000204986,
+      "global_top_elevation": -2800.0000000204986,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {
+      "Pset_FootingCommon": {
+        "Status": null
+      }
+    }
+  },
+  "421": {
+    "class": "IfcFooting",
+    "name": "foundation - bridge road",
+    "globalId": "3kDaIrka18GwgJ2ayJZMBO",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688966,
+      "global_y": 30000.00000000013,
+      "global_z": -2800.0000000204986,
+      "global_bottom_elevation": -2800.0000000204986,
+      "global_top_elevation": -2800.0000000204986,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {
+      "Pset_FootingCommon": {
+        "Status": null
+      }
+    }
+  },
+  "475": {
+    "class": "IfcFooting",
+    "name": "foundation - bridge road",
+    "globalId": "0NMvtFx717oPAWTAMXwXAy",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 13167.48325184067,
+      "global_y": 27602.250000000106,
+      "global_z": -2800.0000000204986,
+      "global_bottom_elevation": -2800.0000000204986,
+      "global_top_elevation": -2800.0000000204986,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {
+      "Pset_FootingCommon": {
+        "Status": null
+      }
+    }
+  },
+  "556": {
+    "class": "IfcFooting",
+    "name": "foundation - bridge rail",
+    "globalId": "3QqyCHEVDF$gkEh307F1yY",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 21650.635094611036,
+      "global_y": 47500.000000000095,
+      "global_z": -489.9999999939497,
+      "global_bottom_elevation": -489.9999999939497,
+      "global_top_elevation": -489.9999999939497,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {
+      "Pset_FootingCommon": {
+        "Status": null
+      }
+    }
+  },
+  "594": {
+    "class": "IfcFooting",
+    "name": "foundation - bridge rail",
+    "globalId": "3N1IPEdwr8ovT_ZOobkqBX",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 12990.381056766606,
+      "global_y": 52500.00000000017,
+      "global_z": -489.99999999411574,
+      "global_bottom_elevation": -489.99999999411574,
+      "global_top_elevation": -489.99999999411574,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {
+      "Pset_FootingCommon": {
+        "Status": null
+      }
+    }
+  },
+  "776": {
+    "class": "IfcFooting",
+    "name": "foundation - bridge rail",
+    "globalId": "1TNwPNu5vAJ8rWCr2_eafm",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 38971.14317029979,
+      "global_y": 37500.000000000204,
+      "global_z": -489.9999999939526,
+      "global_bottom_elevation": -489.9999999939526,
+      "global_top_elevation": -489.9999999939526,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {
+      "Pset_FootingCommon": {
+        "Status": null
+      }
+    }
+  },
+  "811": {
+    "class": "IfcFooting",
+    "name": "foundation - bridge rail",
+    "globalId": "2Q4p8yWJzFIvhoX9T$V40D",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 30310.889132455355,
+      "global_y": 42500.00000000026,
+      "global_z": -489.99999999411864,
+      "global_bottom_elevation": -489.99999999411864,
+      "global_top_elevation": -489.99999999411864,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {
+      "Pset_FootingCommon": {
+        "Status": null
+      }
+    }
+  },
+  "670": {
+    "class": "IfcMember",
+    "name": "rail bridge - arch segment",
+    "globalId": "2YYLlceAvCKB$5luCgsyAd",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 22300.154151778337,
+      "global_y": 47125.00000749825,
+      "global_z": 3290.3456312922067,
+      "global_bottom_elevation": 3290.3456312922067,
+      "global_top_elevation": 3290.3456312922067,
+      "bottom_elevation": 3290.3456312922067,
+      "top_elevation": 3290.3456312922067,
+      "top_distance_to_next_story": -3048.024592584045,
+      "bottom_distance_to_next_story": -3048.024592584045
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "681": {
+    "class": "IfcMember",
+    "name": "rail bridge - arch segment",
+    "globalId": "3kuqbEQ55DwQX5rk3QQW6b",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 13639.900113933909,
+      "global_y": 52125.00000749831,
+      "global_z": 3290.3456312920407,
+      "global_bottom_elevation": 3290.3456312920407,
+      "global_top_elevation": 3290.3456312920407,
+      "bottom_elevation": 3290.3456312920407,
+      "top_elevation": 3290.3456312920407,
+      "top_distance_to_next_story": -3048.024592583879,
+      "bottom_distance_to_next_story": -3048.024592583879
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "689": {
+    "class": "IfcMember",
+    "name": "rail bridge - arch segment",
+    "globalId": "0mUNenrM54pwFfq2oXhCct",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 12340.862008257162,
+      "global_y": 52875.000007498355,
+      "global_z": 3290.345631300903,
+      "global_bottom_elevation": 3290.345631300903,
+      "global_top_elevation": 3290.345631300903,
+      "bottom_elevation": 3290.345631300903,
+      "top_elevation": 3290.345631300903,
+      "top_distance_to_next_story": -3048.024592592741,
+      "bottom_distance_to_next_story": -3048.024592592741
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "697": {
+    "class": "IfcMember",
+    "name": "rail bridge - arch segment",
+    "globalId": "3dxS5_Bpz7vB8wbZiDy6FO",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 21001.116046101582,
+      "global_y": 47875.00000749828,
+      "global_z": 3290.3456313007355,
+      "global_bottom_elevation": 3290.3456313007355,
+      "global_top_elevation": 3290.3456313007355,
+      "bottom_elevation": 3290.3456313007355,
+      "top_elevation": 3290.3456313007355,
+      "top_distance_to_next_story": -3048.0245925925738,
+      "bottom_distance_to_next_story": -3048.0245925925738
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "870": {
+    "class": "IfcMember",
+    "name": "rail bridge - arch segment",
+    "globalId": "3Py7bxE7n5JOxOxHlYh2N3",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 39620.662227467095,
+      "global_y": 37125.00000749836,
+      "global_z": 3290.345631292204,
+      "global_bottom_elevation": 3290.345631292204,
+      "global_top_elevation": 3290.345631292204,
+      "bottom_elevation": 3290.3456312922067,
+      "top_elevation": 3290.3456312922067,
+      "top_distance_to_next_story": -3290.345631292204,
+      "bottom_distance_to_next_story": -3290.345631292204
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "878": {
+    "class": "IfcMember",
+    "name": "rail bridge - arch segment",
+    "globalId": "1hByR6f1zEWg0gFVCzqiAV",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 30960.408189622667,
+      "global_y": 42125.00000749841,
+      "global_z": 3290.345631292038,
+      "global_bottom_elevation": 3290.345631292038,
+      "global_top_elevation": 3290.345631292038,
+      "bottom_elevation": 3290.3456312920407,
+      "top_elevation": 3290.3456312920407,
+      "top_distance_to_next_story": -3290.345631292038,
+      "bottom_distance_to_next_story": -3290.345631292038
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "886": {
+    "class": "IfcMember",
+    "name": "rail bridge - arch segment",
+    "globalId": "0LwIg3tPb1axicmL$uibFc",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 29661.37008394592,
+      "global_y": 42875.000007498464,
+      "global_z": 3290.3456313009,
+      "global_bottom_elevation": 3290.3456313009,
+      "global_top_elevation": 3290.3456313009,
+      "bottom_elevation": 3290.345631300903,
+      "top_elevation": 3290.345631300903,
+      "top_distance_to_next_story": -3290.3456313009,
+      "bottom_distance_to_next_story": -3290.3456313009
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "894": {
+    "class": "IfcMember",
+    "name": "rail bridge - arch segment",
+    "globalId": "14s9MtA2T3DOZ3vc6xj1mL",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 38321.62412179034,
+      "global_y": 37875.00000749839,
+      "global_z": 3290.3456313007327,
+      "global_bottom_elevation": 3290.3456313007327,
+      "global_top_elevation": 3290.3456313007327,
+      "bottom_elevation": 3290.3456313007355,
+      "top_elevation": 3290.3456313007355,
+      "top_distance_to_next_story": -3290.3456313007327,
+      "bottom_distance_to_next_story": -3290.3456313007327
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "156": {
+    "class": "IfcRailing",
+    "name": "bridge road railing",
+    "globalId": "1PXj3pcJX7RgxexBEm0se9",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road rail bridge - deck",
+      "global_x": 22445.43671010491,
+      "global_y": 31014.363220027197,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": 0.0,
+      "bottom_distance_to_next_story": 0.0
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "212": {
+    "class": "IfcRailing",
+    "name": "bridge road railing",
+    "globalId": "1lX0aCXHj46eYgtlXl_65e",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road rail bridge - deck",
+      "global_x": 20761.43671010488,
+      "global_y": 33931.13677997322,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": 0.0,
+      "bottom_distance_to_next_story": 0.0
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {}
+  },
+  "81": {
+    "class": "IfcSlab",
+    "name": "bridge road - approach slab",
+    "globalId": "0W_tPyzHXFtwl0O2DZZAe3",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road rail bridge - approach",
+      "global_x": 24619.23301372054,
+      "global_y": 32135.45983863109,
+      "global_z": 1.5347723092418164e-12,
+      "global_bottom_elevation": 1.5347723092418164e-12,
+      "global_top_elevation": 1.5347723092418164e-12,
+      "bottom_elevation": -242.3210387081603,
+      "top_elevation": -242.3210387081603,
+      "top_distance_to_next_story": 242.3210387081603,
+      "bottom_distance_to_next_story": 242.3210387081603
+    },
+    "dimensions": {
+      "NetVolume": 1.7534133355664374,
+      "Volume": 1.7534133355664374,
+      "Depth": 200.00000000000003,
+      "NetArea": 8.767066677832185,
+      "Area": 8.767066677832185
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 1.7534133355664374,
+        "Depth": 200.00000000000003,
+        "NetArea": 8.767066677832185
+      }
+    }
+  },
+  "131": {
+    "class": "IfcSlab",
+    "name": "bridge road - approach slab",
+    "globalId": "01itnAmhP3LAz9aL2vu3YJ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road rail bridge - approach",
+      "global_x": 11821.783137657458,
+      "global_y": 24746.848707745357,
+      "global_z": 1.5347723092418164e-12,
+      "global_bottom_elevation": 1.5347723092418164e-12,
+      "global_top_elevation": 1.5347723092418164e-12,
+      "bottom_elevation": -242.3210387081603,
+      "top_elevation": -242.3210387081603,
+      "top_distance_to_next_story": 242.3210387081603,
+      "bottom_distance_to_next_story": 242.3210387081603
+    },
+    "dimensions": {
+      "NetVolume": 1.7534133355664372,
+      "Volume": 1.7534133355664372,
+      "Depth": 200.00000000000003,
+      "NetArea": 8.767066677832183,
+      "Area": 8.767066677832183
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 1.7534133355664372,
+        "Depth": 200.00000000000003,
+        "NetArea": 8.767066677832183
+      }
+    }
+  },
+  "264": {
+    "class": "IfcSlab",
+    "name": "road river bridge - bridge deck",
+    "globalId": "3ObOfBTNz2dhgWxUzdmDpl",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road rail bridge - deck",
+      "global_x": 22440.936710104903,
+      "global_y": 31022.157448661244,
+      "global_z": 186.32103870816195,
+      "global_bottom_elevation": 186.32103870816195,
+      "global_top_elevation": 186.32103870816195,
+      "bottom_elevation": -55.999999999999886,
+      "top_elevation": -55.999999999999886,
+      "top_distance_to_next_story": 55.999999999999886,
+      "bottom_distance_to_next_story": 55.999999999999886
+    },
+    "dimensions": {
+      "NetVolume": 1.8689166720000028,
+      "Volume": 1.8689166720000028,
+      "Depth": 55.999999999999986,
+      "NetArea": 33.373512000000055,
+      "Area": 33.373512000000055
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood-generic"
+      }
+    ],
+    "psets": {
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 1.8689166720000028,
+        "Depth": 55.999999999999986,
+        "NetArea": 33.373512000000055
+      }
+    }
+  },
+  "613": {
+    "class": "IfcWall",
+    "name": "rail bridge - spandrel wall",
+    "globalId": "064CKbgdv2$uFEsgE5j3ba",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 7560.254037849229,
+      "global_y": 53094.74411168285,
+      "global_z": 3290.345631297669,
+      "global_bottom_elevation": 3290.345631297669,
+      "global_top_elevation": 3290.345631297669,
+      "bottom_elevation": 3290.345631297669,
+      "top_elevation": 3290.345631297669,
+      "top_distance_to_next_story": -3048.0245925895074,
+      "bottom_distance_to_next_story": -3048.0245925895074
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "646": {
+    "class": "IfcWall",
+    "name": "rail bridge - spandrel wall",
+    "globalId": "3LTGJZ50P17x4My$lMjBSo",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 27080.762113543686,
+      "global_y": 46905.255888344436,
+      "global_z": 3290.3456312684343,
+      "global_bottom_elevation": 3290.3456312684343,
+      "global_top_elevation": 3290.3456312684343,
+      "bottom_elevation": 3290.3456312684343,
+      "top_elevation": 3290.3456312684343,
+      "top_distance_to_next_story": -3048.0245925602726,
+      "bottom_distance_to_next_story": -3048.0245925602726
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "828": {
+    "class": "IfcWall",
+    "name": "rail bridge - spandrel wall",
+    "globalId": "2tKslGZJz0Nu12g9XAhM2h",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 24880.76211353799,
+      "global_y": 43094.74411168296,
+      "global_z": 3290.3456312976664,
+      "global_bottom_elevation": 3290.3456312976664,
+      "global_top_elevation": 3290.3456312976664,
+      "bottom_elevation": 3290.345631297669,
+      "top_elevation": 3290.345631297669,
+      "top_distance_to_next_story": -3290.3456312976664,
+      "bottom_distance_to_next_story": -3290.3456312976664
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "851": {
+    "class": "IfcWall",
+    "name": "rail bridge - spandrel wall",
+    "globalId": "06ymNwhgjC9vHrcokNIGHx",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "railbridge - superstructure",
+      "global_x": 44401.27018923244,
+      "global_y": 36905.255888344545,
+      "global_z": 3290.3456312684316,
+      "global_bottom_elevation": 3290.3456312684316,
+      "global_top_elevation": 3290.3456312684316,
+      "bottom_elevation": 3290.3456312684343,
+      "top_elevation": 3290.3456312684343,
+      "top_distance_to_next_story": -3290.3456312684316,
+      "bottom_distance_to_next_story": -3290.3456312684316
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_granite_masonry"
+      }
+    ],
+    "psets": {}
+  },
+  "327": {
+    "class": "IfcElementAssembly",
+    "name": "road river bridge - pier",
+    "globalId": "0kTVfaOTj2pAN_WvUgOEdD",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road river bridge - substructure",
+      "global_x": 21516.83416972649,
+      "global_y": 32422.750000000244,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_ElementAssemblyCommon": {
+        "Status": null
+      }
+    }
+  },
+  "397": {
+    "class": "IfcElementAssembly",
+    "name": "road river bridge - pier",
+    "globalId": "0qDQIJzHH719PVQZWdQqW2",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road river bridge - substructure",
+      "global_x": 17320.50807568896,
+      "global_y": 30000.000000000135,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_ElementAssemblyCommon": {
+        "Status": null
+      }
+    }
+  },
+  "454": {
+    "class": "IfcElementAssembly",
+    "name": "road river bridge - pier",
+    "globalId": "0vFQAzqYzD2P8vJwFIDXrV",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road river bridge - substructure",
+      "global_x": 13167.483251840664,
+      "global_y": 27602.250000000102,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_ElementAssemblyCommon": {
+        "Status": null
+      }
+    }
+  },
+  "524": {
+    "class": "IfcElementAssembly",
+    "name": "rail bridge - pier",
+    "globalId": "2qHgQrSEbBmAN2Nh3C6_X0",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "rail bridge - substructure",
+      "global_x": 20550.63509461104,
+      "global_y": 45594.74411167435,
+      "global_z": -489.99999999394004,
+      "global_bottom_elevation": -489.99999999394004,
+      "global_top_elevation": -489.99999999394004,
+      "bottom_elevation": -489.99999999394004,
+      "top_elevation": -489.99999999394004,
+      "top_distance_to_next_story": 489.99999999394004,
+      "bottom_distance_to_next_story": 489.99999999394004
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_ElementAssemblyCommon": {
+        "Status": null
+      }
+    }
+  },
+  "570": {
+    "class": "IfcElementAssembly",
+    "name": "rail bridge - pier",
+    "globalId": "2hJMDFMXH0q8k_DMRtOb0x",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "rail bridge - substructure",
+      "global_x": 11890.381056766608,
+      "global_y": 50594.744111674416,
+      "global_z": -489.9999999941061,
+      "global_bottom_elevation": -489.9999999941061,
+      "global_top_elevation": -489.9999999941061,
+      "bottom_elevation": -489.9999999941061,
+      "top_elevation": -489.9999999941061,
+      "top_distance_to_next_story": 489.9999999941061,
+      "bottom_distance_to_next_story": 489.9999999941061
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_ElementAssemblyCommon": {
+        "Status": null
+      }
+    }
+  },
+  "751": {
+    "class": "IfcElementAssembly",
+    "name": "rail bridge - pier",
+    "globalId": "3UNm72MkH81wf0YgrOuk7D",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "rail bridge - substructure",
+      "global_x": 37871.14317029979,
+      "global_y": 35594.74411167445,
+      "global_z": -489.99999999394294,
+      "global_bottom_elevation": -489.99999999394294,
+      "global_top_elevation": -489.99999999394294,
+      "bottom_elevation": -489.99999999394004,
+      "top_elevation": -489.99999999394004,
+      "top_distance_to_next_story": 489.99999999394004,
+      "bottom_distance_to_next_story": 489.99999999394004
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_ElementAssemblyCommon": {
+        "Status": null
+      }
+    }
+  },
+  "787": {
+    "class": "IfcElementAssembly",
+    "name": "rail bridge - pier",
+    "globalId": "0ZqHhx84T54vsUjUWpHX1r",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "rail bridge - substructure",
+      "global_x": 29210.889132455362,
+      "global_y": 40594.744111674525,
+      "global_z": -489.999999994109,
+      "global_bottom_elevation": -489.999999994109,
+      "global_top_elevation": -489.999999994109,
+      "bottom_elevation": -489.9999999941061,
+      "top_elevation": -489.9999999941061,
+      "top_distance_to_next_story": 489.9999999941061,
+      "bottom_distance_to_next_story": 489.9999999941061
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_ElementAssemblyCommon": {
+        "Status": null
+      }
+    }
+  },
+  "920": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "00ZvlN19v73wE8JOyDmPjG",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 32294.9874330179,
+      "global_y": 34063.44093621458,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "927": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "3E8poO$Er6gPhLg44LF$bc",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 36987.04486973719,
+      "global_y": 45936.559063785375,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "36": {
+    "class": "IfcBuilding",
+    "name": "road river bridge",
+    "globalId": "3vzNAxKB5AJA_Ehx4miINx",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568897,
+      "global_y": 30000.000000000175,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "508": {
+    "class": "IfcBuilding",
+    "name": "rail bridge",
+    "globalId": "2kjWGt90HF_gBQxs$Lsfkw",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688853,
+      "global_y": 50000.00000000009,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "737": {
+    "class": "IfcBuilding",
+    "name": "rail bridge",
+    "globalId": "3JNhAW3zLAmRKwMCykb3V5",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.016151377604,
+      "global_y": 40000.00000000019,
+      "global_z": -2.887645678129047e-12,
+      "global_bottom_elevation": -2.887645678129047e-12,
+      "global_top_elevation": -2.887645678129047e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "43": {
+    "class": "IfcBuildingStorey",
+    "name": "road rail bridge - approach",
+    "globalId": "04kO$szQnDTAhzkZMdfItT",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 22445.4367101049,
+      "global_y": 31014.363220027197,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "50": {
+    "class": "IfcBuildingStorey",
+    "name": "bridge road - abutment",
+    "globalId": "2x$zQFzGD8YBtZ$7H7nm4c",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 22654.99115576718,
+      "global_y": 31001.404273188182,
+      "global_z": -513.6789612918377,
+      "global_bottom_elevation": -513.6789612918377,
+      "global_top_elevation": -513.6789612918377,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "103": {
+    "class": "IfcBuildingStorey",
+    "name": "road rail bridge - approach",
+    "globalId": "2LBqtx8tXFcR8Qzu5tSZdh",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 13879.57944127308,
+      "global_y": 26068.86322002727,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "109": {
+    "class": "IfcBuildingStorey",
+    "name": "bridge road - abutment",
+    "globalId": "2cU43jXGXEuv4mx7hSZu3S",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 13786.024995610822,
+      "global_y": 25880.904273188262,
+      "global_z": -513.6789612918377,
+      "global_bottom_elevation": -513.6789612918377,
+      "global_top_elevation": -513.6789612918377,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "148": {
+    "class": "IfcBuildingStorey",
+    "name": "road rail bridge - deck",
+    "globalId": "2r51NsY5P0QvEz_Kok7DQt",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568897,
+      "global_y": 30000.000000000175,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "280": {
+    "class": "IfcBuildingStorey",
+    "name": "road rail bridge - superstructure",
+    "globalId": "2F86AY9Dn33gptJs5BIFJi",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568897,
+      "global_y": 30000.000000000175,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "319": {
+    "class": "IfcBuildingStorey",
+    "name": "road river bridge - substructure",
+    "globalId": "1KPYb5dSn3C9_LNpDoIOdf",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568897,
+      "global_y": 30000.000000000175,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "515": {
+    "class": "IfcBuildingStorey",
+    "name": "rail bridge - substructure",
+    "globalId": "1NcWEJCZP2QhD3Z7Ptly6p",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688853,
+      "global_y": 50000.00000000009,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "605": {
+    "class": "IfcBuildingStorey",
+    "name": "railbridge - superstructure",
+    "globalId": "0NGju11I55eP2T$y1Bu15n",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688853,
+      "global_y": 50000.00000000009,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "744": {
+    "class": "IfcBuildingStorey",
+    "name": "rail bridge - substructure",
+    "globalId": "16qYo484fEuvo5B_xQN5wZ",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.016151377604,
+      "global_y": 40000.00000000019,
+      "global_z": -2.887645678129047e-12,
+      "global_bottom_elevation": -2.887645678129047e-12,
+      "global_top_elevation": -2.887645678129047e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "822": {
+    "class": "IfcBuildingStorey",
+    "name": "railbridge - superstructure",
+    "globalId": "1hMPjN1XP3D8IpowtvIj0R",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.016151377604,
+      "global_y": 40000.00000000019,
+      "global_z": -2.887645678129047e-12,
+      "global_bottom_elevation": -2.887645678129047e-12,
+      "global_top_elevation": -2.887645678129047e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "20": {
+    "class": "IfcSite",
+    "name": "environment - site",
+    "globalId": "23sFQGRy90RxVbRHD9iSE2",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "23": {
+    "class": "IfcSite",
+    "name": "road parking - site",
+    "globalId": "1adp27B_9CUfup2ojuKOng",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "30": {
+    "class": "IfcSite",
+    "name": "road river bridge - site",
+    "globalId": "3pnaj3EgL1cOScZHtoQhHO",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "502": {
+    "class": "IfcSite",
+    "name": "rail river bridge - site",
+    "globalId": "2Wad9UE39Fl81buLr2dp_x",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688766,
+      "global_y": 50000.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "731": {
+    "class": "IfcSite",
+    "name": "road rail bridge - site",
+    "globalId": "1$CApj9YLCeu0YyH5TXRVh",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.01615137755,
+      "global_y": 40000.00000000001,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "948": {
+    "class": "IfcSite",
+    "name": "road - site",
+    "globalId": "2syxA9_lr7Ew2uZai3VhhS",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  }
+}

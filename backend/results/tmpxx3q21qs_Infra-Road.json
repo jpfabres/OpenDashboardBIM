@@ -1,0 +1,2769 @@
+{
+  "1002": {
+    "class": "IfcBuildingElementProxy",
+    "name": "geo-reference",
+    "globalId": "3Fit2Fad92zf2f6aWdJtF5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_black"
+      }
+    ],
+    "psets": {}
+  },
+  "56": {
+    "class": "IfcSlab",
+    "name": "asphalt binder course - road - parking",
+    "globalId": "37h0T9Qob7Mw1PFsR1kVP7",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road - parking",
+      "global_x": -7.002787172436365e-09,
+      "global_y": 19999.999999996093,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 1.1410049218992266,
+      "Volume": 1.1410049218992266,
+      "Depth": 80.00000000000136,
+      "NetArea": 14.262561523740088,
+      "Area": 14.262561523740088
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_dbm_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 1.1410049218992266,
+        "Depth": 80.00000000000136,
+        "NetArea": 14.262561523740088
+      }
+    }
+  },
+  "86": {
+    "class": "IfcSlab",
+    "name": "road - parking - asphalt surface course",
+    "globalId": "2Z1Tk3YUj4bfBY5kB$H6XD",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road - parking",
+      "global_x": -7.002787172436365e-09,
+      "global_y": 19999.999999996093,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 0.5705024609495989,
+      "Volume": 0.5705024609495989,
+      "Depth": 40.00000000000019,
+      "NetArea": 14.262561523739903,
+      "Area": 14.262561523739903
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_asphalt_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 0.5705024609495989,
+        "Depth": 40.00000000000019,
+        "NetArea": 14.262561523739903
+      }
+    }
+  },
+  "114": {
+    "class": "IfcSlab",
+    "name": "road - parking - subgrade",
+    "globalId": "0v1ddg6Y12hvvQhtW6MY3h",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road - parking",
+      "global_x": -6.9984557039191715e-09,
+      "global_y": 19999.999999996086,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 3.5656403809350015,
+      "Volume": 3.5656403809350015,
+      "Depth": 249.99999999999585,
+      "NetArea": 14.262561523740242,
+      "Area": 14.262561523740242
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_gravel_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 3.5656403809350015,
+        "Depth": 249.99999999999585,
+        "NetArea": 14.262561523740242
+      }
+    }
+  },
+  "142": {
+    "class": "IfcSlab",
+    "name": "road parking - base course",
+    "globalId": "21looXrNb6n9dVVqZ0afH3",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road - parking",
+      "global_x": -7.000092962340107e-09,
+      "global_y": 19999.99999999609,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 1.711507382845335,
+      "Volume": 1.711507382845335,
+      "Depth": 119.99999999975584,
+      "NetArea": 14.262561523740144,
+      "Area": 14.262561523740144
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_crushed-stone_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 1.711507382845335,
+        "Depth": 119.99999999975584,
+        "NetArea": 14.262561523740144
+      }
+    }
+  },
+  "198": {
+    "class": "IfcSlab",
+    "name": "road - asphalt binder course",
+    "globalId": "1UiPSFcDjErxwCT65xLh1S",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -7.002980608018236e-09,
+      "global_y": 19999.999999996096,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 5.760000000000073,
+      "Volume": 5.760000000000073,
+      "Depth": 80.00000000000128,
+      "NetArea": 71.99999999999976,
+      "Area": 71.99999999999976
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_dbm_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 5.760000000000073,
+        "Depth": 80.00000000000128,
+        "NetArea": 71.99999999999976
+      }
+    }
+  },
+  "222": {
+    "class": "IfcSlab",
+    "name": "road - asphalt surface course",
+    "globalId": "0bOiufAU17JvMAqTkdbCGK",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -6.983644492414714e-09,
+      "global_y": 19999.999999996096,
+      "global_z": -9.023892744153266e-14,
+      "global_bottom_elevation": -9.023892744153266e-14,
+      "global_top_elevation": -9.023892744153266e-14,
+      "bottom_elevation": -9.023892744153266e-14,
+      "top_elevation": -9.023892744153266e-14,
+      "top_distance_to_next_story": 9.023892744153266e-14,
+      "bottom_distance_to_next_story": 9.023892744153266e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_asphalt_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      }
+    }
+  },
+  "288": {
+    "class": "IfcSlab",
+    "name": "road - subgrade",
+    "globalId": "25_RTYQg9CWPpSeXsVQXRz",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -7.002980608018236e-09,
+      "global_y": 19999.999999996096,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 17.99999999999962,
+      "Volume": 17.99999999999962,
+      "Depth": 249.99999999999656,
+      "NetArea": 71.99999999999947,
+      "Area": 71.99999999999947
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_gravel_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 17.99999999999962,
+        "Depth": 249.99999999999656,
+        "NetArea": 71.99999999999947
+      }
+    }
+  },
+  "311": {
+    "class": "IfcSlab",
+    "name": "road - base course",
+    "globalId": "1zA0UQopr71wWPFRVqk8vb",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -7.002980608018236e-09,
+      "global_y": 19999.999999996096,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 8.639999999991323,
+      "Volume": 8.639999999991323,
+      "Depth": 120.00000000000287,
+      "NetArea": 71.99999999992596,
+      "Area": 71.99999999992596
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_crushed-stone_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 8.639999999991323,
+        "Depth": 120.00000000000287,
+        "NetArea": 71.99999999992596
+      }
+    }
+  },
+  "345": {
+    "class": "IfcSlab",
+    "name": "asphalt binder course - road - parking",
+    "globalId": "3n9r1K2N1DBRveA6CMqp_q",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road - parking",
+      "global_x": -7.002787172436365e-09,
+      "global_y": 19999.999999996093,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 1.1410049218992266,
+      "Volume": 1.1410049218992266,
+      "Depth": 80.00000000000136,
+      "NetArea": 14.262561523740088,
+      "Area": 14.262561523740088
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_dbm_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 1.1410049218992266,
+        "Depth": 80.00000000000136,
+        "NetArea": 14.262561523740088
+      }
+    }
+  },
+  "364": {
+    "class": "IfcSlab",
+    "name": "road - parking - asphalt surface course",
+    "globalId": "122iIwdi92Nu19w41eQ8OO",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road - parking",
+      "global_x": -7.002787172436365e-09,
+      "global_y": 19999.999999996093,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 0.5705024609495989,
+      "Volume": 0.5705024609495989,
+      "Depth": 40.00000000000019,
+      "NetArea": 14.262561523739903,
+      "Area": 14.262561523739903
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_asphalt_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 0.5705024609495989,
+        "Depth": 40.00000000000019,
+        "NetArea": 14.262561523739903
+      }
+    }
+  },
+  "382": {
+    "class": "IfcSlab",
+    "name": "road - parking - subgrade",
+    "globalId": "3IUYm3Tt58BvzwcxEk6ARA",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road - parking",
+      "global_x": -6.9984557039191715e-09,
+      "global_y": 19999.999999996086,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 3.5656403809350015,
+      "Volume": 3.5656403809350015,
+      "Depth": 249.99999999999585,
+      "NetArea": 14.262561523740242,
+      "Area": 14.262561523740242
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_gravel_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 3.5656403809350015,
+        "Depth": 249.99999999999585,
+        "NetArea": 14.262561523740242
+      }
+    }
+  },
+  "400": {
+    "class": "IfcSlab",
+    "name": "road parking - base course",
+    "globalId": "3XzlKA5bz0efC2no0GJY02",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road - parking",
+      "global_x": -7.000092962340107e-09,
+      "global_y": 19999.99999999609,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 1.711507382845335,
+      "Volume": 1.711507382845335,
+      "Depth": 119.99999999975584,
+      "NetArea": 14.262561523740144,
+      "Area": 14.262561523740144
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_crushed-stone_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 1.711507382845335,
+        "Depth": 119.99999999975584,
+        "NetArea": 14.262561523740144
+      }
+    }
+  },
+  "440": {
+    "class": "IfcSlab",
+    "name": "road - asphalt binder course",
+    "globalId": "1EBv$nhkP16QpDbPgakj0R",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -7.002980608018236e-09,
+      "global_y": 19999.999999996096,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 5.760000000000073,
+      "Volume": 5.760000000000073,
+      "Depth": 80.00000000000128,
+      "NetArea": 71.99999999999976,
+      "Area": 71.99999999999976
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_dbm_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 5.760000000000073,
+        "Depth": 80.00000000000128,
+        "NetArea": 71.99999999999976
+      }
+    }
+  },
+  "459": {
+    "class": "IfcSlab",
+    "name": "road - asphalt surface course",
+    "globalId": "29INDGxC98WgiF2$uaWE$G",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -6.983644492414714e-09,
+      "global_y": 19999.999999996096,
+      "global_z": -9.023892744153266e-14,
+      "global_bottom_elevation": -9.023892744153266e-14,
+      "global_top_elevation": -9.023892744153266e-14,
+      "bottom_elevation": -9.023892744153266e-14,
+      "top_elevation": -9.023892744153266e-14,
+      "top_distance_to_next_story": 9.023892744153266e-14,
+      "bottom_distance_to_next_story": 9.023892744153266e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_asphalt_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      }
+    }
+  },
+  "512": {
+    "class": "IfcSlab",
+    "name": "road - subgrade",
+    "globalId": "3l2i$KGMz4I87INjjdXvqG",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -7.002980608018236e-09,
+      "global_y": 19999.999999996096,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 17.99999999999962,
+      "Volume": 17.99999999999962,
+      "Depth": 249.99999999999656,
+      "NetArea": 71.99999999999947,
+      "Area": 71.99999999999947
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_gravel_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 17.99999999999962,
+        "Depth": 249.99999999999656,
+        "NetArea": 71.99999999999947
+      }
+    }
+  },
+  "530": {
+    "class": "IfcSlab",
+    "name": "road - base course",
+    "globalId": "23fuLywRn2yQjhdXt_DTEx",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -7.002980608018236e-09,
+      "global_y": 19999.999999996096,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 8.639999999991323,
+      "Volume": 8.639999999991323,
+      "Depth": 120.00000000000287,
+      "NetArea": 71.99999999992596,
+      "Area": 71.99999999992596
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_crushed-stone_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 8.639999999991323,
+        "Depth": 120.00000000000287,
+        "NetArea": 71.99999999992596
+      }
+    }
+  },
+  "599": {
+    "class": "IfcSlab",
+    "name": "road base course - bridge road",
+    "globalId": "3nUgJwuKjBSgKNVqnDReQ_",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway - bridge road",
+      "global_x": 10773.13951673052,
+      "global_y": 26219.87500000139,
+      "global_z": 4.8801683098319164e-11,
+      "global_bottom_elevation": 4.8801683098319164e-11,
+      "global_top_elevation": 4.8801683098319164e-11,
+      "bottom_elevation": 2.245191628539161e-11,
+      "top_elevation": 2.245191628539161e-11,
+      "top_distance_to_next_story": 2.525060956289586e-10,
+      "bottom_distance_to_next_story": 2.525060956289586e-10
+    },
+    "dimensions": {
+      "NetVolume": 2.0572439999941388,
+      "Volume": 2.0572439999941388,
+      "Depth": 120.00000000000298,
+      "NetArea": 17.143699999950734,
+      "Area": 17.143699999950734
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_crushed-stone_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 2.0572439999941388,
+        "Depth": 120.00000000000298,
+        "NetArea": 17.143699999950734
+      }
+    }
+  },
+  "623": {
+    "class": "IfcSlab",
+    "name": "bridge road - road asphalt binder course",
+    "globalId": "2B7GjowjDAyvkWvj3mcysp",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway - bridge road",
+      "global_x": 17320.508075688445,
+      "global_y": 29999.999999999778,
+      "global_z": 2.6349766812927553e-11,
+      "global_bottom_elevation": 2.6349766812927553e-11,
+      "global_top_elevation": 2.6349766812927553e-11,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": 2.7495801191435017e-10,
+      "bottom_distance_to_next_story": 2.7495801191435017e-10
+    },
+    "dimensions": {
+      "NetVolume": 0.7205839943048488,
+      "Volume": 0.7205839943048488,
+      "Depth": 80.00000000000132,
+      "NetArea": 9.007299928810461,
+      "Area": 9.007299928810461
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_dbm_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 0.7205839943048488,
+        "Depth": 80.00000000000132,
+        "NetArea": 9.007299928810461
+      }
+    }
+  },
+  "646": {
+    "class": "IfcSlab",
+    "name": "road subgrade - bridge road",
+    "globalId": "24yB027vXAnwvB5wEFTdUW",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway - bridge road",
+      "global_x": 17320.508075688445,
+      "global_y": 29999.999999999778,
+      "global_z": 2.6349766812927553e-11,
+      "global_bottom_elevation": 2.6349766812927553e-11,
+      "global_top_elevation": 2.6349766812927553e-11,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": 2.7495801191435017e-10,
+      "bottom_distance_to_next_story": 2.7495801191435017e-10
+    },
+    "dimensions": {
+      "NetVolume": 4.55515116417124,
+      "Volume": 4.55515116417124,
+      "Depth": 395.8136006661577,
+      "NetArea": 11.508324010354572,
+      "Area": 11.508324010354572
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_gravel_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 4.55515116417124,
+        "Depth": 395.8136006661577,
+        "NetArea": 11.508324010354572
+      }
+    }
+  },
+  "669": {
+    "class": "IfcSlab",
+    "name": "road asphalt surface course - bridge road",
+    "globalId": "0GfyK6YKbBBOLGVolBxAx4",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway - bridge road",
+      "global_x": 17320.508075688445,
+      "global_y": 29999.999999999778,
+      "global_z": 2.6349766812927553e-11,
+      "global_bottom_elevation": 2.6349766812927553e-11,
+      "global_top_elevation": 2.6349766812927553e-11,
+      "bottom_elevation": 0.0,
+      "top_elevation": 0.0,
+      "top_distance_to_next_story": 2.7495801191435017e-10,
+      "bottom_distance_to_next_story": 2.7495801191435017e-10
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_asphalt_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      }
+    }
+  },
+  "727": {
+    "class": "IfcSlab",
+    "name": "road base course - bridge road",
+    "globalId": "2gurTQSkD1_htHRFmtcbL_",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway - bridge road",
+      "global_x": 23867.8766346469,
+      "global_y": 33780.12499999852,
+      "global_z": 3.237596950126694e-10,
+      "global_bottom_elevation": 3.237596950126694e-10,
+      "global_top_elevation": 3.237596950126694e-10,
+      "bottom_elevation": 2.245191628539169e-11,
+      "top_elevation": 2.245191628539169e-11,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 2.057243999994139,
+      "Volume": 2.057243999994139,
+      "Depth": 120.00000000000298,
+      "NetArea": 17.143699999950734,
+      "Area": 17.143699999950734
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_crushed-stone_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 2.057243999994139,
+        "Depth": 120.00000000000298,
+        "NetArea": 17.143699999950734
+      }
+    }
+  },
+  "749": {
+    "class": "IfcSlab",
+    "name": "bridge road - road asphalt binder course",
+    "globalId": "2CFlp691nEVAN$xmwmq4NQ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway - bridge road",
+      "global_x": 17320.508075688944,
+      "global_y": 30000.000000000186,
+      "global_z": 3.013077787272778e-10,
+      "global_bottom_elevation": 3.013077787272778e-10,
+      "global_top_elevation": 3.013077787272778e-10,
+      "bottom_elevation": 5.169878828456423e-26,
+      "top_elevation": 5.169878828456423e-26,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.7205839943048489,
+      "Volume": 0.7205839943048489,
+      "Depth": 80.00000000000132,
+      "NetArea": 9.007299928810463,
+      "Area": 9.007299928810463
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_dbm_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 0.7205839943048489,
+        "Depth": 80.00000000000132,
+        "NetArea": 9.007299928810463
+      }
+    }
+  },
+  "770": {
+    "class": "IfcSlab",
+    "name": "road subgrade - bridge road",
+    "globalId": "2Lcv7v7Y9CDgeVSxtOixa_",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway - bridge road",
+      "global_x": 17320.508075688944,
+      "global_y": 30000.000000000186,
+      "global_z": 3.013077787272778e-10,
+      "global_bottom_elevation": 3.013077787272778e-10,
+      "global_top_elevation": 3.013077787272778e-10,
+      "bottom_elevation": 5.169878828456423e-26,
+      "top_elevation": 5.169878828456423e-26,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 4.5551511641712406,
+      "Volume": 4.5551511641712406,
+      "Depth": 395.8136006661577,
+      "NetArea": 11.508324010354576,
+      "Area": 11.508324010354576
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_gravel_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 4.5551511641712406,
+        "Depth": 395.8136006661577,
+        "NetArea": 11.508324010354576
+      }
+    }
+  },
+  "791": {
+    "class": "IfcSlab",
+    "name": "road asphalt surface course - bridge road",
+    "globalId": "3PGg5TW8D94u9cNHoKU9ai",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway - bridge road",
+      "global_x": 17320.508075688944,
+      "global_y": 30000.000000000186,
+      "global_z": 3.013077787272778e-10,
+      "global_bottom_elevation": 3.013077787272778e-10,
+      "global_top_elevation": 3.013077787272778e-10,
+      "bottom_elevation": 5.169878828456423e-26,
+      "top_elevation": 5.169878828456423e-26,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_asphalt_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      }
+    }
+  },
+  "855": {
+    "class": "IfcSlab",
+    "name": "road - asphalt binder course",
+    "globalId": "0WFaAjgxT8whuM_s0GDVop",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": 34641.016151384596,
+      "global_y": 40000.00000000395,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 5.76000000000007,
+      "Volume": 5.76000000000007,
+      "Depth": 80.00000000000128,
+      "NetArea": 71.99999999999973,
+      "Area": 71.99999999999973
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_dbm_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 5.76000000000007,
+        "Depth": 80.00000000000128,
+        "NetArea": 71.99999999999973
+      }
+    }
+  },
+  "877": {
+    "class": "IfcSlab",
+    "name": "road - asphalt surface course",
+    "globalId": "2perTo5I50_QVZloPyhq8F",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": 34641.0161513846,
+      "global_y": 40000.00000000396,
+      "global_z": -9.023892744153266e-14,
+      "global_bottom_elevation": -9.023892744153266e-14,
+      "global_top_elevation": -9.023892744153266e-14,
+      "bottom_elevation": -9.023892744153266e-14,
+      "top_elevation": -9.023892744153266e-14,
+      "top_distance_to_next_story": 9.023892744153266e-14,
+      "bottom_distance_to_next_story": 9.023892744153266e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_asphalt_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      }
+    }
+  },
+  "936": {
+    "class": "IfcSlab",
+    "name": "road - subgrade",
+    "globalId": "1URig8FeLBeR9AdMrx_PFb",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": 34641.016151384596,
+      "global_y": 40000.00000000395,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 17.999999999999623,
+      "Volume": 17.999999999999623,
+      "Depth": 249.99999999999656,
+      "NetArea": 71.99999999999949,
+      "Area": 71.99999999999949
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_gravel_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 17.999999999999623,
+        "Depth": 249.99999999999656,
+        "NetArea": 71.99999999999949
+      }
+    }
+  },
+  "957": {
+    "class": "IfcSlab",
+    "name": "road - base course",
+    "globalId": "34susoRVr6zwuxR_H7WjJP",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": 34641.016151384596,
+      "global_y": 40000.00000000395,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 9.023892744153272e-14,
+      "bottom_distance_to_next_story": 9.023892744153272e-14
+    },
+    "dimensions": {
+      "NetVolume": 8.639999999991328,
+      "Volume": 8.639999999991328,
+      "Depth": 120.00000000000287,
+      "NetArea": 71.999999999926,
+      "Area": 71.999999999926
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_crushed-stone_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 8.639999999991328,
+        "Depth": 120.00000000000287,
+        "NetArea": 71.999999999926
+      }
+    }
+  },
+  "1042": {
+    "class": "IfcSlab",
+    "name": "road - asphalt binder course",
+    "globalId": "1hIucSGDb5YfQIf0E4zTy_",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": -17320.508075695765,
+      "global_y": 9999.99999999609,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 2.6440005740369084e-11,
+      "bottom_distance_to_next_story": 2.6440005740369084e-11
+    },
+    "dimensions": {
+      "NetVolume": 5.76000000000007,
+      "Volume": 5.76000000000007,
+      "Depth": 80.00000000000128,
+      "NetArea": 71.99999999999973,
+      "Area": 71.99999999999973
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_dbm_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 5.76000000000007,
+        "Depth": 80.00000000000128,
+        "NetArea": 71.99999999999973
+      }
+    }
+  },
+  "1064": {
+    "class": "IfcSlab",
+    "name": "road - asphalt surface course",
+    "globalId": "2Hv0cNhjPCV8n4VnOiLlhy",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": -17320.50807569577,
+      "global_y": 9999.999999996084,
+      "global_z": -9.023892744153266e-14,
+      "global_bottom_elevation": -9.023892744153266e-14,
+      "global_top_elevation": -9.023892744153266e-14,
+      "bottom_elevation": -9.023892744153266e-14,
+      "top_elevation": -9.023892744153266e-14,
+      "top_distance_to_next_story": 2.6440005740369084e-11,
+      "bottom_distance_to_next_story": 2.6440005740369084e-11
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bitumen_asphalt_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      }
+    }
+  },
+  "1123": {
+    "class": "IfcSlab",
+    "name": "road - subgrade",
+    "globalId": "1IhMwsHkj23Pk9puusHUBF",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": -17320.508075695765,
+      "global_y": 9999.99999999609,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 2.6440005740369084e-11,
+      "bottom_distance_to_next_story": 2.6440005740369084e-11
+    },
+    "dimensions": {
+      "NetVolume": 17.999999999999627,
+      "Volume": 17.999999999999627,
+      "Depth": 249.99999999999656,
+      "NetArea": 71.9999999999995,
+      "Area": 71.9999999999995
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_gravel_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 17.999999999999627,
+        "Depth": 249.99999999999656,
+        "NetArea": 71.9999999999995
+      }
+    }
+  },
+  "1144": {
+    "class": "IfcSlab",
+    "name": "road - base course",
+    "globalId": "0JHBQuEiP0nvPYpJMf4bmS",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": -17320.508075695765,
+      "global_y": 9999.99999999609,
+      "global_z": -9.023892744153272e-14,
+      "global_bottom_elevation": -9.023892744153272e-14,
+      "global_top_elevation": -9.023892744153272e-14,
+      "bottom_elevation": -9.023892744153272e-14,
+      "top_elevation": -9.023892744153272e-14,
+      "top_distance_to_next_story": 2.6440005740369084e-11,
+      "bottom_distance_to_next_story": 2.6440005740369084e-11
+    },
+    "dimensions": {
+      "NetVolume": 8.639999999991328,
+      "Volume": 8.639999999991328,
+      "Depth": 120.00000000000287,
+      "NetArea": 71.999999999926,
+      "Area": 71.999999999926
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_crushed-stone_generic"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": true
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 8.639999999991328,
+        "Depth": 120.00000000000287,
+        "NetArea": 71.999999999926
+      }
+    }
+  },
+  "821": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "00ZvlN19v73wE8JOyDmPjG",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 32294.9874330179,
+      "global_y": 34063.44093621458,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "828": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "3E8poO$Er6gPhLg44LF$bc",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 36987.04486973719,
+      "global_y": 45936.559063785375,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "238": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "2E09k8p5j8Ie2cdShEa6y3",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -6062.177826491042,
+      "global_y": 16500.00000000016,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "254": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "3oFdaVamzCehZnvL2DVyTv",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -2598.076211353284,
+      "global_y": 18500.000000000146,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "262": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "22Oy65k6H6RQzyRYDT5O81",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": 866.0254037844661,
+      "global_y": 20500.000000000153,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "270": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "3nP$zLBVH1Yxs64yX$MtCU",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": 4330.12701892222,
+      "global_y": 22500.000000000146,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "278": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "3iK_B7RQX1A90d2SZn3haF",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": 7794.2286340599585,
+      "global_y": 24500.00000000014,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "472": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "2k035JfqPANO_5sd1VjpMr",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -6062.177826491042,
+      "global_y": 16500.00000000016,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "480": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "2xFNEEiVXAoQ17T8KWBbr6",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": -2598.076211353284,
+      "global_y": 18500.000000000146,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "488": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "3PBVDB_Gv65fD5rAR8Y2j0",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": 866.0254037844661,
+      "global_y": 20500.000000000153,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "496": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "2ayNnO1Fn0kRTcnBmZ4Sgd",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": 4330.12701892222,
+      "global_y": 22500.000000000146,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "504": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "1PLaDnWNP2WPtJ6K0kxgur",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road  - carriageway",
+      "global_x": 7794.2286340599585,
+      "global_y": 24500.00000000014,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "893": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "2XfFRWwzD9qfMHjBFXzIXm",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": 40703.19397786867,
+      "global_y": 43499.9999999999,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "904": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "3kgqjUM35B4wJgRMa9qRTs",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": 37239.09236273091,
+      "global_y": 41499.99999999991,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "912": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "3YeZLOBOrEnv261fug3ZyX",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": 33774.990747593154,
+      "global_y": 39499.999999999905,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "920": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "1iXLtViPXCCwrYVlnB19Ks",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": 30310.8891324554,
+      "global_y": 37499.99999999991,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "928": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "2VDStrHxP5_9fajgO5lJMP",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": 26846.787517317654,
+      "global_y": 35499.99999999991,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 9.023892744153267e-14,
+      "bottom_distance_to_next_story": 9.023892744153267e-14
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "1080": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "3736_hvIzFCRBgB1NzaIAG",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": -23382.68590217983,
+      "global_y": 6500.000000000143,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 2.6440005740369084e-11,
+      "bottom_distance_to_next_story": 2.6440005740369084e-11
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "1091": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "1HY$KHGVb0Y9iLwHsRZfqX",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": -19918.58428704207,
+      "global_y": 8500.000000000131,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 2.6440005740369084e-11,
+      "bottom_distance_to_next_story": 2.6440005740369084e-11
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "1099": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "3SstlkwwP25gbEsTjECubM",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": -16454.482671904316,
+      "global_y": 10500.000000000135,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 2.6440005740369084e-11,
+      "bottom_distance_to_next_story": 2.6440005740369084e-11
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "1107": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "0foyckKPj2OwIIYCa8mzqS",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": -12990.38105676656,
+      "global_y": 12500.000000000135,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 2.6440005740369084e-11,
+      "bottom_distance_to_next_story": 2.6440005740369084e-11
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "1115": {
+    "class": "IfcSurfaceFeature",
+    "name": "road - line marking",
+    "globalId": "1Fxh8JXAj0VPU5VkvOYvkk",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "road carriageway",
+      "global_x": -9526.279441628816,
+      "global_y": 14500.000000000127,
+      "global_z": -9.023892744153267e-14,
+      "global_bottom_elevation": -9.023892744153267e-14,
+      "global_top_elevation": -9.023892744153267e-14,
+      "bottom_elevation": -9.023892744153267e-14,
+      "top_elevation": -9.023892744153267e-14,
+      "top_distance_to_next_story": 2.6440005740369084e-11,
+      "bottom_distance_to_next_story": 2.6440005740369084e-11
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "plastic_thermoplastic-road-marking-paint"
+      }
+    ],
+    "psets": {}
+  },
+  "30": {
+    "class": "IfcBuilding",
+    "name": "road parking - road",
+    "globalId": "2MBfH6RyP3luv6spdwrCIJ",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "40": {
+    "class": "IfcBuilding",
+    "name": "road parking - road segment",
+    "globalId": "13nXdzaiLCcBMI_327t3$B",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "332": {
+    "class": "IfcBuilding",
+    "name": "road parking - road segment",
+    "globalId": "3UW01eWGf3R9Qahji8i4XE",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "554": {
+    "class": "IfcBuilding",
+    "name": "bridge road connection",
+    "globalId": "1ycqplGh55EAGDAsiDHPxX",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "561": {
+    "class": "IfcBuilding",
+    "name": "bridge - road segment",
+    "globalId": "3gVUlQBybBTR_jtpA_c89f",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688445,
+      "global_y": 29999.999999999778,
+      "global_z": 2.6349766812927553e-11,
+      "global_bottom_elevation": 2.6349766812927553e-11,
+      "global_top_elevation": 2.6349766812927553e-11,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "685": {
+    "class": "IfcBuilding",
+    "name": "bridge road connection",
+    "globalId": "1Engm$GMHEoAv0uoo9qvMb",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568861,
+      "global_y": 29999.999999999898,
+      "global_z": 2.749580119143502e-10,
+      "global_bottom_elevation": 2.749580119143502e-10,
+      "global_top_elevation": 2.749580119143502e-10,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "691": {
+    "class": "IfcBuilding",
+    "name": "bridge - road segment",
+    "globalId": "1gawLKQN1FlOdzrZDos6Gg",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688944,
+      "global_y": 30000.000000000186,
+      "global_z": 3.013077787272778e-10,
+      "global_bottom_elevation": 3.013077787272778e-10,
+      "global_top_elevation": 3.013077787272778e-10,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "834": {
+    "class": "IfcBuilding",
+    "name": "road",
+    "globalId": "1Gy5o1F_T6VxmwxJ5$xsRE",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.016151377575,
+      "global_y": 39999.999999999985,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "841": {
+    "class": "IfcBuilding",
+    "name": "road segment",
+    "globalId": "1qeMYKRz11NfwG9VheT8FH",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.016151377575,
+      "global_y": 39999.999999999985,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1021": {
+    "class": "IfcBuilding",
+    "name": "road",
+    "globalId": "1AfgOmh7nDOedEyHKWgbIw",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1028": {
+    "class": "IfcBuilding",
+    "name": "road segment",
+    "globalId": "2pS6pdNUf5JhK0$Ap6Vb7C",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "47": {
+    "class": "IfcBuildingStorey",
+    "name": "road - parking",
+    "globalId": "2X7Dlo9gX5dgM3FX0gYZXP",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "168": {
+    "class": "IfcBuildingStorey",
+    "name": "road parking - shoulder",
+    "globalId": "1rSMOsFHPCxBpVA$FlasQt",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 7760.25403784419,
+      "global_y": 26558.845726811916,
+      "global_z": -489.9999999999911,
+      "global_bottom_elevation": -489.9999999999911,
+      "global_top_elevation": -489.9999999999911,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "179": {
+    "class": "IfcBuildingStorey",
+    "name": "road - shoulder",
+    "globalId": "3hvQKS_3f35hrc93TD89Cw",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 9560.254037844325,
+      "global_y": 23441.154273187607,
+      "global_z": -489.999999999977,
+      "global_bottom_elevation": -489.999999999977,
+      "global_top_elevation": -489.999999999977,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "190": {
+    "class": "IfcBuildingStorey",
+    "name": "road  - carriageway",
+    "globalId": "0_Qwe45Iz4axmHTXYPvOsp",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "338": {
+    "class": "IfcBuildingStorey",
+    "name": "road - parking",
+    "globalId": "3Rtyfer6f14gfdIYhSAJfS",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "418": {
+    "class": "IfcBuildingStorey",
+    "name": "road parking - shoulder",
+    "globalId": "15Sq9FrzT9FBv27nCk5mh_",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 7760.25403784419,
+      "global_y": 26558.845726811916,
+      "global_z": -489.9999999999911,
+      "global_bottom_elevation": -489.9999999999911,
+      "global_top_elevation": -489.9999999999911,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "426": {
+    "class": "IfcBuildingStorey",
+    "name": "road - shoulder",
+    "globalId": "2271FKNO1DdwPAfaVP8xJd",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 9560.254037844325,
+      "global_y": 23441.154273187607,
+      "global_z": -489.999999999977,
+      "global_bottom_elevation": -489.999999999977,
+      "global_top_elevation": -489.999999999977,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "434": {
+    "class": "IfcBuildingStorey",
+    "name": "road  - carriageway",
+    "globalId": "2FFDMtF_bFt9Cn7VXimDUu",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "568": {
+    "class": "IfcBuildingStorey",
+    "name": "road - shoulder",
+    "globalId": "2osHTl91z1WeqT0dDvg3WD",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 9560.254037844294,
+      "global_y": 23441.154273187585,
+      "global_z": -489.9999999999375,
+      "global_bottom_elevation": -489.9999999999375,
+      "global_top_elevation": -489.9999999999375,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "580": {
+    "class": "IfcBuildingStorey",
+    "name": "road - shoulder",
+    "globalId": "1LsZ9dUZn5397IxXcrlrIe",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 7760.254037844084,
+      "global_y": 26558.845726811865,
+      "global_z": -489.9999999999181,
+      "global_bottom_elevation": -489.9999999999181,
+      "global_top_elevation": -489.9999999999181,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "591": {
+    "class": "IfcBuildingStorey",
+    "name": "road carriageway - bridge road",
+    "globalId": "3JCNkEnxX2HAIohFE8d0li",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688445,
+      "global_y": 29999.999999999778,
+      "global_z": 2.6349766812927553e-11,
+      "global_bottom_elevation": 2.6349766812927553e-11,
+      "global_top_elevation": 2.6349766812927553e-11,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "698": {
+    "class": "IfcBuildingStorey",
+    "name": "road - shoulder",
+    "globalId": "2$CI2UZ2nC6udOwWqZWr6C",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 25080.762113533143,
+      "global_y": 36558.845726812324,
+      "global_z": -489.99999999966246,
+      "global_bottom_elevation": -489.99999999966246,
+      "global_top_elevation": -489.99999999966246,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "710": {
+    "class": "IfcBuildingStorey",
+    "name": "road - shoulder",
+    "globalId": "2PKdE1kbL8ke7QxRRzxN_q",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 26880.762113533332,
+      "global_y": 33441.15427318804,
+      "global_z": -489.999999999643,
+      "global_bottom_elevation": -489.999999999643,
+      "global_top_elevation": -489.999999999643,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "721": {
+    "class": "IfcBuildingStorey",
+    "name": "road carriageway - bridge road",
+    "globalId": "0UKHUh06v69wKcoKjB04ik",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688944,
+      "global_y": 30000.000000000186,
+      "global_z": 3.013077787272778e-10,
+      "global_bottom_elevation": 3.013077787272778e-10,
+      "global_top_elevation": 3.013077787272778e-10,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "848": {
+    "class": "IfcBuildingStorey",
+    "name": "road carriageway",
+    "globalId": "3oc$qAY_95VA0MUuoAYGxh",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.016151377575,
+      "global_y": 39999.999999999985,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "978": {
+    "class": "IfcBuildingStorey",
+    "name": "road - shoulder",
+    "globalId": "2bgbuMDuj3hg9k0pkgUphW",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 26880.76211353341,
+      "global_y": 33441.15427318812,
+      "global_z": -489.9999999999911,
+      "global_bottom_elevation": -489.9999999999911,
+      "global_top_elevation": -489.9999999999911,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "989": {
+    "class": "IfcBuildingStorey",
+    "name": "road - shoulder",
+    "globalId": "17coQp2iL5FhBqt0CY_3TM",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 25080.762113533296,
+      "global_y": 36558.84572681243,
+      "global_z": -489.999999999977,
+      "global_bottom_elevation": -489.999999999977,
+      "global_top_elevation": -489.999999999977,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1035": {
+    "class": "IfcBuildingStorey",
+    "name": "road carriageway",
+    "globalId": "2v_vgJ52rCdOoY4xv9BEGs",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1165": {
+    "class": "IfcBuildingStorey",
+    "name": "road - shoulder",
+    "globalId": "0YqCWlEOfFLOP9cWpIfWnw",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -9560.254037844566,
+      "global_y": 16558.845726811924,
+      "global_z": -489.9999999999911,
+      "global_bottom_elevation": -489.9999999999911,
+      "global_top_elevation": -489.9999999999911,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1176": {
+    "class": "IfcBuildingStorey",
+    "name": "road - shoulder",
+    "globalId": "2Jmv7aVW59tgvJy3nmB5rm",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -7760.2540378444555,
+      "global_y": 13441.154273187612,
+      "global_z": -489.999999999977,
+      "global_bottom_elevation": -489.999999999977,
+      "global_top_elevation": -489.999999999977,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "20": {
+    "class": "IfcSite",
+    "name": "environment - site",
+    "globalId": "23sFQGRy90RxVbRHD9iSE2",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "23": {
+    "class": "IfcSite",
+    "name": "road parking - site",
+    "globalId": "1adp27B_9CUfup2ojuKOng",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "548": {
+    "class": "IfcSite",
+    "name": "road river bridge - site",
+    "globalId": "3pnaj3EgL1cOScZHtoQhHO",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "807": {
+    "class": "IfcSite",
+    "name": "rail river bridge - site",
+    "globalId": "2Wad9UE39Fl81buLr2dp_x",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688766,
+      "global_y": 50000.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "813": {
+    "class": "IfcSite",
+    "name": "road rail bridge - site",
+    "globalId": "1$CApj9YLCeu0YyH5TXRVh",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.01615137755,
+      "global_y": 40000.00000000001,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1015": {
+    "class": "IfcSite",
+    "name": "road - site",
+    "globalId": "2syxA9_lr7Ew2uZai3VhhS",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  }
+}

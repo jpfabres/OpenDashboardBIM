@@ -117,6 +117,41 @@
             </div>
             <div class="filter-rail-ifc">
               <h2 class="filter-rail-ifc-title">IFC</h2>
+              <div class="ifc-load-actions">
+                <div
+                  class="ifc-add-wrap"
+                  title="Add one or more local .ifc files"
+                  id="btn-ifc-open"
+                >
+                  <label for="ifc-file-input" class="btn btn-ghost btn-sm btn-block ifc-add-label">
+                    Add IFC
+                  </label>
+                  <input
+                    type="file"
+                    id="ifc-file-input"
+                    class="ifc-file-input-overlay"
+                    accept=".ifc,.IFC"
+                    multiple
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-ghost btn-sm btn-block"
+                  id="btn-ifc-clear-all"
+                  title="Remove all loaded models from the viewport"
+                  disabled
+                >
+                  Clear all
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-ghost btn-sm btn-block"
+                  id="btn-fix-quantities"
+                  title="Run quantity verification and correction on the latest uploaded JSON (backend)"
+                >
+                  Fix Quantities
+                </button>
+              </div>
               <details class="ifc-models-section" id="ifc-models-section" open>
                 <summary class="ifc-models-section-summary">
                   <span class="ifc-models-section-chevron" aria-hidden="true">▸</span>
@@ -124,41 +159,6 @@
                   <span class="ifc-models-section-count" id="ifc-models-count" aria-live="polite"></span>
                 </summary>
                 <div class="ifc-models-section-inner">
-                  <div class="ifc-load-actions">
-                    <div
-                      class="ifc-add-wrap"
-                      title="Add one or more local .ifc files"
-                      id="btn-ifc-open"
-                    >
-                      <label for="ifc-file-input" class="btn btn-ghost btn-sm btn-block ifc-add-label">
-                        Add IFC
-                      </label>
-                      <input
-                        type="file"
-                        id="ifc-file-input"
-                        class="ifc-file-input-overlay"
-                        accept=".ifc,.IFC"
-                        multiple
-                      />
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-ghost btn-sm btn-block"
-                      id="btn-ifc-clear-all"
-                      title="Remove all loaded models from the viewport"
-                      disabled
-                    >
-                      Clear all
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-ghost btn-sm btn-block"
-                      id="btn-fix-quantities"
-                      title="Run quantity verification and correction on the latest uploaded JSON (backend)"
-                    >
-                      Fix Quantities
-                    </button>
-                  </div>
                   <div id="ifc-models-list" class="ifc-models-list" aria-label="Loaded IFC models"></div>
                 </div>
               </details>
@@ -215,7 +215,7 @@
                 <p class="ifc-health-meta" id="ifc-health-meta"></p>
               </div>
               <div class="ifc-health-grid" id="ifc-health-grid">
-                <article class="ifc-health-graph-card">
+                <article class="ifc-health-graph-card ifc-health-graph-card--left ifc-health-graph-card--top">
                   <h3 class="ifc-health-caption">Objects</h3>
                   <div class="ifc-health-pie-inner">
                     <canvas
@@ -227,7 +227,15 @@
                     <ul class="ifc-health-legend" id="legend-ifc-health-objects"></ul>
                   </div>
                 </article>
-                <article class="ifc-health-graph-card">
+                <div
+                  class="ifc-health-splitter"
+                  id="ifc-health-splitter"
+                  role="separator"
+                  aria-orientation="vertical"
+                  aria-label="Resize IFC Health chart columns"
+                  title="Drag to resize columns"
+                ></div>
+                <article class="ifc-health-graph-card ifc-health-graph-card--right ifc-health-graph-card--top">
                   <h3 class="ifc-health-caption">Class types</h3>
                   <div class="ifc-health-pie-inner">
                     <canvas
@@ -239,7 +247,7 @@
                     <ul class="ifc-health-legend" id="legend-ifc-health-classtypes"></ul>
                   </div>
                 </article>
-                <article class="ifc-health-graph-card">
+                <article class="ifc-health-graph-card ifc-health-graph-card--left ifc-health-graph-card--bottom">
                   <h3 class="ifc-health-caption">By corrected attribute</h3>
                   <div class="ifc-health-pie-inner">
                     <canvas
@@ -251,7 +259,7 @@
                     <ul class="ifc-health-legend" id="legend-ifc-health-attr"></ul>
                   </div>
                 </article>
-                <article class="ifc-health-graph-card">
+                <article class="ifc-health-graph-card ifc-health-graph-card--right ifc-health-graph-card--bottom">
                   <h3 class="ifc-health-caption">By class (with problems)</h3>
                   <div class="ifc-health-pie-inner">
                     <canvas
@@ -266,6 +274,15 @@
               </div>
             </section>
           </div>
+
+          <div
+            class="layout1-splitter"
+            id="layout1-splitter"
+            role="separator"
+            aria-orientation="vertical"
+            aria-label="Resize IFC Health and 3D view"
+            title="Drag to resize columns"
+          ></div>
 
           <div class="viewer-region" id="viewer-region" aria-label="3D viewport">
             <div class="viewport-3d" id="viewport-3d">
@@ -412,6 +429,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script src="/static/app/app.js" type="module"></script>
   </body>
 </html>

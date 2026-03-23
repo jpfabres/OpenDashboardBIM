@@ -1,0 +1,3672 @@
+{
+  "749": {
+    "class": "IfcBuildingElementProxy",
+    "name": "underground - road",
+    "globalId": "2kltwih_PEcfdSJ4b17wEl",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "822": {
+    "class": "IfcBuildingElementProxy",
+    "name": "highway location marker - sign",
+    "globalId": "1UcPcFYFnFGf9oxVKgJvYL",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 2346.0287183596733,
+      "global_y": 25936.55906378542,
+      "global_z": 500.00000000005696,
+      "global_bottom_elevation": 500.00000000005696,
+      "global_top_elevation": 500.00000000005696,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_aluminum_sheet_coated-green"
+      }
+    ],
+    "psets": {}
+  },
+  "858": {
+    "class": "IfcBuildingElementProxy",
+    "name": "highway location marker - sign",
+    "globalId": "024xXOLR58MwcQg4WijX_3",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -2346.028718359586,
+      "global_y": 14063.44093621464,
+      "global_z": 500.00000000005696,
+      "global_bottom_elevation": 500.00000000005696,
+      "global_top_elevation": 500.00000000005696,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_aluminum_sheet_coated-green"
+      }
+    ],
+    "psets": {}
+  },
+  "886": {
+    "class": "IfcBuildingElementProxy",
+    "name": "highway location marker - sign",
+    "globalId": "2ypUkw9of26hgUb5MNJ_ZN",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 6314.225319484797,
+      "global_y": 19063.440936214658,
+      "global_z": 500.00000000005696,
+      "global_bottom_elevation": 500.00000000005696,
+      "global_top_elevation": 500.00000000005696,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_aluminum_sheet_coated-green"
+      }
+    ],
+    "psets": {}
+  },
+  "914": {
+    "class": "IfcBuildingElementProxy",
+    "name": "highway location marker - sign",
+    "globalId": "18egTHa0TABBijPOg5oimA",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -6314.225319484668,
+      "global_y": 20936.559063785393,
+      "global_z": 500.00000000005696,
+      "global_bottom_elevation": 500.00000000005696,
+      "global_top_elevation": 500.00000000005696,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_aluminum_sheet_coated-green"
+      }
+    ],
+    "psets": {}
+  },
+  "1032": {
+    "class": "IfcBuildingElementProxy",
+    "name": "Group#16",
+    "globalId": "0OzNRPe4z1_eVDIEUoZJ99",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 27294.606404979135,
+      "global_y": 25290.179661171656,
+      "global_z": -382.7438185818272,
+      "global_bottom_elevation": -382.7438185818272,
+      "global_top_elevation": -382.7438185818272,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "Default"
+      }
+    ],
+    "psets": {}
+  },
+  "1085": {
+    "class": "IfcBuildingElementProxy",
+    "name": "underground - river",
+    "globalId": "1FI54l9HzB2PvEGvFyXLbP",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 17320.508075688766,
+      "global_y": 50000.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1144": {
+    "class": "IfcBuildingElementProxy",
+    "name": "underground - road",
+    "globalId": "3Ch90OuJb98uHg3Gufe_Xm",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 34641.01615137755,
+      "global_y": 40000.00000000001,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1218": {
+    "class": "IfcBuildingElementProxy",
+    "name": "highway location marker - sign",
+    "globalId": "0bFvkZvPnFIh5_uR6vMz8r",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 32294.9874330179,
+      "global_y": 34063.44093621458,
+      "global_z": 500.00000000005696,
+      "global_bottom_elevation": 500.00000000005696,
+      "global_top_elevation": 500.00000000005696,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_aluminum_sheet_coated-green"
+      }
+    ],
+    "psets": {}
+  },
+  "1249": {
+    "class": "IfcBuildingElementProxy",
+    "name": "highway location marker - sign",
+    "globalId": "1doAY7u3X8TO5A5XwZzMhW",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 36987.04486973719,
+      "global_y": 45936.559063785375,
+      "global_z": 500.00000000005696,
+      "global_bottom_elevation": 500.00000000005696,
+      "global_top_elevation": 500.00000000005696,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_aluminum_sheet_coated-green"
+      }
+    ],
+    "psets": {}
+  },
+  "1265": {
+    "class": "IfcBuildingElementProxy",
+    "name": "geo-reference",
+    "globalId": "3Fit2Fad92zf2f6aWdJtF5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_black"
+      }
+    ],
+    "psets": {}
+  },
+  "1330": {
+    "class": "IfcBuildingElementProxy",
+    "name": "underground - road",
+    "globalId": "3M9N4ltyTDLedg0IXOqRl0",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1394": {
+    "class": "IfcBuildingElementProxy",
+    "name": "highway location marker - sign",
+    "globalId": "1EgGZBqJH2nhxvBhXL5aAu",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -14974.479357329095,
+      "global_y": 15936.559063785413,
+      "global_z": 500.00000000005696,
+      "global_bottom_elevation": 500.00000000005696,
+      "global_top_elevation": 500.00000000005696,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_aluminum_sheet_coated-green"
+      }
+    ],
+    "psets": {}
+  },
+  "1425": {
+    "class": "IfcBuildingElementProxy",
+    "name": "highway location marker - sign",
+    "globalId": "1M3Vul3815kQUhtf2I_Skt",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -19666.536794048352,
+      "global_y": 4063.4409362146625,
+      "global_z": 500.00000000005696,
+      "global_bottom_elevation": 500.00000000005696,
+      "global_top_elevation": 500.00000000005696,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_aluminum_sheet_coated-green"
+      }
+    ],
+    "psets": {}
+  },
+  "1453": {
+    "class": "IfcBuildingElementProxy",
+    "name": "highway location marker - sign",
+    "globalId": "2T95Xtq0rFePGIDJ4PqyFj",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -11006.282756203982,
+      "global_y": 9063.440936214663,
+      "global_z": 500.00000000005696,
+      "global_bottom_elevation": 500.00000000005696,
+      "global_top_elevation": 500.00000000005696,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_aluminum_sheet_coated-green"
+      }
+    ],
+    "psets": {}
+  },
+  "1481": {
+    "class": "IfcBuildingElementProxy",
+    "name": "highway location marker - sign",
+    "globalId": "2k2lifnhL40AslzJB9Bx$W",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -23634.73339517344,
+      "global_y": 10936.559063785377,
+      "global_z": 500.00000000005696,
+      "global_bottom_elevation": 500.00000000005696,
+      "global_top_elevation": 500.00000000005696,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_aluminum_sheet_coated-green"
+      }
+    ],
+    "psets": {}
+  },
+  "797": {
+    "class": "IfcMember",
+    "name": "highway location marker - post",
+    "globalId": "30oyY5EPT7b8538BYwrMA6",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 2346.0287183596733,
+      "global_y": 25936.55906378542,
+      "global_z": -799.9999999999419,
+      "global_bottom_elevation": -799.9999999999419,
+      "global_top_elevation": -799.9999999999419,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {
+      "Pset_MemberCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      }
+    }
+  },
+  "844": {
+    "class": "IfcMember",
+    "name": "highway location marker - post",
+    "globalId": "1ZId9ZD4b6hhdGUwoS_84p",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -2346.028718359586,
+      "global_y": 14063.44093621464,
+      "global_z": -799.9999999999419,
+      "global_bottom_elevation": -799.9999999999419,
+      "global_top_elevation": -799.9999999999419,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {
+      "Pset_MemberCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      }
+    }
+  },
+  "872": {
+    "class": "IfcMember",
+    "name": "highway location marker - post",
+    "globalId": "28hmQL3mjBIfb_ebI4qpXd",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 6314.225319484797,
+      "global_y": 19063.440936214658,
+      "global_z": -799.9999999999419,
+      "global_bottom_elevation": -799.9999999999419,
+      "global_top_elevation": -799.9999999999419,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {
+      "Pset_MemberCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      }
+    }
+  },
+  "900": {
+    "class": "IfcMember",
+    "name": "highway location marker - post",
+    "globalId": "32131LhGbDMAs5IUHOhPTD",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -6314.225319484668,
+      "global_y": 20936.559063785393,
+      "global_z": -799.9999999999419,
+      "global_bottom_elevation": -799.9999999999419,
+      "global_top_elevation": -799.9999999999419,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {
+      "Pset_MemberCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      }
+    }
+  },
+  "1201": {
+    "class": "IfcMember",
+    "name": "highway location marker - post",
+    "globalId": "0CBYVcIsj81uRh9cxs7LZd",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 32294.9874330179,
+      "global_y": 34063.44093621458,
+      "global_z": -799.9999999999419,
+      "global_bottom_elevation": -799.9999999999419,
+      "global_top_elevation": -799.9999999999419,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {
+      "Pset_MemberCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      }
+    }
+  },
+  "1235": {
+    "class": "IfcMember",
+    "name": "highway location marker - post",
+    "globalId": "16UMCV4efA9hyR82LVCmc8",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 36987.04486973719,
+      "global_y": 45936.559063785375,
+      "global_z": -799.9999999999419,
+      "global_bottom_elevation": -799.9999999999419,
+      "global_top_elevation": -799.9999999999419,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {
+      "Pset_MemberCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      }
+    }
+  },
+  "1377": {
+    "class": "IfcMember",
+    "name": "highway location marker - post",
+    "globalId": "0bjYaEhBHB9ggusMYJds7m",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -14974.479357329095,
+      "global_y": 15936.559063785413,
+      "global_z": -799.9999999999419,
+      "global_bottom_elevation": -799.9999999999419,
+      "global_top_elevation": -799.9999999999419,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {
+      "Pset_MemberCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      }
+    }
+  },
+  "1411": {
+    "class": "IfcMember",
+    "name": "highway location marker - post",
+    "globalId": "1oLAKxvofAx8$NtHN3GlTl",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -19666.536794048352,
+      "global_y": 4063.4409362146625,
+      "global_z": -799.9999999999419,
+      "global_bottom_elevation": -799.9999999999419,
+      "global_top_elevation": -799.9999999999419,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {
+      "Pset_MemberCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      }
+    }
+  },
+  "1439": {
+    "class": "IfcMember",
+    "name": "highway location marker - post",
+    "globalId": "0FBBSkMCv4H9u$XjhFm7YV",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -11006.282756203982,
+      "global_y": 9063.440936214663,
+      "global_z": -799.9999999999419,
+      "global_bottom_elevation": -799.9999999999419,
+      "global_top_elevation": -799.9999999999419,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {
+      "Pset_MemberCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      }
+    }
+  },
+  "1467": {
+    "class": "IfcMember",
+    "name": "highway location marker - post",
+    "globalId": "2e7_59uajDNghb7cvuyoAQ",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -23634.73339517344,
+      "global_y": 10936.559063785377,
+      "global_z": -799.9999999999419,
+      "global_bottom_elevation": -799.9999999999419,
+      "global_top_elevation": -799.9999999999419,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {
+      "Pset_MemberCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      }
+    }
+  },
+  "789": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "0Hnf$wQvbCM9cNIukPXgRJ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 2346.0287183596733,
+      "global_y": 25936.55906378542,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "838": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "35JIsNEAvDc8SWX$yCbDjK",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -2346.028718359586,
+      "global_y": 14063.44093621464,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "866": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "0xAZ6srWD07PtIPatQzs$P",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 6314.225319484797,
+      "global_y": 19063.440936214658,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "894": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "0p1NGN3yX61vwKVbOBrW$P",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -6314.225319484668,
+      "global_y": 20936.559063785393,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1195": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "00ZvlN19v73wE8JOyDmPjG",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 32294.9874330179,
+      "global_y": 34063.44093621458,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1229": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "3E8poO$Er6gPhLg44LF$bc",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 36987.04486973719,
+      "global_y": 45936.559063785375,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1371": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "1T4p6ZGRv01fbKg9blo1cB",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -14974.479357329095,
+      "global_y": 15936.559063785413,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1405": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "2t8HycAM1DXuldObNa2Iwo",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -19666.536794048352,
+      "global_y": 4063.4409362146625,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1433": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "23UGBywNfEOfdaQ1y614AM",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -11006.282756203982,
+      "global_y": 9063.440936214663,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1461": {
+    "class": "IfcElementAssembly",
+    "name": "highway location marker",
+    "globalId": "0zVRALYpv94RdFxPi6mV6c",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -23634.73339517344,
+      "global_y": 10936.559063785377,
+      "global_z": -199.99999999994188,
+      "global_bottom_elevation": -199.99999999994188,
+      "global_top_elevation": -199.99999999994188,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "32": {
+    "class": "IfcGeographicElement",
+    "name": "park - site - underground",
+    "globalId": "0kxkKDn4D1eeFCAOH4KGno",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -17320.50807568873,
+      "global_y": 30000.00000000005,
+      "global_z": 1.4438228390645235e-12,
+      "global_bottom_elevation": 1.4438228390645235e-12,
+      "global_top_elevation": 1.4438228390645235e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "51": {
+    "class": "IfcGeographicElement",
+    "name": "park - site - grass",
+    "globalId": "0M2sbzQN5118y7AjXX0eto",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -17320.50807568873,
+      "global_y": 30000.00000000005,
+      "global_z": 1.4438228390645235e-12,
+      "global_bottom_elevation": 1.4438228390645235e-12,
+      "global_top_elevation": 1.4438228390645235e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_grass"
+      }
+    ],
+    "psets": {}
+  },
+  "69": {
+    "class": "IfcGeographicElement",
+    "name": "apple tree",
+    "globalId": "1QMfWcFQTA9O1jjwSzla9K",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -23790.13207582521,
+      "global_y": 30091.799240519715,
+      "global_z": -182.74381858180263,
+      "global_bottom_elevation": -182.74381858180263,
+      "global_top_elevation": -182.74381858180263,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "84": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3vx6_W1mX1S83jQvw29lOf",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -23101.174513956572,
+      "global_y": 33130.47066363568,
+      "global_z": 4033.6820066709042,
+      "global_bottom_elevation": 4033.6820066709042,
+      "global_top_elevation": 4033.6820066709042,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "107": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0vL1f7P1v7uBqiB2O8sdFK",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -21824.293606869935,
+      "global_y": 29043.07398816005,
+      "global_z": 2202.145431865292,
+      "global_bottom_elevation": 2202.145431865292,
+      "global_top_elevation": 2202.145431865292,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "119": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0mvo1hriT8CepdkQqmgoF3",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -26240.202376692367,
+      "global_y": 31817.74486727668,
+      "global_z": 3495.6820066709083,
+      "global_bottom_elevation": 3495.6820066709083,
+      "global_top_elevation": 3495.6820066709083,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "131": {
+    "class": "IfcGeographicElement",
+    "name": "Apple",
+    "globalId": "2JPl80391DWOGDdwWWXFPd",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -24412.192559338822,
+      "global_y": 32494.16395781478,
+      "global_z": 4871.296168236586,
+      "global_bottom_elevation": 4871.296168236586,
+      "global_top_elevation": 4871.296168236586,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "143": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0xwgMcHYT2eRCklSRcbiBQ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -24714.10377731215,
+      "global_y": 33395.08404379508,
+      "global_z": 2887.7117723973884,
+      "global_bottom_elevation": 2887.7117723973884,
+      "global_top_elevation": 2887.7117723973884,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "155": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3cD4ZOuQPCRQ8OWjEKESk1",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -21585.594904415346,
+      "global_y": 31777.2967627702,
+      "global_z": 4396.711772397379,
+      "global_bottom_elevation": 4396.711772397379,
+      "global_top_elevation": 4396.711772397379,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "167": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0xGEgLebL6RBpH$oFPX8q1",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -20902.02796321538,
+      "global_y": 29173.100577054258,
+      "global_z": 4301.711772397377,
+      "global_bottom_elevation": 4301.711772397377,
+      "global_top_elevation": 4301.711772397377,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "179": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "1xR2u7w455dR$kmwHtobFt",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -24789.089108807846,
+      "global_y": 28640.04805565978,
+      "global_z": 4614.455590979183,
+      "global_bottom_elevation": 4614.455590979183,
+      "global_top_elevation": 4614.455590979183,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "205": {
+    "class": "IfcGeographicElement",
+    "name": "apple tree",
+    "globalId": "10Xnlx0yf45xZQZyAPLYp0",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -10891.63551914355,
+      "global_y": 29158.941593956573,
+      "global_z": -43.799654192804645,
+      "global_bottom_elevation": -43.799654192804645,
+      "global_top_elevation": -43.799654192804645,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "211": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3BxsnesIT2bRXBkHBiAphy",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -13527.467252173694,
+      "global_y": 27497.442988820563,
+      "global_z": 4172.626171059902,
+      "global_bottom_elevation": 4172.626171059902,
+      "global_top_elevation": 4172.626171059902,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "223": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3oJ823HYX3TgOV10vGIMAW",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -11540.132493714109,
+      "global_y": 31290.560043617326,
+      "global_z": 2341.08959625429,
+      "global_bottom_elevation": 2341.08959625429,
+      "global_top_elevation": 2341.08959625429,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "235": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3NaKhZF_H0j9I0iTrs$39y",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -10379.60205165574,
+      "global_y": 26206.052413190526,
+      "global_z": 3634.6261710599065,
+      "global_bottom_elevation": 3634.6261710599065,
+      "global_top_elevation": 3634.6261710599065,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "247": {
+    "class": "IfcGeographicElement",
+    "name": "Apple",
+    "globalId": "3ZCX_J5813FuVqLqW7sfaX",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -12150.500715425536,
+      "global_y": 27020.350025273274,
+      "global_z": 5010.2403326255835,
+      "global_bottom_elevation": 5010.2403326255835,
+      "global_top_elevation": 5010.2403326255835,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "259": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "27YzHcsZ59VeXncfoYwrOi",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -12574.06394798415,
+      "global_y": 26169.819853624205,
+      "global_z": 3026.6559367863865,
+      "global_bottom_elevation": 3026.6559367863865,
+      "global_top_elevation": 3026.6559367863865,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "271": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0o_EHtzHHEAu9f1xlkkDI$",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -13642.305430081718,
+      "global_y": 29525.958049581863,
+      "global_z": 4535.6559367863765,
+      "global_bottom_elevation": 4535.6559367863765,
+      "global_top_elevation": 4535.6559367863765,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "283": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "2Aqa5eVSf7kAJZUcvO6vKx",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -12284.215467139275,
+      "global_y": 31850.757651559183,
+      "global_z": 4440.655936786375,
+      "global_bottom_elevation": 4440.655936786375,
+      "global_top_elevation": 4440.655936786375,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "295": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "1CibP_Kl55ng8UGqbf2AUo",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -9158.723119597467,
+      "global_y": 29479.11540923062,
+      "global_z": 4753.399755368181,
+      "global_bottom_elevation": 4753.399755368181,
+      "global_top_elevation": 4753.399755368181,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "309": {
+    "class": "IfcGeographicElement",
+    "name": "apple tree",
+    "globalId": "3C2b0D8KH4AxHtK_sGyYZn",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -19004.20101819599,
+      "global_y": 25631.691520980094,
+      "global_z": -184.30383734109472,
+      "global_bottom_elevation": -184.30383734109472,
+      "global_top_elevation": -184.30383734109472,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "315": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3z6SQBV0H8EuEU0UjTsAsx",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -21640.03275122613,
+      "global_y": 23970.192915844087,
+      "global_z": 4032.1219879116125,
+      "global_bottom_elevation": 4032.1219879116125,
+      "global_top_elevation": 4032.1219879116125,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "327": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "1Yndm_y7n0jg2p1BtguSXE",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -19652.697992766552,
+      "global_y": 27763.309970640847,
+      "global_z": 2200.585413106,
+      "global_bottom_elevation": 2200.585413106,
+      "global_top_elevation": 2200.585413106,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "339": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0pkG5TJkn4evS6mBe4ngYE",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -18492.16755070818,
+      "global_y": 22678.802340214046,
+      "global_z": 3494.1219879116165,
+      "global_bottom_elevation": 3494.1219879116165,
+      "global_top_elevation": 3494.1219879116165,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "351": {
+    "class": "IfcGeographicElement",
+    "name": "Apple",
+    "globalId": "0jQK5sMMD8pPQOYIL3fMLQ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -20263.066214477978,
+      "global_y": 23493.099952296798,
+      "global_z": 4869.736149477294,
+      "global_bottom_elevation": 4869.736149477294,
+      "global_top_elevation": 4869.736149477294,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "363": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3gOJz0hPf5SADxYaVJvZet",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -20686.62944703659,
+      "global_y": 22642.56978064773,
+      "global_z": 2886.1517536380966,
+      "global_bottom_elevation": 2886.1517536380966,
+      "global_top_elevation": 2886.1517536380966,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "375": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "2Lg6a_cuv5W98bVQeiW5Ae",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -21754.87092913416,
+      "global_y": 25998.707976605383,
+      "global_z": 4395.151753638087,
+      "global_bottom_elevation": 4395.151753638087,
+      "global_top_elevation": 4395.151753638087,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "387": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "1M7UK0m3n979AnQhT6W4M5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -20396.78096619171,
+      "global_y": 28323.50757858271,
+      "global_z": 4300.151753638085,
+      "global_bottom_elevation": 4300.151753638085,
+      "global_top_elevation": 4300.151753638085,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "399": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0p3IFiErXBr8g6kcGPZ6hY",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -17271.288618649905,
+      "global_y": 25951.865336254144,
+      "global_z": 4612.895572219892,
+      "global_bottom_elevation": 4612.895572219892,
+      "global_top_elevation": 4612.895572219892,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "413": {
+    "class": "IfcGeographicElement",
+    "name": "apple tree",
+    "globalId": "1kmsJIV8L3OAydmxlleNWE",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -21042.005096522153,
+      "global_y": 35325.694794323404,
+      "global_z": 2010.18727369813,
+      "global_bottom_elevation": 2010.18727369813,
+      "global_top_elevation": 2010.18727369813,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "419": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "1g5NWJIznEsPpM20IzWrAA",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -18406.17336349201,
+      "global_y": 36987.193399459415,
+      "global_z": 6226.6130989508365,
+      "global_bottom_elevation": 6226.6130989508365,
+      "global_top_elevation": 6226.6130989508365,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "431": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "2B9m1Y8OnEfgAgQXqh3big",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -20393.50812195159,
+      "global_y": 33194.07634466265,
+      "global_z": 4395.0765241452245,
+      "global_bottom_elevation": 4395.0765241452245,
+      "global_top_elevation": 4395.0765241452245,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "443": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "1LrJS2N1D10Be_HXoC_HPY",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -21554.038564009956,
+      "global_y": 38278.58397508946,
+      "global_z": 5688.613098950841,
+      "global_bottom_elevation": 5688.613098950841,
+      "global_top_elevation": 5688.613098950841,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "455": {
+    "class": "IfcGeographicElement",
+    "name": "Apple",
+    "globalId": "1PmlOHhBP8M8UUjNHPjIgM",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -19783.13990024016,
+      "global_y": 37464.28636300671,
+      "global_z": 7064.22726051652,
+      "global_bottom_elevation": 7064.22726051652,
+      "global_top_elevation": 7064.22726051652,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "467": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3U7E5O1kDC5haP6HSdoYH3",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -19359.576667681544,
+      "global_y": 38314.816534655765,
+      "global_z": 5080.64286467732,
+      "global_bottom_elevation": 5080.64286467732,
+      "global_top_elevation": 5080.64286467732,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "479": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0H2Fj8PHjBtufQFTNt7gZ3",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -18291.335185583983,
+      "global_y": 34958.67833869812,
+      "global_z": 6589.642864677311,
+      "global_bottom_elevation": 6589.642864677311,
+      "global_top_elevation": 6589.642864677311,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "491": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3WRI1ikur5uxL5vcUn4Mmn",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -19649.42514852643,
+      "global_y": 32633.878736720795,
+      "global_z": 6494.642864677309,
+      "global_bottom_elevation": 6494.642864677309,
+      "global_top_elevation": 6494.642864677309,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "503": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3V$aG3qaD0WhlQwmB_ch48",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -22774.917496068232,
+      "global_y": 35005.52097904936,
+      "global_z": 6807.386683259116,
+      "global_bottom_elevation": 6807.386683259116,
+      "global_top_elevation": 6807.386683259116,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "517": {
+    "class": "IfcGeographicElement",
+    "name": "apple tree",
+    "globalId": "3j0RbM_5D6kuNp7_ekCapp",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -13381.12946604307,
+      "global_y": 23178.292804863446,
+      "global_z": -199.99999999999858,
+      "global_bottom_elevation": -199.99999999999858,
+      "global_top_elevation": -199.99999999999858,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "523": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0DFOuaLp16JBUO4hG7x8Bp",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -14718.847335731283,
+      "global_y": 25992.310829118876,
+      "global_z": 4016.4258252527084,
+      "global_bottom_elevation": 4016.4258252527084,
+      "global_top_elevation": 4016.4258252527084,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "535": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "1930YPueX52fWdZ7Tjt9u5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -11187.721253862503,
+      "global_y": 23569.83584936827,
+      "global_z": 2184.889250447096,
+      "global_bottom_elevation": 2184.889250447096,
+      "global_top_elevation": 2184.889250447096,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "547": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3hIzy9x$1FrvLW_eZfXIFH",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -16373.873366261023,
+      "global_y": 23019.495029623897,
+      "global_z": 3478.4258252527125,
+      "global_bottom_elevation": 3478.4258252527125,
+      "global_top_elevation": 3478.4258252527125,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "559": {
+    "class": "IfcGeographicElement",
+    "name": "Apple",
+    "globalId": "32iZ9$2Ob83RMNJ$WPMAvt",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -15355.622494870313,
+      "global_y": 24681.520252446157,
+      "global_z": 4854.03998681839,
+      "global_bottom_elevation": 4854.03998681839,
+      "global_top_elevation": 4854.03998681839,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "571": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0WPf4sWN115fZWKKMG51QK",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -16150.018051358098,
+      "global_y": 25202.81008036662,
+      "global_z": 2870.4555909791925,
+      "global_bottom_elevation": 2870.4555909791925,
+      "global_top_elevation": 2870.4555909791925,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "583": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0ACwnN3Cj2rggwsuTfXYXg",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -12691.00455174328,
+      "global_y": 25866.156945831706,
+      "global_z": 4379.455590979183,
+      "global_bottom_elevation": 4379.455590979183,
+      "global_top_elevation": 4379.455590979183,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "595": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "2xCCpcPIL1MA_NeSePVYF9",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -10543.361974649604,
+      "global_y": 24242.354957332685,
+      "global_z": 4284.455590979182,
+      "global_bottom_elevation": 4284.455590979182,
+      "global_top_elevation": 4284.455590979182,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "607": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "1DOk4dbjL4RBrmfERDBItZ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -13268.391615710863,
+      "global_y": 21419.66071326777,
+      "global_z": 4597.199409560988,
+      "global_bottom_elevation": 4597.199409560988,
+      "global_top_elevation": 4597.199409560988,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "621": {
+    "class": "IfcGeographicElement",
+    "name": "apple tree",
+    "globalId": "1TobdrlgjE7ey2pSa1_rn_",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -13998.334780789019,
+      "global_y": 36030.41819423933,
+      "global_z": 2337.372299396756,
+      "global_bottom_elevation": 2337.372299396756,
+      "global_top_elevation": 2337.372299396756,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "627": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3NxIl_jy5EvhHcurA624Kq",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -11362.503047758877,
+      "global_y": 37691.91679937534,
+      "global_z": 6553.798124649464,
+      "global_bottom_elevation": 6553.798124649464,
+      "global_top_elevation": 6553.798124649464,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "639": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "3NE787uKT99fsBosLiARMz",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -13349.837806218453,
+      "global_y": 33898.79974457858,
+      "global_z": 4722.261549843851,
+      "global_bottom_elevation": 4722.261549843851,
+      "global_top_elevation": 4722.261549843851,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "651": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "0HqE5ZK_X3$Am$63ry5M49",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -14510.368248276824,
+      "global_y": 38983.30737500539,
+      "global_z": 6015.798124649467,
+      "global_bottom_elevation": 6015.798124649467,
+      "global_top_elevation": 6015.798124649467,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "663": {
+    "class": "IfcGeographicElement",
+    "name": "Apple",
+    "globalId": "2U7J29jKfEmu2x3vc3IPlQ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -12739.469584507027,
+      "global_y": 38169.00976292264,
+      "global_z": 7391.4122862151435,
+      "global_bottom_elevation": 7391.4122862151435,
+      "global_top_elevation": 7391.4122862151435,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "675": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "2MA8RLO756yAvR_qfdFRSk",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -12315.906351948417,
+      "global_y": 39019.5399345717,
+      "global_z": 5407.8278903759465,
+      "global_bottom_elevation": 5407.8278903759465,
+      "global_top_elevation": 5407.8278903759465,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "687": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "2ct40a7m9E5epJ_VWc96sZ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -11247.664869850847,
+      "global_y": 35663.40173861405,
+      "global_z": 6916.827890375938,
+      "global_bottom_elevation": 6916.827890375938,
+      "global_top_elevation": 6916.827890375938,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "699": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "17UdkshtL4AfSN7WDXqJnB",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -12605.754832793295,
+      "global_y": 33338.60213663672,
+      "global_z": 6821.8278903759365,
+      "global_bottom_elevation": 6821.8278903759365,
+      "global_top_elevation": 6821.8278903759365,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "711": {
+    "class": "IfcGeographicElement",
+    "name": "apple",
+    "globalId": "2MvD_$go5AVQGkLrO1zeoC",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -15731.247180335098,
+      "global_y": 35710.24437896529,
+      "global_z": 7134.571708957741,
+      "global_bottom_elevation": 7134.571708957741,
+      "global_top_elevation": 7134.571708957741,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_apple"
+      }
+    ],
+    "psets": {
+      "SizeSet": {
+        "Volume": 0.7619999999999999,
+        "Height": 3378.2
+      }
+    }
+  },
+  "727": {
+    "class": "IfcGeographicElement",
+    "name": "park - site - soil",
+    "globalId": "0AvtbehUT0ufHHGkEVMdAJ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -17320.50807568873,
+      "global_y": 30000.00000000005,
+      "global_z": 1.4438228390645235e-12,
+      "global_bottom_elevation": 1.4438228390645235e-12,
+      "global_top_elevation": 1.4438228390645235e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_topsoil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "763": {
+    "class": "IfcGeographicElement",
+    "name": "road parking - roadside verge - soil",
+    "globalId": "2eGMeS8JXEqPOIXktx3T6F",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_topsoil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "776": {
+    "class": "IfcGeographicElement",
+    "name": "road parking - roadside verge - grass",
+    "globalId": "1wCkCBBYT8eOqYsD_tvSU_",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 14433.756729740664,
+      "global_y": 15000.000000000047,
+      "global_z": -489.99999999994196,
+      "global_bottom_elevation": -489.99999999994196,
+      "global_top_elevation": -489.99999999994196,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_grass"
+      }
+    ],
+    "psets": {}
+  },
+  "939": {
+    "class": "IfcGeographicElement",
+    "name": "river stream",
+    "globalId": "0zGSqxrLf0ngxWk8EXkozt",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_water_surfacewater"
+      }
+    ],
+    "psets": {}
+  },
+  "958": {
+    "class": "IfcGeographicElement",
+    "name": "river bed",
+    "globalId": "0yVWtUza9BkBPidcrOmhrJ",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_sand_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "976": {
+    "class": "IfcGeographicElement",
+    "name": "road river bridge - underground",
+    "globalId": "3pUQsWUqb8deDoLZ6CIIET",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1008": {
+    "class": "IfcGeographicElement",
+    "name": "road river bridge - grass",
+    "globalId": "3pzBWeief4XhSr5Lnykkbq",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_grass"
+      }
+    ],
+    "psets": {}
+  },
+  "1021": {
+    "class": "IfcGeographicElement",
+    "name": "road river bridge - soil",
+    "globalId": "287A5dK8D58QqsO5r7jizn",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_topsoil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1042": {
+    "class": "IfcGeographicElement",
+    "name": "tree",
+    "globalId": "3q2pqb6g1CwAXLzdDMASLC",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 23538.87425318123,
+      "global_y": 26065.012927918295,
+      "global_z": -382.7438185818218,
+      "global_bottom_elevation": -382.7438185818218,
+      "global_top_elevation": -382.7438185818218,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1062": {
+    "class": "IfcGeographicElement",
+    "name": "river stream",
+    "globalId": "2TzRIQ3TD0iQjVQn_kRILO",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 17320.508075688766,
+      "global_y": 50000.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_water_surfacewater"
+      }
+    ],
+    "psets": {}
+  },
+  "1074": {
+    "class": "IfcGeographicElement",
+    "name": "river bed",
+    "globalId": "0o2OoK8Yb7qRy$y$FrAd1z",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 17320.508075688835,
+      "global_y": 50000.0000000001,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_sand_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1111": {
+    "class": "IfcGeographicElement",
+    "name": "riverside - grass",
+    "globalId": "1$67KLp617FxOmPEpt1Ymd",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 17320.50807568874,
+      "global_y": 50000.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_grass"
+      }
+    ],
+    "psets": {}
+  },
+  "1124": {
+    "class": "IfcGeographicElement",
+    "name": "riverside - soil",
+    "globalId": "0JNuUw_1TBkwsuM7gZ2ttT",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 17320.50807568874,
+      "global_y": 50000.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_topsoil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1158": {
+    "class": "IfcGeographicElement",
+    "name": "road - roadside verge - soil",
+    "globalId": "3$Tc0Y2BH1KhfYOdLzGw$7",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 34641.016151377546,
+      "global_y": 39999.99999999999,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_topsoil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1171": {
+    "class": "IfcGeographicElement",
+    "name": "road - roadside verge - grass",
+    "globalId": "2zsnPhHoPDyPxIp9st53so",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 20207.25942163679,
+      "global_y": 44999.999999999985,
+      "global_z": -489.99999999994196,
+      "global_bottom_elevation": -489.99999999994196,
+      "global_top_elevation": -489.99999999994196,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_grass"
+      }
+    ],
+    "psets": {}
+  },
+  "1286": {
+    "class": "IfcGeographicElement",
+    "name": "generic - site - underground",
+    "globalId": "0_UEnkz4D4YfsaN2mtDSb4",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 1.1550582712516182e-11,
+      "global_y": 6.930349627509712e-11,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_soil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1300": {
+    "class": "IfcGeographicElement",
+    "name": "grass - site - soil",
+    "globalId": "1DqmYaokf4ie_5kATXxw$A",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 1.1550582712516182e-11,
+      "global_y": 6.930349627509712e-11,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_topsoil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1313": {
+    "class": "IfcGeographicElement",
+    "name": "grass - site - grass",
+    "globalId": "2nns7UQnX5qgnLN9BIpK58",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 1.1550582712516182e-11,
+      "global_y": 6.930349627509712e-11,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_grass"
+      }
+    ],
+    "psets": {}
+  },
+  "1349": {
+    "class": "IfcGeographicElement",
+    "name": "road - roadside verge - soil",
+    "globalId": "3$ZN4KG314FxghY0Vo$dvz",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_topsoil_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "1360": {
+    "class": "IfcGeographicElement",
+    "name": "road - roadside verge - grass",
+    "globalId": "0N_6HAKnH7DfoyrBKIGAm2",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -2886.751345948118,
+      "global_y": 5000.000000000069,
+      "global_z": -489.99999999994196,
+      "global_bottom_elevation": -489.99999999994196,
+      "global_top_elevation": -489.99999999994196,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "vegetation_grass"
+      }
+    ],
+    "psets": {}
+  },
+  "922": {
+    "class": "IfcBuilding",
+    "name": "road parking - road",
+    "globalId": "2MBfH6RyP3luv6spdwrCIJ",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "987": {
+    "class": "IfcBuilding",
+    "name": "bridge road connection",
+    "globalId": "1ycqplGh55EAGDAsiDHPxX",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "994": {
+    "class": "IfcBuilding",
+    "name": "road river bridge",
+    "globalId": "3vzNAxKB5AJA_Ehx4miINx",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568897,
+      "global_y": 30000.000000000175,
+      "global_z": 242.32103870816184,
+      "global_bottom_elevation": 242.32103870816184,
+      "global_top_elevation": 242.32103870816184,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1000": {
+    "class": "IfcBuilding",
+    "name": "bridge road connection",
+    "globalId": "1Engm$GMHEoAv0uoo9qvMb",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568861,
+      "global_y": 29999.999999999898,
+      "global_z": 2.749580119143502e-10,
+      "global_bottom_elevation": 2.749580119143502e-10,
+      "global_top_elevation": 2.749580119143502e-10,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1096": {
+    "class": "IfcBuilding",
+    "name": "rail bridge",
+    "globalId": "2kjWGt90HF_gBQxs$Lsfkw",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688853,
+      "global_y": 50000.00000000009,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1103": {
+    "class": "IfcBuilding",
+    "name": "Rail track",
+    "globalId": "144_CJ8b1C7xe6fkDXe2iD",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 8660.25404650351,
+      "global_y": 55000.00001499835,
+      "global_z": 7774.582119028394,
+      "global_bottom_elevation": 7774.582119028394,
+      "global_top_elevation": 7774.582119028394,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1182": {
+    "class": "IfcBuilding",
+    "name": "rail bridge",
+    "globalId": "3JNhAW3zLAmRKwMCykb3V5",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.016151377604,
+      "global_y": 40000.00000000019,
+      "global_z": -2.887645678129047e-12,
+      "global_bottom_elevation": -2.887645678129047e-12,
+      "global_top_elevation": -2.887645678129047e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1189": {
+    "class": "IfcBuilding",
+    "name": "Rail track",
+    "globalId": "1OAsMV9659sQQS2f3ETl_F",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 25980.762122192296,
+      "global_y": 45000.000014998535,
+      "global_z": 7774.582119028391,
+      "global_bottom_elevation": 7774.582119028391,
+      "global_top_elevation": 7774.582119028391,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1257": {
+    "class": "IfcBuilding",
+    "name": "road",
+    "globalId": "1Gy5o1F_T6VxmwxJ5$xsRE",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.016151377575,
+      "global_y": 39999.999999999985,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1342": {
+    "class": "IfcBuilding",
+    "name": "road",
+    "globalId": "1AfgOmh7nDOedEyHKWgbIw",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "20": {
+    "class": "IfcSite",
+    "name": "environment - site",
+    "globalId": "23sFQGRy90RxVbRHD9iSE2",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "23": {
+    "class": "IfcSite",
+    "name": "park - site",
+    "globalId": "1KXHFkwF18U8qCarKtCVlu",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -17320.50807568873,
+      "global_y": 30000.00000000005,
+      "global_z": 1.4438228390645235e-12,
+      "global_bottom_elevation": 1.4438228390645235e-12,
+      "global_top_elevation": 1.4438228390645235e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "743": {
+    "class": "IfcSite",
+    "name": "road parking - site",
+    "globalId": "1adp27B_9CUfup2ojuKOng",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.7108101132749372e-11,
+      "global_y": 20000.000000000055,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "931": {
+    "class": "IfcSite",
+    "name": "road river bridge - site",
+    "globalId": "3pnaj3EgL1cOScZHtoQhHO",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.50807568878,
+      "global_y": 30000.000000000065,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1056": {
+    "class": "IfcSite",
+    "name": "rail river bridge - site",
+    "globalId": "2Wad9UE39Fl81buLr2dp_x",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 17320.508075688766,
+      "global_y": 50000.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1138": {
+    "class": "IfcSite",
+    "name": "road rail bridge - site",
+    "globalId": "1$CApj9YLCeu0YyH5TXRVh",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 34641.01615137755,
+      "global_y": 40000.00000000001,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1278": {
+    "class": "IfcSite",
+    "name": "meadow - site",
+    "globalId": "3EVN3cIbP9Dgdlp33CKZ9T",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 1.1550582712516182e-11,
+      "global_y": 6.930349627509712e-11,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "1324": {
+    "class": "IfcSite",
+    "name": "road - site",
+    "globalId": "2syxA9_lr7Ew2uZai3VhhS",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": -17320.50807568874,
+      "global_y": 10000.000000000058,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  }
+}

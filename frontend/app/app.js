@@ -190,6 +190,208 @@ function initBoqSplitterResizer() {
 
 initBoqSplitterResizer();
 
+function initIfcHealthSplitterResizer() {
+  const grid = document.getElementById("ifc-health-grid");
+  const splitter = document.getElementById("ifc-health-splitter");
+  if (!grid || !splitter) return;
+
+  const MIN_LEFT_PX = 220;
+  const MIN_RIGHT_PX = 220;
+  const STORAGE_KEY = "ifc-health-left-col-w-px";
+
+  const getAvailable = () => {
+    const gridRect = grid.getBoundingClientRect();
+    const available = Math.max(0, gridRect.width);
+    const splitterRect = splitter.getBoundingClientRect();
+    const splitterW = splitterRect.width || 10;
+    return { available, splitterW };
+  };
+
+  const setLeftWidthPx = (px) => {
+    const clamped = Math.max(MIN_LEFT_PX, px);
+    grid.style.setProperty("--ifc-health-left-col-w", `${clamped}px`);
+  };
+
+  const applySavedSize = () => {
+    if (workspaceShell?.dataset.layout !== "1") return;
+    let saved = 0;
+    try {
+      saved = Number(localStorage.getItem(STORAGE_KEY));
+    } catch {
+      /* ignore */
+    }
+    if (!Number.isFinite(saved) || saved <= 0) return;
+    const { available, splitterW } = getAvailable();
+    const maxLeft = Math.max(MIN_LEFT_PX, available - splitterW - MIN_RIGHT_PX);
+    setLeftWidthPx(Math.min(saved, maxLeft));
+  };
+
+  let dragging = false;
+  let startX = 0;
+  let startLeftW = 0;
+
+  const onPointerDown = (e) => {
+    if (e.button !== 0) return;
+    if (workspaceShell?.dataset.layout !== "1") return;
+    dragging = true;
+    startX = e.clientX;
+    const computedLeft = parseFloat(getComputedStyle(grid).getPropertyValue("--ifc-health-left-col-w"));
+    if (Number.isFinite(computedLeft) && computedLeft > 0) {
+      startLeftW = computedLeft;
+    } else {
+      const leftCard = grid.querySelector(".ifc-health-graph-card--left");
+      startLeftW = leftCard instanceof HTMLElement ? leftCard.getBoundingClientRect().width : grid.getBoundingClientRect().width / 2;
+    }
+    try {
+      splitter.setPointerCapture(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    e.preventDefault();
+  };
+
+  const onPointerMove = (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    const { available, splitterW } = getAvailable();
+    const maxLeft = Math.max(MIN_LEFT_PX, available - splitterW - MIN_RIGHT_PX);
+    const nextLeft = startLeftW + dx;
+    setLeftWidthPx(Math.min(maxLeft, nextLeft));
+  };
+
+  const onPointerUp = () => {
+    if (!dragging) return;
+    dragging = false;
+    const current = parseFloat(getComputedStyle(grid).getPropertyValue("--ifc-health-left-col-w"));
+    if (!Number.isFinite(current) || current <= 0) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, String(Math.round(current)));
+    } catch {
+      /* ignore */
+    }
+  };
+
+  splitter.addEventListener("pointerdown", onPointerDown);
+  window.addEventListener("pointermove", onPointerMove);
+  window.addEventListener("pointerup", onPointerUp);
+  window.addEventListener("pointercancel", onPointerUp);
+
+  window.addEventListener("dashboard:layout-changed", (ev) => {
+    if (ev?.detail?.layout !== "1") return;
+    applySavedSize();
+  });
+
+  window.addEventListener("resize", () => {
+    if (workspaceShell?.dataset.layout !== "1") return;
+    applySavedSize();
+  });
+
+  if (workspaceShell?.dataset.layout === "1") applySavedSize();
+}
+
+initIfcHealthSplitterResizer();
+
+function initLayout1MainSplitterResizer() {
+  const splitter = document.getElementById("layout1-splitter");
+  const main = splitter?.closest(".workspace-main");
+  if (!splitter || !main) return;
+
+  const MIN_LEFT_PX = 320;
+  const MIN_RIGHT_PX = 220;
+  const STORAGE_KEY = "layout1-left-col-w-px";
+
+  const getAvailable = () => {
+    const mainRect = main.getBoundingClientRect();
+    const available = Math.max(0, mainRect.width);
+    const splitterRect = splitter.getBoundingClientRect();
+    const splitterW = splitterRect.width || 10;
+    return { available, splitterW };
+  };
+
+  const setLeftWidthPx = (px) => {
+    const clamped = Math.max(MIN_LEFT_PX, px);
+    main.style.setProperty("--layout1-left-w", `${clamped}px`);
+  };
+
+  const applySavedSize = () => {
+    if (workspaceShell?.dataset.layout !== "1") return;
+    let saved = 0;
+    try {
+      saved = Number(localStorage.getItem(STORAGE_KEY));
+    } catch {
+      /* ignore */
+    }
+    if (!Number.isFinite(saved) || saved <= 0) return;
+    const { available, splitterW } = getAvailable();
+    const maxLeft = Math.max(MIN_LEFT_PX, available - splitterW - MIN_RIGHT_PX);
+    setLeftWidthPx(Math.min(saved, maxLeft));
+  };
+
+  let dragging = false;
+  let startX = 0;
+  let startLeftW = 0;
+
+  const onPointerDown = (e) => {
+    if (e.button !== 0) return;
+    if (workspaceShell?.dataset.layout !== "1") return;
+    dragging = true;
+    startX = e.clientX;
+    const computedLeft = parseFloat(getComputedStyle(main).getPropertyValue("--layout1-left-w"));
+    if (Number.isFinite(computedLeft) && computedLeft > 0) {
+      startLeftW = computedLeft;
+    } else {
+      const leftPanel = document.querySelector('.workspace-shell[data-layout="1"] .visual-stack');
+      startLeftW = leftPanel instanceof HTMLElement ? leftPanel.getBoundingClientRect().width : main.getBoundingClientRect().width / 2;
+    }
+    try {
+      splitter.setPointerCapture(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    e.preventDefault();
+  };
+
+  const onPointerMove = (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    const { available, splitterW } = getAvailable();
+    const maxLeft = Math.max(MIN_LEFT_PX, available - splitterW - MIN_RIGHT_PX);
+    const nextLeft = startLeftW + dx;
+    setLeftWidthPx(Math.min(maxLeft, nextLeft));
+  };
+
+  const onPointerUp = () => {
+    if (!dragging) return;
+    dragging = false;
+    const current = parseFloat(getComputedStyle(main).getPropertyValue("--layout1-left-w"));
+    if (!Number.isFinite(current) || current <= 0) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, String(Math.round(current)));
+    } catch {
+      /* ignore */
+    }
+  };
+
+  splitter.addEventListener("pointerdown", onPointerDown);
+  window.addEventListener("pointermove", onPointerMove);
+  window.addEventListener("pointerup", onPointerUp);
+  window.addEventListener("pointercancel", onPointerUp);
+
+  window.addEventListener("dashboard:layout-changed", (ev) => {
+    if (ev?.detail?.layout !== "1") return;
+    applySavedSize();
+  });
+
+  window.addEventListener("resize", () => {
+    if (workspaceShell?.dataset.layout !== "1") return;
+    applySavedSize();
+  });
+
+  if (workspaceShell?.dataset.layout === "1") applySavedSize();
+}
+
+initLayout1MainSplitterResizer();
+
 function fillTable(tbodyId, rows, badgeCol) {
   const tb = document.getElementById(tbodyId);
   if (!tb) return;
@@ -1284,6 +1486,51 @@ function downloadBlob(blob, filename) {
   URL.revokeObjectURL(url);
 }
 
+function toCsvCell(value) {
+  const s = String(value ?? "");
+  if (/[",\r\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+  return s;
+}
+
+function buildCsvText(headers, rows) {
+  const lines = [];
+  lines.push(headers.map(toCsvCell).join(","));
+  for (const row of rows) {
+    lines.push(row.map(toCsvCell).join(","));
+  }
+  return `${lines.join("\r\n")}\r\n`;
+}
+
+function buildExcelBlobFromRows(headers, rows, columnWidths) {
+  if (!window.XLSX) {
+    throw new Error("Excel library not available in browser.");
+  }
+  const ws = window.XLSX.utils.aoa_to_sheet([headers, ...rows]);
+  if (Array.isArray(columnWidths) && columnWidths.length > 0) {
+    ws["!cols"] = columnWidths.map((wch) => ({ wch }));
+  }
+  const wb = window.XLSX.utils.book_new();
+  window.XLSX.utils.book_append_sheet(wb, ws, "Report");
+  const wbArray = window.XLSX.write(wb, { bookType: "xlsx", type: "array" });
+  return new Blob(
+    [wbArray],
+    { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }
+  );
+}
+
+async function exportFilesAsZip(zipFilename, files) {
+  const JsZipCtor = window.JSZip;
+  if (!JsZipCtor) {
+    throw new Error("ZIP library not available in browser.");
+  }
+  const zip = new JsZipCtor();
+  for (const f of files) {
+    zip.file(f.name, f.blob);
+  }
+  const zipBlob = await zip.generateAsync({ type: "blob" });
+  downloadBlob(zipBlob, zipFilename);
+}
+
 async function generateHealthPdfReport() {
   const jspdfNs = window.jspdf;
   const JsPdfCtor = jspdfNs?.jsPDF;
@@ -1404,6 +1651,343 @@ async function generateHealthPdfReport() {
   doc.save(`ifc-health-report-${new Date().toISOString().slice(0, 10)}.pdf`);
 }
 
+function collectBoqTableRowsForReport() {
+  const rows = [];
+  if (!Array.isArray(boqRenderedRows)) return rows;
+  for (const row of boqRenderedRows) {
+    if (!row || !Array.isArray(row.cells)) continue;
+    if (row.cells[0] === "Load IFC model(s) to populate the BOQ table") continue;
+    rows.push([
+      String(row.cells[0] ?? ""),
+      String(row.cells[1] ?? ""),
+      String(row.cells[2] ?? ""),
+      String(row.cells[3] ?? ""),
+      String(row.cells[4] ?? ""),
+      String(row.cells[5] ?? ""),
+    ]);
+  }
+  return rows;
+}
+
+async function generateBoqPdfReport() {
+  const jspdfNs = window.jspdf;
+  const JsPdfCtor = jspdfNs?.jsPDF;
+  if (!JsPdfCtor) {
+    throw new Error("PDF library not available in browser.");
+  }
+
+  const doc = new JsPdfCtor({ orientation: "landscape", unit: "pt", format: "a4" });
+  const pageW = doc.internal.pageSize.getWidth();
+  const pageH = doc.internal.pageSize.getHeight();
+  const margin = 26;
+  const contentW = pageW - margin * 2;
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(17);
+  doc.text("BOQ Report", margin, 30);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(10);
+  doc.setTextColor(90, 100, 118);
+  doc.text(`Generated: ${formatNow()}`, margin, 45);
+
+  const statusText = document.getElementById("header-ifc-summary")?.textContent?.trim() || "";
+  if (statusText) {
+    const wrapped = doc.splitTextToSize(statusText, contentW);
+    doc.text(wrapped, margin, 59);
+  }
+
+  const viewerCanvas = document.querySelector("#viewport-inner canvas");
+  const viewerImg = canvasToJpegDataUrl(viewerCanvas instanceof HTMLCanvasElement ? viewerCanvas : null, 0.92);
+  const snapshotTop = 74;
+  const snapshotH = 230;
+  if (viewerImg) {
+    doc.setTextColor(15, 23, 42);
+    doc.setFontSize(11);
+    doc.text("IFC viewport snapshot", margin, snapshotTop - 8);
+    doc.addImage(viewerImg, "JPEG", margin, snapshotTop, contentW, snapshotH, undefined, "FAST");
+  } else {
+    doc.setDrawColor(160, 170, 185);
+    doc.rect(margin, snapshotTop, contentW, snapshotH);
+    doc.setTextColor(120, 128, 140);
+    doc.text("No IFC viewport image available.", margin + 10, snapshotTop + 20);
+  }
+
+  const headers = ["Name", "Class", "Material", "Qty", "Unit", "Weight (kg)"];
+  const rows = collectBoqTableRowsForReport();
+  let y = snapshotTop + snapshotH + 26;
+
+  doc.setTextColor(15, 23, 42);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(11);
+  doc.text(`BOQ quantities (${rows.length} row${rows.length === 1 ? "" : "s"})`, margin, y);
+  y += 10;
+
+  const colWidths = [270, 150, 230, 70, 60, 90];
+  const rowH = 18;
+  const drawHeader = () => {
+    doc.setFillColor(235, 240, 248);
+    doc.rect(margin, y, contentW, rowH, "F");
+    doc.setTextColor(30, 41, 59);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(9);
+    let x = margin + 6;
+    headers.forEach((h, i) => {
+      doc.text(h, x, y + 12);
+      x += colWidths[i];
+    });
+    y += rowH;
+  };
+
+  const ensureSpace = (neededHeight) => {
+    if (y + neededHeight <= pageH - margin) return;
+    doc.addPage("a4", "landscape");
+    y = margin;
+    drawHeader();
+  };
+
+  drawHeader();
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(8.6);
+  doc.setTextColor(42, 52, 66);
+
+  if (rows.length === 0) {
+    doc.text("No BOQ rows available. Load IFC models to populate the grid.", margin + 6, y + 12);
+    y += rowH;
+  } else {
+    for (const row of rows) {
+      const nameLines = doc.splitTextToSize(row[0] || "—", colWidths[0] - 10);
+      const classLines = doc.splitTextToSize(row[1] || "—", colWidths[1] - 10);
+      const materialLines = doc.splitTextToSize(row[2] || "—", colWidths[2] - 10);
+      const qtyLines = doc.splitTextToSize(row[3] || "—", colWidths[3] - 10);
+      const unitLines = doc.splitTextToSize(row[4] || "—", colWidths[4] - 10);
+      const weightLines = doc.splitTextToSize(row[5] || "—", colWidths[5] - 10);
+      const lineCount = Math.max(
+        1,
+        nameLines.length,
+        classLines.length,
+        materialLines.length,
+        qtyLines.length,
+        unitLines.length,
+        weightLines.length
+      );
+      const dynamicRowH = Math.max(rowH, 11 + lineCount * 9);
+      ensureSpace(dynamicRowH + 2);
+
+      doc.setDrawColor(223, 228, 236);
+      doc.rect(margin, y, contentW, dynamicRowH);
+
+      let x = margin + 6;
+      const cells = [nameLines, classLines, materialLines, qtyLines, unitLines, weightLines];
+      cells.forEach((lines, idx) => {
+        const textY = y + 12;
+        doc.text(lines, x, textY);
+        x += colWidths[idx];
+      });
+      y += dynamicRowH;
+    }
+  }
+
+  doc.setFontSize(8.3);
+  doc.setTextColor(120, 128, 140);
+  doc.text("Columns match the BOQ grid in the app.", margin, pageH - 12);
+  return doc.output("blob");
+}
+
+function generateBoqExcelBlob() {
+  const headers = ["Name", "Class", "Material", "Qty", "Unit", "Weight (kg)"];
+  const rows = collectBoqTableRowsForReport();
+  return buildExcelBlobFromRows(headers, rows, [48, 24, 40, 12, 10, 14]);
+}
+
+function generateBoqCsvBlob() {
+  const headers = ["Name", "Class", "Material", "Qty", "Unit", "Weight (kg)"];
+  const rows = collectBoqTableRowsForReport();
+  const csv = buildCsvText(headers, rows);
+  return new Blob([csv], { type: "text/csv;charset=utf-8" });
+}
+
+async function generateBoqExportZip() {
+  const dateStamp = new Date().toISOString().slice(0, 10);
+  const base = `boq-report-${dateStamp}`;
+  const pdfBlob = await generateBoqPdfReport();
+  const xlsxBlob = generateBoqExcelBlob();
+  const csvBlob = generateBoqCsvBlob();
+  await exportFilesAsZip(`${base}.zip`, [
+    { name: `${base}.pdf`, blob: pdfBlob },
+    { name: `${base}.xlsx`, blob: xlsxBlob },
+    { name: `${base}.csv`, blob: csvBlob },
+  ]);
+}
+
+function collectWbsTableRowsForReport() {
+  const rows = [];
+  const displayRows = buildWbsDisplayRows();
+  if (!Array.isArray(displayRows) || displayRows.length === 0) return rows;
+  for (const row of displayRows) {
+    const memberMappings = row.memberBaseKeys.map((k) => wbsMappingsByBaseKey.get(k) ?? { b: "", e: "" });
+    const firstB = memberMappings[0]?.b ?? "";
+    const firstE = memberMappings[0]?.e ?? "";
+    const hasUniformPair = memberMappings.every((m) => (m.b ?? "") === firstB && (m.e ?? "") === firstE);
+    const combinedValue = hasUniformPair ? formatWbsCombinedValue(firstB, firstE) : "—";
+    const memberUnits = row.memberBaseKeys.map((k) => wbsUnitsByBaseKey.get(k) ?? "");
+    const firstUnit = memberUnits[0] ?? "";
+    const hasUniformUnit = memberUnits.every((u) => u === firstUnit);
+    const unitValue = hasUniformUnit ? (firstUnit || "—") : "—";
+    rows.push([
+      String(row.name ?? ""),
+      String(row.class ?? ""),
+      String(row.material ?? ""),
+      String(combinedValue ?? "—"),
+      String(unitValue ?? "—"),
+    ]);
+  }
+  return rows;
+}
+
+async function generateWbsPdfReport() {
+  const jspdfNs = window.jspdf;
+  const JsPdfCtor = jspdfNs?.jsPDF;
+  if (!JsPdfCtor) {
+    throw new Error("PDF library not available in browser.");
+  }
+
+  const doc = new JsPdfCtor({ orientation: "landscape", unit: "pt", format: "a4" });
+  const pageW = doc.internal.pageSize.getWidth();
+  const pageH = doc.internal.pageSize.getHeight();
+  const margin = 26;
+  const contentW = pageW - margin * 2;
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(17);
+  doc.text("WBS Report", margin, 30);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(10);
+  doc.setTextColor(90, 100, 118);
+  doc.text(`Generated: ${formatNow()}`, margin, 45);
+
+  const statusText = document.getElementById("header-ifc-summary")?.textContent?.trim() || "";
+  if (statusText) {
+    const wrapped = doc.splitTextToSize(statusText, contentW);
+    doc.text(wrapped, margin, 59);
+  }
+
+  const viewerCanvas = document.querySelector("#viewport-inner canvas");
+  const viewerImg = canvasToJpegDataUrl(viewerCanvas instanceof HTMLCanvasElement ? viewerCanvas : null, 0.92);
+  const snapshotTop = 74;
+  const snapshotH = 230;
+  if (viewerImg) {
+    doc.setTextColor(15, 23, 42);
+    doc.setFontSize(11);
+    doc.text("IFC viewport snapshot", margin, snapshotTop - 8);
+    doc.addImage(viewerImg, "JPEG", margin, snapshotTop, contentW, snapshotH, undefined, "FAST");
+  } else {
+    doc.setDrawColor(160, 170, 185);
+    doc.rect(margin, snapshotTop, contentW, snapshotH);
+    doc.setTextColor(120, 128, 140);
+    doc.text("No IFC viewport image available.", margin + 10, snapshotTop + 20);
+  }
+
+  const wbsHeader = wbsCombinedHeader || "WBS";
+  const headers = ["Name", "Class", "Material", wbsHeader, "Units"];
+  const rows = collectWbsTableRowsForReport();
+  let y = snapshotTop + snapshotH + 26;
+
+  doc.setTextColor(15, 23, 42);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(11);
+  doc.text(`WBS mapping (${rows.length} row${rows.length === 1 ? "" : "s"})`, margin, y);
+  y += 10;
+
+  const colWidths = [270, 170, 250, 170, 80];
+  const rowH = 18;
+  const drawHeader = () => {
+    doc.setFillColor(235, 240, 248);
+    doc.rect(margin, y, contentW, rowH, "F");
+    doc.setTextColor(30, 41, 59);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(9);
+    let x = margin + 6;
+    headers.forEach((h, i) => {
+      doc.text(h, x, y + 12);
+      x += colWidths[i];
+    });
+    y += rowH;
+  };
+
+  const ensureSpace = (neededHeight) => {
+    if (y + neededHeight <= pageH - margin) return;
+    doc.addPage("a4", "landscape");
+    y = margin;
+    drawHeader();
+  };
+
+  drawHeader();
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(8.6);
+  doc.setTextColor(42, 52, 66);
+
+  if (rows.length === 0) {
+    doc.text("No WBS rows available. Load IFC models to populate the grid.", margin + 6, y + 12);
+    y += rowH;
+  } else {
+    for (const row of rows) {
+      const nameLines = doc.splitTextToSize(row[0] || "—", colWidths[0] - 10);
+      const classLines = doc.splitTextToSize(row[1] || "—", colWidths[1] - 10);
+      const materialLines = doc.splitTextToSize(row[2] || "—", colWidths[2] - 10);
+      const wbsLines = doc.splitTextToSize(row[3] || "—", colWidths[3] - 10);
+      const unitLines = doc.splitTextToSize(row[4] || "—", colWidths[4] - 10);
+      const lineCount = Math.max(1, nameLines.length, classLines.length, materialLines.length, wbsLines.length, unitLines.length);
+      const dynamicRowH = Math.max(rowH, 11 + lineCount * 9);
+      ensureSpace(dynamicRowH + 2);
+
+      doc.setDrawColor(223, 228, 236);
+      doc.rect(margin, y, contentW, dynamicRowH);
+
+      let x = margin + 6;
+      const cells = [nameLines, classLines, materialLines, wbsLines, unitLines];
+      cells.forEach((lines, idx) => {
+        const textY = y + 12;
+        doc.text(lines, x, textY);
+        x += colWidths[idx];
+      });
+      y += dynamicRowH;
+    }
+  }
+
+  doc.setFontSize(8.3);
+  doc.setTextColor(120, 128, 140);
+  doc.text("Columns match the WBS grid in the app.", margin, pageH - 12);
+  return doc.output("blob");
+}
+
+function generateWbsExcelBlob() {
+  const wbsHeader = wbsCombinedHeader || "WBS";
+  const headers = ["Name", "Class", "Material", wbsHeader, "Units"];
+  const rows = collectWbsTableRowsForReport();
+  return buildExcelBlobFromRows(headers, rows, [48, 26, 42, 26, 12]);
+}
+
+function generateWbsCsvBlob() {
+  const wbsHeader = wbsCombinedHeader || "WBS";
+  const headers = ["Name", "Class", "Material", wbsHeader, "Units"];
+  const rows = collectWbsTableRowsForReport();
+  const csv = buildCsvText(headers, rows);
+  return new Blob([csv], { type: "text/csv;charset=utf-8" });
+}
+
+async function generateWbsExportZip() {
+  const dateStamp = new Date().toISOString().slice(0, 10);
+  const base = `wbs-report-${dateStamp}`;
+  const pdfBlob = await generateWbsPdfReport();
+  const xlsxBlob = generateWbsExcelBlob();
+  const csvBlob = generateWbsCsvBlob();
+  await exportFilesAsZip(`${base}.zip`, [
+    { name: `${base}.pdf`, blob: pdfBlob },
+    { name: `${base}.xlsx`, blob: xlsxBlob },
+    { name: `${base}.csv`, blob: csvBlob },
+  ]);
+}
+
 async function handleGenerateReportClick() {
   const layout = workspaceShell?.dataset.layout ?? "1";
   if (!(reportBtn instanceof HTMLButtonElement)) return;
@@ -1412,14 +1996,29 @@ async function handleGenerateReportClick() {
   reportBtn.textContent = "Generating…";
 
   try {
-    if (layout !== "1") {
-      throw new Error("Report for this page is not implemented yet. Switch to IFC Health for now.");
-    }
-    await generateHealthPdfReport();
-    const headerIfc = document.getElementById("header-ifc-summary");
-    if (headerIfc) {
-      headerIfc.textContent = "Report generated — IFC snapshot and 2D charts.";
-      headerIfc.classList.remove("err");
+    if (layout === "1") {
+      await generateHealthPdfReport();
+      const headerIfc = document.getElementById("header-ifc-summary");
+      if (headerIfc) {
+        headerIfc.textContent = "Report generated — IFC snapshot and 2D charts.";
+        headerIfc.classList.remove("err");
+      }
+    } else if (layout === "2") {
+      await generateBoqExportZip();
+      const headerIfc = document.getElementById("header-ifc-summary");
+      if (headerIfc) {
+        headerIfc.textContent = "BOQ report generated — ZIP includes PDF, Excel, and CSV.";
+        headerIfc.classList.remove("err");
+      }
+    } else if (layout === "3") {
+      await generateWbsExportZip();
+      const headerIfc = document.getElementById("header-ifc-summary");
+      if (headerIfc) {
+        headerIfc.textContent = "WBS report generated — ZIP includes PDF, Excel, and CSV.";
+        headerIfc.classList.remove("err");
+      }
+    } else {
+      throw new Error("Report for this page is not implemented yet.");
     }
   } finally {
     reportBtn.disabled = false;
