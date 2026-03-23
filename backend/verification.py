@@ -3,6 +3,33 @@ import os
 import ifcopenshell
 import ifcopenshell.api
 
+def _find_first_properties(material_entry):
+    """Recursively find the first non-empty 'properties' mapping in a material entry."""
+    if not isinstance(material_entry, dict):
+        return None
+    props = material_entry.get("properties")
+    if isinstance(props, dict) and props:
+        return props
+    for key in ("layers", "materials"):
+        nested = material_entry.get(key)
+        if isinstance(nested, list):
+            for item in nested:
+                nested_props = _find_first_properties(item)
+                if nested_props:
+                    return nested_props
+    return None
+
+
+def _get_material_properties(v):
+    materials = v.get("materials")
+    if not isinstance(materials, list):
+        return None
+    for entry in materials:
+        props = _find_first_properties(entry)
+        if props:
+            return props
+    return None
+
 def _check_if_IfcBeam_IfcColumn_dimension_fixable(v):
     deflect = None
     corrected_v = None
@@ -34,9 +61,11 @@ def _check_if_IfcBeam_IfcColumn_dimension_fixable(v):
     return(fixable, deflect, corrected_v)
 
 def _calc_material_attributes(v):
-    mat_v = v["materials"][0]['properties']
-    material_type = mat_v["Materials and Finishes"]["Material Type"]
+    mat_v = _get_material_properties(v)
+    if not mat_v:
+        return (False, None, None)
     try:
+        material_type = mat_v["Materials and Finishes"]["Material Type"]
         if material_type == "Steel" or material_type == "Wood":
             v["dimensions"]["Weight"] = (mat_v["Pset_MaterialCommon"]["MassDensity"] * v["dimensions"]["Volume"] * 9.81)
             corrected_v = v["dimensions"]["Weight"]
@@ -62,6 +91,8 @@ def run_verification(input_json_path: str, input_ifc_path: str, output_dir: str)
         ifc_json_data = json.load(f)
     defect_dict_class = {}
     for value in ifc_json_data.values():
+        dim_fixable = None
+        mat_calcuable = None
         defect_list = []
         defect_value_list = []
         if value["class"] == "IfcBeam" or value["class"] == "IfcColumn":
