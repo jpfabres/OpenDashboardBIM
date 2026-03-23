@@ -190,6 +190,208 @@ function initBoqSplitterResizer() {
 
 initBoqSplitterResizer();
 
+function initIfcHealthSplitterResizer() {
+  const grid = document.getElementById("ifc-health-grid");
+  const splitter = document.getElementById("ifc-health-splitter");
+  if (!grid || !splitter) return;
+
+  const MIN_LEFT_PX = 220;
+  const MIN_RIGHT_PX = 220;
+  const STORAGE_KEY = "ifc-health-left-col-w-px";
+
+  const getAvailable = () => {
+    const gridRect = grid.getBoundingClientRect();
+    const available = Math.max(0, gridRect.width);
+    const splitterRect = splitter.getBoundingClientRect();
+    const splitterW = splitterRect.width || 10;
+    return { available, splitterW };
+  };
+
+  const setLeftWidthPx = (px) => {
+    const clamped = Math.max(MIN_LEFT_PX, px);
+    grid.style.setProperty("--ifc-health-left-col-w", `${clamped}px`);
+  };
+
+  const applySavedSize = () => {
+    if (workspaceShell?.dataset.layout !== "1") return;
+    let saved = 0;
+    try {
+      saved = Number(localStorage.getItem(STORAGE_KEY));
+    } catch {
+      /* ignore */
+    }
+    if (!Number.isFinite(saved) || saved <= 0) return;
+    const { available, splitterW } = getAvailable();
+    const maxLeft = Math.max(MIN_LEFT_PX, available - splitterW - MIN_RIGHT_PX);
+    setLeftWidthPx(Math.min(saved, maxLeft));
+  };
+
+  let dragging = false;
+  let startX = 0;
+  let startLeftW = 0;
+
+  const onPointerDown = (e) => {
+    if (e.button !== 0) return;
+    if (workspaceShell?.dataset.layout !== "1") return;
+    dragging = true;
+    startX = e.clientX;
+    const computedLeft = parseFloat(getComputedStyle(grid).getPropertyValue("--ifc-health-left-col-w"));
+    if (Number.isFinite(computedLeft) && computedLeft > 0) {
+      startLeftW = computedLeft;
+    } else {
+      const leftCard = grid.querySelector(".ifc-health-graph-card--left");
+      startLeftW = leftCard instanceof HTMLElement ? leftCard.getBoundingClientRect().width : grid.getBoundingClientRect().width / 2;
+    }
+    try {
+      splitter.setPointerCapture(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    e.preventDefault();
+  };
+
+  const onPointerMove = (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    const { available, splitterW } = getAvailable();
+    const maxLeft = Math.max(MIN_LEFT_PX, available - splitterW - MIN_RIGHT_PX);
+    const nextLeft = startLeftW + dx;
+    setLeftWidthPx(Math.min(maxLeft, nextLeft));
+  };
+
+  const onPointerUp = () => {
+    if (!dragging) return;
+    dragging = false;
+    const current = parseFloat(getComputedStyle(grid).getPropertyValue("--ifc-health-left-col-w"));
+    if (!Number.isFinite(current) || current <= 0) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, String(Math.round(current)));
+    } catch {
+      /* ignore */
+    }
+  };
+
+  splitter.addEventListener("pointerdown", onPointerDown);
+  window.addEventListener("pointermove", onPointerMove);
+  window.addEventListener("pointerup", onPointerUp);
+  window.addEventListener("pointercancel", onPointerUp);
+
+  window.addEventListener("dashboard:layout-changed", (ev) => {
+    if (ev?.detail?.layout !== "1") return;
+    applySavedSize();
+  });
+
+  window.addEventListener("resize", () => {
+    if (workspaceShell?.dataset.layout !== "1") return;
+    applySavedSize();
+  });
+
+  if (workspaceShell?.dataset.layout === "1") applySavedSize();
+}
+
+initIfcHealthSplitterResizer();
+
+function initLayout1MainSplitterResizer() {
+  const splitter = document.getElementById("layout1-splitter");
+  const main = splitter?.closest(".workspace-main");
+  if (!splitter || !main) return;
+
+  const MIN_LEFT_PX = 320;
+  const MIN_RIGHT_PX = 220;
+  const STORAGE_KEY = "layout1-left-col-w-px";
+
+  const getAvailable = () => {
+    const mainRect = main.getBoundingClientRect();
+    const available = Math.max(0, mainRect.width);
+    const splitterRect = splitter.getBoundingClientRect();
+    const splitterW = splitterRect.width || 10;
+    return { available, splitterW };
+  };
+
+  const setLeftWidthPx = (px) => {
+    const clamped = Math.max(MIN_LEFT_PX, px);
+    main.style.setProperty("--layout1-left-w", `${clamped}px`);
+  };
+
+  const applySavedSize = () => {
+    if (workspaceShell?.dataset.layout !== "1") return;
+    let saved = 0;
+    try {
+      saved = Number(localStorage.getItem(STORAGE_KEY));
+    } catch {
+      /* ignore */
+    }
+    if (!Number.isFinite(saved) || saved <= 0) return;
+    const { available, splitterW } = getAvailable();
+    const maxLeft = Math.max(MIN_LEFT_PX, available - splitterW - MIN_RIGHT_PX);
+    setLeftWidthPx(Math.min(saved, maxLeft));
+  };
+
+  let dragging = false;
+  let startX = 0;
+  let startLeftW = 0;
+
+  const onPointerDown = (e) => {
+    if (e.button !== 0) return;
+    if (workspaceShell?.dataset.layout !== "1") return;
+    dragging = true;
+    startX = e.clientX;
+    const computedLeft = parseFloat(getComputedStyle(main).getPropertyValue("--layout1-left-w"));
+    if (Number.isFinite(computedLeft) && computedLeft > 0) {
+      startLeftW = computedLeft;
+    } else {
+      const leftPanel = document.querySelector('.workspace-shell[data-layout="1"] .visual-stack');
+      startLeftW = leftPanel instanceof HTMLElement ? leftPanel.getBoundingClientRect().width : main.getBoundingClientRect().width / 2;
+    }
+    try {
+      splitter.setPointerCapture(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    e.preventDefault();
+  };
+
+  const onPointerMove = (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    const { available, splitterW } = getAvailable();
+    const maxLeft = Math.max(MIN_LEFT_PX, available - splitterW - MIN_RIGHT_PX);
+    const nextLeft = startLeftW + dx;
+    setLeftWidthPx(Math.min(maxLeft, nextLeft));
+  };
+
+  const onPointerUp = () => {
+    if (!dragging) return;
+    dragging = false;
+    const current = parseFloat(getComputedStyle(main).getPropertyValue("--layout1-left-w"));
+    if (!Number.isFinite(current) || current <= 0) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, String(Math.round(current)));
+    } catch {
+      /* ignore */
+    }
+  };
+
+  splitter.addEventListener("pointerdown", onPointerDown);
+  window.addEventListener("pointermove", onPointerMove);
+  window.addEventListener("pointerup", onPointerUp);
+  window.addEventListener("pointercancel", onPointerUp);
+
+  window.addEventListener("dashboard:layout-changed", (ev) => {
+    if (ev?.detail?.layout !== "1") return;
+    applySavedSize();
+  });
+
+  window.addEventListener("resize", () => {
+    if (workspaceShell?.dataset.layout !== "1") return;
+    applySavedSize();
+  });
+
+  if (workspaceShell?.dataset.layout === "1") applySavedSize();
+}
+
+initLayout1MainSplitterResizer();
+
 function fillTable(tbodyId, rows, badgeCol) {
   const tb = document.getElementById(tbodyId);
   if (!tb) return;

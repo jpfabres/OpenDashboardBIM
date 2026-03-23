@@ -717,10 +717,11 @@ body {
 
 /* Layout 1: stacked visuals | 3D — wider chart column, smaller viewer is OK */
 .workspace-shell[data-layout="1"] .workspace-main {
-  grid-template-columns: minmax(320px, min(60vw, 748px)) minmax(200px, 1fr);
+  --layout1-left-w: minmax(320px, min(60vw, 748px));
+  grid-template-columns: var(--layout1-left-w) 10px minmax(200px, 1fr);
   grid-template-rows: 1fr;
   grid-template-areas:
-    "stack viewer";
+    "stack split viewer";
 }
 
 .workspace-shell[data-layout="1"] .visual-stack {
@@ -734,6 +735,18 @@ body {
 
 .workspace-shell[data-layout="1"] .viewer-region {
   grid-area: viewer;
+}
+
+.workspace-shell[data-layout="1"] .layout1-splitter {
+  display: block;
+  grid-area: split;
+  align-self: stretch;
+  justify-self: stretch;
+  cursor: col-resize;
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
 }
 
 .workspace-shell[data-layout="1"] .panel-boq {
@@ -805,6 +818,10 @@ body {
 }
 
 .workspace-shell[data-layout="3"] .visual-stack {
+  display: none;
+}
+
+.layout1-splitter {
   display: none;
 }
 
@@ -886,8 +903,9 @@ body {
 }
 
 .ifc-health-grid {
+  --ifc-health-left-col-w: 1fr;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(220px, var(--ifc-health-left-col-w)) 10px minmax(220px, 1fr);
   grid-template-rows: 1fr 1fr;
   gap: 0.65rem 0.72rem;
   min-height: 0;
@@ -897,6 +915,34 @@ body {
   align-items: stretch;
   overflow: auto;
   padding-right: 0.1rem;
+}
+
+.ifc-health-graph-card--left {
+  grid-column: 1;
+}
+
+.ifc-health-graph-card--right {
+  grid-column: 3;
+}
+
+.ifc-health-graph-card--top {
+  grid-row: 1;
+}
+
+.ifc-health-graph-card--bottom {
+  grid-row: 2;
+}
+
+.ifc-health-splitter {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: stretch;
+  justify-self: stretch;
+  cursor: col-resize;
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
 }
 
 /* Stacked: caption → pie → legend; card fills grid cell */
@@ -1122,14 +1168,11 @@ body {
     grid-template-rows: auto;
     grid-template-areas:
       "stack"
-      "viewer"
-      "boq";
+      "viewer";
   }
 
-  .workspace-shell[data-layout="1"] .workspace-main {
-    grid-template-areas:
-      "stack"
-      "viewer";
+  .workspace-shell[data-layout="1"] .layout1-splitter {
+    display: none;
   }
 
   .workspace-shell[data-layout="2"] .boq-splitter {
@@ -1176,6 +1219,23 @@ body {
     flex: 1 1 auto;
     height: auto;
     max-height: none;
+  }
+
+  .ifc-health-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, minmax(160px, auto));
+  }
+
+  .ifc-health-splitter {
+    display: none;
+  }
+
+  .ifc-health-graph-card--left,
+  .ifc-health-graph-card--right,
+  .ifc-health-graph-card--top,
+  .ifc-health-graph-card--bottom {
+    grid-column: auto;
+    grid-row: auto;
   }
 }
 
