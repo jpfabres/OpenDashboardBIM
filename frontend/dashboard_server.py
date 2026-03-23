@@ -14,7 +14,7 @@ import tempfile
 import traceback
 from pathlib import Path
 
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -26,6 +26,7 @@ if str(BACKEND_DIR) not in sys.path:
 
 from ifcprocesser import process_ifc2x3  # noqa: E402
 from verification import run_verification  # noqa: E402
+from wbs_apply import apply_wbs  # noqa: E402
 
 UPLOAD_DIR = BACKEND_DIR / "uploads"
 RESULTS_DIR = BACKEND_DIR / "results"
@@ -286,6 +287,26 @@ def download_json(filename: str):
     if not file_path.exists():
         raise HTTPException(status_code=404, detail="File not found.")
     return FileResponse(str(file_path), media_type="application/json", filename=filename)
+
+
+@app.post("/api/wbs-apply")
+async def wbs_apply_endpoint(request: Request):
+    """Apply WBS codes from the mapping table to the latest _corrected.json."""
+    try:
+        payload = await request.json()
+    except Exception:
+        raise HTTPException(status_code=400, detail="Invalid JSON body.")
+    rules = payload.get("rules", [])
+    if not isinstance(rules, list):
+        raise HTTPException(status_code=400, detail="'rules' must be a list.")
+    try:
+        result = apply_wbs(str(FIX_RESULTS_DIR), rules)
+        return JSONResponse({"success": True, **result})
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e)) from e
+    except Exception as e:
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"WBS apply failed: {str(e)}") from e
 
 
 @app.get("/")

@@ -1062,6 +1062,49 @@ import("./ifc-health.js")
   .then((m) => m.initIfcHealth())
   .catch((err) => console.error("IFC health charts failed to load:", err));
 
+document.getElementById("btn-wbs-apply")?.addEventListener("click", async () => {
+  const displayRows = buildWbsDisplayRows();
+  const rules = [];
+  for (const row of displayRows) {
+    const memberMappings = row.memberBaseKeys.map((k) => wbsMappingsByBaseKey.get(k) ?? { b: "", e: "" });
+    const firstB = memberMappings[0]?.b ?? "";
+    const firstE = memberMappings[0]?.e ?? "";
+    if (!firstB && !firstE) continue;
+    rules.push({
+      name: row.name,
+      class: row.class,
+      material: row.material,
+      wbs_b: firstB,
+      wbs_e: firstE,
+    });
+  }
+  if (rules.length === 0) {
+    const headerIfc = document.getElementById("header-ifc-summary");
+    if (headerIfc) headerIfc.textContent = "WBS Apply — no mappings assigned. Select WBS values in the table first.";
+    return;
+  }
+  const headerIfc = document.getElementById("header-ifc-summary");
+  if (headerIfc) headerIfc.textContent = "Applying WBS…";
+  try {
+    const res = await fetch("/api/wbs-apply", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rules }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || "WBS apply failed");
+    if (headerIfc) {
+      headerIfc.textContent = `WBS applied — ${data.matched_objects} object(s) updated in ${data.corrected_file}`;
+    }
+  } catch (e) {
+    console.error("[WBS Apply]", e);
+    if (headerIfc) {
+      headerIfc.textContent = `WBS Apply failed: ${e.message}`;
+      headerIfc.classList.add("err");
+    }
+  }
+});
+
 Promise.all([
   import("./ifc-element-filters.js").then((m) => m.initIfcElementFilters()),
   /** Dynamic import so a blocked CDN / failed IFC bundle does not stop the rest of this script. */
