@@ -124,32 +124,49 @@ function expressIdsForGlobalIds(modelJson, gids) {
 
 /**
  * @param {unknown} raw
- * @returns {{ dimensionFixable: true | false | null | undefined, attributes: string[] }}
+ * @returns {{
+ *   considerationStates: (true | false | null)[],
+ *   overallFixable: true | false | null | undefined,
+ *   attributes: string[]
+ * }}
  */
 function parseVerificationRecord(raw) {
   if (Array.isArray(raw)) {
     return {
       // Legacy format: array meant "fixed attributes for this object".
-      dimensionFixable: true,
+      considerationStates: [true],
+      overallFixable: true,
       attributes: raw.filter((x) => typeof x === "string" && x.length > 0),
     };
   }
   if (!raw || typeof raw !== "object") {
-    return { dimensionFixable: undefined, attributes: [] };
+    return { considerationStates: [], overallFixable: undefined, attributes: [] };
   }
   const obj = /** @type {Record<string, unknown>} */ (raw);
-  const fixVal = obj["Dimension Fixable"];
-  const dimensionFixable = fixVal === true ? true : fixVal === false ? false : fixVal === null ? null : undefined;
+  /** @type {(true | false | null)[]} */
+  const considerationStates = [];
+  for (const [k, v] of Object.entries(obj)) {
+    if (k === "Attributes") break;
+    if (v === true || v === false || v === null) considerationStates.push(v);
+  }
+  const overallFixable =
+    considerationStates.length === 0
+      ? undefined
+      : considerationStates.includes(true)
+        ? true
+        : considerationStates.includes(false)
+          ? false
+          : null;
   const attrsRaw = obj.Attributes;
   const attributes = Array.isArray(attrsRaw)
     ? attrsRaw.filter((x) => typeof x === "string" && x.length > 0)
     : [];
-  return { dimensionFixable, attributes };
+  return { considerationStates, overallFixable, attributes };
 }
 
 /**
  * @param {Record<string, unknown>} verificationLog
- * @param {(rec: { className: string, gid: string, dimensionFixable: true | false | null | undefined, attributes: string[] }) => void} visit
+ * @param {(rec: { className: string, gid: string, considerationStates: (true | false | null)[], overallFixable: true | false | null | undefined, attributes: string[] }) => void} visit
  */
 function forEachVerificationRecord(verificationLog, visit) {
   if (!verificationLog || typeof verificationLog !== "object") return;
@@ -172,8 +189,8 @@ function forEachVerificationRecord(verificationLog, visit) {
  */
 function allCorrectedGlobalIds(verificationLog) {
   const gids = new Set();
-  forEachVerificationRecord(verificationLog, ({ gid, dimensionFixable }) => {
-    if (dimensionFixable === true) gids.add(gid);
+  forEachVerificationRecord(verificationLog, ({ gid, overallFixable }) => {
+    if (overallFixable === true) gids.add(gid);
   });
   return gids;
 }
@@ -186,7 +203,7 @@ function allCorrectedGlobalIds(verificationLog) {
 function globalIdsFixedForClass(verificationLog, className) {
   const gids = new Set();
   forEachVerificationRecord(verificationLog, (rec) => {
-    if (rec.className === className && rec.dimensionFixable === true) gids.add(rec.gid);
+    if (rec.className === className && rec.overallFixable === true) gids.add(rec.gid);
   });
   return gids;
 }
@@ -225,8 +242,8 @@ function expressIdsForMergedClassFixSlices(modelJson, verificationLog, className
  */
 function globalIdsWithAttributeFix(verificationLog, attrName) {
   const gids = new Set();
-  forEachVerificationRecord(verificationLog, ({ gid, dimensionFixable, attributes }) => {
-    if (dimensionFixable === true && attributes.includes(attrName)) gids.add(gid);
+  forEachVerificationRecord(verificationLog, ({ gid, overallFixable, attributes }) => {
+    if (overallFixable === true && attributes.includes(attrName)) gids.add(gid);
   });
   return gids;
 }
@@ -239,8 +256,8 @@ function globalIdsWithAttributeFix(verificationLog, attrName) {
 function globalIdsWithAnyAttributeFix(verificationLog, attrNames) {
   const gids = new Set();
   const set = new Set(attrNames);
-  forEachVerificationRecord(verificationLog, ({ gid, dimensionFixable, attributes }) => {
-    if (dimensionFixable !== true) return;
+  forEachVerificationRecord(verificationLog, ({ gid, overallFixable, attributes }) => {
+    if (overallFixable !== true) return;
     for (const a of attributes) {
       if (set.has(a)) {
         gids.add(gid);
@@ -258,8 +275,8 @@ function globalIdsWithAnyAttributeFix(verificationLog, attrNames) {
  */
 function globalIdsForDimensionFixable(verificationLog, state) {
   const gids = new Set();
-  forEachVerificationRecord(verificationLog, ({ gid, dimensionFixable }) => {
-    if (dimensionFixable === state) gids.add(gid);
+  forEachVerificationRecord(verificationLog, ({ gid, overallFixable }) => {
+    if (overallFixable === state) gids.add(gid);
   });
   return gids;
 }
@@ -475,14 +492,14 @@ function applyVisibilityToPayload(data, modelJson, visibleIds, verificationLog) 
   let cleanObjects = 0;
   let notFixableObjects = 0;
   if (verificationLog && typeof verificationLog === "object") {
-    forEachVerificationRecord(verificationLog, ({ className, gid, dimensionFixable }) => {
+    forEachVerificationRecord(verificationLog, ({ className, gid, overallFixable }) => {
       if (!visibleGids.has(gid)) return;
-      if (dimensionFixable === true) {
+      if (overallFixable === true) {
         fixedPerClass[className] = (fixedPerClass[className] || 0) + 1;
         fixedObjects += 1;
-      } else if (dimensionFixable === null) {
+      } else if (overallFixable === null) {
         cleanObjects += 1;
-      } else if (dimensionFixable === false) {
+      } else if (overallFixable === false) {
         unfixablePerClass[className] = (unfixablePerClass[className] || 0) + 1;
         notFixableObjects += 1;
       }
@@ -492,8 +509,8 @@ function applyVisibilityToPayload(data, modelJson, visibleIds, verificationLog) 
   /** @type {Record<string, number>} */
   const attrCounts = {};
   if (verificationLog && typeof verificationLog === "object") {
-    forEachVerificationRecord(verificationLog, ({ gid, dimensionFixable, attributes }) => {
-      if (!visibleGids.has(gid) || dimensionFixable !== true) return;
+    forEachVerificationRecord(verificationLog, ({ gid, overallFixable, attributes }) => {
+      if (!visibleGids.has(gid) || overallFixable !== true) return;
       for (const a of attributes) {
         attrCounts[a] = (attrCounts[a] || 0) + 1;
       }

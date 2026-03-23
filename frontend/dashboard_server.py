@@ -36,10 +36,10 @@ from ifcprocesser import process_ifc2x3  # noqa: E402
 from verification import run_verification  # noqa: E402
 from wbs_apply import apply_wbs  # noqa: E402
 
-UPLOAD_DIR.mkdir(exist_ok=True)
-RESULTS_DIR.mkdir(exist_ok=True)
-FIX_RESULTS_DIR.mkdir(exist_ok=True)
-REPORTS_DIR.mkdir(exist_ok=True)
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+FIX_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 
 # This package directory is the static root (index.html, app/, etc.)
 FRONTEND_DIR = Path(__file__).resolve().parent
@@ -139,6 +139,36 @@ def _aggregate_ifc_health(results_path: Path) -> dict:
         if isinstance(cls, str) and cls:
             class_totals[cls] = class_totals.get(cls, 0) + 1
 
+    def _consideration_states(rec: dict) -> list[bool | None]:
+        """
+        Collect all tri-state consideration values that appear before "Attributes".
+        This keeps aggregation forward-compatible with new consideration fields.
+        """
+        states: list[bool | None] = []
+        for key, val in rec.items():
+            if key == "Attributes":
+                break
+            if val is True or val is False or val is None:
+                states.append(val)
+        return states
+
+    def _overall_state(rec: dict) -> bool | None | str:
+        """
+        Return combined object state:
+        - True: at least one consideration fixed
+        - False: no fixed consideration, but at least one not-fixable
+        - None: all considerations clean (null)
+        - "unknown": no recognizable consideration states
+        """
+        states = _consideration_states(rec)
+        if not states:
+            return "unknown"
+        if any(s is True for s in states):
+            return True
+        if any(s is False for s in states):
+            return False
+        return None
+
     log_path = _latest_verification_log_path()
     fixed_per_class: dict[str, int] = {}
     unfixable_per_class: dict[str, int] = {}
@@ -158,7 +188,7 @@ def _aggregate_ifc_health(results_path: Path) -> dict:
                 for _gid, rec in entry.items():
                     if not isinstance(rec, dict):
                         continue
-                    fixable = rec.get("Dimension Fixable")
+                    fixable = _overall_state(rec)
                     attrs = rec.get("Attributes")
                     if fixable is True:
                         fixed_per_class[cls] = fixed_per_class.get(cls, 0) + 1
