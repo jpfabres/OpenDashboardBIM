@@ -3,10 +3,11 @@ Apply WBS codes to objects in the latest _corrected.json.
 
 Each rule:
   { "name": str|"All", "class": str|"All", "material": str|"All",
-    "wbs_b": str, "wbs_e": str }
+    "wbs_b": str, "wbs_e": str, "unit": str }
 
-Objects that match a rule get a top-level "wbs" field:
+Objects that match a rule get a top-level "wbs" field and a top-level "unit" field:
   { "b": <wbs_b>, "e": <wbs_e> }
+  "unit": <unit>
 
 Matching is done with "All" as wildcard (same logic as the frontend WBS table).
 The first matching rule wins (rules are tested in order).
@@ -87,8 +88,8 @@ def apply_wbs(fix_results_dir: str, rules: list[dict]) -> dict:
     with open(corrected_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Only process rules that have at least one WBS value set
-    active_rules = [r for r in rules if r.get("wbs_b") or r.get("wbs_e")]
+    # Only process rules that have at least one WBS value or unit set
+    active_rules = [r for r in rules if r.get("wbs_b") or r.get("wbs_e") or r.get("unit")]
 
     matched = 0
     total = 0
@@ -102,6 +103,8 @@ def apply_wbs(fix_results_dir: str, rules: list[dict]) -> dict:
                     "b": rule.get("wbs_b", ""),
                     "e": rule.get("wbs_e", ""),
                 }
+                if rule.get("unit"):
+                    value["unit"] = rule["unit"]
                 matched += 1
                 break  # first matching rule wins
 
