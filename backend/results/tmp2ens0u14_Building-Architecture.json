@@ -1,0 +1,711 @@
+{
+  "193": {
+    "class": "IfcBuildingElementProxy",
+    "name": "Group#18",
+    "globalId": "1wADrO19H3w980h1wUyXLk",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 7700.000000000096,
+      "global_y": 5625.999999999979,
+      "global_z": 899.9999999999985,
+      "global_bottom_elevation": 899.9999999999985,
+      "global_top_elevation": 899.9999999999985,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "Default"
+      }
+    ],
+    "psets": {}
+  },
+  "345": {
+    "class": "IfcBuildingElementProxy",
+    "name": "Group#19",
+    "globalId": "0bo7_K6az7AA$4RxkSNVNM",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 8150.000000000029,
+      "global_y": 5000.00000000003,
+      "global_z": 4.7992898544180204e-11,
+      "global_bottom_elevation": 4.7992898544180204e-11,
+      "global_top_elevation": 4.7992898544180204e-11,
+      "bottom_elevation": 4.979767709301086e-11,
+      "top_elevation": 4.979767709301086e-11,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "Default"
+      }
+    ],
+    "psets": {}
+  },
+  "464": {
+    "class": "IfcBuildingElementProxy",
+    "name": "sand bedding",
+    "globalId": "3_4VN63S96DfWiJjgG8j1C",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 3000.0000000000277,
+      "global_y": 3000.000000000008,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "bulk-material_sand-coarse_generic"
+      }
+    ],
+    "psets": {}
+  },
+  "482": {
+    "class": "IfcBuildingElementProxy",
+    "name": "origin",
+    "globalId": "2F44QMqSH3TOkM$SZoqCBe",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 1.0913936421275139e-11,
+      "global_y": 9.094947017729282e-12,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_white"
+      }
+    ],
+    "psets": {}
+  },
+  "501": {
+    "class": "IfcBuildingElementProxy",
+    "name": "geo-reference",
+    "globalId": "3Fit2Fad92zf2f6aWdJtF5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -28841.016151377524,
+      "global_y": -14199.999999999996,
+      "global_z": -1300.0000000000018,
+      "global_bottom_elevation": -1300.0000000000018,
+      "global_top_elevation": -1300.0000000000018,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_black"
+      }
+    ],
+    "psets": {}
+  },
+  "339": {
+    "class": "IfcChimney",
+    "name": "house - chimney",
+    "globalId": "3dkFAzOGrAIuOzY_RdrdVv",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 7700.000000000091,
+      "global_y": 8299.999999999975,
+      "global_z": -2.0588686311384662e-11,
+      "global_bottom_elevation": -2.0588686311384662e-11,
+      "global_top_elevation": -2.0588686311384662e-11,
+      "bottom_elevation": -1.8783907762554008e-11,
+      "top_elevation": -1.8783907762554008e-11,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_sand-lime"
+      }
+    ],
+    "psets": {}
+  },
+  "382": {
+    "class": "IfcRoof",
+    "name": "house - roof",
+    "globalId": "2iPwJwpPDCSgMheXwk9cBT",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 3000.0000000000164,
+      "global_y": 2999.999999999985,
+      "global_z": 1800.000000000035,
+      "global_bottom_elevation": 1800.000000000035,
+      "global_top_elevation": 1800.000000000035,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_RoofCommon": {
+        "Status": null,
+        "IsExternal": true
+      }
+    }
+  },
+  "52": {
+    "class": "IfcSlab",
+    "name": "floor",
+    "globalId": "3zR0BOEcLADRKln4HYporH",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 3200.000000000017,
+      "global_y": 3000.0000000000023,
+      "global_z": -250.00000000000108,
+      "global_bottom_elevation": -250.00000000000108,
+      "global_top_elevation": -250.00000000000108,
+      "bottom_elevation": -249.99999999999926,
+      "top_elevation": -249.99999999999926,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 6.437500000000378,
+      "Volume": 6.437500000000378,
+      "Depth": 250.00000000009484,
+      "NetArea": 25.749999999991743,
+      "Area": 25.749999999991743
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_in-situ"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false,
+        "FireRating": "REI30",
+        "AcousticRating": "29dB Rw"
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 6.437500000000378,
+        "Depth": 250.00000000009484,
+        "NetArea": 25.749999999991743
+      }
+    }
+  },
+  "395": {
+    "class": "IfcSlab",
+    "name": "house - roof - slab left",
+    "globalId": "0ZTBBPo6f6bxqV2K7Oelrq",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 5100.000000000076,
+      "global_y": 8999.999999999924,
+      "global_z": 5275.735931287953,
+      "global_bottom_elevation": 5275.735931287953,
+      "global_top_elevation": 5275.735931287953,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 6.7203428483966,
+      "Volume": 6.7203428483966,
+      "Depth": 300.0000000001534,
+      "NetArea": 22.40114282797721,
+      "Area": 22.40114282797721
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "composite_element_roof"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "PitchAngle": 45.0,
+        "IsExternal": true,
+        "LoadBearing": false
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 6.7203428483966,
+        "Depth": 300.0000000001534,
+        "NetArea": 22.40114282797721
+      }
+    }
+  },
+  "425": {
+    "class": "IfcSlab",
+    "name": "house - roof - slab right",
+    "globalId": "12UVOn4wvAJPMUExKdZLb8",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 5100.0000000001455,
+      "global_y": 2999.9999999999445,
+      "global_z": 5275.7359312880835,
+      "global_bottom_elevation": 5275.7359312880835,
+      "global_top_elevation": 5275.7359312880835,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 9.36350799647189,
+      "Volume": 9.36350799647189,
+      "Depth": 300.0000000000386,
+      "NetArea": 31.211693321568944,
+      "Area": 31.211693321568944
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "composite_element_roof"
+      }
+    ],
+    "psets": {
+      "Pset_SlabCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      },
+      "Qto_SlabBaseQuantities": {
+        "NetVolume": 9.36350799647189,
+        "Depth": 300.0000000000386,
+        "NetArea": 31.211693321568944
+      }
+    }
+  },
+  "262": {
+    "class": "IfcWall",
+    "name": "house - outer wall - house right front",
+    "globalId": "1AQAupaRP1txwK1AGiN61V",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 7100.000000000076,
+      "global_y": 4799.999999999934,
+      "global_z": -8.135714324453147e-12,
+      "global_bottom_elevation": -8.135714324453147e-12,
+      "global_top_elevation": -8.135714324453147e-12,
+      "bottom_elevation": -6.330935775622493e-12,
+      "top_elevation": -6.330935775622493e-12,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 1.26926493526358,
+      "Volume": 1.26926493526358,
+      "Width": 200.0000000000007,
+      "Length": 1799.9999999999711,
+      "NetSideArea": 6.346324676317877,
+      "Area": 6.346324676317877
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_sand-lime"
+      }
+    ],
+    "psets": {
+      "Pset_WallCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      },
+      "Qto_WallBaseQuantities": {
+        "NetVolume": 1.26926493526358,
+        "Width": 200.0000000000007,
+        "Length": 1799.9999999999711,
+        "NetSideArea": 6.346324676317877
+      }
+    }
+  },
+  "291": {
+    "class": "IfcWall",
+    "name": "house - outer wall - house right back",
+    "globalId": "3wdauVJT5Fx9drrREiDqA$",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 8500.000000000087,
+      "global_y": 8999.999999999978,
+      "global_z": -2.961257905553794e-11,
+      "global_bottom_elevation": -2.961257905553794e-11,
+      "global_top_elevation": -2.961257905553794e-11,
+      "bottom_elevation": -2.7807800506707283e-11,
+      "top_elevation": -2.7807800506707283e-11,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 1.7856181822821586,
+      "Volume": 1.7856181822821586,
+      "Width": 200.00000000017903,
+      "Length": 4200.000000000067,
+      "NetSideArea": 8.928090911402801,
+      "Area": 8.928090911402801
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_sand-lime"
+      }
+    ],
+    "psets": {
+      "Pset_WallCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      },
+      "Qto_WallBaseQuantities": {
+        "NetVolume": 1.7856181822821586,
+        "Width": 200.00000000017903,
+        "Length": 4200.000000000067,
+        "NetSideArea": 8.928090911402801
+      }
+    }
+  },
+  "315": {
+    "class": "IfcWall",
+    "name": "house - outer wall - house left",
+    "globalId": "0OfZwWc8j9QP5uX8xPTxDH",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 3100.0000000000164,
+      "global_y": 3000.000000000014,
+      "global_z": -3.623767952376511e-12,
+      "global_bottom_elevation": -3.623767952376511e-12,
+      "global_top_elevation": -3.623767952376511e-12,
+      "bottom_elevation": -1.8189894035458565e-12,
+      "top_elevation": -1.8189894035458565e-12,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 4.230883117545889,
+      "Volume": 4.230883117545889,
+      "Width": 200.00000000000975,
+      "Length": 6000.000000000036,
+      "NetSideArea": 21.154415587728412,
+      "Area": 21.154415587728412
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_sand-lime"
+      }
+    ],
+    "psets": {
+      "Pset_WallCommon": {
+        "Status": null,
+        "IsExternal": true,
+        "LoadBearing": false
+      },
+      "Qto_WallBaseQuantities": {
+        "NetVolume": 4.230883117545889,
+        "Width": 200.00000000000975,
+        "Length": 6000.000000000036,
+        "NetSideArea": 21.154415587728412
+      }
+    }
+  },
+  "353": {
+    "class": "IfcWall",
+    "name": "plumbing wall",
+    "globalId": "1uS5vfZPn9R8PlAaVd73on",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 8400.000000000096,
+      "global_y": 8800.000000000093,
+      "global_z": 4.979767709301086e-11,
+      "global_bottom_elevation": 4.979767709301086e-11,
+      "global_top_elevation": 4.979767709301086e-11,
+      "bottom_elevation": 5.1602455641841513e-11,
+      "top_elevation": 5.1602455641841513e-11,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": {
+      "NetVolume": 0.16470195328802126,
+      "Volume": 0.16470195328802126,
+      "Width": 24.000000000082615,
+      "Length": 3800.000000000086,
+      "NetSideArea": 6.862581386977263,
+      "Area": 6.862581386977263
+    },
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "gypsum_fiber-board_panel"
+      }
+    ],
+    "psets": {
+      "Pset_WallCommon": {
+        "Status": null,
+        "IsExternal": false,
+        "LoadBearing": false
+      },
+      "Qto_WallBaseQuantities": {
+        "NetVolume": 0.16470195328802126,
+        "Width": 24.000000000082615,
+        "Length": 3800.000000000086,
+        "NetSideArea": 6.862581386977263
+      }
+    }
+  },
+  "176": {
+    "class": "IfcFurniture",
+    "name": "kitchen",
+    "globalId": "2e9pghUJbBqR4jTInsONQT",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 8150.000000000098,
+      "global_y": 7099.999999999976,
+      "global_z": 4.818758725377847e-11,
+      "global_bottom_elevation": 4.818758725377847e-11,
+      "global_top_elevation": 4.818758725377847e-11,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "wood_mdf_plate"
+      }
+    ],
+    "psets": {}
+  },
+  "30": {
+    "class": "IfcBuilding",
+    "name": "Single-family house",
+    "globalId": "0c$N1CTon2BB2Sp89385G8",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 3000.0000000000277,
+      "global_y": 3000.000000000008,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_BuildingCommon": {
+        "ConstructionMethod": "new construction"
+      }
+    }
+  },
+  "43": {
+    "class": "IfcBuildingStorey",
+    "name": "00 groundfloor",
+    "globalId": "1Ano2ZUxnEIvVQ_beukl8b",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 3000.0000000000277,
+      "global_y": 3000.000000000008,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "20": {
+    "class": "IfcSite",
+    "name": "environment - site",
+    "globalId": "23sFQGRy90RxVbRHD9iSE2",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "23": {
+    "class": "IfcSite",
+    "name": "house - site",
+    "globalId": "1Pbuu0tu59NfhrTsztVBK1",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 5800.000000000015,
+      "global_y": 5800.000000000001,
+      "global_z": -1300.0000000000018,
+      "global_bottom_elevation": -1300.0000000000018,
+      "global_top_elevation": -1300.0000000000018,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "89": {
+    "class": "IfcSpace",
+    "name": "living room",
+    "globalId": "0xY$LvXaDEswJDk_VU74C_",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 3200.000000000006,
+      "global_y": 4999.99999999983,
+      "global_z": 1.9491608327371067e-11,
+      "global_bottom_elevation": 1.9491608327371067e-11,
+      "global_top_elevation": 1.9491608327371067e-11,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_SpaceCommon": {
+        "IsExternal": false,
+        "GrossPlannedArea": 18.5,
+        "NetPlannedArea": 18.5,
+        "PubliclyAccessible": false,
+        "HandicapAccessible": false
+      }
+    }
+  },
+  "203": {
+    "class": "IfcSpace",
+    "name": "entry hall",
+    "globalId": "18QhMtUIXBvQktPHXXxs7H",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 3200.0000000000578,
+      "global_y": 3199.9999999999304,
+      "global_z": -1.0828671292983925e-12,
+      "global_bottom_elevation": -1.0828671292983925e-12,
+      "global_top_elevation": -1.0828671292983925e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_SpaceCommon": {
+        "IsExternal": false,
+        "GrossPlannedArea": 6.08,
+        "NetPlannedArea": 6.08,
+        "PubliclyAccessible": false,
+        "HandicapAccessible": false
+      }
+    }
+  },
+  "448": {
+    "class": "IfcSpatialZone",
+    "name": "house - gross volume",
+    "globalId": "1yP7NInQz5uQzbiOpVFFJr",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 3000.0000000000277,
+      "global_y": 3000.000000000008,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  }
+}

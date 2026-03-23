@@ -1,0 +1,256 @@
+{
+  "121": {
+    "class": "IfcBuildingElementProxy",
+    "name": "origin",
+    "globalId": "2F44QMqSH3TOkM$SZoqCBe",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": 1.0913936421275139e-11,
+      "global_y": 9.094947017729282e-12,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_white"
+      }
+    ],
+    "psets": {}
+  },
+  "140": {
+    "class": "IfcBuildingElementProxy",
+    "name": "geo-reference",
+    "globalId": "3Fit2Fad92zf2f6aWdJtF5",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "",
+      "global_x": -28841.016151377524,
+      "global_y": -14199.999999999996,
+      "global_z": -1300.0000000000018,
+      "global_bottom_elevation": -1300.0000000000018,
+      "global_top_elevation": -1300.0000000000018,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "virtual_black"
+      }
+    ],
+    "psets": {}
+  },
+  "52": {
+    "class": "IfcChimney",
+    "name": "house - chimney",
+    "globalId": "3dkFAzOGrAIuOzY_RdrdVv",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 7700.000000000091,
+      "global_y": 8299.999999999975,
+      "global_z": -2.0588686311384662e-11,
+      "global_bottom_elevation": -2.0588686311384662e-11,
+      "global_top_elevation": -2.0588686311384662e-11,
+      "bottom_elevation": -1.8783907762554008e-11,
+      "top_elevation": -1.8783907762554008e-11,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "stone_sand-lime"
+      }
+    ],
+    "psets": {}
+  },
+  "85": {
+    "class": "IfcDuctSegment",
+    "name": "building element",
+    "globalId": "38WbwIGD90nB_3T2BTU5Ed",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 7900.000000000097,
+      "global_y": 7949.999999999974,
+      "global_z": 899.9999999999783,
+      "global_bottom_elevation": 899.9999999999783,
+      "global_top_elevation": 899.9999999999783,
+      "bottom_elevation": 899.9999999999801,
+      "top_elevation": 899.9999999999801,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel-galvanized"
+      }
+    ],
+    "psets": {}
+  },
+  "67": {
+    "class": "IfcAirTerminal",
+    "name": "chimney cover",
+    "globalId": "23uPJWDfXEcwHH3kdFgV9c",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 7700.000000000091,
+      "global_y": 8299.999999999978,
+      "global_z": 4699.999999999982,
+      "global_bottom_elevation": 4699.999999999982,
+      "global_top_elevation": 4699.999999999982,
+      "bottom_elevation": 4699.999999999984,
+      "top_elevation": 4699.999999999984,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "metal_steel_generic_coated-anthracitegrey"
+      }
+    ],
+    "psets": {}
+  },
+  "103": {
+    "class": "IfcAirTerminal",
+    "name": "house fireplace cap",
+    "globalId": "34Y6EIt3nDCAS1k$kPGOKm",
+    "location": {
+      "project": "ifc silly sample scene - project",
+      "site": "environment - site",
+      "building_story": "00 groundfloor",
+      "global_x": 7750.000000000091,
+      "global_y": 8236.037961002783,
+      "global_z": 699.9999999999748,
+      "global_bottom_elevation": 699.9999999999748,
+      "global_top_elevation": 699.9999999999748,
+      "bottom_elevation": 699.9999999999766,
+      "top_elevation": 699.9999999999766,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [
+      {
+        "type": "IfcMaterial",
+        "name": "concrete_reinforced_prefab"
+      }
+    ],
+    "psets": {}
+  },
+  "30": {
+    "class": "IfcBuilding",
+    "name": "Single-family house",
+    "globalId": "0c$N1CTon2BB2Sp89385G8",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 3000.0000000000277,
+      "global_y": 3000.000000000008,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {
+      "Pset_BuildingCommon": {
+        "ConstructionMethod": "new construction"
+      }
+    }
+  },
+  "43": {
+    "class": "IfcBuildingStorey",
+    "name": "00 groundfloor",
+    "globalId": "1Ano2ZUxnEIvVQ_beukl8b",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 3000.0000000000277,
+      "global_y": 3000.000000000008,
+      "global_z": -1.8189894035458565e-12,
+      "global_bottom_elevation": -1.8189894035458565e-12,
+      "global_top_elevation": -1.8189894035458565e-12,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "20": {
+    "class": "IfcSite",
+    "name": "environment - site",
+    "globalId": "23sFQGRy90RxVbRHD9iSE2",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 0.0,
+      "global_y": 0.0,
+      "global_z": 0.0,
+      "global_bottom_elevation": 0.0,
+      "global_top_elevation": 0.0,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  },
+  "23": {
+    "class": "IfcSite",
+    "name": "house - site",
+    "globalId": "1Pbuu0tu59NfhrTsztVBK1",
+    "location": {
+      "project": "",
+      "site": "",
+      "building_story": "",
+      "global_x": 5800.000000000015,
+      "global_y": 5800.000000000001,
+      "global_z": -1300.0000000000018,
+      "global_bottom_elevation": -1300.0000000000018,
+      "global_top_elevation": -1300.0000000000018,
+      "bottom_elevation": null,
+      "top_elevation": null,
+      "top_distance_to_next_story": null,
+      "bottom_distance_to_next_story": null
+    },
+    "dimensions": null,
+    "materials": [],
+    "psets": {}
+  }
+}

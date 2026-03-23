@@ -303,6 +303,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  margin-bottom: 0.45rem;
 }
 
 /* Parent “Models” — collapse all loaded files + actions */
@@ -399,7 +400,7 @@ body {
 }
 
 .ifc-models-list {
-  margin-top: 0.65rem;
+  margin-top: 0.35rem;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;

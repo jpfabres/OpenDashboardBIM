@@ -44,6 +44,7 @@ export function initIfcViewport() {
   const btnClearAll = document.getElementById("btn-ifc-clear-all");
   const btnFixQty = document.getElementById("btn-fix-quantities");
   const modelsListEl = document.getElementById("ifc-models-list");
+  const modelsSectionEl = document.getElementById("ifc-models-section");
 
   if (!fileInput) {
     console.warn("IFC: #ifc-file-input not found — Add IFC will not work.");
@@ -542,6 +543,10 @@ export function initIfcViewport() {
           /* ignore */
         }
       }
+    }
+    // Keep the actions visible and collapse only the models card after load.
+    if (modelsSectionEl instanceof HTMLDetailsElement) {
+      modelsSectionEl.open = false;
     }
   }
 
