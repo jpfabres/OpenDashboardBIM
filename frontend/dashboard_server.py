@@ -83,10 +83,8 @@ async def upload_ifc(file: UploadFile = File(...)):
         json_path, result = process_ifc2x3(ifc_path)
     except Exception as e:
         traceback.print_exc()
+        os.remove(ifc_path)
         raise HTTPException(status_code=500, detail=f"Failed to parse IFC file: {str(e)}")
-    finally:
-        if os.path.exists(ifc_path):
-            os.remove(ifc_path)
 
     return JSONResponse({
         "success": True,
@@ -421,8 +419,22 @@ def verify_json():
     json_files.sort(key=lambda f: os.path.getmtime(str(RESULTS_DIR / f)), reverse=True)
     json_path = str(RESULTS_DIR / json_files[0])
 
+    # Find the IFC file in UPLOAD_DIR that matches the JSON model name.
+    # JSON name: tmpABC_bSH_OD_STR_01.json → model name: bSH_OD_STR_01
+    json_stem = Path(json_files[0]).stem
+    parts = json_stem.split("_", 1)
+    model_name = parts[1] if len(parts) > 1 else json_stem
+    ifc_candidates = sorted(
+        [f for f in UPLOAD_DIR.iterdir() if f.suffix.lower() == ".ifc" and model_name in f.stem],
+        key=lambda f: f.stat().st_mtime,
+        reverse=True,
+    )
+    if not ifc_candidates:
+        raise HTTPException(status_code=404, detail=f"IFC file for model '{model_name}' not found in uploads.")
+    ifc_path = str(ifc_candidates[0])
+
     try:
-        result = run_verification(json_path, str(FIX_RESULTS_DIR))
+        result = run_verification(json_path, ifc_path, str(FIX_RESULTS_DIR))
     except Exception as e:
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Verification failed: {str(e)}")
