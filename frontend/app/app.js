@@ -444,10 +444,15 @@ function escapeHtml(s) {
 const boqModelRegistry = new Map();
 /** @type {Map<string, Record<string, unknown>>} */
 const boqJsonByFile = new Map();
+/** @type {Map<string, Record<string, unknown>>} */
+const boqCorrectedJsonByFile = new Map();
 /** @type {Map<string, Promise<void>>} */
 const boqJsonLoadPromises = new Map();
+/** @type {Map<string, Promise<void>>} */
+const boqCorrectedJsonLoadPromises = new Map();
 /** @type {Map<string, Set<number>>} */
 let boqVisibleByFile = new Map();
+let boqUseCorrectedData = false;
 
 const BOQ_DEFAULT_GROUP_BY = ["name", "class", "material", "unit"];
 /** @type {Array<"name" | "class" | "material" | "unit">} */
@@ -464,7 +469,7 @@ let boqBaseDirty = true;
  *   expressIds: Set<number>
  * }>} */
 let boqBaseGroups = [];
-/** @type {Array<{ cells: [string, string, string, string, string, string], expressIds: Set<number> }>} */
+/** @type {Array<{ cells: [string, string, string, string, string, string, string], expressIds: Set<number>, globalIds: Set<string> }>} */
 let boqRenderedRows = [];
 /** @type {Array<{ memberBaseKeys: string[] }>} */
 let wbsRenderedRows = [];
@@ -656,26 +661,55 @@ function baseGroupMatchesFilters(g) {
 function rebuildBoqBaseGroups() {
   /** @type {Map<string, {
    *   baseKey: string,
+   *   wbs: string,
    *   class: string,
    *   name: string,
    *   material: string,
    *   unit: string,
    *   qty: number,
    *   weightKg: number,
-   *   expressIds: Set<number>
+   *   expressIds: Set<number>,
+   *   globalIds: Set<string>
    * }>} */
   const baseMap = new Map();
 
   for (const [, meta] of boqModelRegistry) {
     const jf = meta.jsonFile;
     if (!jf) continue;
-    const data = boqJsonByFile.get(jf);
+    const originalData = boqJsonByFile.get(jf);
+    const correctedData = boqCorrectedJsonByFile.get(jf);
+    const data = boqUseCorrectedData ? (correctedData ?? originalData) : originalData;
     if (!data) continue;
     const visibleIds = boqVisibleByFile.get(jf);
+    /** @type {Set<string> | null} */
+    let visibleGlobalIds = null;
+    if (
+      boqUseCorrectedData &&
+      correctedData &&
+      originalData &&
+      visibleIds &&
+      visibleIds.size > 0
+    ) {
+      visibleGlobalIds = new Set();
+      for (const [origId, raw] of Object.entries(originalData)) {
+        const origIdNum = Number(origId);
+        if (!Number.isFinite(origIdNum) || !visibleIds.has(origIdNum)) continue;
+        if (!raw || typeof raw !== "object") continue;
+        const gid = /** @type {{ globalId?: unknown }} */ (raw).globalId;
+        if (typeof gid === "string" && gid.trim()) visibleGlobalIds.add(gid.trim());
+      }
+    }
 
     for (const [expressId, raw] of Object.entries(data)) {
       const expressIdNum = Number(expressId);
-      if (visibleIds && !visibleIds.has(expressIdNum)) continue;
+      if (visibleGlobalIds) {
+        if (!raw || typeof raw !== "object") continue;
+        const gid = /** @type {{ globalId?: unknown }} */ (raw).globalId;
+        const gidStr = typeof gid === "string" ? gid.trim() : "";
+        if (!gidStr || !visibleGlobalIds.has(gidStr)) continue;
+      } else if (visibleIds && !visibleIds.has(expressIdNum)) {
+        continue;
+      }
       if (!raw || typeof raw !== "object") continue;
 
       const obj = /** @type {Record<string, unknown>} */ (raw);
@@ -683,23 +717,32 @@ function rebuildBoqBaseGroups() {
       const name = normalizeElementName(obj.name, cls);
       const mats = materialNamesFromEntry(obj.materials);
       const material = mats.length ? mats.join(", ") : NO_MATERIAL;
+      const globalId = typeof obj.globalId === "string" ? obj.globalId : "";
+      const wbsObj = obj.wbs && typeof obj.wbs === "object" ? /** @type {{ b?: unknown, e?: unknown }} */ (obj.wbs) : null;
+      const wbsB = typeof wbsObj?.b === "string" ? wbsObj.b.trim() : "";
+      const wbsE = typeof wbsObj?.e === "string" ? wbsObj.e.trim() : "";
+      const wbs = wbsB && wbsE ? `${wbsB} - ${wbsE}` : (wbsB || wbsE || "");
 
       const q = quantityFromDimensions(
         obj.dimensions && typeof obj.dimensions === "object"
           ? /** @type {Record<string, unknown>} */ (obj.dimensions)
           : null
       );
+      const correctedUnit = typeof obj.unit === "string" && obj.unit.trim() ? obj.unit.trim() : "";
+      if (correctedUnit) q.unit = correctedUnit;
       const weightKg = weightFromObject(obj) ?? 0;
 
-      const baseKey = [cls, name, material, q.unit].join("|");
+      const baseKey = [cls, name, material, q.unit, wbs].join("|");
       const existing = baseMap.get(baseKey);
       if (existing) {
         existing.qty += q.qty;
         existing.weightKg += weightKg;
         existing.expressIds.add(expressIdNum);
+        if (globalId) existing.globalIds.add(globalId);
       } else {
         const group = {
           baseKey,
+          wbs,
           class: cls,
           name,
           material,
@@ -707,6 +750,7 @@ function rebuildBoqBaseGroups() {
           qty: q.qty,
           weightKg,
           expressIds: new Set([expressIdNum]),
+          globalIds: globalId ? new Set([globalId]) : new Set(),
         };
         baseMap.set(baseKey, group);
       }
@@ -723,13 +767,13 @@ function rebuildBoqBaseGroups() {
 
 /**
  * Build the display rows based on current groupBy columns.
- * Output columns: Name, Class, Material, Qty, Unit, Weight(kg)
- * @returns {Array<{ cells: [string, string, string, string, string, string], expressIds: Set<number> }>}
+ * Output columns: WBS, Name, Class, Material, Qty, Unit, Weight(kg)
+ * @returns {Array<{ cells: [string, string, string, string, string, string, string], expressIds: Set<number>, globalIds: Set<string> }>}
  */
 function buildBoqDisplayRows() {
   if (boqBaseDirty) rebuildBoqBaseGroups();
 
-  /** @type {Map<string, { name: string, class: string, material: string, unit: string, qty: number, weightKg: number, expressIds: Set<number> }>} */
+  /** @type {Map<string, { wbs: string, name: string, class: string, material: string, unit: string, qty: number, weightKg: number, expressIds: Set<number>, globalIds: Set<string> }>} */
   const grouped = new Map();
 
   const groupIncludes = (col) => boqGroupBy.includes(col);
@@ -743,14 +787,16 @@ function buildBoqDisplayRows() {
   for (const g of baseGroupsFiltered) {
     // Ensure unit never “mixes” across groups.
     const unit = g.unit;
-    const key = [nameVal(g), classVal(g), materialVal(g), unit].join("|");
+    const key = [g.wbs, nameVal(g), classVal(g), materialVal(g), unit].join("|");
     const existing = grouped.get(key);
     if (existing) {
       existing.qty += g.qty;
       existing.weightKg += g.weightKg;
       for (const x of g.expressIds) existing.expressIds.add(x);
+      for (const gid of g.globalIds) existing.globalIds.add(gid);
     } else {
       grouped.set(key, {
+        wbs: g.wbs,
         name: nameVal(g),
         class: classVal(g),
         material: materialVal(g),
@@ -758,6 +804,7 @@ function buildBoqDisplayRows() {
         qty: g.qty,
         weightKg: g.weightKg,
         expressIds: new Set(g.expressIds),
+        globalIds: new Set(g.globalIds),
       });
     }
   }
@@ -770,6 +817,7 @@ function buildBoqDisplayRows() {
     })
     .map((g) => ({
       cells: [
+        g.wbs || "",
         g.name,
         g.class,
         g.material,
@@ -778,11 +826,13 @@ function buildBoqDisplayRows() {
         g.weightKg > 0 ? fmtQty(g.weightKg) : "—",
       ],
       expressIds: g.expressIds,
+      globalIds: g.globalIds,
     }));
 
   if (rows.length === 0) {
     return [{
       cells: [
+        "",
         "Load IFC model(s) to populate the BOQ table",
         "—",
         "—",
@@ -791,6 +841,7 @@ function buildBoqDisplayRows() {
         "—",
       ],
       expressIds: new Set(),
+      globalIds: new Set(),
     }];
   }
 
@@ -870,6 +921,32 @@ async function ensureBoqJsonLoaded(jsonFile) {
   await p;
 }
 
+async function ensureBoqCorrectedJsonLoaded(jsonFile) {
+  if (!jsonFile || boqCorrectedJsonByFile.has(jsonFile)) return;
+  const correctedFile = jsonFile.endsWith(".json")
+    ? `${jsonFile.slice(0, -5)}_corrected.json`
+    : `${jsonFile}_corrected.json`;
+  let p = boqCorrectedJsonLoadPromises.get(correctedFile);
+  if (!p) {
+    p = fetch(`/api/fix-quantities-corrected-json/${encodeURIComponent(correctedFile)}`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`${res.status}`);
+        return res.json();
+      })
+      .then((data) => {
+        if (data && typeof data === "object") boqCorrectedJsonByFile.set(jsonFile, data);
+      })
+      .catch(() => {
+        /* ignore: corrected file may not exist for this model */
+      })
+      .finally(() => {
+        boqCorrectedJsonLoadPromises.delete(correctedFile);
+      });
+    boqCorrectedJsonLoadPromises.set(correctedFile, p);
+  }
+  await p;
+}
+
 window.addEventListener("dashboard:ifc-model-json", (ev) => {
   const d = /** @type {CustomEvent<{ entryId?: unknown; jsonFile?: unknown; label?: unknown }>} */ (ev).detail;
   if (!d) return;
@@ -880,6 +957,7 @@ window.addEventListener("dashboard:ifc-model-json", (ev) => {
   boqModelRegistry.set(entryId, { label, jsonFile });
   void (async () => {
     if (jsonFile) await ensureBoqJsonLoaded(jsonFile);
+    if (boqUseCorrectedData && jsonFile) await ensureBoqCorrectedJsonLoaded(jsonFile);
     boqBaseDirty = true;
     renderBoqTable();
   })();
@@ -897,6 +975,9 @@ window.addEventListener("dashboard:ifc-model-unloaded", (ev) => {
   for (const f of [...boqJsonByFile.keys()]) {
     if (!usedFiles.has(f)) boqJsonByFile.delete(f);
   }
+  for (const f of [...boqCorrectedJsonByFile.keys()]) {
+    if (!usedFiles.has(f)) boqCorrectedJsonByFile.delete(f);
+  }
   boqBaseDirty = true;
   renderBoqTable();
 });
@@ -904,10 +985,25 @@ window.addEventListener("dashboard:ifc-model-unloaded", (ev) => {
 window.addEventListener("dashboard:ifc-models-cleared", () => {
   boqModelRegistry.clear();
   boqJsonByFile.clear();
+  boqCorrectedJsonByFile.clear();
+  boqUseCorrectedData = false;
   boqVisibleByFile = new Map();
   boqBaseGroups = [];
   boqBaseDirty = true;
   renderBoqTable();
+});
+
+window.addEventListener("dashboard:ifc-corrected-json-ready", () => {
+  void (async () => {
+    boqUseCorrectedData = true;
+    const loads = [];
+    for (const [, meta] of boqModelRegistry) {
+      if (meta.jsonFile) loads.push(ensureBoqCorrectedJsonLoaded(meta.jsonFile));
+    }
+    await Promise.all(loads);
+    boqBaseDirty = true;
+    renderBoqTable();
+  })();
 });
 
 window.addEventListener("dashboard:ifc-health-visibility", (ev) => {
@@ -1531,6 +1627,16 @@ async function exportFilesAsZip(zipFilename, files) {
   downloadBlob(zipBlob, zipFilename);
 }
 
+async function fetchBlob(path) {
+  const res = await fetch(path);
+  if (!res.ok) {
+    const maybeJson = await res.json().catch(() => null);
+    const detail = maybeJson && typeof maybeJson.detail === "string" ? maybeJson.detail : `${res.status} ${res.statusText}`;
+    throw new Error(detail);
+  }
+  return res.blob();
+}
+
 async function generateHealthPdfReport() {
   const jspdfNs = window.jspdf;
   const JsPdfCtor = jspdfNs?.jsPDF;
@@ -1648,7 +1754,81 @@ async function generateHealthPdfReport() {
     margin,
     pageH - 16
   );
-  doc.save(`ifc-health-report-${new Date().toISOString().slice(0, 10)}.pdf`);
+  return doc.output("blob");
+}
+
+async function fetchHealthStatsForExport() {
+  try {
+    const data = await fetchJson("/api/ifc-health-stats");
+    return data && typeof data === "object" ? data : null;
+  } catch {
+    return null;
+  }
+}
+
+async function generateHealthExcelBlob() {
+  const stats = await fetchHealthStatsForExport();
+  const rows = [];
+  const totals = stats?.totals && typeof stats.totals === "object" ? stats.totals : {};
+  rows.push(["Totals", "Objects", String(totals.objects ?? 0), ""]);
+  rows.push(["Totals", "Corrected objects", String(totals.fixed_objects ?? 0), ""]);
+  rows.push(["Totals", "Clean objects", String(totals.clean_objects ?? 0), ""]);
+  rows.push(["Totals", "Not fixable objects", String(totals.not_fixable_objects ?? 0), ""]);
+  rows.push(["", "", "", ""]);
+  rows.push(["By Class", "Class", "Corrected", "Total"]);
+  if (Array.isArray(stats?.by_class)) {
+    for (const row of stats.by_class) {
+      rows.push([
+        "By Class",
+        String(row.class ?? ""),
+        String(row.fixed ?? 0),
+        String(row.total ?? 0),
+      ]);
+    }
+  }
+  rows.push(["", "", "", ""]);
+  rows.push(["By Attribute", "Attribute", "Count", ""]);
+  if (Array.isArray(stats?.by_attribute)) {
+    for (const row of stats.by_attribute) {
+      rows.push(["By Attribute", String(row.attribute ?? ""), String(row.count ?? 0), ""]);
+    }
+  }
+  return buildExcelBlobFromRows(
+    ["Section", "Label", "Value", "Extra"],
+    rows,
+    [18, 36, 14, 18]
+  );
+}
+
+async function generateHealthCsvBlob() {
+  const stats = await fetchHealthStatsForExport();
+  const rows = [];
+  const totals = stats?.totals && typeof stats.totals === "object" ? stats.totals : {};
+  rows.push(["Totals", "Objects", String(totals.objects ?? 0), ""]);
+  rows.push(["Totals", "Corrected objects", String(totals.fixed_objects ?? 0), ""]);
+  rows.push(["Totals", "Clean objects", String(totals.clean_objects ?? 0), ""]);
+  rows.push(["Totals", "Not fixable objects", String(totals.not_fixable_objects ?? 0), ""]);
+  rows.push(["", "", "", ""]);
+  rows.push(["By Class", "Class", "Corrected", "Total"]);
+  if (Array.isArray(stats?.by_class)) {
+    for (const row of stats.by_class) {
+      rows.push([
+        "By Class",
+        String(row.class ?? ""),
+        String(row.fixed ?? 0),
+        String(row.total ?? 0),
+      ]);
+    }
+  }
+  rows.push(["", "", "", ""]);
+  rows.push(["By Attribute", "Attribute", "Count", ""]);
+  if (Array.isArray(stats?.by_attribute)) {
+    for (const row of stats.by_attribute) {
+      rows.push(["By Attribute", String(row.attribute ?? ""), String(row.count ?? 0), ""]);
+    }
+  }
+  const csv = buildCsvText(["Section", "Label", "Value", "Extra"], rows);
+  return new Blob([csv], { type: "text/csv;charset=utf-8" });
 }
 
 function collectBoqTableRowsForReport() {
@@ -1656,7 +1836,7 @@ function collectBoqTableRowsForReport() {
   if (!Array.isArray(boqRenderedRows)) return rows;
   for (const row of boqRenderedRows) {
     if (!row || !Array.isArray(row.cells)) continue;
-    if (row.cells[0] === "Load IFC model(s) to populate the BOQ table") continue;
+    if (row.cells[1] === "Load IFC model(s) to populate the BOQ table") continue;
     rows.push([
       String(row.cells[0] ?? ""),
       String(row.cells[1] ?? ""),
@@ -1664,6 +1844,8 @@ function collectBoqTableRowsForReport() {
       String(row.cells[3] ?? ""),
       String(row.cells[4] ?? ""),
       String(row.cells[5] ?? ""),
+      String(row.cells[6] ?? ""),
+      [...(row.globalIds ?? new Set())].sort().join(", "),
     ]);
   }
   return rows;
@@ -1712,7 +1894,7 @@ async function generateBoqPdfReport() {
     doc.text("No IFC viewport image available.", margin + 10, snapshotTop + 20);
   }
 
-  const headers = ["Name", "Class", "Material", "Qty", "Unit", "Weight (kg)"];
+  const headers = ["WBS", "Name", "Class", "Material", "Qty", "Unit", "Weight (kg)", "GUID(s)"];
   const rows = collectBoqTableRowsForReport();
   let y = snapshotTop + snapshotH + 26;
 
@@ -1722,7 +1904,7 @@ async function generateBoqPdfReport() {
   doc.text(`BOQ quantities (${rows.length} row${rows.length === 1 ? "" : "s"})`, margin, y);
   y += 10;
 
-  const colWidths = [270, 150, 230, 70, 60, 90];
+  const colWidths = [130, 230, 120, 180, 60, 55, 75, 270];
   const rowH = 18;
   const drawHeader = () => {
     doc.setFillColor(235, 240, 248);
@@ -1755,20 +1937,24 @@ async function generateBoqPdfReport() {
     y += rowH;
   } else {
     for (const row of rows) {
-      const nameLines = doc.splitTextToSize(row[0] || "—", colWidths[0] - 10);
-      const classLines = doc.splitTextToSize(row[1] || "—", colWidths[1] - 10);
-      const materialLines = doc.splitTextToSize(row[2] || "—", colWidths[2] - 10);
-      const qtyLines = doc.splitTextToSize(row[3] || "—", colWidths[3] - 10);
-      const unitLines = doc.splitTextToSize(row[4] || "—", colWidths[4] - 10);
-      const weightLines = doc.splitTextToSize(row[5] || "—", colWidths[5] - 10);
+      const wbsLines = doc.splitTextToSize(row[0] || "—", colWidths[0] - 10);
+      const nameLines = doc.splitTextToSize(row[1] || "—", colWidths[1] - 10);
+      const classLines = doc.splitTextToSize(row[2] || "—", colWidths[2] - 10);
+      const materialLines = doc.splitTextToSize(row[3] || "—", colWidths[3] - 10);
+      const qtyLines = doc.splitTextToSize(row[4] || "—", colWidths[4] - 10);
+      const unitLines = doc.splitTextToSize(row[5] || "—", colWidths[5] - 10);
+      const weightLines = doc.splitTextToSize(row[6] || "—", colWidths[6] - 10);
+      const guidLines = doc.splitTextToSize(row[7] || "—", colWidths[7] - 10);
       const lineCount = Math.max(
         1,
+        wbsLines.length,
         nameLines.length,
         classLines.length,
         materialLines.length,
         qtyLines.length,
         unitLines.length,
-        weightLines.length
+        weightLines.length,
+        guidLines.length
       );
       const dynamicRowH = Math.max(rowH, 11 + lineCount * 9);
       ensureSpace(dynamicRowH + 2);
@@ -1777,7 +1963,7 @@ async function generateBoqPdfReport() {
       doc.rect(margin, y, contentW, dynamicRowH);
 
       let x = margin + 6;
-      const cells = [nameLines, classLines, materialLines, qtyLines, unitLines, weightLines];
+      const cells = [wbsLines, nameLines, classLines, materialLines, qtyLines, unitLines, weightLines, guidLines];
       cells.forEach((lines, idx) => {
         const textY = y + 12;
         doc.text(lines, x, textY);
@@ -1794,13 +1980,13 @@ async function generateBoqPdfReport() {
 }
 
 function generateBoqExcelBlob() {
-  const headers = ["Name", "Class", "Material", "Qty", "Unit", "Weight (kg)"];
+  const headers = ["WBS", "Name", "Class", "Material", "Qty", "Unit", "Weight (kg)", "GUID(s)"];
   const rows = collectBoqTableRowsForReport();
-  return buildExcelBlobFromRows(headers, rows, [48, 24, 40, 12, 10, 14]);
+  return buildExcelBlobFromRows(headers, rows, [18, 42, 22, 32, 12, 10, 14, 60]);
 }
 
 function generateBoqCsvBlob() {
-  const headers = ["Name", "Class", "Material", "Qty", "Unit", "Weight (kg)"];
+  const headers = ["WBS", "Name", "Class", "Material", "Qty", "Unit", "Weight (kg)", "GUID(s)"];
   const rows = collectBoqTableRowsForReport();
   const csv = buildCsvText(headers, rows);
   return new Blob([csv], { type: "text/csv;charset=utf-8" });
@@ -1988,41 +2174,58 @@ async function generateWbsExportZip() {
   ]);
 }
 
+async function generateFixedPackageZip() {
+  const dateStamp = new Date().toISOString().slice(0, 10);
+  const base = `fixed-package-${dateStamp}`;
+  const files = [];
+
+  const healthPdfBlob = await generateHealthPdfReport();
+  const healthXlsxBlob = await generateHealthExcelBlob();
+  const healthCsvBlob = await generateHealthCsvBlob();
+  files.push({ name: `ifc-health-report-${dateStamp}.pdf`, blob: healthPdfBlob });
+  files.push({ name: `ifc-health-report-${dateStamp}.xlsx`, blob: healthXlsxBlob });
+  files.push({ name: `ifc-health-report-${dateStamp}.csv`, blob: healthCsvBlob });
+
+  const boqPdfBlob = await generateBoqPdfReport();
+  const boqXlsxBlob = generateBoqExcelBlob();
+  const boqCsvBlob = generateBoqCsvBlob();
+  files.push({ name: `boq-report-${dateStamp}.pdf`, blob: boqPdfBlob });
+  files.push({ name: `boq-report-${dateStamp}.xlsx`, blob: boqXlsxBlob });
+  files.push({ name: `boq-report-${dateStamp}.csv`, blob: boqCsvBlob });
+
+  const wbsPdfBlob = await generateWbsPdfReport();
+  const wbsXlsxBlob = generateWbsExcelBlob();
+  const wbsCsvBlob = generateWbsCsvBlob();
+  files.push({ name: `wbs-report-${dateStamp}.pdf`, blob: wbsPdfBlob });
+  files.push({ name: `wbs-report-${dateStamp}.xlsx`, blob: wbsXlsxBlob });
+  files.push({ name: `wbs-report-${dateStamp}.csv`, blob: wbsCsvBlob });
+
+  try {
+    const fixedIfcBlob = await fetchBlob("/api/fix-quantities-ifc");
+    files.push({ name: `fix-quantities-corrected-${dateStamp}.ifc`, blob: fixedIfcBlob });
+  } catch {
+    // Keep package generation working even if fix IFC is not available yet.
+  }
+
+  await exportFilesAsZip(`${base}.zip`, files);
+}
+
 async function handleGenerateReportClick() {
-  const layout = workspaceShell?.dataset.layout ?? "1";
   if (!(reportBtn instanceof HTMLButtonElement)) return;
   reportBtn.disabled = true;
   const baseLabel = reportBtn.textContent;
   reportBtn.textContent = "Generating…";
 
   try {
-    if (layout === "1") {
-      await generateHealthPdfReport();
-      const headerIfc = document.getElementById("header-ifc-summary");
-      if (headerIfc) {
-        headerIfc.textContent = "Report generated — IFC snapshot and 2D charts.";
-        headerIfc.classList.remove("err");
-      }
-    } else if (layout === "2") {
-      await generateBoqExportZip();
-      const headerIfc = document.getElementById("header-ifc-summary");
-      if (headerIfc) {
-        headerIfc.textContent = "BOQ report generated — ZIP includes PDF, Excel, and CSV.";
-        headerIfc.classList.remove("err");
-      }
-    } else if (layout === "3") {
-      await generateWbsExportZip();
-      const headerIfc = document.getElementById("header-ifc-summary");
-      if (headerIfc) {
-        headerIfc.textContent = "WBS report generated — ZIP includes PDF, Excel, and CSV.";
-        headerIfc.classList.remove("err");
-      }
-    } else {
-      throw new Error("Report for this page is not implemented yet.");
+    await generateFixedPackageZip();
+    const headerIfc = document.getElementById("header-ifc-summary");
+    if (headerIfc) {
+      headerIfc.textContent = "Fixed package generated — ZIP includes IFC Health, BOQ, WBS (PDF/XLSX/CSV) and corrected IFC when available.";
+      headerIfc.classList.remove("err");
     }
   } finally {
     reportBtn.disabled = false;
-    reportBtn.textContent = baseLabel || "Generate report";
+    reportBtn.textContent = baseLabel || "Generate fixed package";
   }
 }
 
@@ -2075,6 +2278,15 @@ document.getElementById("btn-wbs-apply")?.addEventListener("click", async () => 
     if (!res.ok) throw new Error(data.detail || "WBS apply failed");
     if (headerIfc) {
       headerIfc.textContent = `WBS applied — ${data.matched_objects} object(s) updated in ${data.corrected_file}`;
+    }
+    try {
+      window.dispatchEvent(
+        new CustomEvent("dashboard:ifc-corrected-json-ready", {
+          detail: { correctedJsonFile: data.corrected_file ?? "" },
+        })
+      );
+    } catch {
+      /* ignore */
     }
   } catch (e) {
     console.error("[WBS Apply]", e);
