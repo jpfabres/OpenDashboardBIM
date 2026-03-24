@@ -1,5 +1,4 @@
 const viewport3d = document.getElementById("viewport-3d");
-const apiStatus = document.getElementById("api-status");
 const reportBtn = document.getElementById("btn-generate-report");
 const LAYOUT_KEY = "dashboard-workspace-layout";
 const LAYOUT_LABELS = ["IFC Health", "BOQ", "WBS"];
@@ -455,7 +454,7 @@ let boqVisibleByFile = new Map();
 let boqUseCorrectedData = false;
 
 const BOQ_DEFAULT_GROUP_BY = ["name", "class", "material", "unit"];
-/** @type {Array<"name" | "class" | "material" | "unit">} */
+/** @type {Array<"wbs" | "name" | "class" | "material" | "unit">} */
 let boqGroupBy = [...BOQ_DEFAULT_GROUP_BY];
 let boqBaseDirty = true;
 /** @type {Array<{
@@ -469,21 +468,21 @@ let boqBaseDirty = true;
  *   expressIds: Set<number>
  * }>} */
 let boqBaseGroups = [];
-/** @type {Array<{ cells: [string, string, string, string, string, string, string], expressIds: Set<number>, globalIds: Set<string> }>} */
+/** @type {Array<{ cells: [string, string, string, string, string, string], expressIds: Set<number>, globalIds: Set<string> }>} */
 let boqRenderedRows = [];
 /** @type {Array<{ memberBaseKeys: string[] }>} */
 let wbsRenderedRows = [];
 
-/** @type {Array<"name" | "class" | "material" | "qty" | "unit" | "weight">} */
-const BOQ_FILTER_COLS = ["name", "class", "material", "qty", "unit", "weight"];
+/** @type {Array<"wbs" | "name" | "class" | "material" | "qty" | "unit">} */
+const BOQ_FILTER_COLS = ["wbs", "name", "class", "material", "qty", "unit"];
 /** @type {Record<string, string>} */
 let boqFilters = {
+  wbs: "",
   name: "",
   class: "",
   material: "",
   qty: "",
   unit: "",
-  weight: "",
 };
 let boqFilterPopoverEl = null;
 let boqFilterPopoverInputEl = null;
@@ -638,19 +637,19 @@ function normalizeElementName(rawName, fallback) {
 
 function baseGroupMatchesFilters(g) {
   const f = boqFilters;
+  const wbsF = normalizeFilter(f.wbs);
   const nameF = normalizeFilter(f.name);
   const classF = normalizeFilter(f.class);
   const matF = normalizeFilter(f.material);
   const qtyF = normalizeFilter(f.qty);
   const unitF = normalizeFilter(f.unit);
-  const weightF = normalizeFilter(f.weight);
 
+  if (wbsF && !String(g.wbs ?? "").toLowerCase().includes(wbsF)) return false;
   if (nameF && !String(g.name ?? "").toLowerCase().includes(nameF)) return false;
   if (classF && !String(g.class ?? "").toLowerCase().includes(classF)) return false;
   if (matF && !String(g.material ?? "").toLowerCase().includes(matF)) return false;
   if (unitF && !String(g.unit ?? "").toLowerCase().includes(unitF)) return false;
   if (qtyF && !fmtQty(g.qty).toLowerCase().includes(qtyF)) return false;
-  if (weightF && !fmtQty(g.weightKg).toLowerCase().includes(weightF)) return false;
   return true;
 }
 
@@ -767,8 +766,8 @@ function rebuildBoqBaseGroups() {
 
 /**
  * Build the display rows based on current groupBy columns.
- * Output columns: WBS, Name, Class, Material, Qty, Unit, Weight(kg)
- * @returns {Array<{ cells: [string, string, string, string, string, string, string], expressIds: Set<number>, globalIds: Set<string> }>}
+ * Output columns: WBS, Name, Class, Material, Unit, Qty
+ * @returns {Array<{ cells: [string, string, string, string, string, string], expressIds: Set<number>, globalIds: Set<string> }>}
  */
 function buildBoqDisplayRows() {
   if (boqBaseDirty) rebuildBoqBaseGroups();
@@ -778,6 +777,7 @@ function buildBoqDisplayRows() {
 
   const groupIncludes = (col) => boqGroupBy.includes(col);
   const nonIncludedFallback = "All";
+  const wbsVal = (g) => (groupIncludes("wbs") ? g.wbs : nonIncludedFallback);
   const nameVal = (g) => (groupIncludes("name") ? g.name : nonIncludedFallback);
   const classVal = (g) => (groupIncludes("class") ? g.class : nonIncludedFallback);
   const materialVal = (g) => (groupIncludes("material") ? g.material : nonIncludedFallback);
@@ -787,7 +787,7 @@ function buildBoqDisplayRows() {
   for (const g of baseGroupsFiltered) {
     // Ensure unit never “mixes” across groups.
     const unit = g.unit;
-    const key = [g.wbs, nameVal(g), classVal(g), materialVal(g), unit].join("|");
+    const key = [wbsVal(g), nameVal(g), classVal(g), materialVal(g), unit].join("|");
     const existing = grouped.get(key);
     if (existing) {
       existing.qty += g.qty;
@@ -796,7 +796,7 @@ function buildBoqDisplayRows() {
       for (const gid of g.globalIds) existing.globalIds.add(gid);
     } else {
       grouped.set(key, {
-        wbs: g.wbs,
+        wbs: wbsVal(g),
         name: nameVal(g),
         class: classVal(g),
         material: materialVal(g),
@@ -821,9 +821,8 @@ function buildBoqDisplayRows() {
         g.name,
         g.class,
         g.material,
-        fmtQty(g.qty),
         g.unit,
-        g.weightKg > 0 ? fmtQty(g.weightKg) : "—",
+        fmtQty(g.qty),
       ],
       expressIds: g.expressIds,
       globalIds: g.globalIds,
@@ -834,7 +833,6 @@ function buildBoqDisplayRows() {
       cells: [
         "",
         "Load IFC model(s) to populate the BOQ table",
-        "—",
         "—",
         "—",
         "—",
@@ -1062,7 +1060,11 @@ function openBoqFilterPopover(btn) {
   const pop = document.createElement("div");
   pop.className = "boq-filter-popover";
 
-  const title = col === "qty" ? "Qty" : col === "weight" ? "Weight" : col[0].toUpperCase() + col.slice(1);
+  const title = col === "qty"
+    ? "Qty"
+    : col === "wbs"
+      ? "WBS"
+      : col[0].toUpperCase() + col.slice(1);
   pop.innerHTML = `
     <div class="boq-filter-popover-title">Filter: ${escapeHtml(title)}</div>
     <input type="text" aria-label="Filter input" placeholder="Type to filter..." />
@@ -1522,19 +1524,6 @@ async function fetchJson(path) {
   return res.json();
 }
 
-document.getElementById("btn-health")?.addEventListener("click", async () => {
-  apiStatus.textContent = "API …";
-  apiStatus.classList.remove("ok", "err");
-  try {
-    await fetchJson("/api/health");
-    apiStatus.textContent = "API healthy";
-    apiStatus.classList.add("ok");
-  } catch {
-    apiStatus.textContent = "API error";
-    apiStatus.classList.add("err");
-  }
-});
-
 function canvasToJpegDataUrl(canvas, quality = 0.92) {
   if (!(canvas instanceof HTMLCanvasElement)) return null;
   try {
@@ -1844,7 +1833,6 @@ function collectBoqTableRowsForReport() {
       String(row.cells[3] ?? ""),
       String(row.cells[4] ?? ""),
       String(row.cells[5] ?? ""),
-      String(row.cells[6] ?? ""),
       [...(row.globalIds ?? new Set())].sort().join(", "),
     ]);
   }
@@ -1894,7 +1882,7 @@ async function generateBoqPdfReport() {
     doc.text("No IFC viewport image available.", margin + 10, snapshotTop + 20);
   }
 
-  const headers = ["WBS", "Name", "Class", "Material", "Qty", "Unit", "Weight (kg)", "GUID(s)"];
+  const headers = ["WBS", "Name", "Class", "Material", "Unit", "Qty", "GUID(s)"];
   const rows = collectBoqTableRowsForReport();
   let y = snapshotTop + snapshotH + 26;
 
@@ -1904,7 +1892,7 @@ async function generateBoqPdfReport() {
   doc.text(`BOQ quantities (${rows.length} row${rows.length === 1 ? "" : "s"})`, margin, y);
   y += 10;
 
-  const colWidths = [130, 230, 120, 180, 60, 55, 75, 270];
+  const colWidths = [130, 230, 120, 180, 55, 60, 330];
   const rowH = 18;
   const drawHeader = () => {
     doc.setFillColor(235, 240, 248);
@@ -1941,19 +1929,17 @@ async function generateBoqPdfReport() {
       const nameLines = doc.splitTextToSize(row[1] || "—", colWidths[1] - 10);
       const classLines = doc.splitTextToSize(row[2] || "—", colWidths[2] - 10);
       const materialLines = doc.splitTextToSize(row[3] || "—", colWidths[3] - 10);
-      const qtyLines = doc.splitTextToSize(row[4] || "—", colWidths[4] - 10);
-      const unitLines = doc.splitTextToSize(row[5] || "—", colWidths[5] - 10);
-      const weightLines = doc.splitTextToSize(row[6] || "—", colWidths[6] - 10);
-      const guidLines = doc.splitTextToSize(row[7] || "—", colWidths[7] - 10);
+      const unitLines = doc.splitTextToSize(row[4] || "—", colWidths[4] - 10);
+      const qtyLines = doc.splitTextToSize(row[5] || "—", colWidths[5] - 10);
+      const guidLines = doc.splitTextToSize(row[6] || "—", colWidths[6] - 10);
       const lineCount = Math.max(
         1,
         wbsLines.length,
         nameLines.length,
         classLines.length,
         materialLines.length,
-        qtyLines.length,
         unitLines.length,
-        weightLines.length,
+        qtyLines.length,
         guidLines.length
       );
       const dynamicRowH = Math.max(rowH, 11 + lineCount * 9);
@@ -1963,7 +1949,7 @@ async function generateBoqPdfReport() {
       doc.rect(margin, y, contentW, dynamicRowH);
 
       let x = margin + 6;
-      const cells = [wbsLines, nameLines, classLines, materialLines, qtyLines, unitLines, weightLines, guidLines];
+      const cells = [wbsLines, nameLines, classLines, materialLines, unitLines, qtyLines, guidLines];
       cells.forEach((lines, idx) => {
         const textY = y + 12;
         doc.text(lines, x, textY);
@@ -1980,13 +1966,13 @@ async function generateBoqPdfReport() {
 }
 
 function generateBoqExcelBlob() {
-  const headers = ["WBS", "Name", "Class", "Material", "Qty", "Unit", "Weight (kg)", "GUID(s)"];
+  const headers = ["WBS", "Name", "Class", "Material", "Unit", "Qty", "GUID(s)"];
   const rows = collectBoqTableRowsForReport();
-  return buildExcelBlobFromRows(headers, rows, [18, 42, 22, 32, 12, 10, 14, 60]);
+  return buildExcelBlobFromRows(headers, rows, [18, 42, 22, 32, 10, 12, 70]);
 }
 
 function generateBoqCsvBlob() {
-  const headers = ["WBS", "Name", "Class", "Material", "Qty", "Unit", "Weight (kg)", "GUID(s)"];
+  const headers = ["WBS", "Name", "Class", "Material", "Unit", "Qty", "GUID(s)"];
   const rows = collectBoqTableRowsForReport();
   const csv = buildCsvText(headers, rows);
   return new Blob([csv], { type: "text/csv;charset=utf-8" });
@@ -2225,7 +2211,7 @@ async function handleGenerateReportClick() {
     }
   } finally {
     reportBtn.disabled = false;
-    reportBtn.textContent = baseLabel || "Generate fixed package";
+    reportBtn.textContent = baseLabel || "Export package";
   }
 }
 

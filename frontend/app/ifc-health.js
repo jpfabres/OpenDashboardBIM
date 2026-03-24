@@ -56,6 +56,10 @@ const entryIdByJsonFile = /** @type {Map<string, string>} */ (new Map());
 
 /** Active pie drill (filters 3D on top of sidebar selection). */
 let activePieDrill = /** @type {PieDrillSpec | null} */ (null);
+/** Active pie drill color (hex/css), aligned with clicked slice color. */
+let activePieDrillColor = /** @type {string | null} */ (null);
+/** True when chart-area click is applying multi-slice color mode. */
+let activePieChartColorize = false;
 
 /** Per-chart drill metadata aligned with drawn slices (same order as drawPie). */
 const pieSliceDrillByChart = {
@@ -391,16 +395,63 @@ function emitPieDrillToViewport() {
 
   const vis = cloneVisibility(lastSidebarVisibility);
   vis[entryId] = filtered;
+  activePieChartColorize = false;
   window.dispatchEvent(
     new CustomEvent("dashboard:ifc-filter-visibility", {
-      detail: { visibility: vis, source: "pie-drill" },
+      detail: { visibility: vis, source: "pie-drill", pieColor: activePieDrillColor },
+    })
+  );
+}
+
+/**
+ * Apply all visible slices of one chart using their own colors.
+ * Triggered when user clicks chart canvas but not a specific donut segment.
+ * @param {"class" | "attr" | "objects" | "classtypes"} chartKey
+ */
+function emitPieChartColorGroupsToViewport(chartKey) {
+  if (!cachedModelJson || !cachedVerificationLog) return;
+  const jf = typeof cachedPayload?.json_file === "string" ? cachedPayload.json_file : null;
+  if (!jf) return;
+  const entryId = entryIdByJsonFile.get(jf);
+  if (!entryId) return;
+
+  if (!lastSidebarVisibility) {
+    const base = baseVisibleIdSet(jf, cachedModelJson);
+    lastSidebarVisibility = { [entryId]: [...base] };
+  }
+
+  const base = baseVisibleIdSet(jf, cachedModelJson);
+  const work = /** @type {Record<string, unknown>} */ (cachedVerificationLog);
+  const drills = pieSliceDrillByChart[chartKey] ?? [];
+  if (!drills.length) return;
+
+  const groups = drills
+    .map((spec, idx) => {
+      const ids = intersectIds(
+        expressIdsForPieDrill(spec, cachedModelJson, work, { byClassRows: cachedWorkByClass }),
+        base
+      );
+      return { ids, color: PIE_COLORS[idx % PIE_COLORS.length] };
+    })
+    .filter((g) => g.ids.length > 0);
+
+  const vis = cloneVisibility(lastSidebarVisibility);
+  vis[entryId] = [...new Set(groups.flatMap((g) => g.ids))];
+  activePieDrill = null;
+  activePieDrillColor = null;
+  activePieChartColorize = true;
+  window.dispatchEvent(
+    new CustomEvent("dashboard:ifc-filter-visibility", {
+      detail: { visibility: vis, source: "pie-chart-groups", pieColorGroups: groups },
     })
   );
 }
 
 function clearPieDrill() {
-  if (!activePieDrill) return;
+  if (!activePieDrill && !activePieChartColorize) return;
   activePieDrill = null;
+  activePieDrillColor = null;
+  activePieChartColorize = false;
   if (lastSidebarVisibility) {
     window.dispatchEvent(
       new CustomEvent("dashboard:ifc-filter-visibility", {
@@ -726,13 +777,6 @@ function fillLegend(ul, slices) {
     top.appendChild(share);
     li.appendChild(top);
 
-    if (sl.sub) {
-      const sub = document.createElement("div");
-      sub.className = "ifc-health-legend-sub";
-      sub.textContent = sl.sub;
-      li.appendChild(sub);
-    }
-
     ul.appendChild(li);
   });
 }
@@ -901,35 +945,34 @@ function renderCharts(data) {
     drawPie(canvasObjects, [], PIE_BASE_SIZE);
     fillLegendPlaceholder(legObjects, "No objects in export.");
   } else {
-    const objectSlices = [];
-    pieSliceDrillByChart.objects = [];
-    if (nFixed > 0) {
-      objectSlices.push({
+    const allObjectSlices = [
+      {
         value: nFixed,
         label: "Objects corrected",
         sub: `${Math.round((1000 * nFixed) / nObj) / 10}% of all objects`,
-      });
-      pieSliceDrillByChart.objects.push({ kind: "objects", objectsMode: "corrected" });
-    }
-    if (nClean > 0) {
-      objectSlices.push({
+        drill: /** @type {PieDrillSpec} */ ({ kind: "objects", objectsMode: "corrected" }),
+      },
+      {
         value: nClean,
         label: "No correction needed",
         sub: `${Math.round((1000 * nClean) / nObj) / 10}% of all objects`,
-      });
-      pieSliceDrillByChart.objects.push({ kind: "objects", objectsMode: "clean" });
-    }
-    if (nNotFixable > 0) {
-      objectSlices.push({
+        drill: /** @type {PieDrillSpec} */ ({ kind: "objects", objectsMode: "clean" }),
+      },
+      {
         value: nNotFixable,
         label: "Not fixable",
         sub: `${Math.round((1000 * nNotFixable) / nObj) / 10}% of all objects`,
-      });
-      pieSliceDrillByChart.objects.push({ kind: "objects", objectsMode: "notfixable" });
-    }
-    lastPieSlices.objects = objectSlices;
-    drawPie(canvasObjects, objectSlices, PIE_BASE_SIZE);
-    fillLegend(legObjects, objectSlices);
+        drill: /** @type {PieDrillSpec} */ ({ kind: "objects", objectsMode: "notfixable" }),
+      },
+    ];
+    const objectSlicesForPie = allObjectSlices.filter((x) => x.value > 0).map(({ value, label, sub }) => ({ value, label, sub }));
+    pieSliceDrillByChart.objects = allObjectSlices.filter((x) => x.value > 0).map((x) => x.drill);
+    lastPieSlices.objects = objectSlicesForPie;
+    drawPie(canvasObjects, objectSlicesForPie, PIE_BASE_SIZE);
+    fillLegend(
+      legObjects,
+      allObjectSlices.map(({ value, label, sub }) => ({ value, label, sub }))
+    );
   }
 
   /* 4 — Class types: IFC class names with ≥1 problem vs types with zero problems in this model. */
@@ -942,27 +985,28 @@ function renderCharts(data) {
     drawPie(canvasClassTypes, [], PIE_BASE_SIZE);
     fillLegendPlaceholder(legClassTypes, "No class breakdown.");
   } else {
-    const typeSlices = [];
-    pieSliceDrillByChart.classtypes = [];
-    if (nTypesWithProblems > 0) {
-      typeSlices.push({
+    const allTypeSlices = [
+      {
         value: nTypesWithProblems,
-        label: "Class types with issues",
+        label: "With issues",
         sub: `${Math.round((1000 * nTypesWithProblems) / nTypes) / 10}% of class types in model`,
-      });
-      pieSliceDrillByChart.classtypes.push({ kind: "classtypes", classtypesMode: "issues" });
-    }
-    if (nTypesClean > 0) {
-      typeSlices.push({
+        drill: /** @type {PieDrillSpec} */ ({ kind: "classtypes", classtypesMode: "issues" }),
+      },
+      {
         value: nTypesClean,
-        label: "Class types with no issues",
+        label: "No issues",
         sub: `${Math.round((1000 * nTypesClean) / nTypes) / 10}% of class types in model`,
-      });
-      pieSliceDrillByChart.classtypes.push({ kind: "classtypes", classtypesMode: "clean" });
-    }
-    lastPieSlices.classtypes = typeSlices;
-    drawPie(canvasClassTypes, typeSlices, PIE_BASE_SIZE);
-    fillLegend(legClassTypes, typeSlices);
+        drill: /** @type {PieDrillSpec} */ ({ kind: "classtypes", classtypesMode: "clean" }),
+      },
+    ];
+    const typeSlicesForPie = allTypeSlices.filter((x) => x.value > 0).map(({ value, label, sub }) => ({ value, label, sub }));
+    pieSliceDrillByChart.classtypes = allTypeSlices.filter((x) => x.value > 0).map((x) => x.drill);
+    lastPieSlices.classtypes = typeSlicesForPie;
+    drawPie(canvasClassTypes, typeSlicesForPie, PIE_BASE_SIZE);
+    fillLegend(
+      legClassTypes,
+      allTypeSlices.map(({ value, label, sub }) => ({ value, label, sub }))
+    );
   }
 
   if (meta) {
@@ -1060,13 +1104,14 @@ export function initIfcHealth() {
     if (!slices.length || !drills.length) return;
     const idx = pieHitSliceIndex(t, ev.clientX, ev.clientY, slices);
     if (idx === null) {
-      clearPieDrill();
+      emitPieChartColorGroupsToViewport(key);
       if (cachedPayload) renderCharts(cachedPayload);
       return;
     }
     const spec = drills[idx];
     if (!spec) return;
     activePieDrill = spec;
+    activePieDrillColor = PIE_COLORS[idx % PIE_COLORS.length] || null;
     emitPieDrillToViewport();
     if (cachedPayload) renderCharts(cachedPayload);
   });
@@ -1074,7 +1119,7 @@ export function initIfcHealth() {
   document.addEventListener("pointerdown", (ev) => {
     const t = ev.target;
     if (t instanceof HTMLCanvasElement && /^canvas-ifc-health-/.test(t.id)) return;
-    if (activePieDrill) {
+    if (activePieDrill || activePieChartColorize) {
       clearPieDrill();
       if (cachedPayload) renderCharts(cachedPayload);
     }

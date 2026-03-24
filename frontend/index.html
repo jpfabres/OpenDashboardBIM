@@ -22,17 +22,23 @@
       <header class="topbar">
         <div class="topbar-left">
           <div class="brand">
-            <span class="brand-mark" aria-hidden="true"></span>
+            <img
+              class="brand-logo"
+              src="/static/app/assets/ifclens-logo-header.png"
+              alt="IFC Lens logo"
+              width="48"
+              height="48"
+            />
             <div class="brand-text">
-              <h1 class="brand-title">Open Dashboard</h1>
+              <h1 class="brand-title">IFC lens</h1>
               <div class="header-meta-row">
                 <span class="header-meta">
                   <span class="header-meta-label">Solution</span>
-                  <span class="header-meta-value" id="header-solution-name">IFC dashboard</span>
+                  <span class="header-meta-value" id="header-solution-name">IFC Dashboard</span>
                 </span>
                 <span class="header-meta">
                   <span class="header-meta-label">Project</span>
-                  <span class="header-meta-value" id="header-project-name">P-2025 · Demo</span>
+                  <span class="header-meta-value" id="header-project-name">openBIM Hackathon - Porto 2026</span>
                 </span>
               </div>
             </div>
@@ -53,17 +59,13 @@
         </div>
         <div class="topbar-right">
           <div class="topbar-meta">
-            <span class="pill" id="api-status" title="Last /api/health check">API —</span>
             <button
               type="button"
               class="btn btn-primary"
               id="btn-generate-report"
-              title="Generate fixed package"
+              title="Export package"
             >
-              Generate fixed package
-            </button>
-            <button type="button" class="btn btn-ghost" id="btn-health" title="Ping /api/health">
-              Check API
+              Export package
             </button>
           </div>
         </div>
@@ -116,7 +118,7 @@
               </div>
             </div>
             <div class="filter-rail-ifc">
-              <h2 class="filter-rail-ifc-title">IFC</h2>
+              <h2 class="filter-rail-ifc-title">IFC Files</h2>
               <div class="ifc-load-actions">
                 <div
                   class="ifc-add-wrap"
@@ -149,13 +151,13 @@
                   id="btn-fix-quantities"
                   title="Run quantity verification and correction on the latest uploaded JSON (backend)"
                 >
-                  Fix Quantities
+                  Quantities Checker
                 </button>
               </div>
               <details class="ifc-models-section" id="ifc-models-section" open>
                 <summary class="ifc-models-section-summary">
                   <span class="ifc-models-section-chevron" aria-hidden="true">▸</span>
-                  <span class="ifc-models-section-title">Models</span>
+                  <span class="ifc-models-section-title">IFC Files</span>
                   <span class="ifc-models-section-count" id="ifc-models-count" aria-live="polite"></span>
                 </summary>
                 <div class="ifc-models-section-inner">
@@ -179,7 +181,7 @@
               <details class="filter-details" id="filter-details-story">
                 <summary class="filter-details-summary">
                   <span class="filter-details-chevron" aria-hidden="true">▸</span>
-                  <span class="filter-details-title">Building story</span>
+                  <span class="filter-details-title">Building Storey</span>
                   <span class="filter-details-count" id="filter-count-story" aria-live="polite"></span>
                 </summary>
                 <div class="filter-details-inner" id="filter-list-story"></div>
@@ -187,7 +189,7 @@
               <details class="filter-details" id="filter-details-class">
                 <summary class="filter-details-summary">
                   <span class="filter-details-chevron" aria-hidden="true">▸</span>
-                  <span class="filter-details-title">Class</span>
+                  <span class="filter-details-title">IFC Classes</span>
                   <span class="filter-details-count" id="filter-count-class" aria-live="polite"></span>
                 </summary>
                 <div class="filter-details-inner" id="filter-list-class"></div>
@@ -195,7 +197,7 @@
               <details class="filter-details" id="filter-details-material">
                 <summary class="filter-details-summary">
                   <span class="filter-details-chevron" aria-hidden="true">▸</span>
-                  <span class="filter-details-title">Material name</span>
+                  <span class="filter-details-title">Materials</span>
                   <span class="filter-details-count" id="filter-count-material" aria-live="polite"></span>
                 </summary>
                 <div class="filter-details-inner" id="filter-list-material"></div>
@@ -216,7 +218,7 @@
               </div>
               <div class="ifc-health-grid" id="ifc-health-grid">
                 <article class="ifc-health-graph-card ifc-health-graph-card--left ifc-health-graph-card--top">
-                  <h3 class="ifc-health-caption">Objects</h3>
+                  <h3 class="ifc-health-caption">Revision by elements</h3>
                   <div class="ifc-health-pie-inner">
                     <canvas
                       id="canvas-ifc-health-objects"
@@ -236,7 +238,7 @@
                   title="Drag to resize columns"
                 ></div>
                 <article class="ifc-health-graph-card ifc-health-graph-card--right ifc-health-graph-card--top">
-                  <h3 class="ifc-health-caption">Class types</h3>
+                  <h3 class="ifc-health-caption">Revision by IFC class</h3>
                   <div class="ifc-health-pie-inner">
                     <canvas
                       id="canvas-ifc-health-classtypes"
@@ -248,7 +250,7 @@
                   </div>
                 </article>
                 <article class="ifc-health-graph-card ifc-health-graph-card--left ifc-health-graph-card--bottom">
-                  <h3 class="ifc-health-caption">By corrected attribute</h3>
+                  <h3 class="ifc-health-caption">Changed properties</h3>
                   <div class="ifc-health-pie-inner">
                     <canvas
                       id="canvas-ifc-health-attr"
@@ -260,7 +262,7 @@
                   </div>
                 </article>
                 <article class="ifc-health-graph-card ifc-health-graph-card--right ifc-health-graph-card--bottom">
-                  <h3 class="ifc-health-caption">By class (with problems)</h3>
+                  <h3 class="ifc-health-caption">Issues by IFC class</h3>
                   <div class="ifc-health-pie-inner">
                     <canvas
                       id="canvas-ifc-health-class"
@@ -313,8 +315,17 @@
               <table class="data-table">
                 <thead>
                   <tr>
-                    <th>
+                    <th data-boq-group-col="wbs">
                       <span class="boq-th-label">WBS</span>
+                      <button
+                        type="button"
+                        class="boq-filter-btn"
+                        aria-label="Filter by WBS"
+                        data-boq-filter-col="wbs"
+                        title="Filter"
+                      >
+                        F
+                      </button>
                     </th>
                     <th data-boq-group-col="name">
                       <span class="boq-th-label">Name</span>
@@ -352,18 +363,6 @@
                         F
                       </button>
                     </th>
-                    <th>
-                      <span class="boq-th-label">Qty</span>
-                      <button
-                        type="button"
-                        class="boq-filter-btn"
-                        aria-label="Filter by Qty"
-                        data-boq-filter-col="qty"
-                        title="Filter"
-                      >
-                        F
-                      </button>
-                    </th>
                     <th data-boq-group-col="unit">
                       <span class="boq-th-label">Unit</span>
                       <button
@@ -377,12 +376,12 @@
                       </button>
                     </th>
                     <th>
-                      <span class="boq-th-label">Weight (kg)</span>
+                      <span class="boq-th-label">Qty</span>
                       <button
                         type="button"
                         class="boq-filter-btn"
-                        aria-label="Filter by Weight"
-                        data-boq-filter-col="weight"
+                        aria-label="Filter by Qty"
+                        data-boq-filter-col="qty"
                         title="Filter"
                       >
                         F
@@ -399,8 +398,8 @@
             <div class="panel-head">
               <h2>WBS Mapping</h2>
               <div class="ifc-load-actions-inline">
-                <div class="ifc-add-wrap" title="Load a local .xlsx WBS template" id="btn-wbs-open">
-                  <label for="wbs-file-input" class="btn btn-ghost btn-sm ifc-add-label">Load WBS file</label>
+                <div class="ifc-add-wrap" title="Upload a local .xlsx WBS template" id="btn-wbs-open">
+                  <label for="wbs-file-input" class="btn btn-ghost btn-sm ifc-add-label">Upload WBS</label>
                   <input
                     type="file"
                     id="wbs-file-input"

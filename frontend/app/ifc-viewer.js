@@ -75,6 +75,10 @@ export function initIfcViewport() {
   const HIGHLIGHT_CUSTOM_ID = "viewport-selection";
   /** Filtered subset (multi-material; hides main mesh via draw range). */
   const FILTER_VIS_CUSTOM_ID = "dashboard-filter-vis";
+  /** One temporary tint material per model for pie-drill colorization. */
+  const filterTintMaterialByEntry = new Map();
+  /** Multiple temporary tint materials for pie-chart grouped colorization. */
+  const filterGroupTintByEntry = new Map();
   const highlightMaterial = new THREE.MeshStandardMaterial({
     color: 0x2563eb,
     emissive: 0x1e3a8a,
@@ -955,11 +959,46 @@ export function initIfcViewport() {
    * @param {LoadedIfcEntry} entry
    * @param {number[] | null | undefined} ids
    */
-  function applyFilterVisibilityToEntry(entry, ids) {
+  function clearFilterTintForEntry(entry) {
+    const model = entry.ifcModel;
+    const prev = filterTintMaterialByEntry.get(String(entry.id));
+    if (!prev || !model?.ifcManager) return;
+    try {
+      model.ifcManager.removeSubset(model.modelID, prev, FILTER_VIS_CUSTOM_ID);
+    } catch {
+      /* ignore */
+    }
+    prev.dispose();
+    filterTintMaterialByEntry.delete(String(entry.id));
+  }
+
+  function clearFilterGroupTintsForEntry(entry) {
+    const model = entry.ifcModel;
+    const group = filterGroupTintByEntry.get(String(entry.id));
+    if (!group || !model?.ifcManager) return;
+    for (const g of group) {
+      try {
+        model.ifcManager.removeSubset(model.modelID, g.material, g.customID);
+      } catch {
+        /* ignore */
+      }
+      g.material.dispose();
+    }
+    filterGroupTintByEntry.delete(String(entry.id));
+  }
+
+  /**
+   * @param {LoadedIfcEntry} entry
+   * @param {number[] | null | undefined} ids
+   * @param {string | null} tintColor
+   */
+  function applyFilterVisibilityToEntry(entry, ids, tintColor = null) {
     const model = entry.ifcModel;
     if (!model?.geometry?.index || !model.ifcManager) return;
     const geo = model.geometry;
     const fullCount = geo.index.count;
+    clearFilterTintForEntry(entry);
+    clearFilterGroupTintsForEntry(entry);
     try {
       model.ifcManager.removeSubset(model.modelID, undefined, FILTER_VIS_CUSTOM_ID);
     } catch {
@@ -972,29 +1011,108 @@ export function initIfcViewport() {
     geo.setDrawRange(0, 0);
     if (ids.length === 0) return;
     try {
-      model.createSubset({
+      const opts = {
         scene: model,
         ids,
         removePrevious: true,
         customID: FILTER_VIS_CUSTOM_ID,
         applyBVH: true,
-      });
+      };
+      if (tintColor) {
+        const tintMat = new THREE.MeshStandardMaterial({
+          color: new THREE.Color(tintColor),
+          transparent: true,
+          opacity: 0.96,
+          depthTest: true,
+          depthWrite: true,
+          metalness: 0.12,
+          roughness: 0.72,
+        });
+        opts.material = tintMat;
+        filterTintMaterialByEntry.set(String(entry.id), tintMat);
+      }
+      model.createSubset(opts);
     } catch (e) {
       console.warn("IFC filter visibility:", e);
       geo.setDrawRange(0, fullCount);
     }
   }
 
+  /**
+   * @param {LoadedIfcEntry} entry
+   * @param {number[] | null | undefined} ids
+   * @param {{ ids: number[]; color: string }[]} colorGroups
+   */
+  function applyFilterColorGroupsToEntry(entry, ids, colorGroups) {
+    const model = entry.ifcModel;
+    if (!model?.geometry?.index || !model.ifcManager) return;
+    const geo = model.geometry;
+    const fullCount = geo.index.count;
+    clearFilterTintForEntry(entry);
+    clearFilterGroupTintsForEntry(entry);
+    try {
+      model.ifcManager.removeSubset(model.modelID, undefined, FILTER_VIS_CUSTOM_ID);
+    } catch {
+      /* ignore */
+    }
+    if (ids === null || ids === undefined) {
+      geo.setDrawRange(0, fullCount);
+      return;
+    }
+    geo.setDrawRange(0, 0);
+    if (ids.length === 0 || !Array.isArray(colorGroups) || colorGroups.length === 0) return;
+
+    const created = [];
+    for (let i = 0; i < colorGroups.length; i++) {
+      const grp = colorGroups[i];
+      if (!Array.isArray(grp?.ids) || grp.ids.length === 0) continue;
+      const mat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color(grp.color || "#4d9fff"),
+        transparent: true,
+        opacity: 0.96,
+        depthTest: true,
+        depthWrite: true,
+        metalness: 0.12,
+        roughness: 0.72,
+      });
+      const customID = `${FILTER_VIS_CUSTOM_ID}-group-${i}`;
+      try {
+        model.createSubset({
+          scene: model,
+          ids: grp.ids,
+          removePrevious: true,
+          customID,
+          applyBVH: true,
+          material: mat,
+        });
+        created.push({ customID, material: mat });
+      } catch {
+        mat.dispose();
+      }
+    }
+    if (created.length > 0) filterGroupTintByEntry.set(String(entry.id), created);
+  }
+
   window.addEventListener("dashboard:ifc-filter-visibility", (ev) => {
-    const vis = /** @type {CustomEvent<{ visibility?: Record<string, number[] | null> }>} */ (ev)
-      .detail?.visibility;
+    const detail = /** @type {CustomEvent<{ visibility?: Record<string, number[] | null>; source?: string; pieColor?: string | null; pieColorGroups?: { ids: number[]; color: string }[] }>} */ (ev)
+      .detail;
+    const vis = detail?.visibility;
     if (!vis || typeof vis !== "object") return;
+    const tintColor = detail?.source === "pie-drill" && typeof detail?.pieColor === "string" ? detail.pieColor : null;
+    const groupedColors =
+      detail?.source === "pie-chart-groups" && Array.isArray(detail?.pieColorGroups)
+        ? detail.pieColorGroups
+        : null;
     for (const entry of loadedModels) {
       const id = String(entry.id);
       if (Object.prototype.hasOwnProperty.call(vis, id)) {
-        applyFilterVisibilityToEntry(entry, vis[id]);
+        if (groupedColors) {
+          applyFilterColorGroupsToEntry(entry, vis[id], groupedColors);
+        } else {
+          applyFilterVisibilityToEntry(entry, vis[id], tintColor);
+        }
       } else {
-        applyFilterVisibilityToEntry(entry, null);
+        applyFilterVisibilityToEntry(entry, null, null);
       }
     }
   });
