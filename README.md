@@ -8,7 +8,7 @@ Upload an IFC model, automatically verify and correct element data, assign WBS c
 
 ## What it does
 
-1. **Upload** an IFC 2x3 file through the dashboard.
+1. **Upload** an IFC 2x3 or a IFC 4 file through the dashboard.
 2. **Parse** — every `IfcProduct` is extracted into structured JSON (location, dimensions, materials, property sets).
 3. **Verify & Correct** — missing dimensions on beams/columns are computed from related quantities; element weights are derived from material density; a corrected IFC file is produced.
 4. **WBS Assignment** — user-defined rules map IFC elements to Work Breakdown Structure codes and units of measure.
